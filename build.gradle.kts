@@ -1,0 +1,21 @@
+plugins {
+    id("java")
+}
+
+group = "rip.snicon"
+version = "0.1-dev"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(platform("org.junit:junit-bom:5.9.1"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    implementation("net.minestom:minestom-snapshots:78f7cffbb3") // Minestom
+    implementation("ch.qos.logback:logback-classic:1.5.7")
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
