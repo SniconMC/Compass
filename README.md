@@ -1,0 +1,2 @@
+# Minestom
+A Minestom variant
