@@ -1,0 +1,199 @@
+{
+  "blanumberFormat": true,
+  "title": [
+    {
+      "text": "Hub",
+      "color": "light_purple",
+      "bold": true,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+    }
+  ],
+  "layout": [
+    [
+      {
+      "text": "",
+      "color": "",
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      }
+    ],
+    [
+      {
+      "text": "» ",
+      "color": "dark_gray",
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      },
+      {
+      "text": "Rank ",
+      "color": "dark_green",
+      "bold": true,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      }
+    ],
+    [
+      {
+      "text": "    ",
+      "color": "white",
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      },
+      {
+      "text": "$(player_rank)",
+      "color": "white",
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      }
+    ],
+    [
+      {
+      "text": "",
+      "color": "",
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      }
+    ],
+    [
+      {
+      "text": "» ",
+      "color": "dark_gray",
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      },
+      {
+      "text": "Profession ",
+      "color": "dark_green",
+      "bold": true,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      }
+    ],
+    [
+      {
+      "text": "    ",
+      "color": "white",
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      },
+      {
+      "text": "$(player_profession)",
+      "color": "white",
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      }
+    ],
+    [
+      {
+      "text": "",
+      "color": "",
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      }
+    ],
+    [
+      {
+      "text": "» ",
+      "color": "dark_gray",
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      },
+      {
+      "text": "Emeralds ",
+      "color": "dark_green",
+      "bold": true,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      }
+    ],
+    [
+      {
+      "text": "    ",
+      "color": "white",
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      },
+      {
+      "text": "$(player_emeralds)",
+      "color": "white",
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      }
+    ],
+    [
+      {
+      "text": "",
+      "color": "",
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      }
+    ],
+    [
+      {
+      "text": "» ",
+      "color": "dark_gray",
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      },
+      {
+      "text": "IP ",
+      "color": "dark_green",
+      "bold": true,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      }
+    ],
+    [
+      {
+      "text": "    ",
+      "color": "white",
+      "bold": false,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      },
+      {
+      "text": "mc.snicon.rip",
+      "color": "green",
+      "bold": true,
+      "italic": false,
+      "underline": false,
+      "strikethrough": false
+      }
+    ]
+  ]
+}

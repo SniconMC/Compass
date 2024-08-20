@@ -8,6 +8,7 @@ import rip.snicon.blockhandlers.SkullHandler;
 import rip.snicon.commands.world.TravelWorldCommand;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.listeners.Global;
+import rip.snicon.modules.sidebar.SidebarCreator;
 
 public class Main {
 
@@ -20,6 +21,7 @@ public class Main {
 
         // Initialize the Instance creator
         InstanceCreator instanceCreator = new InstanceCreator();
+        SidebarCreator sidebarCreator = new SidebarCreator();
 
         Global globalListener = new Global();
 

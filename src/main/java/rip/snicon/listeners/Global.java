@@ -5,17 +5,17 @@ import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
 import net.minestom.server.event.GlobalEventHandler;
-import net.minestom.server.event.inventory.InventoryOpenEvent;
 import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.PlayerBlockBreakEvent;
 import net.minestom.server.event.player.PlayerBlockInteractEvent;
-import net.minestom.server.event.player.PlayerSpawnEvent;
 import net.minestom.server.event.server.ServerListPingEvent;
 import net.minestom.server.instance.Instance;
 import net.minestom.server.ping.ResponseData;
 import net.minestom.server.utils.identity.NamedAndIdentified;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.instances.worlds.WorldInfo;
+import rip.snicon.listeners.worlds.AFK;
+import rip.snicon.listeners.worlds.Hub;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -23,16 +23,17 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
-import java.util.Set;
 import java.util.UUID;
 
 public class Global {
 
     public Global(){
         onPlayerConfig();
-        onPlayerJoin();
         onServerPing();
         eventsToBeCanceled();
+
+        Hub hubHandler = new Hub(MinecraftServer.getGlobalEventHandler());
+        AFK afkHandler = new AFK(MinecraftServer.getGlobalEventHandler());
     }
 
     public void onPlayerConfig(){
@@ -50,19 +51,7 @@ public class Global {
         });
     }
 
-    public void onPlayerJoin() {
-        GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
 
-        globalEventHandler.addListener(PlayerSpawnEvent.class, event -> {
-            Player player = event.getPlayer();
-            Instance playerInstance = player.getInstance();
-
-            Set<Player> players = playerInstance.getPlayers();
-            for (Player onlinePlayer : players) {
-                onlinePlayer.sendMessage("[+] " + player.getUsername());
-            }
-        });
-    }
 
     public void onServerPing() {
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
