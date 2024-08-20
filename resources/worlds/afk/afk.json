@@ -1,0 +1,11 @@
+{
+  "spawnX": 12.0,
+  "spawnY": -31.0,
+  "spawnZ": 50.0,
+  "spawnPitch": 0.0,
+  "spawnYaw": 0.0,
+  "hasVoidLimit": true,
+  "voidLimitHeight": -64.0,
+  "blockUpdates": false,
+  "defaultGamemode": "SURVIVAL"
+}
