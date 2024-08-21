@@ -15,6 +15,7 @@ import net.minestom.server.instance.Instance;
 import net.minestom.server.scoreboard.Sidebar;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.modules.container.HotbarCreator;
+import rip.snicon.modules.oblivion.OblivionCreator;
 import rip.snicon.modules.sidebar.SidebarCreator;
 
 import java.util.Set;
@@ -35,11 +36,12 @@ public class Hub {
         hubNode.addListener(PlayerSpawnEvent.class, event -> {
             Player player = event.getPlayer();
             Instance playerInstance = player.getInstance();
-
+            OblivionCreator.spawnOblivions(player);
             Set<Player> players = playerInstance.getPlayers();
             for (Player onlinePlayer : players) {
                 SidebarCreator.setSidebar(player, "hub_sidebar");
                 HotbarCreator.setHotbar(player, "lobby");
+
                 onlinePlayer.sendMessage("[+] " + player.getUsername());
             }
         });

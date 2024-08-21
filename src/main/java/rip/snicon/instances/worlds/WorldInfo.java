@@ -12,6 +12,13 @@ public class WorldInfo {
     private double voidLimitHeight;
 
     private boolean blockUpdates; // Will not yet be implemented.
+
+    private String weather;
+
+    private String time;
+
+    private boolean doDaylightCycle;
+
     private String defaultGamemode;
 
 
@@ -50,4 +57,17 @@ public class WorldInfo {
     public String getDefaultGamemode() {
         return defaultGamemode;
     }
+
+    public String getWeather() {
+        return weather;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public boolean isDoDaylightCycle() {
+        return doDaylightCycle;
+    }
+
 }

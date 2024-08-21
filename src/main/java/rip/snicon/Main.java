@@ -11,11 +11,12 @@ import rip.snicon.instances.InstanceCreator;
 import rip.snicon.listeners.Global;
 import rip.snicon.modules.container.ContainerCreator;
 import rip.snicon.modules.container.HotbarCreator;
+import rip.snicon.modules.oblivion.OblivionCreator;
 import rip.snicon.modules.sidebar.SidebarCreator;
 
 public class Main {
 
-    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+    public static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
 
@@ -27,7 +28,7 @@ public class Main {
         SidebarCreator sidebarCreator = new SidebarCreator();
         HotbarCreator hotbarCreator = new HotbarCreator();
         ContainerCreator containerCreator = new ContainerCreator();
-
+        OblivionCreator oblivionCreator = new OblivionCreator();
         Global globalListener = new Global();
 
         MinecraftServer.getCommandManager().register(new TravelWorldCommand());

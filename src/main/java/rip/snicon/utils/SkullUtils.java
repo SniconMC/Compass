@@ -13,7 +13,7 @@ public class SkullUtils {
     private static final Map<String, CachedSkin> cachedValues = new HashMap<>();
 
     public static PlayerSkin getSkin(Player player, String username, String uuid, String texture, String signature) {
-        String cacheKey = getCacheKey(username, uuid);
+        String cacheKey = getCacheKey(player, username, uuid);
 
         // Check if the skin is cached and update the counter
         if (cachedValues.containsKey(cacheKey)) {
@@ -59,7 +59,10 @@ public class SkullUtils {
         return new PlayerSkin("", "");
     }
 
-    private static String getCacheKey(String username, String uuid) {
+    private static String getCacheKey(Player player, String username, String uuid) {
+        if (username.equalsIgnoreCase("this")){
+            return player.getUsername();
+        }
         if (!username.isEmpty()) {
             return username;
         }

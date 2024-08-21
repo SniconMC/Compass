@@ -8,6 +8,7 @@ import net.kyori.adventure.text.Component;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
 import net.minestom.server.scoreboard.Sidebar;
+import rip.snicon.Main;
 import rip.snicon.utils.json.Text;
 import rip.snicon.utils.TextUtils;
 
@@ -39,7 +40,7 @@ public class SidebarCreator {
             // Start searching from the containerFolder
             searchFiles(dataFolder);
         } else {
-            System.out.println("the worlds dataFolder does not exist");
+            Main.logger.error("the worlds dataFolder does not exist!");
         }
     }
 
@@ -64,14 +65,14 @@ public class SidebarCreator {
             String name = file.getName().replace(".json", "");
             playerSidebarMap.put(name, playerSidebar);
 
-            System.out.println("Loaded sidebar info: " + name);
+            Main.logger.info("Loaded sidebar info: " + name);
 
         } catch (JsonSyntaxException | JsonIOException e) {
             // Handle Gson-specific errors
-            System.out.println("Error parsing JSON file: " + file.getName());
+            Main.logger.error("Error parsing JSON file: " + file.getName());
         } catch (IOException e) {
             // Handle IO errors
-            System.out.println("Error loading container file: " + file.getName());
+            Main.logger.error("Error loading container file: " + file.getName());
         }
     }
 
@@ -158,7 +159,7 @@ public class SidebarCreator {
 
         // If the sidebar doesn't exist, create a new one
         if (sidebar == null) {
-            System.out.println(sidebarName + " is not a valid sidebar");
+            Main.logger.error(sidebarName + " is not a valid sidebar");
             return;
         }
 

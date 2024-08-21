@@ -9,7 +9,10 @@ import net.minestom.server.instance.Instance;
 import net.minestom.server.instance.InstanceContainer;
 import net.minestom.server.instance.InstanceManager;
 import net.minestom.server.instance.anvil.AnvilLoader;
+import rip.snicon.Main;
 import rip.snicon.instances.worlds.WorldInfo;
+import rip.snicon.utils.world.TimeUtils;
+import rip.snicon.utils.world.WeatherUtils;
 
 import java.io.File;
 import java.io.FileReader;
@@ -40,7 +43,7 @@ public class InstanceCreator {
             // Start searching from the containerFolder
             searchFiles(dataFolder);
         } else {
-            System.out.println("the worlds dataFolder does not exist");
+            Main.logger.error("The worlds dataFolder does not exist!");
         }
     }
 
@@ -65,14 +68,14 @@ public class InstanceCreator {
             String name = file.getName().replace(".json", "");
 
             worldMap.put(name, info);
-            System.out.println("Loaded world info: " + name);
+            Main.logger.info("Loaded world info: " + name);
 
         } catch (JsonSyntaxException | JsonIOException e) {
             // Handle Gson-specific errors
-            System.out.println("Error parsing JSON file: " + file.getName());
+            Main.logger.error("Error parsing JSON file: " + file.getName());
         } catch (IOException e) {
             // Handle IO errors
-            System.out.println("Error loading container file: " + file.getName());
+            Main.logger.error("Error loading container file: " + file.getName());
         }
     }
 
@@ -81,8 +84,18 @@ public class InstanceCreator {
         InstanceManager instanceManager = MinecraftServer.getInstanceManager();
         // loop all loaded world names
         for (String worldName : worldMap.keySet()) {
+
+            WorldInfo info = worldMap.get(worldName);
+
             // create a new instance with the selected world (if failed to load will result in empty void world)
             InstanceContainer instanceContainer = instanceManager.createInstanceContainer(new AnvilLoader("resources/worlds/" + worldName));
+
+            // time, weather and daylight cycle
+            instanceContainer.setTime(TimeUtils.convertTime(info.getTime()));
+            instanceContainer.setWeather(WeatherUtils.convertWeather(info.getWeather()));
+
+            instanceContainer.setTimeRate(info.isDoDaylightCycle() ? 1 : 0);
+
             // save the instance with name
             instanceMap.put(worldName, instanceContainer);
         }

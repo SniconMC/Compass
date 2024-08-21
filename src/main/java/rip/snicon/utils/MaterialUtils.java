@@ -2,6 +2,7 @@ package rip.snicon.utils;
 
 import net.minestom.server.item.Material;
 import net.minestom.server.entity.Player;
+import rip.snicon.Main;
 
 public class MaterialUtils {
 
@@ -27,7 +28,7 @@ public class MaterialUtils {
             return material;
         } catch (IllegalArgumentException e) {
             // Handle the case where the cleaned ID is not a valid Material
-            System.out.println("Invalid material ID: " + namespaceId);
+            Main.logger.error("Invalid material ID: " + namespaceId);
             return Material.AIR; // Return a default or placeholder material if the conversion fails
         }
     }

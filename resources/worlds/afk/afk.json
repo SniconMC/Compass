@@ -7,5 +7,8 @@
   "hasVoidLimit": true,
   "voidLimitHeight": -64.0,
   "blockUpdates": false,
-  "defaultGamemode": "SURVIVAL"
+  "defaultGamemode": "SURVIVAL",
+  "weather": "clear",
+  "time": "9001",
+  "doDaylightCycle": false
 }

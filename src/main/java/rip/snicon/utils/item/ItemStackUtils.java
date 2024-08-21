@@ -15,6 +15,7 @@ import net.minestom.server.item.component.AttributeList;
 import net.minestom.server.item.component.CustomData;
 import net.minestom.server.item.component.DyedItemColor;
 import net.minestom.server.item.component.HeadProfile;
+import rip.snicon.Main;
 import rip.snicon.modules.container.json.InventorySettings;
 import rip.snicon.modules.container.json.Item;
 import rip.snicon.utils.ColorUtils;
@@ -32,7 +33,7 @@ public class ItemStackUtils {
     public static ItemStack createItemStack(Item item, Player player, InventorySettings settings) {
         Material material = convertToMaterial(item.getId(), player);
         if (material == null) {
-            System.out.println("Material for this item is invalid: " + item.getId());
+            Main.logger.error("Material for this item is invalid: " + item.getId());
             return ItemStack.of(Material.AIR, 1);
         }
 

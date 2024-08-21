@@ -3,9 +3,12 @@
   "spawnY": 66.0,
   "spawnZ": 21.0,
   "spawnPitch": 0.0,
-  "spawnYaw": 0.0,
+  "spawnYaw": -180.0,
   "hasVoidLimit": true,
   "voidLimitHeight": -64.0,
   "blockUpdates": false,
+  "weather": "clear",
+  "time": "4500",
+  "doDaylightCycle": false,
   "defaultGamemode": "SURVIVAL"
 }

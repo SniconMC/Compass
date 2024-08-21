@@ -13,6 +13,7 @@ import net.minestom.server.event.server.ServerListPingEvent;
 import net.minestom.server.instance.Instance;
 import net.minestom.server.ping.ResponseData;
 import net.minestom.server.utils.identity.NamedAndIdentified;
+import rip.snicon.Main;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.instances.worlds.WorldInfo;
 import rip.snicon.listeners.inventory.Container;
@@ -76,7 +77,7 @@ public class Global {
                 base64String = Base64.getEncoder().encodeToString(outputStream.toByteArray());
                 outputStream.close();
             } catch (IOException e) {
-                System.out.println("Error" + e);
+                Main.logger.error("Error converting image to base64: " + e);
             }
 
             ResponseData responseData = serverListPingEvent.getResponseData();

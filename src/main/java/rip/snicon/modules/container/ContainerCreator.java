@@ -9,6 +9,7 @@ import net.minestom.server.entity.Player;
 import net.minestom.server.inventory.Inventory;
 import net.minestom.server.inventory.InventoryType;
 import net.minestom.server.item.ItemStack;
+import rip.snicon.Main;
 import rip.snicon.modules.container.json.InventorySettings;
 import rip.snicon.modules.container.json.Item;
 
@@ -46,7 +47,7 @@ public class ContainerCreator {
             // Start searching from the containerFolder
             searchFiles(dataFolder);
         } else {
-            System.out.println("the worlds dataFolder does not exist");
+            Main.logger.error("the worlds dataFolder does not exist!");
         }
     }
 
@@ -71,14 +72,14 @@ public class ContainerCreator {
             String name = file.getName().replace(".json", "");
             configMap.put(name, containerConfig);
 
-            System.out.println("Loaded container config: " + name);
+            Main.logger.info("Loaded container config: " + name);
 
         } catch (JsonSyntaxException | JsonIOException e) {
             // Handle Gson-specific errors
-            System.out.println("Error parsing JSON file: " + file.getName());
+            Main.logger.error("Error parsing JSON file: " + file.getName());
         } catch (IOException e) {
             // Handle IO errors
-            System.out.println("Error loading container file: " + file.getName());
+            Main.logger.error("Error loading container file: " + file.getName());
         }
     }
 
@@ -89,7 +90,7 @@ public class ContainerCreator {
     public static void openContainer(Player player, String name){
         ContainerConfig config = configMap.get(name);
         if (config == null) {
-            System.out.println("Container not found: " + name);
+            Main.logger.error("Container not found: " + name);
             return;
         }
 
