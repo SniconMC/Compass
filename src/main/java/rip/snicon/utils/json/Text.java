@@ -1,4 +1,4 @@
-package rip.snicon.modules.sidebar;
+package rip.snicon.utils.json;
 
 public class Text {
 

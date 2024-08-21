@@ -1,0 +1,335 @@
+{
+  "default_item": {
+    "id": "minecraft:gray_stained_glass_pane",
+    "count": {
+      "current": 1,
+      "max": 64
+    },
+    "display": {
+      "name": [],
+      "lore": [],
+      "model_data": null,
+      "glint": false,
+      "dye_color": "",
+      "show_tooltip": false
+    },
+    "skin": {
+      "player": "this",
+      "uuid": "",
+      "texture": ""
+    },
+    "data": {
+      "function": "",
+      "page": ""
+    }
+  },
+  "items": [
+    {
+      "slot": 11,
+      "id": "minecraft:diamond_pickaxe",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 12,
+      "id": "minecraft:flower_pot",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 13,
+      "id": "minecraft:dragon_egg",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 14,
+      "id": "minecraft:wooden_axe",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 15,
+      "id": "minecraft:potion",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 20,
+      "id": "minecraft:rabbit_foot",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 21,
+      "id": "minecraft:bedrock",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 22,
+      "id": "minecraft:note_block",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 23,
+      "id": "minecraft:fishing_rod",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 24,
+      "id": "minecraft:wheat",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 40,
+      "id": "minecraft:barrier",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [{"text":"Close","color":"red"}],
+        "lore": [],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": "close"
+      }
+    },
+    {
+      "slot": 44,
+      "id": "minecraft:apple",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    }
+  ],
+  "settings": {
+    "rows": 5,
+    "display_name": [{"text":"Server Selector", "color": "#00aa99", "bold": "false"}],
+    "container_id":"compass",
+    "modify": false,
+    "modify_creative": true
+  }
+}

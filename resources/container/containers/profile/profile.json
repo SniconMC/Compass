@@ -1,0 +1,134 @@
+{
+  "default_item": {
+    "id": "minecraft:gray_stained_glass_pane",
+    "count": {
+      "current": 1,
+      "max": 64
+    },
+    "display": {
+      "name": [],
+      "lore": [],
+      "model_data": null,
+      "glint": false,
+      "dye_color": "",
+      "show_tooltip": false
+    },
+    "skin": {
+      "player": "this",
+      "uuid": "",
+      "texture": ""
+    },
+    "data": {
+      "function": "",
+      "page": ""
+    }
+  },
+  "items": [
+    {
+      "slot": 11,
+      "id": "minecraft:bell",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [{"text":"Profession","color":"gold"}],
+        "lore": [
+                    [{"text": "", "color": "gray"}],
+                    [{"text": "Profession: ", "color": "gray"},{"text": "$(player_profession)", "color": "green"}],
+                    [{"text": "Total Xp: ", "color": "gray"},{"text": "$(player_total_xp)", "color": "yellow"}],
+                    [{"text": "Xp to next Profession: ", "color": "gray"},{"text": "$(player_xp_to_next)", "color": "green"}],
+                    [{"text": "", "color": "gray"}],
+                    [{"text": "", "color": "gray"}],
+                    [{"text": "Click for detailed view", "color": "yellow", "bold":true}]
+	
+				],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": "profession"
+      }
+    },
+    {
+      "slot": 13,
+      "id": "minecraft:player_head",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+            {"text": "Statistics", "color": "#ffaa00"}
+        ],
+        "lore": [
+            	[{"text": "", "color": "gray"}],
+            	[{"text": "Network:", "color": "gray"}],
+				[{"text": "Total Xp: ", "color": "gray"},{"text": "$(player_total_xp)", "color": "yellow"}],
+				[{"text": "Emeralds: ", "color": "gray"},{"text": "$(player_emeralds)", "color": "green"}],
+            	[{"text": "", "color": "gray"}],
+            	[{"text": "Server Specific:", "color": "gray"}],
+				[{"text": "??? ???", "color": "gray"}],
+				[{"text": "", "color": "gray"}],
+            	[{"text": "Click for detailed view", "color": "yellow", "bold":true}]
+				],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "this",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": "stats"
+      }
+    },
+    {
+      "slot": 15,
+      "id": "minecraft:leather_chestplate",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+            {"text": "Cosmetics", "color": "gold"}
+        ],
+        "lore": [
+        ],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "#0077c3",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": "cosmetics"
+      }
+    }
+  ],
+  "settings": {
+    "rows": 3,
+    "display_name": [],
+    "container_id": "profile",
+    "modify": false,
+    "modify_creative": true
+  }
+}

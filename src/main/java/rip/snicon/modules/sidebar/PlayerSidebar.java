@@ -1,5 +1,7 @@
 package rip.snicon.modules.sidebar;
 
+import rip.snicon.utils.json.Text;
+
 import java.util.List;
 
 public class PlayerSidebar {

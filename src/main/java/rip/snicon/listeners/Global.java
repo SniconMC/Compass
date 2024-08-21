@@ -8,14 +8,17 @@ import net.minestom.server.event.GlobalEventHandler;
 import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.PlayerBlockBreakEvent;
 import net.minestom.server.event.player.PlayerBlockInteractEvent;
+import net.minestom.server.event.player.PlayerBlockPlaceEvent;
 import net.minestom.server.event.server.ServerListPingEvent;
 import net.minestom.server.instance.Instance;
 import net.minestom.server.ping.ResponseData;
 import net.minestom.server.utils.identity.NamedAndIdentified;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.instances.worlds.WorldInfo;
+import rip.snicon.listeners.inventory.Container;
 import rip.snicon.listeners.worlds.AFK;
 import rip.snicon.listeners.worlds.Hub;
+import rip.snicon.modules.placeholders.PlaceHolder;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -34,6 +37,7 @@ public class Global {
 
         Hub hubHandler = new Hub(MinecraftServer.getGlobalEventHandler());
         AFK afkHandler = new AFK(MinecraftServer.getGlobalEventHandler());
+        Container containerHandler = new Container(MinecraftServer.getGlobalEventHandler());
     }
 
     public void onPlayerConfig(){
@@ -48,6 +52,10 @@ public class Global {
 
             event.setSpawningInstance(instance);
             player.setRespawnPoint(instanceStartingPos);
+
+            PlaceHolder.setPlayerPlaceholders(player, "player_name", player.getUsername());
+            PlaceHolder.setPlayerPlaceholders(player, "player_world", instance.getDimensionName());
+            PlaceHolder.setPlayerPlaceholders(player, "player_rank", "Obama++");
         });
     }
 

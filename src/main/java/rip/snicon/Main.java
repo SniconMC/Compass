@@ -5,9 +5,12 @@ import net.minestom.server.extras.MojangAuth;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rip.snicon.blockhandlers.SkullHandler;
+import rip.snicon.commands.sidebar.SidebarCommand;
 import rip.snicon.commands.world.TravelWorldCommand;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.listeners.Global;
+import rip.snicon.modules.container.ContainerCreator;
+import rip.snicon.modules.container.HotbarCreator;
 import rip.snicon.modules.sidebar.SidebarCreator;
 
 public class Main {
@@ -22,10 +25,13 @@ public class Main {
         // Initialize the Instance creator
         InstanceCreator instanceCreator = new InstanceCreator();
         SidebarCreator sidebarCreator = new SidebarCreator();
+        HotbarCreator hotbarCreator = new HotbarCreator();
+        ContainerCreator containerCreator = new ContainerCreator();
 
         Global globalListener = new Global();
 
         MinecraftServer.getCommandManager().register(new TravelWorldCommand());
+        MinecraftServer.getCommandManager().register(new SidebarCommand());
 
         MinecraftServer.getBlockManager().registerHandler("minecraft:skull", SkullHandler::new);
         // Start the server

@@ -1,0 +1,1003 @@
+{
+  "pages": {
+    "main": {
+      "slots": [
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 0,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 1,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 2,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [
+            [
+              {
+                "text": " ",
+                "color": "white",
+                "bold": false,
+                "italic": false
+              }
+            ]
+          ],
+          "modeldata": "",
+          "glint": false,
+          "slot": 3,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:bell",
+          "count": 1,
+          "name": [
+            {
+              "text": "Profession",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [
+            [
+              {
+                "text": "1 2 3 4 5 6 7 8 9 10 11 12 13 14",
+                "color": "white",
+                "bold": false,
+                "italic": false,
+                "underline": false,
+                "strikethrough": false
+              }
+            ]
+          ],
+          "modeldata": "",
+          "glint": false,
+          "slot": 4,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 5,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 6,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 7,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 8,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 9,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 10,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 11,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 12,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 13,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 14,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 15,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 16,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 17,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 18,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:lime_stained_glass_pane",
+          "count": 1,
+          "name": [
+            {
+              "text": "Nitwit",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": true,
+          "slot": 19,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:red_stained_glass_pane",
+          "count": 1,
+          "name": [
+            {
+              "text": "Cool kid",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 20,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:red_stained_glass_pane",
+          "count": 1,
+          "name": [
+            {
+              "text": "maby",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 21,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:red_stained_glass_pane",
+          "count": 1,
+          "name": [
+            {
+              "text": "obama",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 22,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:red_stained_glass_pane",
+          "count": 1,
+          "name": [
+            {
+              "text": "wi1helm_",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 23,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:red_stained_glass_pane",
+          "count": 1,
+          "name": [
+            {
+              "text": "nub",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 24,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:red_stained_glass_pane",
+          "count": 1,
+          "name": [
+            {
+              "text": "hello",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 25,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 26,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 27,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 28,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 29,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 30,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 31,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 32,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 33,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 34,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 35,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 36,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:red_stained_glass_pane",
+          "count": 1,
+          "name": [
+            {
+              "text": "letherworker",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 37,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:red_stained_glass_pane",
+          "count": 1,
+          "name": [
+            {
+              "text": "yes",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 38,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:red_stained_glass_pane",
+          "count": 1,
+          "name": [
+            {
+              "text": "hehe",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 39,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:red_stained_glass_pane",
+          "count": 1,
+          "name": [
+            {
+              "text": "sniklas",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 40,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:red_stained_glass_pane",
+          "count": 1,
+          "name": [
+            {
+              "text": "trump",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 41,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:red_stained_glass_pane",
+          "count": 1,
+          "name": [
+            {
+              "text": "yesir",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 42,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:red_stained_glass_pane",
+          "count": 1,
+          "name": [
+            {
+              "text": "test1",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 43,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 44,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 45,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 46,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 47,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 48,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:arrow",
+          "count": 1,
+          "name": [
+            {
+              "text": "Back to Profile",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 49,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "profile",
+          "variables": []
+        },
+        {
+          "id": "minecraft:redstone_torch",
+          "count": 1,
+          "name": [
+            {
+              "text": "Ways to level up",
+              "color": "white",
+              "bold": false,
+              "italic": false,
+              "underline": false,
+              "strikethrough": false
+            }
+          ],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 50,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 51,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": null,
+          "glint": false,
+          "slot": 52,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "",
+          "variables": []
+        },
+        {
+          "id": "minecraft:gray_stained_glass_pane",
+          "count": 1,
+          "name": [],
+          "lore": [],
+          "modeldata": "",
+          "glint": false,
+          "slot": 53,
+          "menuItem": true,
+          "replaceable": false,
+          "key": "",
+          "function": "menus:menu_logic/no_function",
+          "page": "main",
+          "variables": []
+        }
+      ]
+    }
+  },
+  "menu": {
+    "menuName": "profession",
+    "menuPath": "",
+    "menuMode": 0
+  },
+  "inventory": {
+    "main": {
+      "rows": 6,
+      "displayName": [],
+      "displayNameHTML": ""
+    }
+  }
+}

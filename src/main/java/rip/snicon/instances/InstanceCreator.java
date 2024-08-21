@@ -65,7 +65,7 @@ public class InstanceCreator {
             String name = file.getName().replace(".json", "");
 
             worldMap.put(name, info);
-            System.out.println("Loaded world info:" + name);
+            System.out.println("Loaded world info: " + name);
 
         } catch (JsonSyntaxException | JsonIOException e) {
             // Handle Gson-specific errors
