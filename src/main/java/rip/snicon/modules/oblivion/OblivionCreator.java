@@ -4,31 +4,31 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
-import net.minestom.server.MinecraftServer;
+import net.minestom.server.coordinate.Point;
 import net.minestom.server.coordinate.Pos;
-import net.minestom.server.coordinate.Vec;
 import net.minestom.server.entity.Player;
 import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.instance.Instance;
-import net.minestom.server.network.packet.server.play.PlayerInfoUpdatePacket;
-import net.minestom.server.network.packet.server.play.SpawnEntityPacket;
+import net.minestom.server.network.NetworkBuffer;
+import net.minestom.server.network.packet.server.play.OpenSignEditorPacket;
 import rip.snicon.Main;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.modules.oblivion.json.Oblivion;
-import rip.snicon.utils.SkullUtils;
+import rip.snicon.utils.PlaceholderReplacer;
+import rip.snicon.utils.SkinUtils;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 public class OblivionCreator {
 
     private static File dataFolder;
     private static Gson gson;
-    private static Map<String, OblivionConfig> oblivionConfigs;
+    private static Map<String, String> oblivionConfigs;
     private static Map<Player, Oblivion> oblivionFakes;
 
     public OblivionCreator(){
@@ -64,8 +64,8 @@ public class OblivionCreator {
     }
 
     private static void processJsonFile(File file) {
-        try (FileReader reader = new FileReader(file)) {
-            OblivionConfig oblivionConfig = gson.fromJson(reader, OblivionConfig.class);
+        try {
+            String oblivionConfig = new String(Files.readAllBytes(file.toPath()));
             String name = file.getName().replace(".json", "");
             oblivionConfigs.put(name, oblivionConfig);
 
@@ -87,22 +87,37 @@ public class OblivionCreator {
     public static void spawnOblivions(Player player){
 
         for (String name : oblivionConfigs.keySet()) {
-            OblivionConfig config = oblivionConfigs.get(name);
 
-            Instance instance = InstanceCreator.getInstanceMap().get(config.getWorld());
-            Pos pos = new Pos(config.getPosition().getX(), config.getPosition().getY(), config.getPosition().getZ(), config.getPosition().getYaw(), config.getPosition().getPitch());
-            PlayerSkin skin = SkullUtils.getSkin(player, config.getSkin().getPlayer(), "", config.getSkin().getTexture(), config.getSkin().getSignature());
+            String oblivionJson = oblivionConfigs.get(name);
+            String placeholdedJson = PlaceholderReplacer.replacePlaceholders(player, oblivionJson);try {
+                // Parse the JSON string into an OblivionConfig object
+                OblivionConfig config = gson.fromJson(placeholdedJson, OblivionConfig.class);
 
-            // Create and spawn the NPC, passing the method reference for onClick
-            NPC npc = new NPC(name, skin, instance,  pos, OblivionCreator::handleNpcClick);
-            npc.makeVisibleTo(player);
-            Main.logger.error("balls");
+                Instance instance = InstanceCreator.getInstanceMap().get(config.getWorld());
+                Pos pos = new Pos(config.getPosition().getX(), config.getPosition().getY(), config.getPosition().getZ(), config.getPosition().getYaw(), config.getPosition().getPitch());
+                PlayerSkin skin = SkinUtils.getSkin(player, config.getSkin().getPlayer(), "", config.getSkin().getTexture(), config.getSkin().getSignature());
+
+                // Create and spawn the NPC, passing the method reference for onClick
+                NPC npc = new NPC(name, skin, instance,  pos, OblivionCreator::handleNpcClick);
+                npc.makeVisibleTo(player);
+
+            } catch (JsonSyntaxException | JsonIOException e) {
+                // Handle Gson-specific errors
+                Main.logger.error("Error parsing JSON in: " + name);
+            } catch (Exception e) {
+                // Handle any other unexpected exceptions
+                Main.logger.error("Unexpected error in: " + name);
+            }
+
+
+
+
         }
     }
 
     // Method to handle NPC click interactions
     public static void handleNpcClick(Player player) {
-        player.sendMessage("Example: Kill yourself " + player.getUsername());
+        player.sendPacket(new OpenSignEditorPacket(new NetworkBuffer(1)));
     }
 
 

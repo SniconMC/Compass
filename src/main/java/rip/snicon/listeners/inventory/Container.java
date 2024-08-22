@@ -1,5 +1,6 @@
 package rip.snicon.listeners.inventory;
 
+import com.google.gson.Gson;
 import net.minestom.server.entity.Player;
 import net.minestom.server.event.Event;
 import net.minestom.server.event.EventNode;
@@ -9,7 +10,10 @@ import net.minestom.server.event.player.PlayerUseItemEvent;
 import net.minestom.server.event.player.PlayerUseItemOnBlockEvent;
 import net.minestom.server.item.ItemComponent;
 import net.minestom.server.item.ItemStack;
+import rip.snicon.Main;
 import rip.snicon.modules.container.ContainerCreator;
+import rip.snicon.modules.container.json.Item;
+import rip.snicon.utils.item.ItemStackUtils;
 
 public class Container {
 
@@ -43,6 +47,14 @@ public class Container {
             event.setCancelled(true);
             ContainerCreator.openContainer(player, redirect);
 
+            Item item = ItemStackUtils.convertToItem(itemStack, player);
+            // Create a Gson instance
+            Gson gson = new Gson();
+
+            // Convert Item object to JSON string
+            String jsonString = gson.toJson(item);
+            player.sendMessage(jsonString);
+            Main.logger.info(jsonString);
         });
     }
 

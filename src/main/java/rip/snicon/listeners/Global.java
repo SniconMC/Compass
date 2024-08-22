@@ -1,6 +1,8 @@
 package rip.snicon.listeners;
 
+import com.google.gson.Gson;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
@@ -11,6 +13,9 @@ import net.minestom.server.event.player.PlayerBlockInteractEvent;
 import net.minestom.server.event.player.PlayerBlockPlaceEvent;
 import net.minestom.server.event.server.ServerListPingEvent;
 import net.minestom.server.instance.Instance;
+import net.minestom.server.item.ItemComponent;
+import net.minestom.server.item.ItemStack;
+import net.minestom.server.item.Material;
 import net.minestom.server.ping.ResponseData;
 import net.minestom.server.utils.identity.NamedAndIdentified;
 import rip.snicon.Main;
@@ -19,14 +24,18 @@ import rip.snicon.instances.worlds.WorldInfo;
 import rip.snicon.listeners.inventory.Container;
 import rip.snicon.listeners.worlds.AFK;
 import rip.snicon.listeners.worlds.Hub;
+import rip.snicon.modules.container.json.Item;
 import rip.snicon.modules.placeholders.PlaceHolder;
+import rip.snicon.utils.item.ItemStackUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 import java.util.UUID;
 
 public class Global {
@@ -56,7 +65,15 @@ public class Global {
 
             PlaceHolder.setPlayerPlaceholders(player, "player_name", player.getUsername());
             PlaceHolder.setPlayerPlaceholders(player, "player_world", instance.getDimensionName());
-            PlaceHolder.setPlayerPlaceholders(player, "player_rank", "Obama++");
+            List<Component> value = new ArrayList<>();
+            value.add(Component.text("Click to open!").color(NamedTextColor.YELLOW));
+            ItemStack itemStack = ItemStack.of(Material.NETHER_STAR).withAmount(3).with(ItemComponent.ITEM_NAME, Component.text("Skyblock Menu").color(NamedTextColor.GREEN)).with(ItemComponent.LORE, value);
+            Item item = ItemStackUtils.convertToItem(itemStack, player);
+            item.setSlot(11);
+            String itemJson = new Gson().toJson(item, Item.class);
+            Main.logger.info(itemJson);
+            PlaceHolder.setPlayerPlaceholders(player, "ah_slot_11", itemJson);
+            PlaceHolder.setPlayerPlaceholders(player, "player_rank", "{\"text\":\"[\",\"color\":\"dark_gray\"},{\"text\":\"Obama++\",\"color\":\"dark_red\"},{\"text\":\"]\",\"color\":\"dark_gray\"}");
         });
     }
 

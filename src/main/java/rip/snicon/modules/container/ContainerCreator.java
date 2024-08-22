@@ -16,10 +16,12 @@ import rip.snicon.modules.container.json.Item;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import rip.snicon.utils.PlaceholderReplacer;
 import rip.snicon.utils.TextUtils;
 import rip.snicon.utils.inventory.InventoryUtils;
 import rip.snicon.utils.item.ItemStackUtils;
@@ -32,7 +34,7 @@ public class ContainerCreator {
 
     private static File dataFolder;
     private static Gson gson;
-    private static Map<String, ContainerConfig> configMap;
+    private static Map<String, String> configMap;
 
     public ContainerCreator() {
         dataFolder = new File("resources/container/containers");
@@ -67,10 +69,11 @@ public class ContainerCreator {
     }
 
     private static void processJsonFile(File file) {
-        try (FileReader reader = new FileReader(file)) {
-            ContainerConfig containerConfig = gson.fromJson(reader, ContainerConfig.class);
+        try {
+            String containerJson = new String(Files.readAllBytes(file.toPath()));
+
             String name = file.getName().replace(".json", "");
-            configMap.put(name, containerConfig);
+            configMap.put(name, containerJson);
 
             Main.logger.info("Loaded container config: " + name);
 
@@ -83,46 +86,56 @@ public class ContainerCreator {
         }
     }
 
-    public static void reloadContainers(){
+    public static void reloadContainers() {
         loadContainers();
     }
 
-    public static void openContainer(Player player, String name){
-        ContainerConfig config = configMap.get(name);
-        if (config == null) {
-            Main.logger.error("Container not found: " + name);
-            return;
-        }
+    public static void openContainer(Player player, String name) {
 
-        Component displayName = convertToComponentWithPlaceholders(config.getInventorySettings().getDisplayName(), player);
-        InventoryType inventoryType = InventoryUtils.getInventoryType(config.getInventorySettings().getRow());
-        int size = config.getInventorySettings().getRow() * 9;
-        Inventory inventory = new Inventory(inventoryType, displayName);
 
-        List<Item> items = config.getItems();
-        InventorySettings inventorySettings = config.getInventorySettings();
+        String containerJson = configMap.get(name);
+        String placeholdedJson = PlaceholderReplacer.replacePlaceholders(player, containerJson);
 
-        Map<Integer, Item> itemMap = new HashMap<>();
-        for (Item item : items) {
-            itemMap.put(item.getSlot(), item);
-        }
+        try {
 
-        for (int slot = 0; slot < size; slot++){
-            Item item = itemMap.get(slot);
-            if (item != null) {
-                item.setContainerId(inventorySettings.getContainerID());
-                ItemStack containerItem = ItemStackUtils.createItemStack(item, player, inventorySettings);
-                inventory.setItemStack(slot, containerItem);
+            ContainerConfig config = gson.fromJson(placeholdedJson, ContainerConfig.class);
+            if (config == null) {
+                Main.logger.error("Container not found: " + name);
+                return;
             }
-            else {
-                Item defualtItem = config.getDefault_item();
-                defualtItem.setContainerId(inventorySettings.getContainerID());
-                ItemStack containerItem = ItemStackUtils.createItemStack(defualtItem, player, inventorySettings);
-                inventory.setItemStack(slot, containerItem);
-            }
-        }
 
-        // Open inventory for player
-        player.openInventory(inventory);
+            Component displayName = convertToComponentWithPlaceholders(config.getInventorySettings().getDisplayName(), player);
+            InventoryType inventoryType = InventoryUtils.getInventoryType(config.getInventorySettings().getRow());
+            int size = config.getInventorySettings().getRow() * 9;
+            Inventory inventory = new Inventory(inventoryType, displayName);
+
+            List<Item> items = config.getItems();
+            InventorySettings inventorySettings = config.getInventorySettings();
+
+            Map<Integer, Item> itemMap = new HashMap<>();
+            for (Item item : items) {
+                itemMap.put(item.getSlot(), item);
+            }
+
+            for (int slot = 0; slot < size; slot++) {
+                Item item = itemMap.get(slot);
+                if (item != null) {
+                    item.setContainerId(inventorySettings.getContainerID());
+                    ItemStack containerItem = ItemStackUtils.createItemStack(item, player, inventorySettings);
+                    inventory.setItemStack(slot, containerItem);
+                } else {
+                    Item defualtItem = config.getDefault_item();
+                    defualtItem.setContainerId(inventorySettings.getContainerID());
+                    ItemStack containerItem = ItemStackUtils.createItemStack(defualtItem, player, inventorySettings);
+                    inventory.setItemStack(slot, containerItem);
+                }
+            }
+
+            // Open inventory for player
+            player.openInventory(inventory);
+        } catch (JsonSyntaxException | JsonIOException e) {
+            // Handle Gson-specific errors
+            Main.logger.error("Error parsing JSON file: " + name);
+        }
     }
 }

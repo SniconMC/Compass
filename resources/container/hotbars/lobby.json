@@ -1,6 +1,31 @@
 {
   "items": [
     {
+      "slot": 13,
+      "id": "minecraft:gold_block",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [{"text": "Auction Browser","color": "gold"}],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": "auction"
+      }
+    },
+    {
       "slot": 3,
       "id": "minecraft:redstone",
       "count": {

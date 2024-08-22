@@ -2,9 +2,9 @@ package rip.snicon.utils.item;
 
 import net.kyori.adventure.nbt.CompoundBinaryTag;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.util.RGBLike;
 import net.minestom.server.entity.EquipmentSlotGroup;
 import net.minestom.server.entity.Player;
+import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.entity.attribute.Attribute;
 import net.minestom.server.entity.attribute.AttributeModifier;
 import net.minestom.server.entity.attribute.AttributeOperation;
@@ -16,22 +16,23 @@ import net.minestom.server.item.component.CustomData;
 import net.minestom.server.item.component.DyedItemColor;
 import net.minestom.server.item.component.HeadProfile;
 import rip.snicon.Main;
-import rip.snicon.modules.container.json.InventorySettings;
-import rip.snicon.modules.container.json.Item;
+import rip.snicon.modules.container.json.*;
 import rip.snicon.utils.ColorUtils;
-import rip.snicon.utils.SkullUtils;
+import rip.snicon.utils.SkinUtils;
 import rip.snicon.utils.TextUtils;
 import rip.snicon.utils.json.Text;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-import static rip.snicon.utils.MaterialUtils.convertToMaterial;
+import static rip.snicon.utils.MaterialUtils.convertMaterialToNamespaceId;
+import static rip.snicon.utils.MaterialUtils.convertToNamespaceIdMaterial;
 
 public class ItemStackUtils {
 
     public static ItemStack createItemStack(Item item, Player player, InventorySettings settings) {
-        Material material = convertToMaterial(item.getId(), player);
+        Material material = convertToNamespaceIdMaterial(item.getId(), player);
         if (material == null) {
             Main.logger.error("Material for this item is invalid: " + item.getId());
             return ItemStack.of(Material.AIR, 1);
@@ -67,7 +68,7 @@ public class ItemStackUtils {
         var itemInASlot = ItemStack.builder(material).set(ItemComponent.ITEM_NAME, itemName).set(ItemComponent.LORE, itemLore).amount(itemCount).maxStackSize(itemMaxCount).set(ItemComponent.CUSTOM_DATA, new CustomData(customData));
 
         if (material == Material.PLAYER_HEAD) {
-            itemInASlot.set(ItemComponent.PROFILE, new HeadProfile(SkullUtils.getSkin(player, item.getSkin().getPlayer(), "", item.getSkin().getTexture(), "")));
+            itemInASlot.set(ItemComponent.PROFILE, new HeadProfile(SkinUtils.getSkin(player, item.getSkin().getPlayer(), "", item.getSkin().getTexture(), "")));
         }
         String color = item.getDisplay().getDye_color();
         if (!color.isEmpty()) {
@@ -79,5 +80,74 @@ public class ItemStackUtils {
         }
         itemInASlot.set(ItemComponent.ATTRIBUTE_MODIFIERS, new AttributeList(new AttributeList.Modifier(Attribute.GENERIC_ATTACK_DAMAGE, new AttributeModifier("dummy", 0, AttributeOperation.ADD_VALUE), EquipmentSlotGroup.ANY), false));
         return itemInASlot.build();
+    }
+
+    public static Item convertToItem(ItemStack itemStack, Player player) {
+        Item item = new Item();
+
+        // Extract and convert Material ID to Item ID
+        String itemId = convertMaterialToNamespaceId(itemStack.material());
+        item.setId(itemId);
+
+        // Extract and set the container ID if available
+        CustomData data = itemStack.get(ItemComponent.CUSTOM_DATA);
+        if (data != null) {
+            CompoundBinaryTag customData = data.nbt();
+            String containerId = null;
+            containerId = customData.getString("container_id");
+            item.setContainerId(containerId);
+        }
+
+
+        // Extract and set the count (current and max)
+        ItemCount itemCount = new ItemCount(itemStack.amount(), itemStack.maxStackSize());
+        item.setCount(itemCount);
+
+        // Extract and convert display name and lore
+        ItemDisplay display = new ItemDisplay();
+        Component itemName = itemStack.get(ItemComponent.ITEM_NAME);
+        if (itemName == null) {
+            itemName = Component.text("Empty Name");
+        }
+        display.setName(TextUtils.convertComponentToTextList(itemName)); // Assuming reverse of convertToComponentWithPlaceholders
+
+        List<Component> itemLoreComponents = itemStack.get(ItemComponent.LORE);
+        if (itemLoreComponents == null) {
+            itemLoreComponents = new ArrayList<>();
+        }
+
+        List<List<Text>> itemLore = new ArrayList<>();
+        for (Component component : itemLoreComponents) {
+            itemLore.add(TextUtils.convertComponentToTextList(component)); // Assuming reverse method
+        }
+        display.setLore(itemLore);
+
+        // Extract and set the skin if material is PLAYER_HEAD
+        if (itemStack.material() == Material.PLAYER_HEAD) {
+            HeadProfile profile = itemStack.get(ItemComponent.PROFILE);
+            if (profile != null) {
+                ItemSkin skin = new ItemSkin();
+                skin.setPlayer(profile.name()); // Assuming method in HeadProfile to get player's name
+                PlayerSkin playerSkin = profile.skin();
+                if (playerSkin != null) {
+                    skin.setTexture(playerSkin.textures());   // Assuming method in HeadProfile to get texture
+                }
+                item.setSkin(skin);
+            }
+        }
+
+        // Extract and set the color if available
+        DyedItemColor dyedColor = itemStack.get(ItemComponent.DYED_COLOR);
+        if (dyedColor != null) {
+            display.setDye_color(dyedColor.toString()); // Assuming reverse method
+        }
+
+        // Set enchantment glint and tooltip visibility
+        display.setGlint(Boolean.TRUE.equals(itemStack.get(ItemComponent.ENCHANTMENT_GLINT_OVERRIDE)));
+        display.setShow_tooltip(!itemStack.has(ItemComponent.HIDE_TOOLTIP));
+
+        item.setDisplay(display);
+
+        return item;
     }
 }

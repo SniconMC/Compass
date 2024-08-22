@@ -48,14 +48,7 @@
       "underline": false,
       "strikethrough": false
       },
-      {
-      "text": "$(player_rank)",
-      "color": "red",
-      "bold": false,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      }
+      $(player_rank)
     ],
     [
       {
@@ -95,7 +88,7 @@
       "strikethrough": false
       },
       {
-      "text": "$(player_profession)",
+      "text": "oabam",
       "color": "white",
       "bold": false,
       "italic": false,

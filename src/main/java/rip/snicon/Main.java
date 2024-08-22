@@ -33,7 +33,6 @@ public class Main {
 
         MinecraftServer.getCommandManager().register(new TravelWorldCommand());
         MinecraftServer.getCommandManager().register(new SidebarCommand());
-
         MinecraftServer.getBlockManager().registerHandler("minecraft:skull", SkullHandler::new);
         // Start the server
         MojangAuth.init();

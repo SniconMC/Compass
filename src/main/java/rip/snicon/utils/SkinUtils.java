@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class SkullUtils {
+public class SkinUtils {
 
     private static final Map<String, CachedSkin> cachedValues = new HashMap<>();
 
@@ -41,10 +41,10 @@ public class SkullUtils {
     }
 
     private static PlayerSkin createPlayerSkin(Player player, String username, String uuid, String texture, String signature) {
-        if (Objects.equals(username, "this")) {
+        if (username != null && Objects.equals(username, "this")) {
             return PlayerSkin.fromUsername(player.getUsername());
         }
-        if (!username.isEmpty()) {
+        if (username != null && !username.isEmpty()) {
             return PlayerSkin.fromUsername(username);
         }
         if (!uuid.isEmpty()) {

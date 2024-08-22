@@ -17,4 +17,16 @@ public class ItemSkin {
     public String getTexture() {
         return texture;
     }
+
+    public void setPlayer(String player) {
+        this.player = player;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public void setTexture(String texture) {
+        this.texture = texture;
+    }
 }

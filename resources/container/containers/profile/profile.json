@@ -54,7 +54,7 @@
         "texture": ""
       },
       "data": {
-        "function": "",
+        "function": "Main.ah.sort",
         "page": "profession"
       }
     },
@@ -107,6 +107,13 @@
             {"text": "Cosmetics", "color": "gold"}
         ],
         "lore": [
+          [{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"","color":"#aaaaaa","bold":false,"italic":false}],
+          [{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"Network:","color":"#aaaaaa","bold":false,"italic":false}],
+          [{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"Total Xp: ","color":"#aaaaaa","bold":false,"italic":false},{"text":"$(player_total_xp)","color":"#ffff55","bold":false,"italic":false}],
+          [{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"Emeralds: ","color":"#aaaaaa","bold":false,"italic":false},{"text":"$(player_emeralds)","color":"#55ff55","bold":false,"italic":false}],
+          [{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"","color":"#aaaaaa","bold":false,"italic":false}],[{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"Server Specific:","color":"#aaaaaa","bold":false,"italic":false}],
+          [{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"??? ???","color":"#aaaaaa","bold":false,"italic":false}],[{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"","color":"#aaaaaa","bold":false,"italic":false}],
+          [{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"Click for detailed view","color":"#ffff55","bold":true,"italic":false}]
         ],
         "model_data": "",
         "glint": false,

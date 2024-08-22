@@ -39,6 +39,37 @@ public class Item {
     }
 
     public ItemData getData() {
+        if (data == null) {
+            return new ItemData("","");
+        }
         return data;
+    }
+
+    public void setSlot(int slot) {
+        this.slot = slot;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setContainer_id(String container_id) {
+        this.container_id = container_id;
+    }
+
+    public void setCount(ItemCount count) {
+        this.count = count;
+    }
+
+    public void setDisplay(ItemDisplay display) {
+        this.display = display;
+    }
+
+    public void setSkin(ItemSkin skin) {
+        this.skin = skin;
+    }
+
+    public void setData(ItemData data) {
+        this.data = data;
     }
 }

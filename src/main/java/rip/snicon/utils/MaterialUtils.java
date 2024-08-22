@@ -6,7 +6,7 @@ import rip.snicon.Main;
 
 public class MaterialUtils {
 
-    public static Material convertToMaterial(String itemId, Player player) {
+    public static Material convertToNamespaceIdMaterial(String itemId, Player player) {
         // Remove "minecraft:" prefix if present and handle placeholders
         String cleanedId;
         if (PlaceholderReplacer.containsPlaceholders(itemId)) {
@@ -32,4 +32,15 @@ public class MaterialUtils {
             return Material.AIR; // Return a default or placeholder material if the conversion fails
         }
     }
+
+    public static String convertMaterialToNamespaceId(Material material) {
+        if (material == null) {
+            return "minecraft:air"; // Return a default or placeholder namespace if the material is null
+        }
+
+        // Return the namespace ID in the proper format
+        return material.namespace().toString();
+    }
+
+
 }

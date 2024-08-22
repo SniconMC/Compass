@@ -7,21 +7,24 @@ import com.google.gson.JsonSyntaxException;
 import net.kyori.adventure.text.Component;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
+import net.minestom.server.network.player.PlayerConnection;
 import net.minestom.server.scoreboard.Sidebar;
 import rip.snicon.Main;
+import rip.snicon.utils.PlaceholderReplacer;
 import rip.snicon.utils.json.Text;
 import rip.snicon.utils.TextUtils;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.*;
 
 public class SidebarCreator {
 
     private static File dataFolder;
     private static Gson gson;
-    private static Map<String, PlayerSidebar> playerSidebarMap;
+    private static Map<String, String> playerSidebarMap;
     private static Map<String, Sidebar> sidebarMap;
 
 
@@ -60,8 +63,8 @@ public class SidebarCreator {
     }
 
     private static void processJsonFile(File file) {
-        try (FileReader reader = new FileReader(file)) {
-            PlayerSidebar playerSidebar = gson.fromJson(reader, PlayerSidebar.class);
+        try {
+            String playerSidebar = new String(Files.readAllBytes(file.toPath()));
             String name = file.getName().replace(".json", "");
             playerSidebarMap.put(name, playerSidebar);
 
@@ -78,24 +81,7 @@ public class SidebarCreator {
 
     private void createSidebarsFromJson() {
         for (String name : playerSidebarMap.keySet()) {
-            Sidebar sidebar = new Sidebar(Component.text("name"));
-
-            PlayerSidebar playerSidebar = playerSidebarMap.get(name);
-            sidebar.setTitle(TextUtils.convertToComponent(playerSidebar.getTitle()));
-            List<List<Text>> layout = playerSidebar.getLayout();
-
-
-
-
-            for (List<Text> text : layout){
-                int number = layout.size() - layout.indexOf(text);
-                String id = "row" + number;
-                Component content = TextUtils.convertToComponent(text);
-
-                Sidebar.ScoreboardLine line = new Sidebar.ScoreboardLine(id, content, number, Sidebar.NumberFormat.blank());
-
-                sidebar.createLine(line);
-            }
+            Sidebar sidebar = new Sidebar(Component.text(name));
 
             sidebarMap.put(name, sidebar);
         }
@@ -112,39 +98,51 @@ public class SidebarCreator {
 
         for (String name : playerSidebarMap.keySet()) {
             Sidebar sidebar = sidebarMap.get(name);
+            String sidebarJson = playerSidebarMap.get(name);
+            String placeholdedJson = PlaceholderReplacer.replacePlaceholders(player, sidebarJson);
+            try {
 
-            PlayerSidebar playerSidebar = playerSidebarMap.get(name);
-            sidebar.setTitle(TextUtils.convertToComponentWithPlaceholders(
-                    playerSidebar.getTitle(),
-                    player)
-            );
+                PlayerSidebar playerSidebar = gson.fromJson(placeholdedJson, PlayerSidebar.class);
 
-            List<List<Text>> layout = playerSidebar.getLayout();
-
-            for (List<Text> text : layout) {
-                int number = layout.size() - layout.indexOf(text);
-                String id = "row" + number;
-
-                // Remove the existing line if it exists
-                sidebar.removeLine(id);
-
-                // Create updated content
-                Component updatedContent = TextUtils.convertToComponentWithPlaceholders(
-                        text,
-                        player
+                sidebar.setTitle(TextUtils.convertToComponent(
+                        playerSidebar.getTitle())
                 );
 
-                // Create a new line with updated content
-                Sidebar.ScoreboardLine updatedLine = new Sidebar.ScoreboardLine(
-                        id,
-                        updatedContent,
-                        number,
-                        Sidebar.NumberFormat.blank()
-                );
+                List<List<Text>> layout = playerSidebar.getLayout();
 
-                // Add the updated line to the sidebar
-                sidebar.createLine(updatedLine);
+                for (List<Text> text : layout) {
+                    int number = layout.size() - layout.indexOf(text);
+                    String id = "row" + number;
+
+                    // Remove the existing line if it exists
+                    sidebar.removeLine(id);
+
+                    // Create updated content
+                    Component updatedContent = TextUtils.convertToComponentWithPlaceholders(
+                            text,
+                            player
+                    );
+
+                    // Create a new line with updated content
+                    Sidebar.ScoreboardLine updatedLine = new Sidebar.ScoreboardLine(
+                            id,
+                            updatedContent,
+                            number,
+                            Sidebar.NumberFormat.blank()
+                    );
+
+                    // Add the updated line to the sidebar
+                    sidebar.createLine(updatedLine);
+                }
+
+            } catch (JsonSyntaxException | JsonIOException e) {
+                // Handle Gson-specific errors
+                Main.logger.error("Error parsing JSON in: " + name);
+            } catch (Exception e) {
+                // Handle any other unexpected exceptions
+                Main.logger.error("Unexpected error in: " + name);
             }
+
         }
     }
 
@@ -172,7 +170,7 @@ public class SidebarCreator {
         return sidebarMap;
     }
 
-    public static Map<String, PlayerSidebar> getPlayerSidebarMap() {
+    public static Map<String, String> getPlayerSidebarMap() {
         return playerSidebarMap;
     }
 }

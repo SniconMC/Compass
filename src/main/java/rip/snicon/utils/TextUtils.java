@@ -1,11 +1,13 @@
 package rip.snicon.utils;
 
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import net.minestom.server.entity.Player;
 import rip.snicon.utils.json.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static rip.snicon.utils.ColorUtils.StringToTextColor;
@@ -80,4 +82,36 @@ public class TextUtils {
         return combinedComponent;
     }
 
+
+    // Reverse method without placeholders
+    public static List<Text> convertComponentToTextList(Component component) {
+        List<Text> textList = new ArrayList<>();
+
+        if (component instanceof TextComponent) {
+            TextComponent textComponent = (TextComponent) component;
+            extractTextComponent(textComponent, textList);
+        }
+
+        return textList;
+    }
+
+    // Helper method to extract data from TextComponent
+    private static void extractTextComponent(TextComponent component, List<Text> textList) {
+        String text = component.content();
+        TextColor color = component.color();
+        String colorString = color != null ? color.asHexString() : "#ffffff"; // Default to white if no color
+        boolean bold = component.hasDecoration(TextDecoration.BOLD);
+        boolean italic = component.hasDecoration(TextDecoration.ITALIC);
+
+        Text textObject = new Text(text, colorString, bold, italic);
+        textList.add(textObject);
+
+        // If there are more children, recursively process them
+        for (Component child : component.children()) {
+            if (child instanceof TextComponent) {
+                extractTextComponent((TextComponent) child, textList);
+            }
+        }
+    }
 }
+
