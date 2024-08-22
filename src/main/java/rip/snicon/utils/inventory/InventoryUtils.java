@@ -13,7 +13,7 @@ public class InventoryUtils {
             case 4 -> InventoryType.CHEST_4_ROW;
             case 5 -> InventoryType.CHEST_5_ROW;
             case 6 -> InventoryType.CHEST_6_ROW;
-            default -> InventoryType.WINDOW_3X3;
+            default -> InventoryType.BEACON;
         };
     }
 

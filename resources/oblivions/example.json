@@ -10,7 +10,7 @@
     "y": 66.0,
     "z": 18.0,
     "pitch": 0.0,
-    "yaw": 0.0,
+    "yaw": 180.0,
     "look_at_player": true
   },
   "skin": {

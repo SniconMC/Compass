@@ -3,11 +3,17 @@ package rip.snicon.modules.oblivion;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.*;
+import net.minestom.server.entity.ai.EntityAIGroupBuilder;
+import net.minestom.server.entity.ai.GoalSelector;
+import net.minestom.server.entity.ai.goal.RandomStrollGoal;
+import net.minestom.server.entity.attribute.Attribute;
 import net.minestom.server.event.entity.EntityAttackEvent;
 import net.minestom.server.event.player.PlayerEntityInteractEvent;
 import net.minestom.server.instance.Instance;
+import net.minestom.server.instance.block.Block;
 import net.minestom.server.network.packet.server.play.*;
 import org.jetbrains.annotations.NotNull;
+import rip.snicon.Main;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,26 +28,45 @@ public final class NPC extends EntityCreature {
     private final Consumer<Player> onClick;
     private final UUID uuid;
     private final int entityId;
+    private boolean shouldLookAtPlayers;
 
     public NPC(@NotNull String name, PlayerSkin playerSkin,
                @NotNull Instance instance, @NotNull Pos position, @NotNull Consumer<Player> onClick) {
-        super(EntityType.PLAYER);  // Use the EntityType.PLAYER to make the server recognize this as a player-like entity
+        super(EntityType.PLAYER);
         this.name = name;
         this.skin = playerSkin;
         this.position = position;
         this.onClick = onClick;
-        this.uuid = UUID.randomUUID();  // Unique ID for the NPC
+        this.uuid = UUID.randomUUID();
         this.entityId = (int) (Math.random() * Integer.MAX_VALUE);
+        this.shouldLookAtPlayers = true; // Default to true
 
-        setNoGravity(true);
-
-        // Set instance and initial position
+        this.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(0.2);
         setInstance(instance, position);
 
         // Register event listeners
         MinecraftServer.getGlobalEventHandler().addListener(EntityAttackEvent.class, this::handle)
                 .addListener(PlayerEntityInteractEvent.class, this::handle);
+
+        // Add AI group with LookAtPlayerGoal
+        addAIGroup(
+               new EntityAIGroupBuilder()
+                        //.addGoalSelector(new LookAtPlayerGoal(this))
+                        .addGoalSelector(new RandomStrollGoal(this, 32))
+
+                        .build()
+        );
     }
+
+    public void setShouldLookAtPlayers(boolean shouldLookAtPlayers) {
+        this.shouldLookAtPlayers = shouldLookAtPlayers;
+    }
+
+    public boolean shouldLookAtPlayers() {
+        return shouldLookAtPlayers;
+    }
+
+    // ... rest of the NPC class code
 
     // Server-side events now trigger as the entity is managed by the server
     public void handle(@NotNull EntityAttackEvent event) {
@@ -88,5 +113,62 @@ public final class NPC extends EntityCreature {
     public void despawnForPlayer(@NotNull Player player) {
         player.sendPacket(new PlayerInfoRemovePacket(uuid));
         player.sendPacket(new DestroyEntitiesPacket(getEntityId()));
+    }
+
+    private static final class LookAtPlayerGoal extends GoalSelector {
+        private Entity target;
+
+        public LookAtPlayerGoal(EntityCreature entityCreature) {
+            super(entityCreature);
+        }
+
+        @Override
+        public boolean shouldStart() {
+            if (!((NPC) entityCreature).shouldLookAtPlayers()) {
+                return false;
+            }
+            target = findTarget();
+            return target != null;
+        }
+
+        @Override
+        public void start() {
+            // No action needed on start
+        }
+
+        @Override
+        public void tick(long time) {
+            if (!((NPC) entityCreature).shouldLookAtPlayers()) {
+                target = null;
+                return;
+            }
+
+            if (target == null || entityCreature.getDistanceSquared(target) > 225 ||
+                    entityCreature.getInstance() != target.getInstance()) {
+                target = null;
+                return;
+            }
+
+            entityCreature.lookAt(target);
+        }
+
+        @Override
+        public boolean shouldEnd() {
+            return target == null || !((NPC) entityCreature).shouldLookAtPlayers();
+        }
+
+        @Override
+        public void end() {
+            // No action needed on end
+        }
+
+        public Entity findTarget() {
+            // Simple logic to find the closest player within a certain radius
+            return entityCreature.getInstance().getEntities()
+                    .stream()
+                    .filter(entity -> entity instanceof Player)
+                    .min((e1, e2) -> Double.compare(entityCreature.getDistanceSquared(e1), entityCreature.getDistanceSquared(e2)))
+                    .orElse(null);
+        }
     }
 }
