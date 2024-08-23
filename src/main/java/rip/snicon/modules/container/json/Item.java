@@ -35,6 +35,9 @@ public class Item {
     }
 
     public ItemSkin getSkin() {
+        if (skin == null) {
+            return new ItemSkin("", "", "");
+        }
         return skin;
     }
 

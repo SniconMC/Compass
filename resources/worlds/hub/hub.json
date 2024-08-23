@@ -1,7 +1,7 @@
 {
-  "spawnX": 5.0,
+  "spawnX": 5.5,
   "spawnY": 66.0,
-  "spawnZ": 21.0,
+  "spawnZ": 21.5,
   "spawnPitch": 0.0,
   "spawnYaw": -180.0,
   "hasVoidLimit": true,

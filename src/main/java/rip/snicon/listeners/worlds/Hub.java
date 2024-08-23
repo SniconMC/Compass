@@ -9,6 +9,7 @@ import net.minestom.server.event.GlobalEventHandler;
 import net.minestom.server.event.item.ItemDropEvent;
 import net.minestom.server.event.player.PlayerBlockBreakEvent;
 import net.minestom.server.event.player.PlayerBlockInteractEvent;
+import net.minestom.server.event.player.PlayerRespawnEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
 import net.minestom.server.event.trait.PlayerEvent;
 import net.minestom.server.instance.Instance;
@@ -43,6 +44,17 @@ public class Hub {
                 HotbarCreator.setHotbar(player, "lobby");
 
                 onlinePlayer.sendMessage("[+] " + player.getUsername());
+                onlinePlayer.sendMessage("Entities in the world: " + player.getInstance().getEntities().size());
+
+            }
+        });
+        hubNode.addListener(PlayerRespawnEvent.class, event -> {
+            Player player = event.getPlayer();
+            Instance playerInstance = player.getInstance();
+            Set<Player> players = playerInstance.getPlayers();
+            for (Player onlinePlayer : players) {
+                onlinePlayer.sendMessage("Entities in the world: " + player.getInstance().getEntities().size());
+
             }
         });
     }

@@ -6,9 +6,9 @@
   "uuid": "uuid",
   "entity_type": "player",
   "position": {
-    "x": 6.0,
+    "x": 7.5,
     "y": 66.0,
-    "z": 18.0,
+    "z": 18.5,
     "pitch": 0.0,
     "yaw": 180.0,
     "look_at_player": true

@@ -6,6 +6,12 @@ public class ItemSkin {
     private String uuid;
     private String texture;
 
+    public ItemSkin(String player, String uuid, String texture){
+        this.player = player;
+        this.uuid = uuid;
+        this.texture = texture;
+    }
+
     public String getPlayer() {
         return player;
     }

@@ -234,27 +234,22 @@
     {
       "slot": 11,
       "id": "$(ah_slot_11_item)",
-      "count": {
-        "current": "",
-        "max": 64
-      },
+      "count": $(ah_slot_11_item_count),
       "display": {
-        "name": [],
-        "lore": [],
+        "name": $(ah_slot_11_item_name),
+        "lore": [
+          $(ah_slot_11_item_lore),
+          [{"text": " "}],
+          [{"text": "Seller: ","color": "gray"},$(ah_slot_11_seller_rank),$(ah_slot_11_seller_username)],
+          [{"text": "Buy it now: ", "color": "gray"},{"text": "$(ah_slot_11_price)","color": "gold"},{"text": " coins","color": "gold"}]
+        ],
         "model_data": "",
-        "glint": false,
-        "dye_color": "",
+        "glint": $(ah_slot_11_item_glint),
+        "dye_color": "$(ah_slot_11_item_dye)",
         "show_tooltip": true
       },
-      "skin": {
-        "player": "",
-        "uuid": "",
-        "texture": ""
-      },
-      "data": {
-        "function": "",
-        "page": ""
-      }
+      "skin": $(ah_slot_11_item_skin),
+      "data": $(ah_slot_11_item_data)
     },
     {
       "slot": 12,

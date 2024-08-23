@@ -8,6 +8,7 @@ import net.minestom.server.entity.ai.GoalSelector;
 import net.minestom.server.entity.ai.goal.FollowTargetGoal;
 import net.minestom.server.entity.ai.goal.MeleeAttackGoal;
 import net.minestom.server.entity.ai.goal.RandomStrollGoal;
+import net.minestom.server.entity.ai.goal.RangedAttackGoal;
 import net.minestom.server.entity.ai.target.ClosestEntityTarget;
 import net.minestom.server.entity.attribute.Attribute;
 import net.minestom.server.event.entity.EntityAttackEvent;
@@ -18,6 +19,8 @@ import net.minestom.server.utils.time.TimeUnit;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.UUID;
@@ -57,7 +60,9 @@ public final class NPC extends EntityCreature {
         // Add AI group with LookAtPlayerGoal
         addAIGroup(
                 new EntityAIGroupBuilder()
-                        .addGoalSelector(new LookAtPlayerGoal(this, 5)) // Look at players within 5 blocks
+                        //.addGoalSelector(new LookAtPlayerGoal(this, 5)) // Look at players within 5 blocks
+                        .addGoalSelector(new MeleeAttackGoal(this, 3, 5, TimeUnit.SERVER_TICK))
+                        .addTargetSelector(new ClosestEntityTarget(this, 32, entity -> entity instanceof Player))
                         .build()
         );
     }

@@ -1,0 +1,31 @@
+{
+  "name": [
+    [{"text": "Example Johnson","color" : "red"}],
+    [{"text": "Hi ","color" : "green" },{"text": "$(player_name)","color" : "green" }]
+  ],
+  "uuid": "uuid",
+  "entity_type": "player",
+  "position": {
+    "x": 3.5,
+    "y": 106.0,
+    "z": 18.5,
+    "pitch": 0.0,
+    "yaw": 180.0,
+    "look_at_player": true
+  },
+  "skin": {
+    "player": "deadmau5",
+    "signature": "",
+    "texture": "",
+    "cape": false,
+    "jacket": true,
+    "left_sleeve": true,
+    "right_sleeve": true,
+    "left_pants": true,
+    "right_pants": true,
+    "hat": true
+  },
+  "in_tab": false,
+  "world" : "hub"
+}
+

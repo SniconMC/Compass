@@ -126,7 +126,7 @@ public class ItemStackUtils {
         if (itemStack.material() == Material.PLAYER_HEAD) {
             HeadProfile profile = itemStack.get(ItemComponent.PROFILE);
             if (profile != null) {
-                ItemSkin skin = new ItemSkin();
+                ItemSkin skin = new ItemSkin("", "", "");
                 skin.setPlayer(profile.name()); // Assuming method in HeadProfile to get player's name
                 PlayerSkin playerSkin = profile.skin();
                 if (playerSkin != null) {

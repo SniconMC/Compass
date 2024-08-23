@@ -95,7 +95,7 @@ public class ContainerCreator {
 
         String containerJson = configMap.get(name);
         String placeholdedJson = PlaceholderReplacer.replacePlaceholders(player, containerJson);
-
+        Main.logger.info(placeholdedJson);
         try {
 
             ContainerConfig config = gson.fromJson(placeholdedJson, ContainerConfig.class);

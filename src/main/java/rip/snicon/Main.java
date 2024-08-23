@@ -34,6 +34,7 @@ public class Main {
         MinecraftServer.getCommandManager().register(new TravelWorldCommand());
         MinecraftServer.getCommandManager().register(new SidebarCommand());
         MinecraftServer.getBlockManager().registerHandler("minecraft:skull", SkullHandler::new);
+        MinecraftServer.getBlockManager().registerHandler("minecraft:oak_sign", SkullHandler::new);
         // Start the server
         MojangAuth.init();
         minecraftServer.start("0.0.0.0", 25565);

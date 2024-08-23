@@ -326,7 +326,7 @@
     }
   ],
   "settings": {
-    "rows": 0,
+    "rows": 6,
     "display_name": [{"text":"Server Selector", "color": "#00aa99", "bold": "false"}],
     "container_id":"compass",
     "modify": false,
