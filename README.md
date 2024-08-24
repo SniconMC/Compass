@@ -1,2 +1,2 @@
 # Minestom
-A Minestom variant
+The Minestom version of our server network

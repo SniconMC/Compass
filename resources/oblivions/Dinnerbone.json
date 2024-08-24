@@ -1,0 +1,34 @@
+{
+  "name": [
+    [{"text": "Example Johnson","color" : "red"}],
+    [
+      {"text": "Hi ", "color": "green" },
+      {"text": "$(player_name)","color" : "green"}
+    ]
+  ],
+  "uuid": "uuid",
+  "entity_type": "player",
+  "position": {
+    "x": 4.5,
+    "y": 116.0,
+    "z": 13.5,
+    "pitch": 0.0,
+    "yaw": 0.0,
+    "look_at_player": true
+  },
+  "skin": {
+    "player": "",
+    "signature": "oOBxNTNcbBKMHlwLCAA6IsoYKxCvBnUT6YSxP+hQNuoQ9Z/SfxOEl1fnMFERwapBZypzHSQZgy5DdViJRUp8nq9YUkwKCbw5dmk96JIsAEx/0snPtMjl4lIv9SfTpB+y3onBrLo9/mOeiMREh7qTLPnx6JWQqUQWPzRRs4AiNZktT9qCld/GCYfrRfaOYccoCRxWGIc1hsIniiQTndlDHVzkUeEtuUb7XYTSdT5ckXtLYDN1WMMycL7jvIpZsDP3jh9fu6CUnhYXK7XjMrJB+dnkye5COeVNhWPqavxJg6JpJa3+hrQIpi0APTpcU6tKkLcIyVinx7hqAhZkn3cz+4KwJbqwnNd2VvMpPdiZKN6uqVc8eD9BAtJNGO2Wr0YiL/qWAMnYS8uvX6NGpAjxVda2vG+PxuNfcrnpvRz4o/EeFhX6tshsLYqEdZqMN81/y0SGFMz76vIB4jo9n+4PFXzfH+Sy4WpBLvhOgc0ZYWykuXFlJZbhR46YhcFjQdaKeCjd6JtLoCMaGaCiuhgWBJvvo7E5G45k+EKw4uXHMMVn5v+wrEBPcx3W+zT5eLXcaN5fYdugLJmQM4vYsdbwvclDHMO7rI0r/UCSeicIAeiIa2Ju9NFFvc+l73nH+PpKWOjtJHqJpvMGdpn/banZIL/OWOx03FHRLCYM9cEuYwE=",
+    "texture": "ewogICJ0aW1lc3RhbXAiIDogMTcyNDQ0MTYyOTgwOCwKICAicHJvZmlsZUlkIiA6ICI2MTY5OWIyZWQzMjc0YTAxOWYxZTBlYThjM2YwNmJjNiIsCiAgInByb2ZpbGVOYW1lIiA6ICJEaW5uZXJib25lIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzUwYzQxMGZhZDhkOWQ4ODI1YWQ1NmIwZTQ0M2UyNzc3YTZiNDZiZmEyMGRhY2QxZDJmNTVlZGM3MWZiZWIwNmQiCiAgICB9LAogICAgIkNBUEUiIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2NkOWQ4MmFiMTdmZDkyMDIyZGJkNGE4NmNkZTRjMzgyYTc1NDBlMTE3ZmFlN2I5YTI4NTM2NTg1MDVhODA2MjUiCiAgICB9CiAgfQp9",
+    "cape": false,
+    "jacket": true,
+    "left_sleeve": true,
+    "right_sleeve": true,
+    "left_pants": true,
+    "right_pants": true,
+    "hat": true
+  },
+  "in_tab": false,
+  "world" : "hub"
+}
+

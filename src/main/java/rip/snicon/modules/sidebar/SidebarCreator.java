@@ -75,7 +75,7 @@ public class SidebarCreator {
             Main.logger.error("Error parsing JSON file: " + file.getName());
         } catch (IOException e) {
             // Handle IO errors
-            Main.logger.error("Error loading container file: " + file.getName());
+            Main.logger.error("Error loading Sidebar file: " + file.getName());
         }
     }
 

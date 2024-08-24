@@ -8,20 +8,20 @@ import net.minestom.server.instance.Instance;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.instances.worlds.WorldInfo;
 
-public class TravelWorldCommand extends Command {
+public class TravelCommand extends Command {
 
-    public TravelWorldCommand() {
-        super("travelworld", "travel");
+    public TravelCommand() {
+        super("travel", "travel");
 
         // Executed if no other executor can be used
         setDefaultExecutor((sender, context) -> {
-            sender.sendMessage("/travelworld <name>");
+            sender.sendMessage("/travel <world name>");
         });
 
-        var worldNameArgument = ArgumentType.String("worldName");
+        var worldArgument = ArgumentType.String("world");
 
         addSyntax((commandSender, commandContext) -> {
-            String worldName = commandContext.get(worldNameArgument);
+            String worldName = commandContext.get(worldArgument);
 
             if (!(commandSender instanceof Player)) {
                 commandSender.sendMessage("Sender not player");
@@ -43,7 +43,7 @@ public class TravelWorldCommand extends Command {
 
 
 
-        }, worldNameArgument);
+        }, worldArgument);
 
 
 

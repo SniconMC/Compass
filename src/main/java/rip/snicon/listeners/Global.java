@@ -1,10 +1,14 @@
 package rip.snicon.listeners;
 
 import com.google.gson.Gson;
+import it.unimi.dsi.fastutil.Pair;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.TextColor;
+import net.kyori.adventure.text.format.TextDecoration;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
+import net.minestom.server.entity.EntityCreature;
 import net.minestom.server.entity.Player;
 import net.minestom.server.entity.damage.Damage;
 import net.minestom.server.event.GlobalEventHandler;
@@ -12,7 +16,6 @@ import net.minestom.server.event.entity.EntityAttackEvent;
 import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.PlayerBlockBreakEvent;
 import net.minestom.server.event.player.PlayerBlockInteractEvent;
-import net.minestom.server.event.player.PlayerBlockPlaceEvent;
 import net.minestom.server.event.server.ServerListPingEvent;
 import net.minestom.server.instance.Instance;
 import net.minestom.server.item.ItemComponent;
@@ -28,25 +31,22 @@ import rip.snicon.listeners.worlds.AFK;
 import rip.snicon.listeners.worlds.Hub;
 import rip.snicon.modules.container.json.*;
 import rip.snicon.modules.placeholders.PlaceHolder;
+import rip.snicon.utils.MOTD;
 import rip.snicon.utils.item.ItemStackUtils;
-import rip.snicon.utils.json.Text;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class Global {
 
     public Global(){
         onPlayerConfig();
         onServerPing();
-        npcAttackEvent();
+        attackEvent();
         eventsToBeCanceled();
 
         Hub hubHandler = new Hub(MinecraftServer.getGlobalEventHandler());
@@ -142,15 +142,18 @@ public class Global {
             // server icon
             responseData.setFavicon("data:image/png;base64," + base64String);
 
-            // description
-            responseData.setDescription(Component.text("haha yes very cool"));
+            // ⥊⥋ ⥏⥑
+            // ←→ ↑↓
+
+            // Set the server description
+            responseData.setDescription(MOTD.createMOTD());
 
             // fake players in server list
             responseData.addEntry(NamedAndIdentified.of("Notch", UUID.randomUUID()));
             responseData.addEntry(NamedAndIdentified.of("jeb_", UUID.randomUUID()));
-            responseData.addEntry(NamedAndIdentified.of("Dinnerbone", UUID.randomUUID()));
             responseData.addEntry(NamedAndIdentified.of("Grumm", UUID.randomUUID()));
-            responseData.addEntry(NamedAndIdentified.of("Deadmau5", UUID.randomUUID()));
+            responseData.addEntry(NamedAndIdentified.of("Dinnerbone", UUID.randomUUID()));
+            responseData.addEntry(NamedAndIdentified.of("C418", UUID.randomUUID()));
 
             // add all online players to server list
             responseData.addEntries(MinecraftServer.getConnectionManager().getOnlinePlayers());
@@ -163,13 +166,13 @@ public class Global {
         });
     }
 
-    public void npcAttackEvent() {
+    public void attackEvent() {
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
 
         globalEventHandler.addListener(EntityAttackEvent.class, event -> {
-            Player player = (Player) event.getTarget();
-            player.damage(Damage.fromEntity(event.getEntity(),0.1F));
-            player.takeKnockback(1,event.getEntity().getPosition().direction().normalize().neg().x(), event.getEntity().getPosition().direction().normalize().neg().z());
+            EntityCreature entityCreature = (EntityCreature) event.getTarget();
+            entityCreature.damage(Damage.fromEntity(event.getEntity(),0.1F));
+            entityCreature.takeKnockback(1,event.getEntity().getPosition().direction().normalize().neg().x(), event.getEntity().getPosition().direction().normalize().neg().z());
         });
     }
 

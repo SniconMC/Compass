@@ -29,8 +29,8 @@ public class ColorUtils {
             case "dark_aqua" -> NamedTextColor.DARK_AQUA;
             case "dark_red" -> NamedTextColor.DARK_RED;
             case "dark_purple" -> NamedTextColor.DARK_PURPLE;
-            case "gray" -> NamedTextColor.GRAY;
-            case "dark_gray" -> NamedTextColor.DARK_GRAY;
+            case "gray", "grey" -> NamedTextColor.GRAY;
+            case "dark_gray", "dark_grey" -> NamedTextColor.DARK_GRAY;
             case "blue" -> NamedTextColor.BLUE;
             case "green" -> NamedTextColor.GREEN;
             case "aqua" -> NamedTextColor.AQUA;

@@ -8,22 +8,16 @@ import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
 import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.instance.Instance;
-import net.minestom.server.network.NetworkBuffer;
-import net.minestom.server.network.packet.client.play.ClientUpdateSignPacket;
-import net.minestom.server.network.packet.server.play.OpenSignEditorPacket;
 import rip.snicon.Main;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.modules.oblivion.json.Oblivion;
 import rip.snicon.utils.PlaceholderReplacer;
 import rip.snicon.utils.SkinUtils;
 
-import java.awt.*;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class OblivionCreator {
@@ -46,7 +40,8 @@ public class OblivionCreator {
             // Start searching from the containerFolder
             searchFiles(dataFolder);
         } else {
-            Main.logger.error("the worlds dataFolder does not exist!");
+            Main.logger.error("the worlds dataFolder does not exist! Creating...");
+            dataFolder.mkdirs();
         }
     }
 
@@ -62,6 +57,8 @@ public class OblivionCreator {
                     processJsonFile(file);
                 }
             }
+        } else {
+            Main.logger.error("The oblivion config file does not exist!");
         }
     }
 
@@ -71,18 +68,18 @@ public class OblivionCreator {
             String name = file.getName().replace(".json", "");
             oblivionConfigs.put(name, oblivionConfig);
 
-            Main.logger.info("Loaded container config: " + name);
+            Main.logger.info("Loaded Oblivion config: " + name);
 
         } catch (JsonSyntaxException | JsonIOException e) {
             // Handle Gson-specific errors
             Main.logger.error("Error parsing JSON file: " + file.getName());
         } catch (IOException e) {
             // Handle IO errors
-            Main.logger.error("Error loading container file: " + file.getName());
+            Main.logger.error("Error loading Oblivion file: " + file.getName());
         }
     }
 
-    public static void reloadContainers(){
+    public static void reloadOblivions(){
         loadOblivions();
     }
 
@@ -116,9 +113,6 @@ public class OblivionCreator {
 
     // Method to handle NPC click interactions
     public static void handleNpcClick(Player player) {
-        player.sendMessage("I will kill yourself");
+        player.sendMessage("ouchie");
     }
-
-
-
 }

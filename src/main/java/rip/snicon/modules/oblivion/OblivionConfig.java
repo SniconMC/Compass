@@ -1,6 +1,5 @@
 package rip.snicon.modules.oblivion;
 
-import net.minestom.server.coordinate.Pos;
 import rip.snicon.modules.oblivion.json.OblivionPosition;
 import rip.snicon.modules.oblivion.json.OblivionSkin;
 import rip.snicon.utils.json.Text;

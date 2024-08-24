@@ -1,11 +1,17 @@
 {
-  "name": [[{"text": "Hub Exporer","color" : "yellow" }]],
+  "name": [
+    [{"text": "Example Johnson","color" : "red"}],
+    [
+      {"text": "Hi ", "color": "green" },
+      {"text": "$(player_name)","color" : "green"}
+    ]
+  ],
   "uuid": "uuid",
   "entity_type": "player",
   "position": {
-    "x": 1.0,
+    "x": 1.5,
     "y": 66.0,
-    "z": 8.0,
+    "z": 8.5,
     "pitch": 0.0,
     "yaw": 0.0,
     "look_at_player": true

@@ -1,0 +1,60 @@
+{
+  "row1": [
+    {"text": "                      ","color": "#ffffff"},
+
+    {"text": "→ ","color": "#e02eba"},
+    {"text": "p","color": "#e134ad"},
+    {"text": "l","color": "#e13a9f"},
+    {"text": "a","color": "#e24092"},
+    {"text": "y","color": "#e34685"},
+    {"text": ".","color": "#e34c78"},
+    {"text": "z","color": "#e4526a"},
+    {"text": "n","color": "#e4585d"},
+    {"text": "o","color": "#e55e50"},
+    {"text": "p","color": "#e66442"},
+    {"text": "p","color": "#e66a35"},
+    {"text": ".","color": "#e77028"},
+    {"text": "p","color": "#e8761b"},
+    {"text": "w","color": "#e87c0d"},
+    {"text": " ←","color": "#e98200"},
+
+    {"text": "                  ","color": "#ffffff"},
+
+    {"text": "v0.1","color": "#555555"}
+  ],
+  "row2": [
+    [
+      {"text": "Made with ","color": "#AAAAAA"},
+
+      {"text": "M","color": "#ff6c2f"},
+      {"text": "i","color": "#ff6d42"},
+      {"text": "n","color": "#ff6f56"},
+      {"text": "e","color": "#ff7069"},
+      {"text": "s","color": "#ff727c"},
+      {"text": "t","color": "#ff738f"},
+      {"text": "o","color": "#ff75a3"},
+      {"text": "m","color": "#ff76b6"}
+    ],
+    [
+      {"text": "i swear we're not an ","color": "#AAAAAA"},
+
+      {"text": "&lE","color": "#fca800"},
+      {"text": "&lm","color": "#fc9e20"},
+      {"text": "&lo","color": "#fc933f"},
+      {"text": "&lr","color": "#fc895f"},
+      {"text": "&lt","color": "#fc7e7e"},
+      {"text": "&la","color": "#fc749e"},
+      {"text": "&ll","color": "#fc69bd"},
+      {"text": "&lM","color": "#fc5fdd"},
+      {"text": "&lC","color": "#fc54fc"},
+
+      {"text": " clone","color": "#AAAAAA"}
+    ],
+    [
+      {"text": "Check out ","color": "#AAAAAA"},
+      {"text": "&nmc.emortal.dev","color": "#AAAAAA"},
+      {"text": "!","color": "#AAAAAA"}
+    ]
+  ]
+
+}

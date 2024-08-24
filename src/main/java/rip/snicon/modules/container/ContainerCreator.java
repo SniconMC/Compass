@@ -75,7 +75,7 @@ public class ContainerCreator {
             String name = file.getName().replace(".json", "");
             configMap.put(name, containerJson);
 
-            Main.logger.info("Loaded container config: " + name);
+            Main.logger.info("Loaded Container config: " + name);
 
         } catch (JsonSyntaxException | JsonIOException e) {
             // Handle Gson-specific errors

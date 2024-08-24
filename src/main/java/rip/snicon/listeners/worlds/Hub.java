@@ -48,15 +48,6 @@ public class Hub {
 
             }
         });
-        hubNode.addListener(PlayerRespawnEvent.class, event -> {
-            Player player = event.getPlayer();
-            Instance playerInstance = player.getInstance();
-            Set<Player> players = playerInstance.getPlayers();
-            for (Player onlinePlayer : players) {
-                onlinePlayer.sendMessage("Entities in the world: " + player.getInstance().getEntities().size());
-
-            }
-        });
     }
 
     public void eventsToBeCanceled() {

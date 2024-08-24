@@ -113,5 +113,35 @@ public class TextUtils {
             }
         }
     }
+
+    public static Component componentFormatMinecraft(String text, String color) {
+        Component textComponent;
+
+        if (text.startsWith("&")) {
+            char formatChar = text.charAt(1);
+            String remainingText = text.substring(2);
+
+            switch (formatChar) {
+                case 'k' ->
+                        textComponent = Component.text(remainingText).decorate(TextDecoration.OBFUSCATED);
+                case 'l' ->
+                        textComponent = Component.text(remainingText).decorate(TextDecoration.BOLD);
+                case 'm' ->
+                        textComponent = Component.text(remainingText).decorate(TextDecoration.STRIKETHROUGH);
+                case 'n' ->
+                        textComponent = Component.text(remainingText).decorate(TextDecoration.UNDERLINED);
+                case 'o' ->
+                        textComponent = Component.text(remainingText).decorate(TextDecoration.ITALIC);
+                default ->
+                        textComponent = Component.text(text);
+            }
+        } else {
+            textComponent = Component.text(text);
+        }
+
+        return textComponent.color(TextColor.fromHexString(color));
+    }
+
+
 }
 

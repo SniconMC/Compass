@@ -2,6 +2,7 @@ package rip.snicon.utils;
 
 import net.minestom.server.entity.Player;
 import net.minestom.server.entity.PlayerSkin;
+import rip.snicon.Main;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +14,7 @@ public class SkinUtils {
     private static final Map<String, CachedSkin> cachedValues = new HashMap<>();
 
     public static PlayerSkin getSkin(Player player, String username, String uuid, String texture, String signature) {
-        String cacheKey = getCacheKey(player, username, uuid);
+        String cacheKey = getCacheKey(player, username, uuid, texture);
 
         // Check if the skin is cached and update the counter
         if (cachedValues.containsKey(cacheKey)) {
@@ -30,7 +31,6 @@ public class SkinUtils {
 
             return cachedSkin.getPlayerSkin();
         }
-
         // Otherwise, create a new skin based on the input parameters
         PlayerSkin skin = createPlayerSkin(player, username, uuid, texture, signature);
 
@@ -59,14 +59,17 @@ public class SkinUtils {
         return new PlayerSkin("", "");
     }
 
-    private static String getCacheKey(Player player, String username, String uuid) {
+    private static String getCacheKey(Player player, String username, String uuid, String texture) {
         if (username.equalsIgnoreCase("this")){
             return player.getUsername();
         }
         if (!username.isEmpty()) {
             return username;
         }
-        return uuid;
+        if(!uuid.isEmpty()) {
+            return uuid;
+        }
+        return texture;
     }
 
     private static PlayerSkin fetchUpdatedSkin(Player player, String username, String uuid, String texture, String signature) {
