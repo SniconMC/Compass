@@ -36,7 +36,7 @@
         "lore": [],
         "model_data": "",
         "glint": false,
-        "dye_color": "",
+        "dye_color": "$(cosmetics_dye)",
         "show_tooltip": true
       },
       "skin": {
@@ -188,7 +188,7 @@
         "lore": [],
         "model_data": "",
         "glint": false,
-        "dye_color": "",
+        "dye_color": "$(cosmetics_dye)",
         "show_tooltip": true
       },
       "skin": {

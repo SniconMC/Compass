@@ -21,8 +21,8 @@ public class TextUtils {
         for (String text : minimessages) {
 
             // Deserialize the MiniMessage formatted text
-            String newText = "<reset><italic:false>" + text;
-            Component textComponent = miniMessage.deserialize(newText).color(TextColor.fromHexString("#818181"));
+            String newText = "<reset><italic:false><#818181>" + text + "<reset>";
+            Component textComponent = miniMessage.deserialize(newText);
             comp = comp.append(textComponent);
         }
         return comp;

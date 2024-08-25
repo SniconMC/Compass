@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
+
 public class SkinUtils {
 
     private static final Map<String, CachedSkin> cachedValues = new HashMap<>();
@@ -35,6 +36,7 @@ public class SkinUtils {
             return cachedSkin.getPlayerSkin();
         }
         // Otherwise, create a new skin based on the input parameters
+
         PlayerSkin skin = createPlayerSkin(player, username, uuid, texture, signature);
 
         if (skin != null && !isDefaultSkin(skin)) {
@@ -64,6 +66,7 @@ public class SkinUtils {
             }
             return new PlayerSkin("", "");
         } catch (Exception e) {
+            Main.logger.error("your motherly mother");
             // Return a default skin indicating an error occurred
             return new PlayerSkin("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQ0OWVjYjVlNmNlNjAwMjY1MzQ4MzZiZjgzYWIzN2NjNGRhZmQzMzNjYmRjYjVjMjFmNjIxNjYxZjVkMDgxYSJ9fX0=","");
         }

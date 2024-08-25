@@ -17,7 +17,7 @@
       "  "
     ],
     [
-      "» <dark_green><bold>Profession</bold></dark_green><reset>"
+      "» <dark_green><bold>Profession</bold></dark_green>"
     ],
     [
       "    <white>$(player_profession)</white>"
