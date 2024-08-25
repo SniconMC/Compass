@@ -58,13 +58,9 @@
       },
       "display": {
         "name": [
-		{"text": "Your pos is: ", "color": "$(item_color)"},
-        {"text": "$(player_cords)", "color": "#f300ae"}
+          "<green>Current position</green><gray>: $(player_coords)</gray>"
 		],
-        "lore": [
-			[{"text": "Your pos is: ", "color": "$(item_color)"},
-        	{"text": "$(player_cords)", "color": "#f300ae"}]
-		],
+        "lore": [],
         "model_data": "",
         "glint": false,
         "dye_color": "",
@@ -89,14 +85,7 @@
       },
       "display": {
         "name": [
-          {
-            "text": "Back to Profile",
-            "color": "white",
-            "bold": false,
-            "italic": false,
-            "underline": false,
-            "strikethrough": false
-          }
+          "<gray>» <red>Back to Profile</red> «"
         ],
         "lore": [],
         "model_data": "",
@@ -117,7 +106,9 @@
   ],
   "settings": {
     "rows": 5,
-    "display_name": [{"text":"Stats for ","color":"dark_gray"},{"text":"$(player_name)","color":"dark_gray"}],
+    "display_name": [
+      "<dark_gray>Your Statistics"
+    ],
     "container_id": "stats",
     "modify": false,
     "modify_creative": true

@@ -46,15 +46,6 @@ public class Container {
             }
             event.setCancelled(true);
             ContainerCreator.openContainer(player, redirect);
-
-            Item item = ItemStackUtils.convertToItem(itemStack, player);
-            // Create a Gson instance
-            Gson gson = new Gson();
-
-            // Convert Item object to JSON string
-            String jsonString = gson.toJson(item);
-            player.sendMessage(jsonString);
-            Main.logger.info(jsonString);
         });
     }
 

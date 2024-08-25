@@ -1,6 +1,6 @@
 {
   "name": [
-    [{"text": "Example Johnson","color" : "red"}]
+    ["Example Johnson"]
   ],
   "uuid": "uuid",
   "entity_type": "player",

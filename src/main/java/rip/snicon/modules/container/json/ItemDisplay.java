@@ -1,13 +1,11 @@
 package rip.snicon.modules.container.json;
 
-import rip.snicon.utils.json.Text;
-
 import java.util.List;
 
 public class ItemDisplay {
 
-    private List<Text> name;
-    private List<List<Text>> lore;
+    private List<String> name;
+    private List<List<String>> lore;
     private Object model_data;
     private boolean glint;
     private String dye_color;
@@ -18,11 +16,11 @@ public class ItemDisplay {
         return show_tooltip;
     }
 
-    public List<Text> getName() {
+    public List<String> getName() {
         return name;
     }
 
-    public List<List<Text>> getLore() {
+    public List<List<String>> getLore() {
         return lore;
     }
 
@@ -42,11 +40,11 @@ public class ItemDisplay {
     }
 
 
-    public void setName(List<Text> name) {
+    public void setName(List<String> name) {
         this.name = name;
     }
 
-    public void setLore(List<List<Text>> lore) {
+    public void setLore(List<List<String>> lore) {
         this.lore = lore;
     }
 

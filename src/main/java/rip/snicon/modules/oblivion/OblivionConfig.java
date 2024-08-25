@@ -2,13 +2,12 @@ package rip.snicon.modules.oblivion;
 
 import rip.snicon.modules.oblivion.json.OblivionPosition;
 import rip.snicon.modules.oblivion.json.OblivionSkin;
-import rip.snicon.utils.json.Text;
 
 import java.util.List;
 
 public class OblivionConfig {
 
-    private List<List<Text>> name;
+    private List<List<String>> name;
     private String uuid;
     private String entity_type;
     private OblivionPosition position;
@@ -18,7 +17,7 @@ public class OblivionConfig {
     private boolean in_tab;
     private String world;
 
-    public List<List<Text>> getName() {
+    public List<List<String>> getName() {
         return name;
     }
 

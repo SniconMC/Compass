@@ -1,7 +1,7 @@
 package rip.snicon.utils;
 
 import net.minestom.server.entity.Player;
-import rip.snicon.modules.placeholders.PlaceHolder;
+import rip.snicon.modules.placeholders.PlaceholderManager;
 
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -17,7 +17,7 @@ public class PlaceholderReplacer {
         }
 
         // Get player-specific placeholders
-        Map<String, String> placeholders = PlaceHolder.getPlayerPlaceholders().get(player);
+        Map<String, String> placeholders = PlaceholderManager.getPlayerPlaceholders().get(player);
         if (placeholders == null || placeholders.isEmpty()) {
             return text;
         }

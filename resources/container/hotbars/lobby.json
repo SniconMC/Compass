@@ -9,33 +9,17 @@
       },
       "display": {
         "name": [
-          {"text": "A","color": "#e02eba"},
-          {"text": "u","color": "#e134ac"},
-          {"text": "c","color": "#e13b9d"},
-          {"text": "t","color": "#e2418f"},
-          {"text": "i","color": "#e34881"},
-          {"text": "o","color": "#e34e72"},
-          {"text": "n","color": "#e45564"},
-          {"text": " ","color": "white"},
-          {"text": "B","color": "#e55b56"},
-          {"text": "r","color": "#e66248"},
-          {"text": "o","color": "#e66839"},
-          {"text": "w","color": "#e76f2b"},
-          {"text": "s","color": "#e8751d"},
-          {"text": "e","color": "#e87c0e"},
-          {"text": "r","color": "#e98200"}
+          "<gray>» </gray><gradient:#ff00da:#ff8300>Auction House</gradient><gray> «</gray>"
         ],
         "lore": [
           [
-            {"text": "Buy and sell items here!","color": "gray"}
+            "<gray>Buy and sell items here!</gray>"
           ],
           [
-            {"text": "","color": "white"}
+            " "
           ],
           [
-            {"text": "» ","color": "gray"},
-            {"text": "Click to open","color": "aqua"},
-            {"text": " «","color": "gray"}
+            "<gray>» <aqua>Click to open</aqua> «"
           ]
         ],
         "model_data": "",
@@ -62,26 +46,17 @@
       },
       "display": {
         "name": [
-          {"text": "S","color": "#e02eba"},
-          {"text": "e","color": "#e13a9f"},
-          {"text": "t","color": "#e34685"},
-          {"text": "t","color": "#e4526a"},
-          {"text": "i","color": "#e55e50"},
-          {"text": "n","color": "#e66a35"},
-          {"text": "g","color": "#e8761b"},
-          {"text": "s","color": "#e98200"}
+          "<gray>» </gray><gradient:#ff00da:#ff8300>Settings</gradient><gray> «</gray>"
         ],
         "lore": [
           [
-            {"text":  "Change your settings!", "color":  "gray"}
+            "<gray>Change your settings!</gray>"
           ],
           [
-            {"text": "","color": "white"}
+            " "
           ],
           [
-            {"text": "» ","color": "gray"},
-            {"text": "Click to open","color": "aqua"},
-            {"text": " «","color": "gray"}
+            "<gray>» <aqua>Click to open</aqua> «</gray>"
           ]
         ],
         "model_data": "",
@@ -108,33 +83,17 @@
       },
       "display": {
         "name": [
-          {"text": "S","color": "#e02eba"},
-          {"text": "e","color": "#e134ac"},
-          {"text": "r","color": "#e13b9d"},
-          {"text": "v","color": "#e2418f"},
-          {"text": "e","color": "#e34881"},
-          {"text": "r","color": "#e34e72"},
-          {"text": " ","color": "white"},
-          {"text": "S","color": "#e45564"},
-          {"text": "e","color": "#e55b56"},
-          {"text": "l","color": "#e66248"},
-          {"text": "e","color": "#e66839"},
-          {"text": "c","color": "#e76f2b"},
-          {"text": "t","color": "#e8751d"},
-          {"text": "o","color": "#e87c0e"},
-          {"text": "r","color": "#e98200"}
+          "» <gradient:#ff00da:#ff8300>Server Selector</gradient> «"
         ],
         "lore": [
           [
-            {"text":  "Go on. Take a guess.", "color":  "gray"}
+            "<gray>Go on. Take a guess.</gray>"
           ],
           [
-            {"text": "","color": "white"}
+            " "
           ],
           [
-            {"text": "» ","color": "gray"},
-            {"text": "Click to open","color": "aqua"},
-            {"text": " «","color": "gray"}
+            "<gray>» <aqua>Click to open</aqua> «</gray>"
           ]
         ],
         "model_data": "",
@@ -161,28 +120,20 @@
       },
       "display": {
         "name": [
-          {"text": "P", "color":"#e02eba"},
-          {"text": "r", "color":"#e23c9b"},
-          {"text": "o", "color":"#e34a7c"},
-          {"text": "f", "color":"#e5585d"},
-          {"text": "i", "color":"#e6663e"},
-          {"text": "l", "color":"#e8741f"},
-          {"text": "e", "color":"#e98200"}
+          "<dark_gray>» </dark_gray><gradient:#ff00da:#ff8300>Profile</gradient><dark_gray> «</dark_gray>"
         ],
         "lore": [
           [
-            {"text":  "View your cosmetics", "color":  "gray"}
+            "<gray>View your cosmetics</gray>"
           ],
           [
-            {"text":  "and statistics!", "color":  "gray"}
+            "<gray>and statistics!</gray>"
           ],
           [
-            {"text": "","color": "white"}
+            " "
           ],
           [
-            {"text": "» ","color": "gray"},
-            {"text": "Click to open","color": "aqua"},
-            {"text": " «","color": "gray"}
+            "<gray>» <aqua>Click to open</aqua> «</gray>"
           ]
         ],
         "model_data": "",

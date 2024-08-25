@@ -9,25 +9,25 @@ import java.util.Map;
 
 public class Oblivion {
 
-    private Map<String, Player> oblibions = new HashMap<>();
+    private Map<String, Player> oblivions = new HashMap<>();
 
-    private Map<String, List<Entity>> oblibionsName = new HashMap<>();
+    private Map<String, List<Entity>> oblivionsName = new HashMap<>();
 
-    public void setOblibionsName(Map<String, List<Entity>> oblibionsName) {
-        this.oblibionsName = oblibionsName;
+    public void setOblivionsName(Map<String, List<Entity>> oblivionsName) {
+        this.oblivionsName = oblivionsName;
     }
 
 
-    public Map<String, List<Entity>> getOblibionsName() {
-        return oblibionsName;
+    public Map<String, List<Entity>> getOblivionsName() {
+        return oblivionsName;
     }
 
-    public Map<String, Player> getOblibions() {
-        return oblibions;
+    public Map<String, Player> getOblivions() {
+        return oblivions;
     }
 
-    public void setOblibions(Map<String, Player> oblibions) {
-        this.oblibions = oblibions;
+    public void setOblivions(Map<String, Player> oblivions) {
+        this.oblivions = oblivions;
     }
 
 }

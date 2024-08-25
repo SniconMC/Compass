@@ -60,7 +60,7 @@ public final class NPC extends EntityCreature {
         // Add AI group with LookAtPlayerGoal
         addAIGroup(
                 new EntityAIGroupBuilder()
-                        .addGoalSelector(new LookAtPlayerGoal(this, 5)) // Look at players within 5 blocks
+                        .addGoalSelector(new LookAtPlayerGoal(this, 12)) // Look at players within 5 blocks
                         .build()
         );
     }

@@ -2,6 +2,8 @@ package rip.snicon.utils.item;
 
 import net.kyori.adventure.nbt.CompoundBinaryTag;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextColor;
+import net.kyori.adventure.text.serializer.json.JSONComponentSerializer;
 import net.minestom.server.entity.EquipmentSlotGroup;
 import net.minestom.server.entity.Player;
 import net.minestom.server.entity.PlayerSkin;
@@ -20,11 +22,9 @@ import rip.snicon.modules.container.json.*;
 import rip.snicon.utils.ColorUtils;
 import rip.snicon.utils.SkinUtils;
 import rip.snicon.utils.TextUtils;
-import rip.snicon.utils.json.Text;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import static rip.snicon.utils.MaterialUtils.convertMaterialToNamespaceId;
 import static rip.snicon.utils.MaterialUtils.convertToNamespaceIdMaterial;
@@ -38,10 +38,11 @@ public class ItemStackUtils {
             return ItemStack.of(Material.AIR, 1);
         }
 
-        Component itemName = TextUtils.convertToComponentWithPlaceholders(item.getDisplay().getName(), player);
+        Component itemName = TextUtils.convertStringToComponent(item.getDisplay().getName());
+
         List<Component> itemLore = new ArrayList<>();
-        for (List<Text> row : item.getDisplay().getLore()){
-            itemLore.add(TextUtils.convertToComponentWithPlaceholders(row,player));
+        for (List<String> row : item.getDisplay().getLore()){
+            itemLore.add(TextUtils.convertStringToComponent(row));
         }
         int itemCount = item.getCount().getCurrent();
         int itemMaxCount = item.getCount().getMax();
@@ -109,16 +110,16 @@ public class ItemStackUtils {
         if (itemName == null) {
             itemName = Component.text("Empty Name");
         }
-        display.setName(TextUtils.convertComponentToTextList(itemName)); // Assuming reverse of convertToComponentWithPlaceholders
+        display.setName(TextUtils.convertComponentToString(itemName)); // Assuming reverse of convertToComponentWithPlaceholders
 
         List<Component> itemLoreComponents = itemStack.get(ItemComponent.LORE);
         if (itemLoreComponents == null) {
             itemLoreComponents = new ArrayList<>();
         }
 
-        List<List<Text>> itemLore = new ArrayList<>();
+        List<List<String>> itemLore = new ArrayList<>();
         for (Component component : itemLoreComponents) {
-            itemLore.add(TextUtils.convertComponentToTextList(component)); // Assuming reverse method
+            itemLore.add(TextUtils.convertComponentToString(component)); // Assuming reverse method
         }
         display.setLore(itemLore);
 

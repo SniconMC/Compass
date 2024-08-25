@@ -282,7 +282,9 @@
         "max": 64
       },
       "display": {
-        "name": [{"text":"Close","color":"red"}],
+        "name": [
+          "<gray>» <red>Close</red> «"
+        ],
         "lore": [],
         "model_data": null,
         "glint": false,
@@ -326,8 +328,10 @@
     }
   ],
   "settings": {
-    "rows": 6,
-    "display_name": [{"text":"Server Selector", "color": "#00aa99", "bold": "false"}],
+    "rows": 5,
+    "display_name": [
+      "Server selector"
+    ],
     "container_id":"compass",
     "modify": false,
     "modify_creative": true

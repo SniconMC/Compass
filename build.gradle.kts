@@ -14,8 +14,5 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("net.minestom:minestom-snapshots:78f7cffbb3") // Minestom
     implementation("ch.qos.logback:logback-classic:1.5.7")
-}
-
-tasks.test {
-    useJUnitPlatform()
+    implementation("net.kyori:adventure-text-minimessage:4.17.0")
 }

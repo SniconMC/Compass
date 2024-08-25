@@ -27,9 +27,9 @@ public class Hub {
 
     public Hub(EventNode<Event> node) {
         this.hubNode = EventNode.value("hub", EventFilter.PLAYER, player -> player.getInstance() == InstanceCreator.getInstanceMap().get("hub"));
-        node.addChild(hubNode);
         onPlayerJoin();
         eventsToBeCanceled();
+        node.addChild(hubNode);
 
     }
 
@@ -45,7 +45,6 @@ public class Hub {
 
                 onlinePlayer.sendMessage("[+] " + player.getUsername());
                 onlinePlayer.sendMessage("Entities in the world: " + player.getInstance().getEntities().size());
-
             }
         });
     }

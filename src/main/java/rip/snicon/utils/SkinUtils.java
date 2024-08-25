@@ -1,9 +1,12 @@
 package rip.snicon.utils;
 
+import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
 import net.minestom.server.entity.PlayerSkin;
+import net.minestom.server.timer.TaskSchedule;
 import rip.snicon.Main;
 
+import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -34,30 +37,44 @@ public class SkinUtils {
         // Otherwise, create a new skin based on the input parameters
         PlayerSkin skin = createPlayerSkin(player, username, uuid, texture, signature);
 
-        // Cache the new skin
-        cachedValues.put(cacheKey, new CachedSkin(skin));
+        if (skin != null && !isDefaultSkin(skin)) {
+            // Cache the new skin only if it's not the default skin (which implies an error didn't occur)
+            cachedValues.put(cacheKey, new CachedSkin(skin));
+        }
 
         return skin;
     }
 
     private static PlayerSkin createPlayerSkin(Player player, String username, String uuid, String texture, String signature) {
-        if (username != null && Objects.equals(username, "this")) {
-            return PlayerSkin.fromUsername(player.getUsername());
+        try {
+            if (username != null && Objects.equals(username, "this")) {
+                return PlayerSkin.fromUsername(player.getUsername());
+            }
+            if (username != null && !username.isEmpty()) {
+                return PlayerSkin.fromUsername(username);
+            }
+            if (uuid != null && !uuid.isEmpty()) {
+                return PlayerSkin.fromUuid(uuid);
+            }
+            if (texture != null && !texture.isEmpty() && signature != null && !signature.isEmpty()) {
+                return new PlayerSkin(texture, signature);
+            }
+            if (texture != null && !texture.isEmpty()) {
+                return new PlayerSkin(texture, "");
+            }
+            return new PlayerSkin("", "");
+        } catch (Exception e) {
+            // Return a default skin indicating an error occurred
+            return new PlayerSkin("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQ0OWVjYjVlNmNlNjAwMjY1MzQ4MzZiZjgzYWIzN2NjNGRhZmQzMzNjYmRjYjVjMjFmNjIxNjYxZjVkMDgxYSJ9fX0=","");
         }
-        if (username != null && !username.isEmpty()) {
-            return PlayerSkin.fromUsername(username);
-        }
-        if (!uuid.isEmpty()) {
-            return PlayerSkin.fromUuid(uuid);
-        }
-        if (!texture.isEmpty() && !signature.isEmpty()) {
-            return new PlayerSkin(texture, signature);
-        }
-        if (!texture.isEmpty()) {
-            return new PlayerSkin(texture, "");
-        }
-        return new PlayerSkin("", "");
     }
+
+    private static boolean isDefaultSkin(PlayerSkin skin) {
+        // Check if the skin is the default one used when an exception occurs
+        return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQ0OWVjYjVlNmNlNjAwMjY1MzQ4MzZiZjgzYWIzN2NjNGRhZmQzMzNjYmRjYjVjMjFmNjIxNjYxZjVkMDgxYSJ9fX0=".equals(skin.textures()) && "".equals(skin.getSignature());
+    }
+
+
 
     private static String getCacheKey(Player player, String username, String uuid, String texture) {
         if (username.equalsIgnoreCase("this")){

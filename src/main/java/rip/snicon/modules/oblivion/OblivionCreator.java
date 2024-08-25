@@ -113,6 +113,6 @@ public class OblivionCreator {
 
     // Method to handle NPC click interactions
     public static void handleNpcClick(Player player) {
-        player.sendMessage("ouchie");
+        // TODO add stuff here :)
     }
 }

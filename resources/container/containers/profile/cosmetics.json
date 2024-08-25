@@ -210,7 +210,7 @@
       },
       "display": {
         "name": [
-            
+          "<gray>» <red>Back to Profile</red> «"
         ],
         "lore": [
             
@@ -233,7 +233,9 @@
   ],
   "settings": {
     "rows": 6,
-    "display_name": [],
+    "display_name": [
+      "<dark_gray>Your Cosmetics"
+    ],
     "container_id": "cosmetics",
     "modify": false,
     "modify_creative": true

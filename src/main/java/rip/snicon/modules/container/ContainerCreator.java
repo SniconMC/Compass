@@ -27,8 +27,6 @@ import rip.snicon.utils.inventory.InventoryUtils;
 import rip.snicon.utils.item.ItemStackUtils;
 
 
-import static rip.snicon.utils.TextUtils.convertToComponentWithPlaceholders;
-
 
 public class ContainerCreator {
 
@@ -104,7 +102,7 @@ public class ContainerCreator {
                 return;
             }
 
-            Component displayName = convertToComponentWithPlaceholders(config.getInventorySettings().getDisplayName(), player);
+            Component displayName = TextUtils.convertStringToComponent(config.getInventorySettings().getDisplayName());
             InventoryType inventoryType = InventoryUtils.getInventoryType(config.getInventorySettings().getRow());
             int size = config.getInventorySettings().getRow() * 9;
             Inventory inventory = new Inventory(inventoryType, displayName);

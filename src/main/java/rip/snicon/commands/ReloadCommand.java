@@ -27,22 +27,22 @@ public class ReloadCommand extends Command {
             String actionString = context.get(action).toString();
 
             switch (actionString.toLowerCase()) {
-                case "sidebar":
+                case "sidebar" -> {
                     SidebarCreator.reloadSidebars();
                     sender.sendMessage("Realoded Sidebars");
-                    break;
-                case "oblivion":
+                }
+                case "oblivion" -> {
                     OblivionCreator.reloadOblivions();
                     sender.sendMessage("Realoded Oblivions");
-                    break;
-                case "container":
+                }
+                case "container" -> {
                     ContainerCreator.reloadContainers();
                     sender.sendMessage("Realoded Containers");
-                    break;
-                case "hotbar":
+                }
+                case "hotbar" -> {
                     HotbarCreator.reloadHotbars();
                     sender.sendMessage("Realoded Hotbars");
-                    break;
+                }
             }
         }, action);
     }

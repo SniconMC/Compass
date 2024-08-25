@@ -13,7 +13,7 @@ import rip.snicon.modules.container.ContainerCreator;
 import rip.snicon.modules.container.HotbarCreator;
 import rip.snicon.modules.oblivion.OblivionCreator;
 import rip.snicon.modules.sidebar.SidebarCreator;
-import rip.snicon.utils.MOTD;
+import rip.snicon.utils.motd.MOTD;
 
 public class Main {
 

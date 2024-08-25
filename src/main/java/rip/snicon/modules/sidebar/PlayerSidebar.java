@@ -1,24 +1,22 @@
 package rip.snicon.modules.sidebar;
 
-import rip.snicon.utils.json.Text;
-
 import java.util.List;
 
 public class PlayerSidebar {
 
     private boolean blankNumberFormat;
-    private List<Text> title;
-    private List<List<Text>> layout;
+    private List<String> title;
+    private List<List<String>> layout;
 
     public boolean isBlankNumberFormat() {
         return blankNumberFormat;
     }
 
-    public List<Text> getTitle() {
+    public List<String> getTitle() {
         return title;
     }
 
-    public List<List<Text>> getLayout() {
+    public List<List<String>> getLayout() {
         return layout;
     }
 }

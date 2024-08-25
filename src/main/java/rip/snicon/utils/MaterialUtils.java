@@ -7,17 +7,12 @@ import rip.snicon.Main;
 public class MaterialUtils {
 
     public static Material convertToNamespaceIdMaterial(String itemId, Player player) {
-        // Remove "minecraft:" prefix if present and handle placeholders
-        String cleanedId;
-        if (PlaceholderReplacer.containsPlaceholders(itemId)) {
-            String placeholderId = PlaceholderReplacer.replacePlaceholders(player, itemId);
-            cleanedId = placeholderId.replace("minecraft:", "").toUpperCase();
-        } else {
-            cleanedId = itemId.replace("minecraft:", "").toUpperCase();
-        }
 
-        // Convert the cleaned ID to a namespace ID format
-        String namespaceId = "minecraft:" + cleanedId.toLowerCase();
+        // Convert the ID to lowercase and ensure it has the "minecraft:" prefix
+        String namespaceId = itemId.toLowerCase();
+        if (!namespaceId.startsWith("minecraft:")) {
+            namespaceId = "minecraft:" + namespaceId;
+        }
 
         try {
             // Attempt to convert the cleaned ID to a Material
@@ -32,6 +27,7 @@ public class MaterialUtils {
             return Material.AIR; // Return a default or placeholder material if the conversion fails
         }
     }
+
 
     public static String convertMaterialToNamespaceId(Material material) {
         if (material == null) {

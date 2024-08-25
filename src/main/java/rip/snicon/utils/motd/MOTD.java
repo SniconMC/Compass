@@ -1,13 +1,16 @@
-package rip.snicon.utils;
+package rip.snicon.utils.motd;
 
 import com.google.gson.*;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import rip.snicon.Main;
+import rip.snicon.utils.TextUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -72,39 +75,28 @@ public class MOTD {
         Component motd = Component.empty();
 
         for (Map.Entry<String, String> entry : motdConfig.entrySet()) {
-            JsonObject json = gson.fromJson(entry.getValue(), JsonObject.class);
 
-            // Process row1
-            JsonArray row1 = json.getAsJsonArray("row1");
-            motd = getComponent(motd, row1);
+            MOTDConfig config = gson.fromJson(entry.getValue(), MOTDConfig.class);
+
+            // Process row1 & row2Options
+            List<String> row1 = config.getRow1().getFirst();
+            List<List<String>> row2Options = config.getRow2();
+
+            motd = motd.append(TextUtils.convertStringToComponent(row1)); // Pass row1 directly to getComponent
 
             motd = motd.append(Component.newline());
 
-            // Process row2
-            JsonArray row2Options = json.getAsJsonArray("row2");
-            if (row2Options != null && row2Options.size() > 0) {
+            if (row2Options != null && !row2Options.isEmpty()) {
                 // Randomly select one option from row2
                 Random random = new Random();
-                JsonArray selectedRow2 = row2Options.get(random.nextInt(row2Options.size())).getAsJsonArray();
+                List<String> selectedRow2 = row2Options.get(random.nextInt(row2Options.size()));
 
-                motd = getComponent(motd, selectedRow2);
+                motd = motd.append(TextUtils.convertStringToComponent(selectedRow2)); // Pass selectedRow2 directly to getComponent
             }
 
             break; // Process only the first MOTD config
         }
 
-        return motd;
-    }
-
-    private static Component getComponent(Component motd, JsonArray selectedRow) {
-        for (JsonElement element : selectedRow) {
-            JsonObject textObj = element.getAsJsonObject();
-            String text = textObj.get("text").getAsString();
-            String color = textObj.get("color").getAsString();
-
-            Component textComponent = TextUtils.componentFormatMinecraft(text, color);
-            motd = motd.append(textComponent);
-        }
         return motd;
     }
 }

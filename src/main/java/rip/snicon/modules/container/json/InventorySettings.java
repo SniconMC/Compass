@@ -1,12 +1,10 @@
 package rip.snicon.modules.container.json;
 
-import rip.snicon.utils.json.Text;
-
 import java.util.List;
 
 public class InventorySettings {
     private int rows;
-    private List<Text> display_name;
+    private List<String> display_name;
     private String container_id;
     private boolean modify;
     private boolean modify_creative;
@@ -15,7 +13,7 @@ public class InventorySettings {
         return container_id;
     }
 
-    public List<Text> getDisplayName() {
+    public List<String> getDisplayName() {
         return display_name;
     }
 

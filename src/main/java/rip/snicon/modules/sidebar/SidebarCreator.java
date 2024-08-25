@@ -5,17 +5,16 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.TextColor;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
-import net.minestom.server.network.player.PlayerConnection;
 import net.minestom.server.scoreboard.Sidebar;
 import rip.snicon.Main;
 import rip.snicon.utils.PlaceholderReplacer;
-import rip.snicon.utils.json.Text;
 import rip.snicon.utils.TextUtils;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.*;
@@ -104,13 +103,13 @@ public class SidebarCreator {
 
                 PlayerSidebar playerSidebar = gson.fromJson(placeholdedJson, PlayerSidebar.class);
 
-                sidebar.setTitle(TextUtils.convertToComponent(
+                sidebar.setTitle(TextUtils.convertStringToComponent(
                         playerSidebar.getTitle())
                 );
 
-                List<List<Text>> layout = playerSidebar.getLayout();
+                List<List<String>> layout = playerSidebar.getLayout();
 
-                for (List<Text> text : layout) {
+                for (List<String> text : layout) {
                     int number = layout.size() - layout.indexOf(text);
                     String id = "row" + number;
 
@@ -118,10 +117,7 @@ public class SidebarCreator {
                     sidebar.removeLine(id);
 
                     // Create updated content
-                    Component updatedContent = TextUtils.convertToComponentWithPlaceholders(
-                            text,
-                            player
-                    );
+                    Component updatedContent = TextUtils.convertStringToComponent(text);
 
                     // Create a new line with updated content
                     Sidebar.ScoreboardLine updatedLine = new Sidebar.ScoreboardLine(

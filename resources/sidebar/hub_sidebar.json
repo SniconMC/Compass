@@ -1,192 +1,41 @@
 {
-  "blanumberFormat": true,
+  "blanknumberFormat": true,
   "title": [
-    {
-      "text": "Hub",
-      "color": "light_purple",
-      "bold": true,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-    }
+    "<gradient:#ff00da:#ff8300><bold>znoppMC</bold></gradient>"
   ],
   "layout": [
     [
-      {
-      "text": "",
-      "color": "",
-      "bold": false,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      }
+      " "
     ],
     [
-      {
-      "text": "» ",
-      "color": "dark_gray",
-      "bold": false,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      },
-      {
-      "text": "Rank ",
-      "color": "dark_green",
-      "bold": true,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      }
+      "» <dark_green><bold>Rank</bold></dark_green>"
     ],
     [
-      {
-      "text": "    ",
-      "color": "white",
-      "bold": false,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      },
-      $(player_rank)
+      "    <white>$(player_rank)</white>"
     ],
     [
-      {
-      "text": "",
-      "color": "",
-      "bold": false,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      }
+      "  "
     ],
     [
-      {
-      "text": "» ",
-      "color": "dark_gray",
-      "bold": false,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      },
-      {
-      "text": "Profession ",
-      "color": "dark_green",
-      "bold": true,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      }
+      "» <dark_green><bold>Profession</bold></dark_green><reset>"
     ],
     [
-      {
-      "text": "    ",
-      "color": "white",
-      "bold": false,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      },
-      {
-      "text": "oabam",
-      "color": "white",
-      "bold": false,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      }
+      "    <white>$(player_profession)</white>"
     ],
     [
-      {
-      "text": "",
-      "color": "",
-      "bold": false,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      }
+      "   "
     ],
     [
-      {
-      "text": "» ",
-      "color": "dark_gray",
-      "bold": false,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      },
-      {
-      "text": "Emeralds ",
-      "color": "dark_green",
-      "bold": true,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      }
+      "» <dark_green><bold>Emeralds</bold></dark_green>"
     ],
     [
-      {
-      "text": "    ",
-      "color": "white",
-      "bold": false,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      },
-      {
-      "text": "$(player_emeralds)",
-      "color": "white",
-      "bold": false,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      }
+      "    <white>$(player_emeralds)</white>"
     ],
     [
-      {
-      "text": "",
-      "color": "",
-      "bold": false,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      }
+      "    "
     ],
     [
-      {
-      "text": "» ",
-      "color": "dark_gray",
-      "bold": false,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      },
-      {
-      "text": "IP ",
-      "color": "dark_green",
-      "bold": true,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      }
-    ],
-    [
-      {
-      "text": "    ",
-      "color": "white",
-      "bold": false,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      },
-      {
-      "text": "mc.snicon.rip",
-      "color": "green",
-      "bold": true,
-      "italic": false,
-      "underline": false,
-      "strikethrough": false
-      }
+      "  <bold>\u200C\u200C</bold><gray>→</gray> <gradient:#ff00da:#ff8300><bold>play.znopp.pw</bold></gradient> <gray>←</gray>"
     ]
   ]
 }

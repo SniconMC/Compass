@@ -32,17 +32,19 @@
         "max": 64
       },
       "display": {
-        "name": [{"text":"Profession","color":"gold"}],
+        "name": [
+          "<gold>Profession</gold>"
+        ],
         "lore": [
-                    [{"text": "", "color": "gray"}],
-                    [{"text": "Profession: ", "color": "gray"},{"text": "$(player_profession)", "color": "green"}],
-                    [{"text": "Total Xp: ", "color": "gray"},{"text": "$(player_total_xp)", "color": "yellow"}],
-                    [{"text": "Xp to next Profession: ", "color": "gray"},{"text": "$(player_xp_to_next)", "color": "green"}],
-                    [{"text": "", "color": "gray"}],
-                    [{"text": "", "color": "gray"}],
-                    [{"text": "Click for detailed view", "color": "yellow", "bold":true}]
+          [""],
+          ["<gray>Profession: <green>$(player_profession)"],
+          ["<gray>Total XP: <yellow>$(player_total_xp)"],
+          ["<gray>XP to next profession: <green>$(player_xp_to_next)"],
+          [""],
+          [""],
+          ["<yellow><bold>Click for detailed view"]
 	
-				],
+        ],
         "model_data": "",
         "glint": false,
         "dye_color": "",
@@ -67,19 +69,19 @@
       },
       "display": {
         "name": [
-            {"text": "Statistics", "color": "#ffaa00"}
+          "<#ffaa00>Statistics"
         ],
         "lore": [
-            	[{"text": "", "color": "gray"}],
-            	[{"text": "Network:", "color": "gray"}],
-				[{"text": "Total Xp: ", "color": "gray"},{"text": "$(player_total_xp)", "color": "yellow"}],
-				[{"text": "Emeralds: ", "color": "gray"},{"text": "$(player_emeralds)", "color": "green"}],
-            	[{"text": "", "color": "gray"}],
-            	[{"text": "Server Specific:", "color": "gray"}],
-				[{"text": "??? ???", "color": "gray"}],
-				[{"text": "", "color": "gray"}],
-            	[{"text": "Click for detailed view", "color": "yellow", "bold":true}]
-				],
+          [""],
+          ["<gray>Network:"],
+          ["<gray>Total XP: <yellow>$(player_total_xp)"],
+          ["<gray>Emeralds: <green>$(player_emeralds)"],
+          [""],
+          ["<gray>Server Specific:"],
+          ["<gray>??? ???"],
+          [""],
+          ["<yellow><bold>Click for detailed view"]
+        ],
         "model_data": "",
         "glint": false,
         "dye_color": "",
@@ -104,20 +106,22 @@
       },
       "display": {
         "name": [
-            {"text": "Cosmetics", "color": "gold"}
+          "<gold>Cosmetics"
         ],
         "lore": [
-          [{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"","color":"#aaaaaa","bold":false,"italic":false}],
-          [{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"Network:","color":"#aaaaaa","bold":false,"italic":false}],
-          [{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"Total Xp: ","color":"#aaaaaa","bold":false,"italic":false},{"text":"$(player_total_xp)","color":"#ffff55","bold":false,"italic":false}],
-          [{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"Emeralds: ","color":"#aaaaaa","bold":false,"italic":false},{"text":"$(player_emeralds)","color":"#55ff55","bold":false,"italic":false}],
-          [{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"","color":"#aaaaaa","bold":false,"italic":false}],[{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"Server Specific:","color":"#aaaaaa","bold":false,"italic":false}],
-          [{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"??? ???","color":"#aaaaaa","bold":false,"italic":false}],[{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"","color":"#aaaaaa","bold":false,"italic":false}],
-          [{"text":"","color":"#ffffff","bold":false,"italic":false},{"text":"Click for detailed view","color":"#ffff55","bold":true,"italic":false}]
+          [""],
+          ["<gray>Network:"],
+          ["<gray>Total XP: <yellow>$(player_total_xp)"],
+          ["<gray>Emeralds: <green>$(player_emeralds)"],
+          [""],
+          ["<gray>Server Specific:"],
+          ["<gray>??? ???"],
+          [""],
+          ["<yellow><bold>Click for detailed view"]
         ],
         "model_data": "",
         "glint": false,
-        "dye_color": "#0077c3",
+        "dye_color": "$(cosmetics_dye)",
         "show_tooltip": true
       },
       "skin": {
@@ -129,11 +133,41 @@
         "function": "",
         "page": "cosmetics"
       }
+    },
+    {
+      "slot": 31,
+      "id": "minecraft:barrier",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+          "<gray>» <red>Close</red> «"
+        ],
+        "lore": [
+        ],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": "close"
+      }
     }
   ],
   "settings": {
-    "rows": 3,
-    "display_name": [],
+    "rows": 4,
+    "display_name": [
+      "Your Profile"
+    ],
     "container_id": "profile",
     "modify": false,
     "modify_creative": true

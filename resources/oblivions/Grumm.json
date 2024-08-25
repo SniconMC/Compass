@@ -1,10 +1,6 @@
 {
   "name": [
-    [{"text": "Example Johnson","color" : "red"}],
-    [
-      {"text": "Hi ", "color": "green" },
-      {"text": "$(player_name)","color" : "green"}
-    ]
+    ["Example Johnson"]
   ],
   "uuid": "uuid",
   "entity_type": "player",
