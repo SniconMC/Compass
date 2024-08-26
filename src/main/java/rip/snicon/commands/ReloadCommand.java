@@ -7,6 +7,7 @@ import net.minestom.server.entity.Player;
 import net.minestom.server.item.Material;
 import rip.snicon.modules.container.ContainerCreator;
 import rip.snicon.modules.container.HotbarCreator;
+import rip.snicon.modules.momentum.MomentumManager;
 import rip.snicon.modules.oblivion.OblivionCreator;
 import rip.snicon.modules.sidebar.SidebarCreator;
 
@@ -36,19 +37,23 @@ public class ReloadCommand extends Command {
             switch (actionString.toLowerCase()) {
                 case "sidebar" -> {
                     SidebarCreator.reloadSidebars();
-                    sender.sendMessage("Realoded Sidebars");
+                    sender.sendMessage("Reloaded Sidebar");
                 }
                 case "oblivion" -> {
                     OblivionCreator.reloadOblivions();
-                    sender.sendMessage("Realoded Oblivions");
+                    sender.sendMessage("Reloaded Oblivion");
                 }
                 case "container" -> {
                     ContainerCreator.reloadContainers();
-                    sender.sendMessage("Realoded Containers");
+                    sender.sendMessage("Reloaded Container");
                 }
                 case "hotbar" -> {
                     HotbarCreator.reloadHotbars();
-                    sender.sendMessage("Realoded Hotbars");
+                    sender.sendMessage("Reloaded Hotbar");
+                }
+                case "momentum" -> {
+                    MomentumManager.reloadMomentumPads();
+                    sender.sendMessage("Reloaded Momentum");
                 }
             }
         }, action);

@@ -1,11 +1,11 @@
 {
   "corners": {
-    "x1": 232,
-    "y1": 232,
-    "z1": 232,
-    "x2": 232,
-    "y2": 232,
-    "z2": 232
+    "x1": 9,
+    "y1": 65,
+    "z1": 17,
+    "x2": 10,
+    "y2": 65,
+    "z2": 18
   },
   "destination_corners": {
     "x1": 232,
@@ -23,8 +23,15 @@
     ],
     "text_list": []
   },
+  "sound": {
+    "source": "master",
+    "sound_event": "entity_enderman_teleport",
+    "volume": 100,
+    "pitch": 0.5
+  },
   "directional_strength": 1.0,
   "vertical_strength": 1.0,
-  "world": "world",
-  "teleport_yaw": -90.0
+  "world": "hub",
+  "teleport_yaw": -90.0,
+  "cooldown": 2000
 }

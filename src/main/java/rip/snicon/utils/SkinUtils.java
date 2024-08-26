@@ -1,12 +1,8 @@
 package rip.snicon.utils;
 
-import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
 import net.minestom.server.entity.PlayerSkin;
-import net.minestom.server.timer.TaskSchedule;
 import rip.snicon.Main;
-
-import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -74,7 +70,7 @@ public class SkinUtils {
 
     private static boolean isDefaultSkin(PlayerSkin skin) {
         // Check if the skin is the default one used when an exception occurs
-        return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQ0OWVjYjVlNmNlNjAwMjY1MzQ4MzZiZjgzYWIzN2NjNGRhZmQzMzNjYmRjYjVjMjFmNjIxNjYxZjVkMDgxYSJ9fX0=".equals(skin.textures()) && "".equals(skin.getSignature());
+        return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQ0OWVjYjVlNmNlNjAwMjY1MzQ4MzZiZjgzYWIzN2NjNGRhZmQzMzNjYmRjYjVjMjFmNjIxNjYxZjVkMDgxYSJ9fX0=".equals(skin.textures()) && "".equals(skin.signature());
     }
 
 

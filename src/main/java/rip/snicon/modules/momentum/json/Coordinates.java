@@ -4,13 +4,13 @@ import net.minestom.server.coordinate.Pos;
 
 public class Coordinates {
 
-    private double x1;
-    private double y1;
-    private double z1;
+    private int x1;
+    private int y1;
+    private int z1;
 
-    private double x2;
-    private double y2;
-    private double z2;
+    private int x2;
+    private int y2;
+    private int z2;
 
     public Pos getCorner1() {
         return new Pos(x1, y1, z1);

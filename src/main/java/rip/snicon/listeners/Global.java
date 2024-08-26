@@ -3,6 +3,7 @@ package rip.snicon.listeners;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.EntityCreature;
+import net.minestom.server.entity.GameMode;
 import net.minestom.server.entity.Player;
 import net.minestom.server.entity.damage.Damage;
 import net.minestom.server.event.GlobalEventHandler;
@@ -10,6 +11,7 @@ import net.minestom.server.event.entity.EntityAttackEvent;
 import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.PlayerBlockBreakEvent;
 import net.minestom.server.event.player.PlayerBlockInteractEvent;
+import net.minestom.server.event.player.PlayerBlockPlaceEvent;
 import net.minestom.server.event.server.ServerListPingEvent;
 import net.minestom.server.instance.Instance;
 import net.minestom.server.ping.ResponseData;
@@ -58,6 +60,7 @@ public class Global {
 
             event.setSpawningInstance(instance);
             player.setRespawnPoint(instanceStartingPos);
+            player.setGameMode(GameMode.CREATIVE);
 
             // Placeholders
             PlaceholderManager.setPlaceholderToPlayer(player, "player_name", player.getUsername());
@@ -124,12 +127,17 @@ public class Global {
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
 
         globalEventHandler.addListener(PlayerBlockBreakEvent.class, event -> {
-            event.setCancelled(true);
+            event.setCancelled(false);
         });
+
+        globalEventHandler.addListener(PlayerBlockPlaceEvent.class, event -> {
+            event.setCancelled(false);
+        });
+
         globalEventHandler.addListener(PlayerBlockInteractEvent.class, event -> {
             Player player = event.getPlayer();
             player.getInventory().update();
-            event.setCancelled(true);
+            event.setCancelled(false);
         });
     }
 }

@@ -11,6 +11,7 @@ import rip.snicon.instances.InstanceCreator;
 import rip.snicon.listeners.Global;
 import rip.snicon.modules.container.ContainerCreator;
 import rip.snicon.modules.container.HotbarCreator;
+import rip.snicon.modules.momentum.MomentumManager;
 import rip.snicon.modules.oblivion.OblivionCreator;
 import rip.snicon.modules.sidebar.SidebarCreator;
 import rip.snicon.utils.motd.MOTD;
@@ -30,6 +31,7 @@ public class Main {
         HotbarCreator hotbarCreator = new HotbarCreator();
         ContainerCreator containerCreator = new ContainerCreator();
         OblivionCreator oblivionCreator = new OblivionCreator();
+        MomentumManager momentumManager = new MomentumManager();
         MOTD motd = new MOTD();
 
         Global globalListener = new Global();

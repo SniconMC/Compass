@@ -4,5 +4,6 @@ public enum ReloadActions {
     Sidebar,
     Container,
     Oblivion,
-    Hotbar
+    Hotbar,
+    Momentum
 }

@@ -5,17 +5,9 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import net.minestom.server.MinecraftServer;
-import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
-import net.minestom.server.entity.PlayerSkin;
-import net.minestom.server.instance.Instance;
 import rip.snicon.Main;
-import rip.snicon.instances.InstanceCreator;
-import rip.snicon.modules.oblivion.NPC;
-import rip.snicon.modules.oblivion.OblivionConfig;
-import rip.snicon.modules.oblivion.OblivionCreator;
 import rip.snicon.utils.PlaceholderReplacer;
-import rip.snicon.utils.SkinUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,17 +19,17 @@ import java.util.Map;
 public class MomentumManager {
 
 
-    private static Map<String, File> momentumDataFolders = new HashMap<>();
+    private static final Map<String, File> momentumDataFolders = new HashMap<>();
     private static Gson gson;
-    private static Map<String, Map<String, String>> momentumMap = new HashMap<>();;
-    private static Map<Player, Map<String, Map<String, MomentumConfig>>> configMap = new HashMap<>();
+    private static final Map<String, Map<String, String>> momentumMap = new HashMap<>();;
+    private static final Map<Player, Map<String, Map<String, MomentumConfig>>> configMap = new HashMap<>();
 
     public MomentumManager() {
         momentumMap.put("launchpads", new HashMap<>());
         momentumMap.put("telepads", new HashMap<>());
 
         File launchpadDataFolder = new File("resources/momentum/launchpads");
-        File telepadDataFolder = new File("resources/momentum/teletapads");
+        File telepadDataFolder = new File("resources/momentum/telepads");
 
         momentumDataFolders.put("launchpads", launchpadDataFolder);
         momentumDataFolders.put("telepads", telepadDataFolder);

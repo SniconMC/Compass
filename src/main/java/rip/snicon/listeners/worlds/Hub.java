@@ -56,7 +56,6 @@ public class Hub {
 
 
     public void eventsToBeCanceled() {
-
         hubNode.addListener(ItemDropEvent.class, event -> {
             event.setCancelled(true);
         });
