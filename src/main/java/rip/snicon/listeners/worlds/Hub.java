@@ -7,10 +7,7 @@ import net.minestom.server.event.EventFilter;
 import net.minestom.server.event.EventNode;
 import net.minestom.server.event.GlobalEventHandler;
 import net.minestom.server.event.item.ItemDropEvent;
-import net.minestom.server.event.player.PlayerBlockBreakEvent;
-import net.minestom.server.event.player.PlayerBlockInteractEvent;
-import net.minestom.server.event.player.PlayerRespawnEvent;
-import net.minestom.server.event.player.PlayerSpawnEvent;
+import net.minestom.server.event.player.*;
 import net.minestom.server.event.trait.PlayerEvent;
 import net.minestom.server.instance.Instance;
 import net.minestom.server.scoreboard.Sidebar;
@@ -28,6 +25,7 @@ public class Hub {
     public Hub(EventNode<Event> node) {
         this.hubNode = EventNode.value("hub", EventFilter.PLAYER, player -> player.getInstance() == InstanceCreator.getInstanceMap().get("hub"));
         onPlayerJoin();
+        onPlayerQuit();
         eventsToBeCanceled();
         node.addChild(hubNode);
 
@@ -48,6 +46,14 @@ public class Hub {
             }
         });
     }
+
+    public void onPlayerQuit() {
+        hubNode.addListener(PlayerDisconnectEvent.class, event -> {
+            Player player = event.getPlayer();
+            OblivionCreator.despawnOblivions(player);
+        });
+    }
+
 
     public void eventsToBeCanceled() {
 

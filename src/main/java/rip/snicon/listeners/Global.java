@@ -18,6 +18,7 @@ import rip.snicon.Main;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.instances.worlds.WorldInfo;
 import rip.snicon.listeners.inventory.Container;
+import rip.snicon.listeners.momentum.Momentum;
 import rip.snicon.listeners.placeholders.Placeholder;
 import rip.snicon.listeners.worlds.AFK;
 import rip.snicon.listeners.worlds.Hub;
@@ -36,13 +37,13 @@ public class Global {
     public Global(){
         onPlayerConfig();
         onServerPing();
-        attackEvent();
         eventsToBeCanceled();
 
         Hub hubHandler = new Hub(MinecraftServer.getGlobalEventHandler());
         AFK afkHandler = new AFK(MinecraftServer.getGlobalEventHandler());
         Container containerHandler = new Container(MinecraftServer.getGlobalEventHandler());
         Placeholder placeholderHandler = new Placeholder(MinecraftServer.getGlobalEventHandler());
+        Momentum momentumHandler = new Momentum(MinecraftServer.getGlobalEventHandler());
     }
 
     public void onPlayerConfig(){
@@ -63,7 +64,6 @@ public class Global {
 
             // TODO make un-static
             String playerRank = "<dark_gray>[</dark_gray><dark_red>Obama++</dark_red><dark_gray>]</dark_gray>";
-
             PlaceholderManager.setPlaceholderToPlayer(player, "player_rank", playerRank);
             PlaceholderManager.setPlaceholderToPlayer(player, "player_item", "minecraft:tnt");
         });
@@ -117,16 +117,6 @@ public class Global {
 
             // max server size always one more than online count
             responseData.setMaxPlayer(responseData.getEntries().size() + 1);
-        });
-    }
-
-    public void attackEvent() {
-        GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
-
-        globalEventHandler.addListener(EntityAttackEvent.class, event -> {
-            EntityCreature entityCreature = (EntityCreature) event.getTarget();
-            entityCreature.damage(Damage.fromEntity(event.getEntity(),0.1F));
-            entityCreature.takeKnockback(1,event.getEntity().getPosition().direction().normalize().neg().x(), event.getEntity().getPosition().direction().normalize().neg().z());
         });
     }
 

@@ -24,13 +24,14 @@ public class Main {
         // Initialize the server
         MinecraftServer minecraftServer = MinecraftServer.init();
 
-        // Initialize the Instance creator
+        // Initialize your mother
         InstanceCreator instanceCreator = new InstanceCreator();
         SidebarCreator sidebarCreator = new SidebarCreator();
         HotbarCreator hotbarCreator = new HotbarCreator();
         ContainerCreator containerCreator = new ContainerCreator();
         OblivionCreator oblivionCreator = new OblivionCreator();
         MOTD motd = new MOTD();
+
         Global globalListener = new Global();
 
         MinecraftServer.getCommandManager().register(new TravelCommand());

@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
+import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
 import net.minestom.server.entity.PlayerSkin;
@@ -17,6 +18,7 @@ import rip.snicon.utils.SkinUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +27,7 @@ public class OblivionCreator {
     private static File dataFolder;
     private static Gson gson;
     private static Map<String, String> oblivionConfigs;
-    private static Map<Player, Oblivion> oblivionFakes;
+    private static final Map<Player, Oblivion> oblivionFakes = new HashMap<>();
 
     public OblivionCreator(){
         dataFolder = new File("resources/oblivions");
@@ -81,10 +83,16 @@ public class OblivionCreator {
 
     public static void reloadOblivions(){
         loadOblivions();
+        Collection<Player> players = MinecraftServer.getConnectionManager().getOnlinePlayers();
+        for (Player player : players) {
+            despawnOblivions(player);
+            spawnOblivions(player);
+        }
     }
 
     public static void spawnOblivions(Player player){
-
+        Oblivion oblivion = new Oblivion();
+        Map<String, NPC> NpcMap = new HashMap<>();
         for (String name : oblivionConfigs.keySet()) {
 
             String oblivionJson = oblivionConfigs.get(name);
@@ -101,6 +109,9 @@ public class OblivionCreator {
                 NPC npc = new NPC(name, skin, instance,  pos, OblivionCreator::handleNpcClick);
                 npc.makeVisibleTo(player);
 
+                NpcMap.put(name, npc);
+
+
             } catch (JsonSyntaxException | JsonIOException e) {
                 // Handle Gson-specific errors
                 Main.logger.error("Error parsing JSON in: " + name);
@@ -108,11 +119,25 @@ public class OblivionCreator {
                 // Handle any other unexpected exceptions
                 Main.logger.error("Unexpected error in: " + name);
             }
+            oblivion.setOblivions(NpcMap);
+            oblivionFakes.put(player, oblivion);
+        }
+    }
+
+    public static void despawnOblivions(Player player) {
+        Oblivion oblivion = oblivionFakes.get(player);
+        if (oblivion == null) {
+            return;
+        }
+        for (String name : oblivion.getOblivions().keySet()) {
+            NPC npc = (NPC) oblivion.getOblivions().get(name);
+            npc.despawnForPlayer(player);
         }
     }
 
     // Method to handle NPC click interactions
     public static void handleNpcClick(Player player) {
         // TODO add stuff here :)
+        player.sendMessage("hehe");
     }
 }

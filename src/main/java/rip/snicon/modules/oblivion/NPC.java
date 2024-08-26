@@ -17,6 +17,7 @@ import net.minestom.server.instance.Instance;
 import net.minestom.server.network.packet.server.play.*;
 import net.minestom.server.utils.time.TimeUnit;
 import org.jetbrains.annotations.NotNull;
+import rip.snicon.Main;
 
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
@@ -51,6 +52,7 @@ public final class NPC extends EntityCreature {
         this.originalPitch = position.pitch();
 
         this.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(0.2);
+        this.getAttribute(Attribute.GENERIC_STEP_HEIGHT).setBaseValue(1.0);
         setInstance(instance, position);
 
         // Register event listeners
@@ -60,7 +62,7 @@ public final class NPC extends EntityCreature {
         // Add AI group with LookAtPlayerGoal
         addAIGroup(
                 new EntityAIGroupBuilder()
-                        .addGoalSelector(new LookAtPlayerGoal(this, 12)) // Look at players within 5 blocks
+                        .addGoalSelector(new LookAtPlayerGoal(this, 5)) // Look at players within 5 blocks
                         .build()
         );
     }
@@ -118,6 +120,7 @@ public final class NPC extends EntityCreature {
     public void despawnForPlayer(@NotNull Player player) {
         player.sendPacket(new PlayerInfoRemovePacket(uuid));
         player.sendPacket(new DestroyEntitiesPacket(getEntityId()));
+        this.remove();
     }
 
     private static final class LookAtPlayerGoal extends GoalSelector {

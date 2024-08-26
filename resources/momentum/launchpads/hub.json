@@ -1,0 +1,27 @@
+{
+  "corners": {
+    "x1": 232,
+    "y1": 232,
+    "z1": 232,
+    "x2": 232,
+    "y2": 232,
+    "z2": 232
+  },
+  "destination_corners": {
+    "x1": 232,
+    "y1": 232,
+    "z1": 232,
+    "x2": 232,
+    "y2": 232,
+    "z2": 232
+  },
+  "display": {
+    "show_text": false,
+    "text_uuid": "999e8157-dc22-47a9-8b13-4b8a8eafc7c6",
+    "text_list": []
+  },
+  "directional_strength": 1.0,
+  "vertical_strength": 1.0,
+  "world": "world",
+  "teleport_yaw": -90.0
+}

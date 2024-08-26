@@ -3,6 +3,7 @@ package rip.snicon.commands;
 import net.minestom.server.command.builder.Command;
 import net.minestom.server.command.builder.CommandContext;
 import net.minestom.server.command.builder.arguments.ArgumentType;
+import net.minestom.server.entity.Player;
 import net.minestom.server.item.Material;
 import rip.snicon.modules.container.ContainerCreator;
 import rip.snicon.modules.container.HotbarCreator;
@@ -16,6 +17,7 @@ public class ReloadCommand extends Command {
     public ReloadCommand() {
         super("reload");
 
+
         // Executed if no other executor can be used
         setDefaultExecutor((sender, context) -> {
             sender.sendMessage("/reload action");
@@ -24,6 +26,11 @@ public class ReloadCommand extends Command {
         var action = ArgumentType.Enum("action", ReloadActions.class);
 
         addSyntax((sender, context) -> {
+
+            if (!(sender instanceof Player)){
+                return;
+            }
+
             String actionString = context.get(action).toString();
 
             switch (actionString.toLowerCase()) {
