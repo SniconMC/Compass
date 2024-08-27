@@ -114,12 +114,11 @@ public class MomentumManager {
                 try {
                     MomentumConfig config = gson.fromJson(placeholdedJson, MomentumConfig.class);
 
-                    Map<String, MomentumConfig> momentumConfigMap = new HashMap<>();
-                    momentumConfigMap.put(fileName, config);
-
                     // wilhelm valde variabelnamnet, "Den håller en map per telepads/launchapds"
-                    // skjut mig inte
-                    Map<String, Map<String, MomentumConfig>> momentumConfigMapMap = new HashMap<>();
+                    Map<String, Map<String, MomentumConfig>> momentumConfigMapMap = configMap.getOrDefault(player, new HashMap<>());
+                    Map<String, MomentumConfig> momentumConfigMap = momentumConfigMapMap.getOrDefault(name, new HashMap<>());
+
+                    momentumConfigMap.put(fileName, config);
                     momentumConfigMapMap.put(name, momentumConfigMap);
                     configMap.put(player, momentumConfigMapMap);
 

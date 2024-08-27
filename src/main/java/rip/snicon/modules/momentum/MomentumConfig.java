@@ -1,7 +1,5 @@
 package rip.snicon.modules.momentum;
 
-import net.kyori.adventure.sound.Sound;
-import net.minestom.server.sound.SoundEvent;
 import rip.snicon.modules.momentum.json.Coordinates;
 import rip.snicon.modules.momentum.json.Display;
 import rip.snicon.modules.momentum.json.Sounds;
@@ -11,12 +9,14 @@ public class MomentumConfig {
     private Coordinates corners;
     private Coordinates destination_corners;
     private Display display;
+    private Sounds sound;
+
     private Double directional_strength;
     private Double vertical_strength;
     private String world;
     private float teleport_yaw;
     private Long cooldown;
-    private Sounds sound;
+    private String is_portal;
 
     public Coordinates getCorners() {
         return corners;
@@ -52,5 +52,9 @@ public class MomentumConfig {
 
     public Sounds getSound() {
         return sound;
+    }
+
+    public String is_portal() {
+        return is_portal;
     }
 }

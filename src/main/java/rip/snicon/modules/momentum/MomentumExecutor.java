@@ -24,10 +24,13 @@ public class MomentumExecutor {
             return;
         }
         Main.logger.info("Player on block");
+
+        // actually the code is inverted so this checks out
         if (!isOnCoolDown(config ,player, fileName)) {
+            Main.logger.warn("Player is on cooldown, returning");
             return;
         }
-        executeMomentum(config, player);
+        executeMomentum(config, player, fileName);
         setCoolDown(player, fileName);
     }
 
@@ -40,20 +43,19 @@ public class MomentumExecutor {
         int minX = Math.min(corner1.blockX(), corner2.blockX());
         int maxX = Math.max(corner1.blockX(), corner2.blockX());
 
-        int minY = Math.min(corner1.blockY(), corner2.blockY()) + 1;
-        int maxY = Math.max(corner1.blockY(), corner2.blockY()) + 1;
+        double minY = Math.min(corner1.blockY(), corner2.blockY());
+        double maxY = Math.max(corner1.blockY(), corner2.blockY()) + 1;
 
         int minZ = Math.min(corner1.blockZ(), corner2.blockZ());
         int maxZ = Math.max(corner1.blockZ(), corner2.blockZ());
 
         // Check if the player's position is within the bounds
         return playerLocation.blockX() >= minX && playerLocation.blockX() <= maxX &&
-                playerLocation.blockY() >= minY && playerLocation.blockY() <= maxY &&
+                playerLocation.y() >= minY && playerLocation.y() <= maxY &&
                 playerLocation.blockZ() >= minZ && playerLocation.blockZ() <= maxZ;
     }
 
     private static boolean isOnCoolDown(MomentumConfig config, Player player, String fileName) {
-        player.sendMessage(fileName);
         Map<String, Long> map = lastExecuteTime.get(player);
         if (map == null) {
             return true;
@@ -75,13 +77,13 @@ public class MomentumExecutor {
         lastExecuteTime.put(player, map);
     }
 
-    private static void executeMomentum(MomentumConfig config, Player player) {
+    private static void executeMomentum(MomentumConfig config, Player player, String fileName) {
         Main.logger.info("Executing momentum");
 
         if (config.getDestination_corners() != null) {
             Main.logger.info("we found the destination corners");
             Coordinates coordinates = config.getDestination_corners();
-            Pos destination = getTeleportDestination(coordinates.getCorner1(), coordinates.getCorner2(), config, player);
+            Pos destination = getTeleportDestination(coordinates.getCorner1(), coordinates.getCorner2(), config, player, fileName);
             MinecraftServer.getSchedulerManager().scheduleNextTick(() -> player.teleport(destination));
         }
 
@@ -106,7 +108,7 @@ public class MomentumExecutor {
 
     }
 
-    private static Pos getTeleportDestination(Pos corner1, Pos corner2, MomentumConfig config, Player player) {
+    private static Pos getTeleportDestination(Pos corner1, Pos corner2, MomentumConfig config, Player player, String fileName) {
 
         int destination1X = corner1.blockX();
         int destination1Y = corner1.blockY();
@@ -116,11 +118,42 @@ public class MomentumExecutor {
         int destination2Y = corner2.blockY();
         int destination2Z = corner2.blockZ();
 
-        double middleX = (double) ((destination1X + destination2X) / 2) + 0.5;
-        double middleY = (double) ((destination1Y + destination2Y) / 2) + 1.0;
-        double middleZ = (double) ((destination1Z + destination2Z) / 2) + 0.5;
+        double finalY;
 
-        return new Pos(middleX, middleY, middleZ, config.getTeleport_yaw(), player.getPosition().pitch());
+        String isPortal = config.is_portal();
+
+        if ("true".equalsIgnoreCase(isPortal)) {
+            // it is a portal, therefore teleport the player to the bottom Y level
+
+            // TODO
+            //  implement ability to jump into portal and be teleported to the right place
+            //  but with your jump offset included
+
+            finalY = Math.min(corner1.blockY(), corner2.blockY());
+        } else if ("false".equalsIgnoreCase(isPortal)) {
+            // not a portal
+            if (destination1Y != destination2Y) {
+                // still has differing Y levels
+                Main.logger.warn("Telepad '" + fileName + "' is not a portal, but still has differing Y destinations!");
+                Main.logger.warn("Y coordinate defaulting to smaller value...");
+            }
+            finalY = Math.min(corner1.blockY(), corner2.blockY()) + 1;
+        } else if (isPortal == null) {
+            // Handle the case where is_portal is missing
+            Main.logger.warn("Telepad type not declared in the JSON file! Assuming horizontal...");
+            finalY = Math.min(corner1.blockY(), corner2.blockY()) + 1;
+        } else {
+            // Handle the case where is_portal is incorrectly set (e.g., "flase")
+            Main.logger.warn("Telepad '" + fileName + "' has an invalid is_portal value: '" + isPortal + "'. Assuming horizontal...");
+            finalY = Math.min(corner1.blockY(), corner2.blockY()) + 1;
+        }
+
+
+
+        double finalX = ((double) (destination1X + destination2X) / 2) + 0.5;
+        double finalZ = ((double) (destination1Z + destination2Z) / 2) + 0.5;
+
+        return new Pos(finalX, finalY, finalZ, config.getTeleport_yaw(), player.getPosition().pitch());
     }
 
 }

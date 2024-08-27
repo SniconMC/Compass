@@ -6,11 +6,13 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
+import net.minestom.server.entity.Entity;
 import net.minestom.server.entity.Player;
 import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.instance.Instance;
 import rip.snicon.Main;
 import rip.snicon.instances.InstanceCreator;
+import rip.snicon.modules.oblivion.json.DisplayText;
 import rip.snicon.modules.oblivion.json.Oblivion;
 import rip.snicon.utils.PlaceholderReplacer;
 import rip.snicon.utils.SkinUtils;
@@ -18,9 +20,7 @@ import rip.snicon.utils.SkinUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class OblivionCreator {
 
@@ -93,6 +93,7 @@ public class OblivionCreator {
     public static void spawnOblivions(Player player){
         Oblivion oblivion = new Oblivion();
         Map<String, NPC> NpcMap = new HashMap<>();
+        Map<String, List<Entity>> textDisplayMap = new HashMap<>();
         for (String name : oblivionConfigs.keySet()) {
 
             String oblivionJson = oblivionConfigs.get(name);
@@ -108,8 +109,16 @@ public class OblivionCreator {
                 // Create and spawn the NPC, passing the method reference for onClick
                 NPC npc = new NPC(name, skin, instance,  pos, OblivionCreator::handleNpcClick);
                 npc.makeVisibleTo(player);
-
                 NpcMap.put(name, npc);
+
+                List<Entity> entities = new ArrayList<>();
+                for (int i = 0; i < config.getName().size(); i++) {
+                    DisplayText textDisplay = new DisplayText(i, pos, instance, config.getName().get(i));
+                    textDisplay.makeVisibleTo(player);
+                    entities.add(textDisplay);
+                }
+                textDisplayMap.put(name, entities);
+
 
 
             } catch (JsonSyntaxException | JsonIOException e) {
@@ -120,7 +129,9 @@ public class OblivionCreator {
                 Main.logger.error("Unexpected error in: " + name);
             }
             oblivion.setOblivions(NpcMap);
+            oblivion.setOblivionsName(textDisplayMap);
             oblivionFakes.put(player, oblivion);
+
         }
     }
 
@@ -140,4 +151,5 @@ public class OblivionCreator {
         // TODO add stuff here :)
         player.sendMessage("hehe");
     }
+
 }

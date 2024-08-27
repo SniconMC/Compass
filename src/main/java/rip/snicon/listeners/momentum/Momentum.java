@@ -13,13 +13,11 @@ import rip.snicon.modules.momentum.MomentumConfig;
 import rip.snicon.modules.momentum.MomentumExecutor;
 import rip.snicon.modules.momentum.MomentumManager;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Momentum {
 
     private final EventNode<PlayerEvent>  momentumNode;
-    private final Map<Player, Double> yValues = new HashMap<>();
 
     public Momentum(EventNode<Event> parentNode) {
         this.momentumNode = EventNode.type("momentum", EventFilter.PLAYER);
@@ -32,20 +30,12 @@ public class Momentum {
         momentumNode.addListener(PlayerSpawnEvent.class, event -> {
             Player player = event.getPlayer();
             MomentumManager.createMomentumPads(player);
-            yValues.put(player, player.getPosition().y() - 66);
         });
     }
 
     private void onPlayerMove(){
         momentumNode.addListener(PlayerMoveEvent.class, event -> {
             Player player = event.getPlayer();
-            double currentY = player.getPosition().y() - 66;
-            double previousY = yValues.getOrDefault(player, currentY);
-
-             if (currentY >= previousY) {
-                 player.sendMessage(String.valueOf(currentY));
-                 yValues.put(player, currentY);
-             }
 
             Map<Player, Map<String, Map<String, MomentumConfig>>> configMap = MomentumManager.getConfigMap();
 

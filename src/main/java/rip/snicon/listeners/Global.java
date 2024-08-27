@@ -60,6 +60,8 @@ public class Global {
 
             event.setSpawningInstance(instance);
             player.setRespawnPoint(instanceStartingPos);
+
+            // TODO undo creative
             player.setGameMode(GameMode.CREATIVE);
 
             // Placeholders
@@ -127,17 +129,15 @@ public class Global {
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
 
         globalEventHandler.addListener(PlayerBlockBreakEvent.class, event -> {
-            event.setCancelled(false);
-        });
 
-        globalEventHandler.addListener(PlayerBlockPlaceEvent.class, event -> {
+            // TODO make true again
             event.setCancelled(false);
         });
 
         globalEventHandler.addListener(PlayerBlockInteractEvent.class, event -> {
             Player player = event.getPlayer();
             player.getInventory().update();
-            event.setCancelled(false);
+            event.setCancelled(true);
         });
     }
 }
