@@ -94,7 +94,6 @@ public class ContainerCreator {
         String containerJson = configMap.get(name);
         String placeholdedJson = PlaceholderReplacer.replacePlaceholders(player, containerJson);
         try {
-
             ContainerConfig config = gson.fromJson(placeholdedJson, ContainerConfig.class);
             if (config == null) {
                 Main.logger.error("Container not found: " + name);

@@ -17,6 +17,7 @@ import net.minestom.server.item.component.AttributeList;
 import net.minestom.server.item.component.CustomData;
 import net.minestom.server.item.component.DyedItemColor;
 import net.minestom.server.item.component.HeadProfile;
+import org.jetbrains.annotations.NotNull;
 import rip.snicon.Main;
 import rip.snicon.modules.container.json.*;
 import rip.snicon.utils.ColorUtils;
@@ -48,23 +49,7 @@ public class ItemStackUtils {
         int itemMaxCount = item.getCount().getMax();
 
         // Build the CompoundBinaryTag with null checks
-        var customDataBuilder = CompoundBinaryTag.builder();
-        // Add data conditionally
-        String page = item.getData().getPage();
-        if (page != null) {
-            customDataBuilder.putString("redirect", page);
-        }
-
-        String function = item.getData().getFunction();
-        if (function != null) {
-            customDataBuilder.putString("function", function);
-        }
-
-        String containerId = item.getContainerId();
-        if (containerId != null) {
-            customDataBuilder.putString("container_id", containerId);
-        }
-        var customData = customDataBuilder.build();
+        var customData = getEntries(item);
 
         var itemInASlot = ItemStack.builder(material).set(ItemComponent.ITEM_NAME, itemName).set(ItemComponent.LORE, itemLore).amount(itemCount).maxStackSize(itemMaxCount).set(ItemComponent.CUSTOM_DATA, new CustomData(customData));
 
@@ -81,6 +66,26 @@ public class ItemStackUtils {
         }
         itemInASlot.set(ItemComponent.ATTRIBUTE_MODIFIERS, new AttributeList(new AttributeList.Modifier(Attribute.GENERIC_ATTACK_DAMAGE, new AttributeModifier("dummy", 0, AttributeOperation.ADD_VALUE), EquipmentSlotGroup.ANY), false));
         return itemInASlot.build();
+    }
+
+    private static @NotNull CompoundBinaryTag getEntries(Item item) {
+        var customDataBuilder = CompoundBinaryTag.builder();
+        // Add data conditionally
+        String page = item.getData().getPage();
+        if (page != null) {
+            customDataBuilder.putString("redirect", page);
+        }
+
+        String function = item.getData().getFunction();
+        if (function != null) {
+            customDataBuilder.putString("function", function);
+        }
+
+        String containerId = item.getContainerId();
+        if (containerId != null) {
+            customDataBuilder.putString("container_id", containerId);
+        }
+        return customDataBuilder.build();
     }
 
     public static Item convertToItem(ItemStack itemStack, Player player) {

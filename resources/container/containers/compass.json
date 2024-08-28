@@ -32,8 +32,8 @@
         "max": 64
       },
       "display": {
-        "name": [],
-        "lore": [],
+        "name": ["Prison"],
+        "lore": [["<gray>» <aqua>Click to open</aqua> «</gray>"]],
         "model_data": null,
         "glint": false,
         "dye_color": "",
