@@ -78,21 +78,9 @@ public class MomentumExecutor {
             Pos corner2 = coordinates.getCorner2();
             Pos destination = getTeleportDestination(corner1, corner2, config, player, fileName);
 
-            // Check if the player is within the destination area
-            Pos playerPos = player.getPosition();
-            BoundingBox currentBoundingBox = new BoundingBox(corner1, corner2);
+            // TODO
+            //   cooldown not working properly (try it out ingame)
 
-            Map<String, BoundingBox> playerDestinations = lastTeleportDestinations.computeIfAbsent(player, k -> new HashMap<>());
-
-            BoundingBox lastDestBoundingBox = playerDestinations.get(fileName);
-
-            if (lastDestBoundingBox != null && lastDestBoundingBox.isWithinBoundsNoConfig(playerPos, false)) {
-                Main.logger.info("Player is already within the teleport destination area, skipping teleport");
-                return;
-            }
-
-            // Store the new destination bounding box and teleport
-            playerDestinations.put(fileName, currentBoundingBox);
             MinecraftServer.getSchedulerManager().scheduleNextTick(() -> player.teleport(destination));
         }
 
