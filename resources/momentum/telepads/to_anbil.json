@@ -8,12 +8,12 @@
     "z2": 17
   },
   "destination_corners": {
-    "x1": 6,
+    "x1": 52,
     "y1": 65,
-    "z1": 17,
-    "x2": 6,
+    "z1": -23,
+    "x2": 52,
     "y2": 65,
-    "z2": 17
+    "z2": -23
   },
   "display": {
     "show_text": true,
@@ -23,7 +23,7 @@
   },
   "sound": {
     "source": "master",
-    "sound_event": "entity_enderman_teleport",
+    "sound_event": "entity.enderman.teleport",
     "volume": 100,
     "pitch": 0.5
   },

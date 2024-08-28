@@ -1,19 +1,19 @@
 {
   "corners": {
-    "x1": 0,
-    "y1": 66,
-    "z1": 15,
-    "x2": 0,
-    "y2": 68,
-    "z2": 14
+  "x1": 52,
+  "y1": 65,
+  "z1": -23,
+  "x2": 52,
+  "y2": 65,
+  "z2": -23
   },
-  "destination_corners": {
-    "x1": 5,
-    "y1": 66,
-    "z1": 8,
-    "x2": 7,
-    "y2": 68,
-    "z2": 8
+"destination_corners": {
+    "x1": 10,
+    "y1": 65,
+    "z1": 17,
+    "x2": 10,
+    "y2": 65,
+    "z2": 17
   },
   "display": {
     "show_text": true,
@@ -30,5 +30,5 @@
   "world": "hub",
   "teleport_yaw": -90.0,
   "cooldown": 2000,
-  "is_portal": true
+  "is_portal": false
 }

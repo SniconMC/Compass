@@ -16,17 +16,18 @@ import java.util.Map;
 
 public class MomentumExecutor {
     private static final Map<Player,Map<String, Long>> lastExecuteTime = new HashMap<>();
+    private static final Map<Player, Map<String, BoundingBox>> lastTeleportDestinations = new HashMap<>();
 
     public static void isOnMomentumPad(MomentumConfig config, Player player, String fileName) {
         Pos playerPos = player.getPosition();
 
-        if (!isOnBlock(config, playerPos)) {
+        if (!BoundingBox.isWithinBounds(config, playerPos, true)) {
             return;
         }
         Main.logger.info("Player on block");
 
         // actually the code is inverted so this checks out
-        if (!isOnCoolDown(config ,player, fileName)) {
+        if (!isOnCoolDown(config, player, fileName)) {
             Main.logger.warn("Player is on cooldown, returning");
             return;
         }
@@ -34,25 +35,14 @@ public class MomentumExecutor {
         setCoolDown(player, fileName);
     }
 
-    private static boolean isOnBlock(MomentumConfig config, Pos playerLocation) {
-        // Get the corners from the configuration
-        Pos corner1 = config.getCorners().getCorner1();
-        Pos corner2 = config.getCorners().getCorner2();
-
-        // Calculate the minimum and maximum bounds for X, Y, Z
-        int minX = Math.min(corner1.blockX(), corner2.blockX());
-        int maxX = Math.max(corner1.blockX(), corner2.blockX());
-
-        double minY = Math.min(corner1.blockY(), corner2.blockY());
-        double maxY = Math.max(corner1.blockY(), corner2.blockY()) + 1;
-
-        int minZ = Math.min(corner1.blockZ(), corner2.blockZ());
-        int maxZ = Math.max(corner1.blockZ(), corner2.blockZ());
-
-        // Check if the player's position is within the bounds
-        return playerLocation.blockX() >= minX && playerLocation.blockX() <= maxX &&
-                playerLocation.y() >= minY && playerLocation.y() <= maxY &&
-                playerLocation.blockZ() >= minZ && playerLocation.blockZ() <= maxZ;
+    private static void removeLastTeleportDestination(Player player, String fileName) {
+        Map<String, BoundingBox> playerDestinations = lastTeleportDestinations.get(player);
+        if (playerDestinations != null) {
+            playerDestinations.remove(fileName);
+            if (playerDestinations.isEmpty()) {
+                lastTeleportDestinations.remove(player);
+            }
+        }
     }
 
     private static boolean isOnCoolDown(MomentumConfig config, Player player, String fileName) {
@@ -72,7 +62,7 @@ public class MomentumExecutor {
     private static void setCoolDown(Player player, String fileName) {
 
         long currentTime = System.currentTimeMillis();
-        Map<String, Long> map = new HashMap<>();
+        Map<String, Long> map = lastExecuteTime.getOrDefault(player, new HashMap<>());
         map.put(fileName, currentTime);
         lastExecuteTime.put(player, map);
     }
@@ -80,10 +70,29 @@ public class MomentumExecutor {
     private static void executeMomentum(MomentumConfig config, Player player, String fileName) {
         Main.logger.info("Executing momentum");
 
+
         if (config.getDestination_corners() != null) {
             Main.logger.info("we found the destination corners");
             Coordinates coordinates = config.getDestination_corners();
-            Pos destination = getTeleportDestination(coordinates.getCorner1(), coordinates.getCorner2(), config, player, fileName);
+            Pos corner1 = coordinates.getCorner1();
+            Pos corner2 = coordinates.getCorner2();
+            Pos destination = getTeleportDestination(corner1, corner2, config, player, fileName);
+
+            // Check if the player is within the destination area
+            Pos playerPos = player.getPosition();
+            BoundingBox currentBoundingBox = new BoundingBox(corner1, corner2);
+
+            Map<String, BoundingBox> playerDestinations = lastTeleportDestinations.computeIfAbsent(player, k -> new HashMap<>());
+
+            BoundingBox lastDestBoundingBox = playerDestinations.get(fileName);
+
+            if (lastDestBoundingBox != null && lastDestBoundingBox.isWithinBoundsNoConfig(playerPos, false)) {
+                Main.logger.info("Player is already within the teleport destination area, skipping teleport");
+                return;
+            }
+
+            // Store the new destination bounding box and teleport
+            playerDestinations.put(fileName, currentBoundingBox);
             MinecraftServer.getSchedulerManager().scheduleNextTick(() -> player.teleport(destination));
         }
 
@@ -96,7 +105,6 @@ public class MomentumExecutor {
 
             Vec vector = playerLocation.direction().mul(directional_strength * 20).withY(vertical_strength * 20);
             player.setVelocity(vector);
-
         }
 
         String soundEvent = config.getSound().getSound_event();
@@ -104,8 +112,7 @@ public class MomentumExecutor {
         float volume = config.getSound().getVolume();
         float pitch = config.getSound().getPitch();
 
-        //player.getInstance().playSound(Sound.sound(SoundUtils.stringToSoundEvent(soundEvent), SoundUtils.stringToSource(source), volume, pitch));
-
+        player.getInstance().playSound(Sound.sound(SoundUtils.stringToSoundEvent(soundEvent), SoundUtils.stringToSource(source), volume, pitch));
     }
 
     private static Pos getTeleportDestination(Pos corner1, Pos corner2, MomentumConfig config, Player player, String fileName) {

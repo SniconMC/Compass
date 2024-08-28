@@ -9,18 +9,18 @@ public class SoundUtils {
     public static SoundEvent stringToSoundEvent(String soundName) {
         try {
             return SoundEvent.fromNamespaceId(soundName);
-        } catch (IllegalArgumentException e) {
-            Main.logger.error("Invalid sound name: " + soundName + ", cause: " + e.getCause());
+        } catch (Exception e) {
+            Main.logger.error("Invalid sound name: " + soundName + ", cause: " + e.getMessage());
             Main.logger.info("Switching to default sound event");
             return SoundEvent.BLOCK_GRASS_BREAK;
         }
     }
 
-    public static Sound.Source stringToSource(String soundName) {
+    public static Sound.Source stringToSource(String sourceName) {
         try {
-            return Sound.Source.valueOf(soundName);
-        } catch (IllegalArgumentException e) {
-            Main.logger.error("Invalid sound name: " + soundName + ", cause: " + e.getCause());
+            return Sound.Source.valueOf(sourceName);
+        } catch (Exception e) {
+            Main.logger.error("Invalid source name: " + sourceName + ", cause: " + e.getMessage());
             Main.logger.info("Switching to default sound source");
             return Sound.Source.MASTER;
         }
