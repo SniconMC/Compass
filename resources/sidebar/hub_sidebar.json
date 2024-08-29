@@ -1,41 +1,47 @@
 {
   "blanknumberFormat": true,
   "title": [
-    "<gradient:#ff00da:#ff8300><bold>znoppMC</bold></gradient>"
+    "<gradient:yellow:gold><bold>Hub Server</bold></gradient>"
   ],
   "layout": [
     [
       " "
     ],
     [
-      "» <dark_green><bold>Rank</bold></dark_green>"
+      "<white>Rank</white> » $(player_rank)"
     ],
     [
-      "    <white>$(player_rank)</white>"
+      "<white>Profession</white> » $(player_profession_icon) $(player_profession)"
     ],
     [
       "  "
     ],
     [
-      "» <dark_green><bold>Profession</bold></dark_green>"
+      "<white>Emeralds</white>: <green>$(player_emeralds)</green>"
     ],
     [
-      "    <white>$(player_profession)</white>"
+      "<white>Achievement Points</white>: <green>120</green>"
     ],
     [
       "   "
     ],
     [
-      "» <dark_green><bold>Emeralds</bold></dark_green>"
+      "<white>Server Players:</white> <green>$(online_server)</green>"
     ],
     [
-      "    <white>$(player_emeralds)</white>"
+      "<white>Network Players:</white> <green>$(online_network)</green>"
     ],
     [
       "    "
     ],
     [
-      "  <bold>\u200C\u200C</bold><gray>→</gray> <gradient:#ff00da:#ff8300><bold>play.znopp.pw</bold></gradient> <gray>←</gray>"
+      "<white>Network Booster:</white> <green>3.0x</green>"
+    ],
+    [
+      "     "
+    ],
+    [
+      "<white>IP</white>: <gradient:yellow:gold>play.znopp.pw</gradient>"
     ]
   ]
 }
