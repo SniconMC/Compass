@@ -14,12 +14,36 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+/**
+ * Utility class for managing and generating the Message of the Day (MOTD) configurations.
+ *
+ * <p>This class provides methods for loading MOTD configurations from JSON files,
+ * processing them, and generating a MOTD {@link Component} to be displayed in the server.</p>
+ *
+ * <p>MOTD configurations are stored in JSON files within a specified directory. The class
+ * supports dynamic generation of MOTD messages by selecting random entries from
+ * configuration files.</p>
+ *
+ * @see net.kyori.adventure.text.Component
+ * @see TextUtils
+ *
+ * @author znopp
+ */
 public class MOTD {
 
     private static File dataFolder;
     private static Gson gson;
     private static Map<String, String> motdConfig;
 
+    /**
+     * Constructs a new MOTD instance and initializes the configuration.
+     *
+     * <p>This constructor initializes the data folder path, sets up the Gson instance
+     * for JSON parsing, and loads the MOTD configurations from the files in the
+     * specified directory.</p>
+     *
+     * @author znopp
+     */
     public MOTD() {
         dataFolder = new File("resources/motd");
         gson = new GsonBuilder().setPrettyPrinting().create();
@@ -27,6 +51,17 @@ public class MOTD {
         loadMOTD();
     }
 
+    /**
+     * Loads the MOTD configurations from the JSON files located in the data folder.
+     *
+     * <p>This method clears the existing configurations and checks if the data folder exists
+     * and is a directory. It then searches for all JSON files in the folder and loads their
+     * contents into the configuration map.</p>
+     *
+     * <p>If the folder does not exist, it creates the folder and logs an error message.</p>
+     *
+     * @author znopp
+     */
     private void loadMOTD() {
         motdConfig.clear();
         if (dataFolder.exists() && dataFolder.isDirectory()) {
@@ -37,6 +72,17 @@ public class MOTD {
         }
     }
 
+    /**
+     * Recursively searches for JSON files in the specified folder and its subdirectories.
+     *
+     * <p>This method traverses the given folder and processes all JSON files found within it,
+     * adding their content to the MOTD configuration map. It also searches subdirectories
+     * recursively for additional JSON files.</p>
+     *
+     * @param folder the folder to search for JSON configuration files
+     *
+     * @author znopp
+     */
     private static void searchFiles(File folder) {
         File[] files = folder.listFiles();
         if (files != null) {
@@ -54,6 +100,18 @@ public class MOTD {
         }
     }
 
+    /**
+     * Processes a JSON file and adds its contents to the MOTD configuration map.
+     *
+     * <p>This method reads the contents of the specified JSON file, parses it, and stores
+     * it in the MOTD configuration map with the filename (without the .json extension) as the key.</p>
+     *
+     * <p>Logs appropriate messages upon successful loading or error during parsing.</p>
+     *
+     * @param file the JSON file to process and load into the configuration map
+     *
+     * @author znopp
+     */
     private static void processJsonFile(File file) {
         try {
             String motdConfigString = new String(Files.readAllBytes(file.toPath()));
@@ -71,6 +129,19 @@ public class MOTD {
         }
     }
 
+
+    /**
+     * Generates the MOTD {@link Component} based on the loaded configurations.
+     *
+     * <p>This method constructs a message of the day (MOTD) {@link Component} using the first
+     * loaded MOTD configuration. It processes the first and second rows of the configuration,
+     * appending them to the MOTD {@link Component}. If multiple options are available for the
+     * second row, one is selected randomly.</p>
+     *
+     * @return the generated MOTD {@link Component} to be displayed
+     *
+     * @author znopp
+     */
     public static Component createMOTD() {
         Component motd = Component.empty();
 

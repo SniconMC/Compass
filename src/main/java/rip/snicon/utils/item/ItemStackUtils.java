@@ -30,8 +30,50 @@ import java.util.List;
 import static rip.snicon.utils.MaterialUtils.convertMaterialToNamespaceId;
 import static rip.snicon.utils.MaterialUtils.convertToNamespaceIdMaterial;
 
+/**
+ * Utility class for handling item stack creation and conversion between custom {@link Item} objects
+ * and {@link ItemStack} objects used by the Minestom server.
+ *
+ * <p>This class provides methods to create an {@link ItemStack} from an {@link Item} and to convert
+ * an {@link ItemStack} back into a custom {@link Item} object. It handles setting various item properties
+ * like name, lore, count max stack size, custom data, player head skins, and colors.</p>
+ *
+ * @see Item
+ * @see ItemStack
+ * @see net.minestom.server.item.ItemComponent
+ * @see net.minestom.server.entity.Player
+ * @see rip.snicon.utils.TextUtils
+ *
+ * @author Wi1helm
+ * @author znopp
+ * @author Snicon
+ */
 public class ItemStackUtils {
 
+    /**
+     * Creates an {@link ItemStack} based on the provided {@link Item}, {@link Player} and {@link InventorySettings}.
+     * The method converts the item's ID to a corresponding {@link Material} and sets various properties on the
+     * ItemStack such as name, lore, count max stack size, custom data and specific properties like player head skin
+     * or dyed color if applicable.
+     *
+     * <p>If the item's material is invalid (null), an {@link ItemStack} of {@link Material#AIR} with a quantity of 1
+     * will be returned, and an error message will be logged.</p>
+     *
+     * <p>This method also handles setting a custom player head profile if the item is a player head and applying any
+     * enchantment glint or tooltip visibility settings specified in the item properties.</p>
+     *
+     * @param item The {@link Item} object representing the item to be converted into an {@link ItemStack}
+     * @param player The {@link Player} for whom the item stack is being created. This is used for player-specific
+     *               data like skins
+     * @param settings The {@link InventorySettings} is currently not being used for anything.
+     * @return A newly created {@link ItemStack} configured based on the input parameters.
+     *
+     * @see #convertToItem(ItemStack, Player)
+     * @see net.minestom.server.item.ItemStack#of(Material, int)
+     *
+     * @author Wi1helm
+     * @author znopp
+     */
     public static ItemStack createItemStack(Item item, Player player, InventorySettings settings) {
         Material material = convertToNamespaceIdMaterial(item.getId(), player);
         if (material == null) {
@@ -68,6 +110,17 @@ public class ItemStackUtils {
         return itemInASlot.build();
     }
 
+    /**
+     * Builds a {@link CompoundBinaryTag} containing custom data entries for the provided {@link Item}.
+     * This method checks for null values and conditionally adds data to the tag based on the item's properties.
+     *
+     * @param item The {@link Item} containing data that needs to be converted into a {@link CompoundBinaryTag}.
+     * @return A {@link CompoundBinaryTag} containing the custom data for the item.
+     *
+     * @see net.kyori.adventure.nbt.CompoundBinaryTag
+     *
+     * @author znopp
+     */
     private static @NotNull CompoundBinaryTag getEntries(Item item) {
         var customDataBuilder = CompoundBinaryTag.builder();
         // Add data conditionally
@@ -88,6 +141,21 @@ public class ItemStackUtils {
         return customDataBuilder.build();
     }
 
+    /**
+     * Converts a {@link ItemStack} back into a custom {@link Item} object. This method extracts data from
+     * the {@link ItemStack}, such as material ID, container ID, item count, display properties (name, lore),
+     * skin data (if the item is a player head), color, and other settings to recreate the original {@link Item}.
+     *
+     * @param itemStack The {@link ItemStack} to be converted into a custom {@link Item}.
+     * @param player The {@link Player} context, which may affect the conversion process.
+     * @return A new {@link Item} object constructed based on the properties extracted from the {@link ItemStack}.
+     *
+     * @see #createItemStack(Item, Player, InventorySettings)
+     * @see Item
+     *
+     * @author Wi1helm
+     * @author znopp
+     */
     public static Item convertToItem(ItemStack itemStack, Player player) {
         Item item = new Item();
 
