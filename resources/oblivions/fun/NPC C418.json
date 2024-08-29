@@ -1,15 +1,15 @@
 {
   "name": [
-    ["C418"]
+    ["<white>C418</white>"]
   ],
   "uuid": "uuid",
   "entity_type": "player",
   "position": {
-    "x": 3.5,
-    "y": 126.0,
-    "z": 13.5,
-    "pitch": 0.0,
-    "yaw": 0.0,
+    "x": -11,
+    "y": 87,
+    "z": -7,
+    "pitch": 6.5,
+    "yaw": 19.0,
     "look_at_player": true
   },
   "skin": {

@@ -1,6 +1,8 @@
 {
   "name": [
-    ["Parkour"]
+    ["<red>100 New Cosmetics</red>"],
+    ["<light_purple>Cosmetics </light_purple>"],
+    ["<yellow>Click to Shop</yellow>"]
   ],
   "uuid": "uuid",
   "entity_type": "player",

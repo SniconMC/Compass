@@ -1,15 +1,15 @@
 {
   "name": [
-    ["jeb_"]
+    ["<white>jeb_</white>"]
   ],
   "uuid": "uuid",
   "entity_type": "player",
   "position": {
-    "x": 6.5,
-    "y": 96.0,
-    "z": 13.5,
+    "x": -5.5,
+    "y": 87.5,
+    "z": -10.5,
     "pitch": 0.0,
-    "yaw": 0.0,
+    "yaw": 146.5,
     "look_at_player": true
   },
   "skin": {

@@ -1,15 +1,15 @@
 {
   "name": [
-    ["Grumm"]
+    ["<white>Grumm</white>"]
   ],
   "uuid": "uuid",
   "entity_type": "player",
   "position": {
-    "x": 5.5,
-    "y": 106.0,
-    "z": 13.5,
+    "x": 20.5,
+    "y": 101.0,
+    "z": -45,
     "pitch": 0.0,
-    "yaw": 0.0,
+    "yaw": 90.0,
     "look_at_player": true
   },
   "skin": {

@@ -1,8 +1,7 @@
 package rip.snicon.modules.oblivion.json;
 
 import net.minestom.server.entity.Entity;
-import net.minestom.server.entity.Player;
-import rip.snicon.modules.oblivion.NPC;
+import rip.snicon.modules.oblivion.entity.NPC;
 
 import java.util.HashMap;
 import java.util.List;

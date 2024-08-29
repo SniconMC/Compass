@@ -62,7 +62,6 @@ public class SkinUtils {
             }
             return new PlayerSkin("", "");
         } catch (Exception e) {
-            Main.logger.error("your motherly mother");
             // Return a default skin indicating an error occurred
             return new PlayerSkin("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQ0OWVjYjVlNmNlNjAwMjY1MzQ4MzZiZjgzYWIzN2NjNGRhZmQzMzNjYmRjYjVjMjFmNjIxNjYxZjVkMDgxYSJ9fX0=","");
         }

@@ -32,7 +32,7 @@ public class MOTD {
         if (dataFolder.exists() && dataFolder.isDirectory()) {
             searchFiles(dataFolder);
         } else {
-            Main.logger.error("MOTD folder does not exist! Creating...");
+            Main.logger.warn("MOTD folder does not exist! Creating...");
             dataFolder.mkdir();
         }
     }
@@ -59,8 +59,6 @@ public class MOTD {
             String motdConfigString = new String(Files.readAllBytes(file.toPath()));
             String name = file.getName().replace(".json", "");
             motdConfig.put(name, motdConfigString);
-
-            Main.logger.info("Loaded MOTD config: " + name);
 
         } catch (JsonSyntaxException | JsonIOException e) {
             // Handle Gson-specific errors

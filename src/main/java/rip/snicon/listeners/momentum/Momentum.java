@@ -29,6 +29,7 @@ public class Momentum {
     private void onPlayerJoin() {
         momentumNode.addListener(PlayerSpawnEvent.class, event -> {
             Player player = event.getPlayer();
+            MomentumManager.despawnText(player);
             MomentumManager.createMomentumPads(player);
         });
     }

@@ -8,7 +8,7 @@ import java.util.Map;
 public class PlaceholderManager {
 
     private static Map<Player, Map<String, String>> playerPlaceholders = new HashMap<>();
-    private static final Map<String, String> placeholderMap = new HashMap<>();
+
     public static Map<Player, Map<String, String>> getPlayerPlaceholders() {
         return playerPlaceholders;
     }
@@ -19,9 +19,16 @@ public class PlaceholderManager {
     }
 
     public static void setPlaceholderToPlayer(Player player, String placeholder, String value) {
+        // Retrieve the existing placeholder map for the player, or create a new one if it doesn't exist
+        Map<String, String> placeholderMap = playerPlaceholders.getOrDefault(player, new HashMap<>());
+
+        // Update the placeholder value
         placeholderMap.put(placeholder, value);
-        PlaceholderManager.playerPlaceholders.put(player, placeholderMap);
+
+        // Put the updated map back into the playerPlaceholders map
+        playerPlaceholders.put(player, placeholderMap);
     }
+
 
 
 

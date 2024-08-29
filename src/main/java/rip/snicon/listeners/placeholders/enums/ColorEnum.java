@@ -1,8 +1,8 @@
-package rip.snicon.listeners.placeholders;
+package rip.snicon.listeners.placeholders.enums;
 
 import java.util.Random;
 
-public enum PlaceholderEnum {
+public enum ColorEnum {
 
     RED("#FF0000"),
     GREEN("#00FF00"),
@@ -28,7 +28,7 @@ public enum PlaceholderEnum {
 
     private final String hexCode;
 
-    PlaceholderEnum(String hexCode) {
+    ColorEnum(String hexCode) {
         this.hexCode = hexCode;
     }
 
@@ -37,7 +37,7 @@ public enum PlaceholderEnum {
     }
 
     public static String getRandomColorCode() {
-        PlaceholderEnum[] colors = PlaceholderEnum.values(); // Get all enum values
+        ColorEnum[] colors = ColorEnum.values(); // Get all enum values
         int randomIndex = new Random().nextInt(colors.length); // Generate a random index
         return colors[randomIndex].getHexCode(); // Return the randomly selected color
     }

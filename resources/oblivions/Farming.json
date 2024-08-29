@@ -1,6 +1,8 @@
 {
   "name": [
-    ["Parkour"]
+    ["<green>Farming Negative Players</green>"],
+    ["<gold>Farming <gray>[???]</gray></gold>"],
+    ["<yellow>-1 Playing</yellow>"]
   ],
   "uuid": "uuid",
   "entity_type": "player",

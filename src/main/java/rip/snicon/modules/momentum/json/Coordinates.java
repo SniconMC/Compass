@@ -19,4 +19,9 @@ public class Coordinates {
     public Pos getCorner2() {
         return new Pos(x2, y2, z2);
     }
+
+    public Pos getMiddle() {
+        return new Pos((double) (x1 + x2 + 1) /2, Math.max(y1, y2) + 2, (double) (z1 + z2 + 1) /2);
+
+    }
 }

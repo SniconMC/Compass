@@ -16,7 +16,6 @@ public class TimeUtils {
                 default -> 6000;
                 case "morning" -> 0;
                 case "day" -> 1000;
-                case "noon" -> 6000;
                 case "night" -> 13000;
                 case "midnight" -> 18000;
             };
@@ -25,7 +24,8 @@ public class TimeUtils {
         try {
             return Long.parseLong(name);
         } catch (NumberFormatException e) {
-            Main.logger.error("Invalid number, or malformed word: " + e);
+            Main.logger.warn("Invalid number, or malformed word: " + e);
+            Main.logger.warn("Defaulting to noon (6000)");
             return 6000;
         }
     }

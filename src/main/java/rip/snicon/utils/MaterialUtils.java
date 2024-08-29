@@ -23,7 +23,8 @@ public class MaterialUtils {
             return material;
         } catch (IllegalArgumentException e) {
             // Handle the case where the cleaned ID is not a valid Material
-            Main.logger.error("Invalid material ID: " + namespaceId);
+            Main.logger.warn("Invalid material ID: " + namespaceId);
+            Main.logger.warn("Defaulting to Air");
             return Material.AIR; // Return a default or placeholder material if the conversion fails
         }
     }

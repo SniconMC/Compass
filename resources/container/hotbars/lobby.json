@@ -1,43 +1,6 @@
 {
   "items": [
     {
-      "slot": 13,
-      "id": "minecraft:gold_block",
-      "count": {
-        "current": 1,
-        "max": 64
-      },
-      "display": {
-        "name": [
-          "<gray>» </gray><gradient:#ff00da:#ff8300>Auction House</gradient><gray> «</gray>"
-        ],
-        "lore": [
-          [
-            "<gray>Buy and sell items here!</gray>"
-          ],
-          [
-            " "
-          ],
-          [
-            "<gray>» <aqua>Click to open</aqua> «"
-          ]
-        ],
-        "model_data": "",
-        "glint": false,
-        "dye_color": "",
-        "show_tooltip": true
-      },
-      "skin": {
-        "player": "",
-        "uuid": "",
-        "texture": ""
-      },
-      "data": {
-        "function": "",
-        "page": "auction"
-      }
-    },
-    {
       "slot": 3,
       "id": "minecraft:redstone",
       "count": {
@@ -45,19 +8,11 @@
         "max": 64
       },
       "display": {
-        "name": [
-          "<gray>» </gray><gradient:#ff00da:#ff8300>Settings</gradient><gray> «</gray>"
-        ],
+        "name": ["» <gradient:#ff00da:#ff8300>Settings</gradient> «"],
         "lore": [
-          [
-            "<gray>Change your settings!</gray>"
-          ],
-          [
-            " "
-          ],
-          [
-            "<gray>» <aqua>Click to open</aqua> «</gray>"
-          ]
+          ["<gray>Change your settings!</gray>"],
+          [""],
+          ["<gray>» <aqua>Click to open</aqua> «</gray>"]
         ],
         "model_data": "",
         "glint": false,
@@ -82,19 +37,11 @@
         "max": 64
       },
       "display": {
-        "name": [
-          "» <gradient:#ff00da:#ff8300>Server Selector</gradient> «"
-        ],
+        "name": ["» <gradient:#ff00da:#ff8300>Server Selector</gradient> «"],
         "lore": [
-          [
-            "<gray>Go on. Take a guess.</gray>"
-          ],
-          [
-            " "
-          ],
-          [
-            "<gray>» <aqua>Click to open</aqua> «</gray>"
-          ]
+          ["<gray>Go on. Take a guess.</gray>"],
+          [""],
+          ["<gray>» <aqua>Click to open</aqua> «</gray>"]
         ],
         "model_data": "",
         "glint": false,
@@ -108,7 +55,7 @@
       },
       "data": {
         "function": "",
-        "page": "compass"
+        "page": "server selector"
       }
     },
     {
@@ -119,22 +66,12 @@
         "max": 64
       },
       "display": {
-        "name": [
-          "<dark_gray>» </dark_gray><gradient:#ff00da:#ff8300>Profile</gradient><dark_gray> «</dark_gray>"
-        ],
+        "name": ["» <gradient:#ff00da:#ff8300>Profile</gradient> «"],
         "lore": [
-          [
-            "<gray>View your cosmetics</gray>"
-          ],
-          [
-            "<gray>and statistics!</gray>"
-          ],
-          [
-            " "
-          ],
-          [
-            "<gray>» <aqua>Click to open</aqua> «</gray>"
-          ]
+          ["<gray>View your cosmetics</gray>"],
+          ["<gray>and statistics!</gray>"],
+          [""],
+          ["<gray>» <aqua>Click to open</aqua> «</gray>"]
         ],
         "model_data": "",
         "glint": false,

@@ -35,7 +35,7 @@ public class ContainerCreator {
     private static Map<String, String> configMap;
 
     public ContainerCreator() {
-        dataFolder = new File("resources/container/containers");
+        dataFolder = new File("resources/container/guis");
         gson = new GsonBuilder().setPrettyPrinting().create();
         configMap = new HashMap<>();
         loadContainers();
@@ -96,6 +96,10 @@ public class ContainerCreator {
         try {
             ContainerConfig config = gson.fromJson(placeholdedJson, ContainerConfig.class);
             if (config == null) {
+
+                // TODO false null
+                //  Says null even for items in server selector menu
+
                 Main.logger.error("Container not found: " + name);
                 return;
             }

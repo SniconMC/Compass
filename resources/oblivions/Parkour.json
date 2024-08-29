@@ -1,9 +1,11 @@
 {
   "name": [
-    ["Parkour"]
+    ["<red>Reload = Skull</red>"],
+    ["<gold>Parkour <gray>[0.1]</gray></gold>"],
+    ["<yellow>$(playercount_parkour) Playing</yellow>"]
   ],
   "uuid": "uuid",
-  "entity_type": "player",
+  "entity_type": "minecraft:player",
   "position": {
     "x": -11.0,
     "y": 71.0,

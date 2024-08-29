@@ -1,4 +1,4 @@
-package rip.snicon.commands;
+package rip.snicon.commands.admin;
 
 public enum ReloadActions {
     Sidebar,

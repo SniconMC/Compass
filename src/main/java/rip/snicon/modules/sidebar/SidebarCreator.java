@@ -66,9 +66,6 @@ public class SidebarCreator {
             String playerSidebar = new String(Files.readAllBytes(file.toPath()));
             String name = file.getName().replace(".json", "");
             playerSidebarMap.put(name, playerSidebar);
-
-            Main.logger.info("Loaded sidebar info: " + name);
-
         } catch (JsonSyntaxException | JsonIOException e) {
             // Handle Gson-specific errors
             Main.logger.error("Error parsing JSON file: " + file.getName());
@@ -153,7 +150,7 @@ public class SidebarCreator {
 
         // If the sidebar doesn't exist, create a new one
         if (sidebar == null) {
-            Main.logger.error(sidebarName + " is not a valid sidebar");
+            Main.logger.error(sidebarName + " is not a valid sidebar!");
             return;
         }
 

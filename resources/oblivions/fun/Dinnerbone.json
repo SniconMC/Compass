@@ -1,15 +1,15 @@
 {
   "name": [
-    ["Dinnerbone"]
+    ["<white>Dinnerbone</white>"]
   ],
   "uuid": "uuid",
   "entity_type": "player",
   "position": {
-    "x": 4.5,
-    "y": 116.0,
-    "z": 13.5,
+    "x": 14.5,
+    "y": 94.0,
+    "z": -33,
     "pitch": 0.0,
-    "yaw": 0.0,
+    "yaw": -90.0,
     "look_at_player": true
   },
   "skin": {

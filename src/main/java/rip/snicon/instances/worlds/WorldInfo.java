@@ -1,5 +1,7 @@
 package rip.snicon.instances.worlds;
 
+import net.minestom.server.coordinate.Pos;
+
 public class WorldInfo {
 
     private double spawnX;
@@ -32,6 +34,10 @@ public class WorldInfo {
 
     public double getSpawnZ() {
         return spawnZ;
+    }
+
+    public Pos getSpawn(){
+        return new Pos(spawnX, spawnY, spawnZ, spawnYaw, spawnPitch);
     }
 
     public float getSpawnPitch() {

@@ -1,30 +1,22 @@
-package rip.snicon.modules.oblivion;
+package rip.snicon.modules.oblivion.entity;
 
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.*;
 import net.minestom.server.entity.ai.EntityAIGroupBuilder;
 import net.minestom.server.entity.ai.GoalSelector;
-import net.minestom.server.entity.ai.goal.FollowTargetGoal;
-import net.minestom.server.entity.ai.goal.MeleeAttackGoal;
-import net.minestom.server.entity.ai.goal.RandomStrollGoal;
-import net.minestom.server.entity.ai.goal.RangedAttackGoal;
-import net.minestom.server.entity.ai.target.ClosestEntityTarget;
 import net.minestom.server.entity.attribute.Attribute;
 import net.minestom.server.event.entity.EntityAttackEvent;
 import net.minestom.server.event.player.PlayerEntityInteractEvent;
 import net.minestom.server.instance.Instance;
 import net.minestom.server.network.packet.server.play.*;
-import net.minestom.server.utils.time.TimeUnit;
+import net.minestom.server.scoreboard.Team;
 import org.jetbrains.annotations.NotNull;
-import rip.snicon.Main;
+import rip.snicon.modules.oblivion.OblivionConfig;
+import rip.snicon.modules.oblivion.json.Oblivion;
+import rip.snicon.modules.oblivion.json.OblivionSkin;
 
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.function.Consumer;
 
 public final class NPC extends EntityCreature {
@@ -32,28 +24,33 @@ public final class NPC extends EntityCreature {
     private final PlayerSkin skin;
     private final Pos position;
     private final Consumer<Player> onClick;
-    private final UUID uuid;
-    private final int entityId;
+    private final OblivionConfig config;
     private boolean shouldLookAtPlayers;
     private final float originalYaw;
     private final float originalPitch;
 
     public NPC(@NotNull String name, PlayerSkin playerSkin,
-               @NotNull Instance instance, @NotNull Pos position, @NotNull Consumer<Player> onClick) {
-        super(EntityType.PLAYER);
+               @NotNull Instance instance, @NotNull Pos position, @NotNull Consumer<Player> onClick, OblivionConfig oblivionConfig, EntityType entityType) {
+        super(entityType);
         this.name = name;
         this.skin = playerSkin;
         this.position = position;
         this.onClick = onClick;
-        this.uuid = UUID.randomUUID();
-        this.entityId = (int) (Math.random() * Integer.MAX_VALUE);
+        this.config = oblivionConfig;
         this.shouldLookAtPlayers = true; // Default to true
         this.originalYaw = position.yaw(); // Store the original yaw
         this.originalPitch = position.pitch();
 
+
         this.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(0.2);
         this.getAttribute(Attribute.GENERIC_STEP_HEIGHT).setBaseValue(1.0);
+
         setInstance(instance, position);
+
+        Team hiddenName = MinecraftServer.getTeamManager().getTeam("hidden_name");
+
+        setTeam(hiddenName);
+        hiddenName.addMember(name);
 
         // Register event listeners
         MinecraftServer.getGlobalEventHandler().addListener(EntityAttackEvent.class, this::handle)
@@ -90,35 +87,75 @@ public final class NPC extends EntityCreature {
 
     // Send packets to make the NPC visible only to a specific player
     public void makeVisibleTo(@NotNull Player player) {
-        var properties = new ArrayList<PlayerInfoUpdatePacket.Property>();
-        if (skin.textures() != null && skin.signature() != null) {
-            properties.add(new PlayerInfoUpdatePacket.Property("textures", skin.textures(), skin.signature()));
+
+        if (this.entityType == EntityType.PLAYER){
+            var properties = new ArrayList<PlayerInfoUpdatePacket.Property>();
+            if (skin.textures() != null && skin.signature() != null) {
+                properties.add(new PlayerInfoUpdatePacket.Property("textures", skin.textures(), skin.signature()));
+            }
+
+            var entry = new PlayerInfoUpdatePacket.Entry(this.getUuid(), name, properties, false,
+                    0, GameMode.SURVIVAL, null, null);
+            player.sendPacket(new PlayerInfoUpdatePacket(PlayerInfoUpdatePacket.Action.ADD_PLAYER, entry));
+
+            // Send the SpawnEntityPacket only to this player
+            player.sendPacket(new SpawnEntityPacket(
+                    getEntityId(),
+                    this.getUuid(),
+                    this.getEntityType().id(),
+                    position,
+                    position.yaw(),
+                    0,
+                    (short) 0,  // velocity x
+                    (short) 0,  // velocity y
+                    (short) 0   // velocity z
+            ));
+
+            // Send EntityMetadataPacket to apply metadata only to this player
+            player.sendPacket(setSkinParts(this.config));
+        } else {
+            // Send the SpawnEntityPacket only to this player
+            player.sendPacket(new SpawnEntityPacket(
+                    getEntityId(),
+                    this.getUuid(),
+                    this.getEntityType().id(),
+                    position,
+                    position.yaw(),
+                    0,
+                    (short) 0,  // velocity x
+                    (short) 0,  // velocity y
+                    (short) 0   // velocity z
+            ));
         }
+    }
 
-        var entry = new PlayerInfoUpdatePacket.Entry(uuid, name, properties, false,
-                0, GameMode.SURVIVAL, null, null);
-        player.sendPacket(new PlayerInfoUpdatePacket(PlayerInfoUpdatePacket.Action.ADD_PLAYER, entry));
+    public EntityMetaDataPacket setSkinParts(OblivionConfig config) {
+        byte skinPartsBitmask = buildSkinPartsBitmask(config.getSkin());
 
-        // Send the SpawnEntityPacket only to this player
-        player.sendPacket(new SpawnEntityPacket(
-                getEntityId(),
-                uuid,
-                EntityType.PLAYER.id(),
-                position,
-                position.yaw(),
-                0,
-                (short) 0,  // velocity x
-                (short) 0,  // velocity y
-                (short) 0   // velocity z
-        ));
+        return new EntityMetaDataPacket(this.getEntityId(), Map.of(
+                17, Metadata.Byte(skinPartsBitmask)));
+    }
 
-        // Send EntityMetadataPacket to apply metadata only to this player
-        player.sendPacket(new EntityMetaDataPacket(getEntityId(), Map.of(17, Metadata.Byte((byte) 127))));
+    public byte buildSkinPartsBitmask(OblivionSkin skin) {
+        byte bitmask = 0;
+
+        if (skin.isCape()) bitmask |= 0x01;
+        if (skin.isJacket()) bitmask |= 0x02;
+        if (skin.isLeft_sleeve()) bitmask |= 0x04;
+        if (skin.isRight_sleeve()) bitmask |= 0x08;
+        if (skin.isLeft_pants()) bitmask |= 0x10;
+        if (skin.isRight_pants()) bitmask |= 0x20;
+        if (skin.isHat()) bitmask |= 0x40;
+
+        return bitmask;
     }
 
     // Despawn the NPC for a specific player
     public void despawnForPlayer(@NotNull Player player) {
-        player.sendPacket(new PlayerInfoRemovePacket(uuid));
+        if (this.entityType == EntityType.PLAYER){
+            player.sendPacket(new PlayerInfoRemovePacket(this.getUuid()));
+        }
+
         player.sendPacket(new DestroyEntitiesPacket(getEntityId()));
         this.remove();
     }

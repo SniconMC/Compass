@@ -17,9 +17,9 @@
   },
   "display": {
     "show_text": true,
-    "text_uuid": [
-    ],
-    "text_list": []
+    "text_list": [
+      ["<gray>» <aqua>Warp to Anbil</aqua> «</gray>"]
+    ]
   },
   "sound": {
     "source": "master",

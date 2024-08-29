@@ -63,9 +63,6 @@ public class HotbarCreator {
             ContainerConfig containerConfig = gson.fromJson(reader, ContainerConfig.class);
             String name = file.getName().replace(".json", "");
             configMap.put(name, containerConfig);
-
-            Main.logger.info("Loaded hotbar info: " + name);
-
         } catch (JsonSyntaxException | JsonIOException e) {
             // Handle Gson-specific errors
             Main.logger.error("Error parsing JSON file: " + file.getName());
@@ -82,7 +79,7 @@ public class HotbarCreator {
     public static void setHotbar(Player player, String name){
         ContainerConfig config = configMap.get(name);
         if (config == null) {
-            Main.logger.error("Hotbar '" + name + "' not found, skipping");
+            Main.logger.warn("Hotbar '" + name + "' not found, skipping");
             return;
         }
 

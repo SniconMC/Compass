@@ -10,10 +10,14 @@ import net.minestom.server.entity.Entity;
 import net.minestom.server.entity.Player;
 import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.instance.Instance;
+import net.minestom.server.network.packet.server.play.TeamsPacket;
+import net.minestom.server.scoreboard.Team;
 import rip.snicon.Main;
 import rip.snicon.instances.InstanceCreator;
-import rip.snicon.modules.oblivion.json.DisplayText;
+import rip.snicon.modules.oblivion.entity.DisplayText;
+import rip.snicon.modules.oblivion.entity.NPC;
 import rip.snicon.modules.oblivion.json.Oblivion;
+import rip.snicon.utils.EntityUtils;
 import rip.snicon.utils.PlaceholderReplacer;
 import rip.snicon.utils.SkinUtils;
 
@@ -34,6 +38,7 @@ public class OblivionCreator {
         gson = new GsonBuilder().setPrettyPrinting().create();
         oblivionConfigs = new HashMap<>();
         loadOblivions();
+        createHiddenNameTeam();
     }
 
     private static void loadOblivions() {
@@ -42,8 +47,14 @@ public class OblivionCreator {
             // Start searching from the containerFolder
             searchFiles(dataFolder);
         } else {
-            Main.logger.error("the worlds dataFolder does not exist! Creating...");
-            dataFolder.mkdirs();
+            Main.logger.warn("the worlds dataFolder folder does not exist! Creating...");
+            boolean hasCreated = dataFolder.mkdirs();
+
+            if (hasCreated) {
+                Main.logger.info("Created dataFolder!");
+            } else {
+                Main.logger.warn("Failed to create dataFolder!");
+            }
         }
     }
 
@@ -60,7 +71,7 @@ public class OblivionCreator {
                 }
             }
         } else {
-            Main.logger.error("The oblivion config file does not exist!");
+            Main.logger.error("The Oblivion config file does not exist!");
         }
     }
 
@@ -69,9 +80,6 @@ public class OblivionCreator {
             String oblivionConfig = new String(Files.readAllBytes(file.toPath()));
             String name = file.getName().replace(".json", "");
             oblivionConfigs.put(name, oblivionConfig);
-
-            Main.logger.info("Loaded Oblivion config: " + name);
-
         } catch (JsonSyntaxException | JsonIOException e) {
             // Handle Gson-specific errors
             Main.logger.error("Error parsing JSON file: " + file.getName());
@@ -107,14 +115,18 @@ public class OblivionCreator {
                 PlayerSkin skin = SkinUtils.getSkin(player, config.getSkin().getPlayer(), "", config.getSkin().getTexture(), config.getSkin().getSignature());
 
                 // Create and spawn the NPC, passing the method reference for onClick
-                NPC npc = new NPC(name, skin, instance,  pos, OblivionCreator::handleNpcClick);
+                NPC npc = new NPC(name, skin, instance,  pos, OblivionCreator::handleNpcClick, config, EntityUtils.getEntityTypeFromNamespace(config.getEntity_type()));
                 npc.makeVisibleTo(player);
                 NpcMap.put(name, npc);
 
+                Pos namePos = pos.add(0, npc.getEyeHeight() + 0.45, 0);
+
                 List<Entity> entities = new ArrayList<>();
-                for (int i = 0; i < config.getName().size(); i++) {
-                    DisplayText textDisplay = new DisplayText(i, pos, instance, config.getName().get(i));
+                int size = config.getName().size();
+                for (int i = 0; i < size; i++) {
+                    DisplayText textDisplay = new DisplayText(i, namePos,  config.getName().get((size-1)-i));
                     textDisplay.makeVisibleTo(player);
+
                     entities.add(textDisplay);
                 }
                 textDisplayMap.put(name, entities);
@@ -141,14 +153,25 @@ public class OblivionCreator {
             return;
         }
         for (String name : oblivion.getOblivions().keySet()) {
-            NPC npc = (NPC) oblivion.getOblivions().get(name);
+            NPC npc = oblivion.getOblivions().get(name);
             npc.despawnForPlayer(player);
+
+            List<Entity> displays =  oblivion.getOblivionsName().get(name);
+            for (Entity entity : displays) {
+                DisplayText textDisplay = (DisplayText) entity;
+                textDisplay.despawnForPlayer(player);
+            }
         }
     }
 
+
+    private static void createHiddenNameTeam() {
+        Team hiddenName = MinecraftServer.getTeamManager().createTeam("hidden_name");
+        hiddenName.setNameTagVisibility(TeamsPacket.NameTagVisibility.NEVER);
+    }
     // Method to handle NPC click interactions
     public static void handleNpcClick(Player player) {
-        // TODO add stuff here :)
+        // TODO: NPC click
         player.sendMessage("hehe");
     }
 

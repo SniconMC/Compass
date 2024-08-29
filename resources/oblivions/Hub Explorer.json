@@ -1,15 +1,16 @@
 {
   "name": [
-    ["Example Johnson"]
+    ["<gray>Hello there, <gradient:#ff00da:#ff8300>$(player_name)</gradient>!</gray>"],
+    ["<gray>$(hub_explorer_random)</gray>"]
   ],
   "uuid": "uuid",
   "entity_type": "player",
   "position": {
-    "x": 1.5,
+    "x": -2,
     "y": 66.0,
-    "z": 8.5,
+    "z": 12,
     "pitch": 0.0,
-    "yaw": 0.0,
+    "yaw": -39.0,
     "look_at_player": true
   },
   "skin": {

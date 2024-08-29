@@ -1,4 +1,4 @@
-package rip.snicon.commands.world;
+package rip.snicon.commands.admin.world;
 
 import net.minestom.server.command.builder.Command;
 import net.minestom.server.command.builder.arguments.ArgumentType;

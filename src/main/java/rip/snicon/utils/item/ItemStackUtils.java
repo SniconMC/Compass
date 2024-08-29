@@ -35,7 +35,8 @@ public class ItemStackUtils {
     public static ItemStack createItemStack(Item item, Player player, InventorySettings settings) {
         Material material = convertToNamespaceIdMaterial(item.getId(), player);
         if (material == null) {
-            Main.logger.error("Material for this item is invalid: " + item.getId());
+            Main.logger.warn("Invalid material: " + item.getId());
+            Main.logger.warn("Defaulting to Air");
             return ItemStack.of(Material.AIR, 1);
         }
 

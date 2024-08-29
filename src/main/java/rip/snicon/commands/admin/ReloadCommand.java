@@ -1,17 +1,15 @@
-package rip.snicon.commands;
+package rip.snicon.commands.admin;
 
 import net.minestom.server.command.builder.Command;
-import net.minestom.server.command.builder.CommandContext;
 import net.minestom.server.command.builder.arguments.ArgumentType;
 import net.minestom.server.entity.Player;
-import net.minestom.server.item.Material;
+import rip.snicon.listeners.placeholders.enums.HubExplorerEnum;
 import rip.snicon.modules.container.ContainerCreator;
 import rip.snicon.modules.container.HotbarCreator;
 import rip.snicon.modules.momentum.MomentumManager;
 import rip.snicon.modules.oblivion.OblivionCreator;
+import rip.snicon.modules.placeholders.PlaceholderManager;
 import rip.snicon.modules.sidebar.SidebarCreator;
-
-import javax.naming.Context;
 
 public class ReloadCommand extends Command {
 
@@ -28,7 +26,7 @@ public class ReloadCommand extends Command {
 
         addSyntax((sender, context) -> {
 
-            if (!(sender instanceof Player)){
+            if (!(sender instanceof Player player)){
                 return;
             }
 
@@ -40,6 +38,7 @@ public class ReloadCommand extends Command {
                     sender.sendMessage("Reloaded Sidebar");
                 }
                 case "oblivion" -> {
+                    PlaceholderManager.setPlaceholderToPlayer(player, "hub_explorer_random", HubExplorerEnum.getRandomText());
                     OblivionCreator.reloadOblivions();
                     sender.sendMessage("Reloaded Oblivion");
                 }

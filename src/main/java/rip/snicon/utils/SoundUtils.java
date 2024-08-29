@@ -10,8 +10,8 @@ public class SoundUtils {
         try {
             return SoundEvent.fromNamespaceId(soundName);
         } catch (Exception e) {
-            Main.logger.error("Invalid sound name: " + soundName + ", cause: " + e.getMessage());
-            Main.logger.info("Switching to default sound event");
+            Main.logger.warn("Invalid sound name: " + soundName + ", cause: " + e.getMessage());
+            Main.logger.warn("Switching to default sound event");
             return SoundEvent.BLOCK_GRASS_BREAK;
         }
     }
@@ -20,8 +20,8 @@ public class SoundUtils {
         try {
             return Sound.Source.valueOf(sourceName);
         } catch (Exception e) {
-            Main.logger.error("Invalid source name: " + sourceName + ", cause: " + e.getMessage());
-            Main.logger.info("Switching to default sound source");
+            Main.logger.warn("Invalid source name: " + sourceName + ", cause: " + e.getMessage());
+            Main.logger.warn("Switching to default sound source");
             return Sound.Source.MASTER;
         }
     }

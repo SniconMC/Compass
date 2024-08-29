@@ -1,0 +1,30 @@
+{
+  "name": [
+  ],
+  "uuid": "uuid",
+  "entity_type": "player",
+  "position": {
+    "x": 19.5,
+    "y": 110,
+    "z": -34.7,
+    "pitch": 0,
+    "yaw": 0,
+    "look_at_player": true
+  },
+  "skin": {
+    "player": "",
+    "texture" : "ewogICJ0aW1lc3RhbXAiIDogMTcyNDk2MDkwNTYwMiwKICAicHJvZmlsZUlkIiA6ICJkOWZiMDEzNTExZGI0M2RkODUxY2M4NzExZmY2MDI3MyIsCiAgInByb2ZpbGVOYW1lIiA6ICJSaWFubm9jcnkiLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWFkNjMxMWJlNzU1YTZlMWFkYzgwNjc2NjU1ZGMyZWVkMGQyYTRmZmRjNzhhMGY1YzUyY2EwY2FkOTc5YWNmYyIKICAgIH0KICB9Cn0=",
+    "signature" : "WR+piHPbbGShqhATyRjH6FR3pz/ZspRrPuFF0+dWU0wv1vTYpklICq/1Lkjnt9/ziHhIcBWpFV+ku9qB1oGY7Lnlf/7cDrt70wNJHog3/KpPASVBm/fbVC56N4WzGyvSNICHPgJuOQjqjVMg/IfK81re1xJH3gZFlwzxcT1oXbMTnbfwo/eNKC/48pT3+hJxV/elYzTnpfgPNpLSvDBJrnl+dxuGKt4C0bo5Zm8zfSSNNH2nGtOoyZeuTAO6ZAmke2ifBfn54WcIYXeAIXJZBKn0GAnH6t3O78NcBtY+tpQ1vnpeQzSsPSEuZonpsTK08V3kG+aZX3dEQwWy0jBxCqhca9Bp6/ELXFNyNBpkYugHtXslLzGBSTBTlxILb/83glz4Xz+y1O5NErWo9YtuDYlglLNgOJduKWgBqU292gFN75DDVOXKvBYvOxFHdTDTHkU1InoufZjud212RoIKaztjEkpM4vvsJj18DD9o2P44vvowhc6s2afIjX9IEmJPrrR1uVE5kvaL4Mx8W/C37EhJ9kpQg3sABkqoooYk8ykI56denwHl3F4RouJfHSmXqcwAvNUSdtWDpkgayI3zDp+u0iTih/EyahrFZY8TZCgLeHy4iTyr9A4NED5c7wYCHRHEyzFUCEGd3h0dMe2XP5IbZVGsRGyL6oBBHR8ARjQ=",
+
+    "cape": false,
+    "jacket": true,
+    "left_sleeve": true,
+    "right_sleeve": true,
+    "left_pants": true,
+    "right_pants": true,
+    "hat": true
+  },
+  "in_tab": false,
+  "world" : "hub"
+}
+

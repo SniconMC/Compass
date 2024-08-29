@@ -60,17 +60,6 @@ public class Global {
 
             event.setSpawningInstance(instance);
             player.setRespawnPoint(instanceStartingPos);
-
-            // TODO undo creative
-            player.setGameMode(GameMode.CREATIVE);
-
-            // Placeholders
-            PlaceholderManager.setPlaceholderToPlayer(player, "player_name", player.getUsername());
-
-            // TODO make un-static
-            String playerRank = "<dark_gray>[</dark_gray><dark_red>Obama++</dark_red><dark_gray>]</dark_gray>";
-            PlaceholderManager.setPlaceholderToPlayer(player, "player_rank", playerRank);
-            PlaceholderManager.setPlaceholderToPlayer(player, "player_item", "minecraft:tnt");
         });
     }
 
@@ -129,9 +118,7 @@ public class Global {
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
 
         globalEventHandler.addListener(PlayerBlockBreakEvent.class, event -> {
-
-            // TODO make true again
-            event.setCancelled(false);
+            event.setCancelled(true);
         });
 
         globalEventHandler.addListener(PlayerBlockInteractEvent.class, event -> {

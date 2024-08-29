@@ -15,84 +15,92 @@ import java.util.Map;
 
 
 public class MomentumExecutor {
-    private static final Map<Player,Map<String, Long>> lastExecuteTime = new HashMap<>();
+    private static final Map<Player, Map<String, Long>> playerCooldowns = new HashMap<>();
     private static final Map<Player, Map<String, BoundingBox>> lastTeleportDestinations = new HashMap<>();
 
     public static void isOnMomentumPad(MomentumConfig config, Player player, String fileName) {
         Pos playerPos = player.getPosition();
 
+        // TODO: event triggering
+        //  1. Camera movement (pitch/yaw) should not count to trigger any pads
+        //  2. In the event that a destination for one telepad is also the origin of another:
+        //      Player should not teleport to new destination until they have exited the previous destination area
+
         if (!BoundingBox.isWithinBounds(config, playerPos, true)) {
             return;
         }
-        Main.logger.info("Player on block");
 
         // actually the code is inverted so this checks out
-        if (!isOnCoolDown(config, player, fileName)) {
-            Main.logger.warn("Player is on cooldown, returning");
+        String type = determinePadType(config); // Determine if it's a telepad or launchpad
+
+        if (!isOnCooldown(config, player, type)) {
             return;
         }
-        executeMomentum(config, player, fileName);
-        setCoolDown(player, fileName);
+
+        executeMomentum(config, player, fileName, type);
     }
 
-    private static void removeLastTeleportDestination(Player player, String fileName) {
-        Map<String, BoundingBox> playerDestinations = lastTeleportDestinations.get(player);
-        if (playerDestinations != null) {
-            playerDestinations.remove(fileName);
-            if (playerDestinations.isEmpty()) {
-                lastTeleportDestinations.remove(player);
-            }
-        }
-    }
-
-    private static boolean isOnCoolDown(MomentumConfig config, Player player, String fileName) {
-        Map<String, Long> map = lastExecuteTime.get(player);
-        if (map == null) {
-            return true;
-        }
-        Long lastExecute = map.get(fileName);
-        if (lastExecute == null) {
-            return true;
+    private static boolean isOnCooldown(MomentumConfig config, Player player, String type) {
+        Map<String, Long> cooldowns = playerCooldowns.get(player);
+        if (cooldowns == null) {
+            return true; // No cooldown set, player can use the telepad
         }
 
-        long timeSinceLastExecute = System.currentTimeMillis() - lastExecute;
-        return timeSinceLastExecute >= config.getCooldown();
-    }
-
-    private static void setCoolDown(Player player, String fileName) {
+        Long cooldownEnd = cooldowns.get(type);
+        if (cooldownEnd == null) {
+            return true; // No cooldown for this type
+        }
 
         long currentTime = System.currentTimeMillis();
-        Map<String, Long> map = lastExecuteTime.getOrDefault(player, new HashMap<>());
-        map.put(fileName, currentTime);
-        lastExecuteTime.put(player, map);
+        return currentTime >= cooldownEnd; // Check if the cooldown has expired
     }
 
-    private static void executeMomentum(MomentumConfig config, Player player, String fileName) {
-        Main.logger.info("Executing momentum");
 
+    private static void setCooldown(Player player, String type, long cooldownDuration) {
+        long cooldownEnd = System.currentTimeMillis() + cooldownDuration;
+        Map<String, Long> cooldowns = playerCooldowns.getOrDefault(player, new HashMap<>());
+        cooldowns.put(type, cooldownEnd);
+        playerCooldowns.put(player, cooldowns); // Set cooldown end time for the specific type
+    }
 
-        if (config.getDestination_corners() != null) {
-            Main.logger.info("we found the destination corners");
-            Coordinates coordinates = config.getDestination_corners();
-            Pos corner1 = coordinates.getCorner1();
-            Pos corner2 = coordinates.getCorner2();
-            Pos destination = getTeleportDestination(corner1, corner2, config, player, fileName);
+    private static void executeMomentum(MomentumConfig config, Player player, String fileName, String type) {
+        try {
+            if ("telepad".equals(type) && config.getDestination_corners() != null) {
+                Coordinates coordinates = config.getDestination_corners();
+                Pos corner1 = coordinates.getCorner1();
+                Pos corner2 = coordinates.getCorner2();
+                Pos destination = getTeleportDestination(corner1, corner2, config, player, fileName);
 
-            // TODO
-            //   cooldown not working properly (try it out ingame)
+                MinecraftServer.getSchedulerManager().scheduleNextTick(() -> player.teleport(destination));
 
-            MinecraftServer.getSchedulerManager().scheduleNextTick(() -> player.teleport(destination));
+                setCooldown(player, "telepad", config.getCooldown());
+            } else if ("unknown".equals(type)) {
+                Main.logger.error("Type required was telepad, but only " + type + " was found!");
+                return;
+            }
+        } catch (NullPointerException e) {
+            Main.logger.error("Destination corners missing! Error: " + e.getMessage());
         }
+
+
 
         Double vertical_strength = config.getVertical_strength();
         Double directional_strength = config.getDirectional_strength();
 
-        if (vertical_strength != null && directional_strength != null) {
-            Main.logger.info("we found the strength");
-            Pos playerLocation = player.getPosition();
+        try {
+            if ("launchpad".equals(type) && vertical_strength != null && directional_strength != null) {
+                Pos playerLocation = player.getPosition();
 
-            Vec vector = playerLocation.direction().mul(directional_strength * 20).withY(vertical_strength * 20);
-            player.setVelocity(vector);
+                Vec vector = playerLocation.direction().mul(directional_strength * 20).withY(vertical_strength * 20);
+                player.setVelocity(vector);
+
+                setCooldown(player, "launchpad", config.getCooldown());
+            } else if ("unknown".equals(type)) {
+                Main.logger.error("Type required was launchpad, but only " + type + " was found!");
+                return;
+            }
+        } catch (NullPointerException e) {
+            Main.logger.error("Strength value(s) missing! Error: " + e.getMessage());
         }
 
         String soundEvent = config.getSound().getSound_event();
@@ -101,6 +109,15 @@ public class MomentumExecutor {
         float pitch = config.getSound().getPitch();
 
         player.getInstance().playSound(Sound.sound(SoundUtils.stringToSoundEvent(soundEvent), SoundUtils.stringToSource(source), volume, pitch));
+    }
+
+    private static String determinePadType(MomentumConfig config) {
+        if (config.getDestination_corners() != null) {
+            return "telepad";
+        } else if (config.getDirectional_strength() != null && config.getVertical_strength() != null) {
+            return "launchpad";
+        }
+        return "unknown";
     }
 
     private static Pos getTeleportDestination(Pos corner1, Pos corner2, MomentumConfig config, Player player, String fileName) {
@@ -120,7 +137,7 @@ public class MomentumExecutor {
         if ("true".equalsIgnoreCase(isPortal)) {
             // it is a portal, therefore teleport the player to the bottom Y level
 
-            // TODO
+            // TODO: telepad height check
             //  implement ability to jump into portal and be teleported to the right place
             //  but with your jump offset included
 
@@ -130,7 +147,7 @@ public class MomentumExecutor {
             if (destination1Y != destination2Y) {
                 // still has differing Y levels
                 Main.logger.warn("Telepad '" + fileName + "' is not a portal, but still has differing Y destinations!");
-                Main.logger.warn("Y coordinate defaulting to smaller value...");
+                Main.logger.warn("Y coordinate defaulting to smaller value");
             }
             finalY = Math.min(corner1.blockY(), corner2.blockY()) + 1;
         } else if (isPortal == null) {
@@ -139,7 +156,7 @@ public class MomentumExecutor {
             finalY = Math.min(corner1.blockY(), corner2.blockY()) + 1;
         } else {
             // Handle the case where is_portal is incorrectly set (e.g., "flase")
-            Main.logger.warn("Telepad '" + fileName + "' has an invalid is_portal value: '" + isPortal + "'. Assuming horizontal...");
+            Main.logger.warn("Telepad '" + fileName + "' has invalid is_portal value '" + isPortal + "'. Assuming horizontal...");
             finalY = Math.min(corner1.blockY(), corner2.blockY()) + 1;
         }
 

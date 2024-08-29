@@ -1,6 +1,7 @@
 package rip.snicon.utils;
 
 import net.minestom.server.entity.Player;
+import rip.snicon.Main;
 import rip.snicon.modules.placeholders.PlaceholderManager;
 
 import java.util.Map;

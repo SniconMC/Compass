@@ -1,6 +1,8 @@
 package rip.snicon.listeners.worlds;
 
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.minestom.server.MinecraftServer;
+import net.minestom.server.entity.Entity;
 import net.minestom.server.entity.Player;
 import net.minestom.server.event.Event;
 import net.minestom.server.event.EventFilter;
@@ -13,6 +15,7 @@ import net.minestom.server.instance.Instance;
 import net.minestom.server.scoreboard.Sidebar;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.modules.container.HotbarCreator;
+import rip.snicon.modules.momentum.MomentumManager;
 import rip.snicon.modules.oblivion.OblivionCreator;
 import rip.snicon.modules.sidebar.SidebarCreator;
 
@@ -35,14 +38,15 @@ public class Hub {
         hubNode.addListener(PlayerSpawnEvent.class, event -> {
             Player player = event.getPlayer();
             Instance playerInstance = player.getInstance();
+            OblivionCreator.despawnOblivions(player);
             OblivionCreator.spawnOblivions(player);
             Set<Player> players = playerInstance.getPlayers();
             for (Player onlinePlayer : players) {
                 SidebarCreator.setSidebar(player, "hub_sidebar");
                 HotbarCreator.setHotbar(player, "lobby");
 
-                onlinePlayer.sendMessage("[+] " + player.getUsername());
-                onlinePlayer.sendMessage("Entities in the world: " + player.getInstance().getEntities().size());
+                onlinePlayer.sendMessage(MiniMessage.miniMessage().deserialize("<dark_gray>[<green>+</green>]</dark_gray> " + player.getUsername()));
+
             }
         });
     }
@@ -50,7 +54,14 @@ public class Hub {
     public void onPlayerQuit() {
         hubNode.addListener(PlayerDisconnectEvent.class, event -> {
             Player player = event.getPlayer();
+            Instance playerInstance = player.getInstance();
             OblivionCreator.despawnOblivions(player);
+
+            Set<Player> players = playerInstance.getPlayers();
+            for (Player onlinePlayer : players) {
+
+                onlinePlayer.sendMessage(MiniMessage.miniMessage().deserialize("<dark_gray>[<red>-</red>]</dark_gray> " + player.getUsername()));
+            }
         });
     }
 
