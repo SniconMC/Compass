@@ -13,11 +13,11 @@ public class TimeUtils {
 
         if (timeNames.contains(name)) {
             return switch (name.toLowerCase()) {
-                default -> 6000;
                 case "morning" -> 0;
                 case "day" -> 1000;
                 case "night" -> 13000;
                 case "midnight" -> 18000;
+                default -> 6000;
             };
         }
 
