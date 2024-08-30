@@ -9,10 +9,46 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
+/**
+ * Utility class for managing player skins with caching support.
+ *
+ * <p>This class provides methods to obtain a {@link PlayerSkin} for a given player or set of
+ * skin parameters. It caches skin data to optimize performance and reduce redundant skin requests.
+ * The cache is updated if the number of requests for a particular skin exceeds a threshold.</p>
+ *
+ * @see PlayerSkin
+ * @see <a href="https://javadoc.minestom.net/">Minestom Documentation</a>
+ *
+ * @author Wi1helm
+ * @author znopp
+ */
 public class SkinUtils {
 
+    /**
+     * A map that caches player skins based on a cache key.
+     * The cache key is generated from player and skin attributes.
+     */
     private static final Map<String, CachedSkin> cachedValues = new HashMap<>();
 
+
+    /**
+     * Retrieves a {@link PlayerSkin} based on the provided parameters, with caching.
+     *
+     * <p>This method checks if a skin is available in the cache using a generated cache key.
+     * If the skin is found and the request count exceeds a threshold, it attempts to update the
+     * cached skin. If the skin is not in the cache, a new {@link PlayerSkin} is created based on
+     * the provided parameters and cached if valid.</p>
+     *
+     * @param player   The player requesting the skin.
+     * @param username The username associated with the skin, or {@code null} if not available.
+     * @param uuid     The UUID associated with the skin, or {@code null} if not available.
+     * @param texture  The texture data for the skin, or {@code null} if not available.
+     * @param signature The signature for the skin, or {@code null} if not available.
+     * @return The {@link PlayerSkin} corresponding to the parameters, or a default skin if invalid.
+     *
+     * @author Wi1helm
+     * @author znopp
+     */
     public static PlayerSkin getSkin(Player player, String username, String uuid, String texture, String signature) {
         String cacheKey = getCacheKey(player, username, uuid, texture);
 
@@ -43,6 +79,19 @@ public class SkinUtils {
         return skin;
     }
 
+    /**
+     * Creates a {@link PlayerSkin} based on the provided parameters.
+     *
+     * <p>This method attempts to create a {@link PlayerSkin} using different combinations of
+     * username, UUID, texture, and signature. If none of these are valid, a default skin is returned.</p>
+     *
+     * @param player   The player requesting the skin (used to get the player's username if needed).
+     * @param username The username for the skin, or {@code null} if not available.
+     * @param uuid     The UUID for the skin, or {@code null} if not available.
+     * @param texture  The texture data for the skin, or {@code null} if not available.
+     * @param signature The signature for the skin, or {@code null} if not available.
+     * @return A {@link PlayerSkin} created from the provided parameters, or a default skin if an error occurs.
+     */
     private static PlayerSkin createPlayerSkin(Player player, String username, String uuid, String texture, String signature) {
         try {
             if (username != null && Objects.equals(username, "this")) {
@@ -67,13 +116,29 @@ public class SkinUtils {
         }
     }
 
+    /**
+     * Checks if a {@link PlayerSkin} is the default skin used when an error occurs.
+     *
+     * @param skin The {@link PlayerSkin} to check.
+     * @return {@code true} if the skin is the default skin, {@code false} otherwise.
+     */
     private static boolean isDefaultSkin(PlayerSkin skin) {
         // Check if the skin is the default one used when an exception occurs
         return "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzQ0OWVjYjVlNmNlNjAwMjY1MzQ4MzZiZjgzYWIzN2NjNGRhZmQzMzNjYmRjYjVjMjFmNjIxNjYxZjVkMDgxYSJ9fX0=".equals(skin.textures()) && "".equals(skin.signature());
     }
 
-
-
+    /**
+     * Generates a cache key based on player and skin attributes.
+     *
+     * @param player   The player requesting the skin (used if username is "this").
+     * @param username The username associated with the skin.
+     * @param uuid     The UUID associated with the skin.
+     * @param texture  The texture data for the skin.
+     * @return A unique cache key for the skin based on the provided parameters.
+     *
+     * @author znopp
+     * @author Wi1helm
+     */
     private static String getCacheKey(Player player, String username, String uuid, String texture) {
         if (username.equalsIgnoreCase("this")){
             return player.getUsername();
@@ -87,6 +152,21 @@ public class SkinUtils {
         return texture;
     }
 
+    /**
+     * Fetches an updated {@link PlayerSkin} if needed.
+     *
+     * <p>This method is used to refresh the cached skin if the request count for a particular
+     * cache key exceeds a threshold.</p>
+     *
+     * @param player   The player requesting the skin.
+     * @param username The username associated with the skin.
+     * @param uuid     The UUID associated with the skin.
+     * @param texture  The texture data for the skin.
+     * @param signature The signature for the skin.
+     * @return A newly created {@link PlayerSkin} based on the provided parameters.
+     *
+     * @author Wi1helm
+     */
     private static PlayerSkin fetchUpdatedSkin(Player player, String username, String uuid, String texture, String signature) {
         return createPlayerSkin(player, username, uuid, texture, signature);
     }
