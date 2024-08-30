@@ -5,21 +5,14 @@ import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
 import net.minestom.server.event.Event;
 import net.minestom.server.event.EventNode;
-import net.minestom.server.event.GlobalEventHandler;
-import net.minestom.server.event.inventory.InventoryCloseEvent;
 import net.minestom.server.event.inventory.InventoryOpenEvent;
 import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.PlayerDisconnectEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
-import net.minestom.server.instance.Instance;
-import rip.snicon.instances.InstanceCreator;
-import rip.snicon.instances.worlds.WorldInfo;
 import rip.snicon.listeners.placeholders.enums.ColorEnum;
 import rip.snicon.listeners.placeholders.enums.HubExplorerEnum;
 import rip.snicon.modules.placeholders.PlaceholderManager;
 import rip.snicon.modules.sidebar.SidebarCreator;
-import rip.snicon.utils.PlaceholderReplacer;
-
 import java.util.Collection;
 
 public class Placeholder {
@@ -30,6 +23,7 @@ public class Placeholder {
         this.placeholderNode = EventNode.all("placeholder");
         onGUIInteraction();
         onPlayerConfig();
+        onPlayerSpawn();
         onPlayerQuit();
         parentNode.addChild(placeholderNode);
     }
@@ -52,6 +46,15 @@ public class Placeholder {
     }
 
     public void onPlayerConfig(){
+        placeholderNode.addListener(AsyncPlayerConfigurationEvent.class, event -> {
+            final Player player = event.getPlayer();
+
+            PlaceholderManager.setPlaceholderToPlayer(player, "player_name", player.getUsername());
+
+            PlaceholderManager.setPlaceholderToPlayer(player, "hub_explorer_random", HubExplorerEnum.getRandomText());
+        });
+    }
+    public void onPlayerSpawn(){
         placeholderNode.addListener(PlayerSpawnEvent.class, event -> {
             final Player player = event.getPlayer();
 
@@ -61,11 +64,7 @@ public class Placeholder {
                 PlaceholderManager.setPlaceholderToPlayer(onlinePlayer, "online_server", String.valueOf(onlinePlayers.size()));
                 SidebarCreator.updateSidebar(onlinePlayer);
             }
-
-            PlaceholderManager.setPlaceholderToPlayer(player, "player_name", player.getUsername());
-
-            PlaceholderManager.setPlaceholderToPlayer(player, "hub_explorer_random", HubExplorerEnum.getRandomText());
-
+            
             // TODO: make un-static
             String playerRank = "<red>Admin</red>";
             PlaceholderManager.setPlaceholderToPlayer(player, "player_rank", playerRank);
@@ -79,7 +78,6 @@ public class Placeholder {
             SidebarCreator.updateSidebar(player);
         });
     }
-
     public void onPlayerQuit() {
         placeholderNode.addListener(PlayerDisconnectEvent.class, event -> {
             Collection<Player> onlinePlayers = MinecraftServer.getConnectionManager().getOnlinePlayers();

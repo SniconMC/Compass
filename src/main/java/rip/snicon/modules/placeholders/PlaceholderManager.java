@@ -29,6 +29,14 @@ public class PlaceholderManager {
         playerPlaceholders.put(player, placeholderMap);
     }
 
+    public static String getPlaceholderForPlayer(Player player, String placeholder) {
+        // Retrieve the existing placeholder map for the player, or create a new one if it doesn't exist
+        Map<String, String> placeholderMap = playerPlaceholders.getOrDefault(player, new HashMap<>());
+
+        // return the value
+        return placeholderMap.get(placeholder);
+
+    }
 
 
 

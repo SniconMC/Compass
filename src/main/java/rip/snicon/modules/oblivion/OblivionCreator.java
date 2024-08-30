@@ -9,17 +9,21 @@ import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Entity;
 import net.minestom.server.entity.Player;
 import net.minestom.server.entity.PlayerSkin;
+import net.minestom.server.event.Event;
 import net.minestom.server.instance.Instance;
 import net.minestom.server.network.packet.server.play.TeamsPacket;
 import net.minestom.server.scoreboard.Team;
 import rip.snicon.Main;
 import rip.snicon.instances.InstanceCreator;
+import rip.snicon.modules.container.ContainerCreator;
 import rip.snicon.modules.oblivion.entity.DisplayText;
 import rip.snicon.modules.oblivion.entity.NPC;
 import rip.snicon.modules.oblivion.json.Oblivion;
+import rip.snicon.modules.oblivion.json.OblivionData;
 import rip.snicon.utils.EntityUtils;
 import rip.snicon.utils.PlaceholderReplacer;
 import rip.snicon.utils.SkinUtils;
+import rip.snicon.utils.function.FunctionUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -115,7 +119,7 @@ public class OblivionCreator {
                 PlayerSkin skin = SkinUtils.getSkin(player, config.getSkin().getPlayer(), "", config.getSkin().getTexture(), config.getSkin().getSignature());
 
                 // Create and spawn the NPC, passing the method reference for onClick
-                NPC npc = new NPC(name, skin, instance,  pos, OblivionCreator::handleNpcClick, config, EntityUtils.getEntityTypeFromNamespace(config.getEntity_type()));
+                NPC npc = new NPC(name, skin, instance,  pos, config, EntityUtils.getEntityTypeFromNamespace(config.getEntity_type()));
                 npc.makeVisibleTo(player);
                 NpcMap.put(name, npc);
 
@@ -170,9 +174,20 @@ public class OblivionCreator {
         hiddenName.setNameTagVisibility(TeamsPacket.NameTagVisibility.NEVER);
     }
     // Method to handle NPC click interactions
-    public static void handleNpcClick(Player player) {
-        // TODO: NPC click
-        player.sendMessage("hehe");
+    public static void handleNpcClick(Player player, Event event, OblivionConfig config) {
+        OblivionData data = config.getData();
+        if (data == null){
+            return;
+        }
+        if (!data.getFunction().isEmpty()){
+            // Create the FunctionUtils instance and call invokeFunction
+            FunctionUtils functionUtils = new FunctionUtils(player, event, data.getFunction());
+            return;
+        }
+        if (!data.getPage().isEmpty()){
+            ContainerCreator.openContainer(player, data.getPage());
+        }
     }
+
 
 }

@@ -17,14 +17,15 @@ import java.util.Map;
 public class MomentumExecutor {
     private static final Map<Player, Map<String, Long>> playerCooldowns = new HashMap<>();
     private static final Map<Player, Map<String, BoundingBox>> lastTeleportDestinations = new HashMap<>();
+    private static final Map<Player, Pos> oldPos = new HashMap<>();
 
     public static void isOnMomentumPad(MomentumConfig config, Player player, String fileName) {
         Pos playerPos = player.getPosition();
-
-        // TODO: event triggering
-        //  1. Camera movement (pitch/yaw) should not count to trigger any pads
-        //  2. In the event that a destination for one telepad is also the origin of another:
-        //      Player should not teleport to new destination until they have exited the previous destination area
+        Pos comparedPos = oldPos.get(player);
+        if(comparedPos == null || !playerPos.sameView(comparedPos.yaw(), comparedPos.pitch())){
+            oldPos.put(player, playerPos);
+            return;
+        }
 
         if (!BoundingBox.isWithinBounds(config, playerPos, true)) {
             return;

@@ -1,5 +1,6 @@
 package rip.snicon.modules.oblivion;
 
+import rip.snicon.modules.oblivion.json.OblivionData;
 import rip.snicon.modules.oblivion.json.OblivionPosition;
 import rip.snicon.modules.oblivion.json.OblivionSkin;
 
@@ -10,9 +11,10 @@ public class OblivionConfig {
     private List<List<String>> name;
     private String uuid;
     private String entity_type;
-    private OblivionPosition position;
 
+    private OblivionPosition position;
     private OblivionSkin skin;
+    private OblivionData data;
 
     private boolean in_tab;
     private String world;
@@ -31,6 +33,10 @@ public class OblivionConfig {
 
     public OblivionPosition getPosition() {
         return position;
+    }
+
+    public OblivionData getData() {
+        return data;
     }
 
     public String getEntity_type() {

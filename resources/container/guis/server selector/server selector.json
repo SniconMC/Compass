@@ -54,7 +54,7 @@
         "texture": ""
       },
       "data": {
-        "function": "",
+        "function": "rip.snicon.utils.EmeraldUtils.addEmeralds(player, 2)",
         "page": ""
       }
     },

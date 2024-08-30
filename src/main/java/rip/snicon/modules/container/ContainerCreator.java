@@ -97,9 +97,6 @@ public class ContainerCreator {
             ContainerConfig config = gson.fromJson(placeholdedJson, ContainerConfig.class);
             if (config == null) {
 
-                // TODO false null
-                //  Says null even for items in server selector menu
-
                 Main.logger.error("Container not found: " + name);
                 return;
             }

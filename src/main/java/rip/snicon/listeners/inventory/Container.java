@@ -13,6 +13,7 @@ import net.minestom.server.item.ItemStack;
 import rip.snicon.Main;
 import rip.snicon.modules.container.ContainerCreator;
 import rip.snicon.modules.container.json.Item;
+import rip.snicon.utils.function.FunctionUtils;
 import rip.snicon.utils.item.ItemStackUtils;
 
 public class Container {
@@ -38,14 +39,27 @@ public class Container {
                 return;
             }
             var nbtTag = data.nbt();
-            String redirect = nbtTag.getString("redirect");
-            if (redirect.equals("close")){
+            String function = nbtTag.getString("function");
+            if (!function.isEmpty()) {
+                new FunctionUtils(player, event, function);
                 event.setCancelled(true);
-                player.closeInventory();
                 return;
             }
+
+            String redirect = nbtTag.getString("redirect");
+            if (!redirect.isEmpty()){
+                event.setCancelled(true);
+                if (redirect.equals("close")){
+
+                    player.closeInventory();
+                    return;
+                }
+                ContainerCreator.openContainer(player, redirect);
+                return;
+            }
+
             event.setCancelled(true);
-            ContainerCreator.openContainer(player, redirect);
+
         });
     }
 

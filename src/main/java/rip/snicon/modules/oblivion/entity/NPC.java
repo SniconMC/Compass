@@ -6,6 +6,7 @@ import net.minestom.server.entity.*;
 import net.minestom.server.entity.ai.EntityAIGroupBuilder;
 import net.minestom.server.entity.ai.GoalSelector;
 import net.minestom.server.entity.attribute.Attribute;
+import net.minestom.server.event.Event;
 import net.minestom.server.event.entity.EntityAttackEvent;
 import net.minestom.server.event.player.PlayerEntityInteractEvent;
 import net.minestom.server.instance.Instance;
@@ -13,7 +14,9 @@ import net.minestom.server.network.packet.server.play.*;
 import net.minestom.server.scoreboard.Team;
 import org.jetbrains.annotations.NotNull;
 import rip.snicon.modules.oblivion.OblivionConfig;
+import rip.snicon.modules.oblivion.OblivionCreator;
 import rip.snicon.modules.oblivion.json.Oblivion;
+import rip.snicon.modules.oblivion.json.OblivionData;
 import rip.snicon.modules.oblivion.json.OblivionSkin;
 
 import java.util.*;
@@ -23,19 +26,17 @@ public final class NPC extends EntityCreature {
     private final String name;
     private final PlayerSkin skin;
     private final Pos position;
-    private final Consumer<Player> onClick;
     private final OblivionConfig config;
     private boolean shouldLookAtPlayers;
     private final float originalYaw;
     private final float originalPitch;
 
     public NPC(@NotNull String name, PlayerSkin playerSkin,
-               @NotNull Instance instance, @NotNull Pos position, @NotNull Consumer<Player> onClick, OblivionConfig oblivionConfig, EntityType entityType) {
+               @NotNull Instance instance, @NotNull Pos position, OblivionConfig oblivionConfig, EntityType entityType) {
         super(entityType);
         this.name = name;
         this.skin = playerSkin;
         this.position = position;
-        this.onClick = onClick;
         this.config = oblivionConfig;
         this.shouldLookAtPlayers = true; // Default to true
         this.originalYaw = position.yaw(); // Store the original yaw
@@ -76,13 +77,13 @@ public final class NPC extends EntityCreature {
     public void handle(@NotNull EntityAttackEvent event) {
         if (event.getTarget() != this) return;
         if (!(event.getEntity() instanceof Player player)) return;
-        onClick.accept(player);
+        OblivionCreator.handleNpcClick(player, event, config);
     }
 
     public void handle(@NotNull PlayerEntityInteractEvent event) {
         if (event.getTarget() != this) return;
         if (event.getHand() != Player.Hand.MAIN) return;  // Prevent duplicating event
-        onClick.accept(event.getEntity());
+        OblivionCreator.handleNpcClick(event.getPlayer(), event, config);
     }
 
     // Send packets to make the NPC visible only to a specific player
