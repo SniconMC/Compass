@@ -138,7 +138,6 @@ public class MomentumManager {
                 try {
                     MomentumConfig config = gson.fromJson(placeholdedJson, MomentumConfig.class);
 
-                    // wilhelm valde variabelnamnet, "Den håller en map per telepads/launchapds"
                     Map<String, Map<String, MomentumConfig>> momentumConfigMapMap = configMap.getOrDefault(player, new HashMap<>());
                     Map<String, MomentumConfig> momentumConfigMap = momentumConfigMapMap.getOrDefault(name, new HashMap<>());
 
@@ -179,16 +178,13 @@ public class MomentumManager {
     public static void despawnText(Player player) {
         Map<String, List<Entity>> entityMap = displayMap.get(player);
         if (entityMap == null) {
-            Main.logger.warn("No display name for this pad");
+            Main.logger.info("No display name found for this pad. Assuming intentional...");
             return;
         }
 
         for (String name : entityMap.keySet()) {
-            Main.logger.debug("Despawning entities for: " + name);
-
             List<Entity> entities = entityMap.get(name);
             if (entities == null || entities.isEmpty()) {
-                Main.logger.warn("No entities to despawn for: " + name);
                 continue;
             }
 
@@ -196,7 +192,7 @@ public class MomentumManager {
                 if (entity instanceof DisplayText textDisplay) {
                     textDisplay.despawnForPlayer(player);
                 } else {
-                    Main.logger.warn("Entity not of type DisplayText: " + entity.getEntityId());
+                    Main.logger.warn("Entity not of type DisplayText: {}", entity.getEntityId());
                 }
             }
         }

@@ -25,7 +25,7 @@ public class WeatherUtils {
      * <ul>
      *   <li>"sun" or "clear" - {@link Weather#CLEAR}</li>
      *   <li>"rain" - {@link Weather#RAIN}</li>
-     *   <li>"thunderstorm", "thunder", "storm", or "stormy" - {@link Weather#THUNDER}</li>
+     *   <li>"thunderstorm" or "thunder" - {@link Weather#THUNDER}</li>
      * </ul>
      *
      * <p>If the input string does not match any recognized weather name, the method defaults to {@link Weather#CLEAR}.</p>
@@ -37,12 +37,12 @@ public class WeatherUtils {
      */
     public static Weather convertWeather(String name){
 
-        List<String> weatherNames = Arrays.asList("rain", "thunderstorm", "clear");
+        List<String> weatherNames = Arrays.asList("rain", "thunderstorm", "thunder", "clear", "sun");
 
         if (weatherNames.contains(name)){
             return switch (name.toLowerCase()){
                 case "rain" -> Weather.RAIN;
-                case "thunderstorm", "thunder", "storm", "stormy" -> Weather.THUNDER;
+                case "thunderstorm", "thunder" -> Weather.THUNDER;
                 default -> Weather.CLEAR;
             };
         } else {

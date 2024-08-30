@@ -22,7 +22,6 @@
     ]
   },
   "sound": {
-    "source": "master",
     "sound_event": "entity.enderman.teleport",
     "volume": 100,
     "pitch": 0.5

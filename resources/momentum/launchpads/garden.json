@@ -14,7 +14,6 @@
     "text_list": []
   },
   "sound" : {
-    "source": "master",
     "sound_event": "ENTITY.FIREWORK_ROCKET.LAUNCH",
     "volume": 100,
     "pitch": 1

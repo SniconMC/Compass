@@ -105,11 +105,10 @@ public class MomentumExecutor {
         }
 
         String soundEvent = config.getSound().getSound_event();
-        String source = config.getSound().getSource();
         float volume = config.getSound().getVolume();
         float pitch = config.getSound().getPitch();
 
-        player.getInstance().playSound(Sound.sound(SoundUtils.stringToSoundEvent(soundEvent), SoundUtils.stringToSource(source), volume, pitch));
+        player.playSound(Sound.sound(SoundUtils.stringToSoundEvent(soundEvent), Sound.Source.MASTER, volume, pitch));
     }
 
     private static String determinePadType(MomentumConfig config) {
