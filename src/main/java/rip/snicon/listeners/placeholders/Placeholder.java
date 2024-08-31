@@ -14,6 +14,8 @@ import rip.snicon.listeners.placeholders.enums.HubExplorerEnum;
 import rip.snicon.modules.placeholders.PlaceholderManager;
 import rip.snicon.modules.sidebar.SidebarCreator;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Placeholder {
 
@@ -72,9 +74,7 @@ public class Placeholder {
             PlaceholderManager.setPlaceholderToPlayer(player, "player_profession", "<gray>Nitwit</gray>");
             PlaceholderManager.setPlaceholderToPlayer(player, "player_emeralds", "427.0");
             PlaceholderManager.setPlaceholderToPlayer(player, "online_network", "12");
-
             PlaceholderManager.setPlaceholderToPlayer(player, "player_item", "minecraft:tnt");
-
             SidebarCreator.updateSidebar(player);
         });
     }

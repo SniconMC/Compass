@@ -10,7 +10,7 @@ public class EntityUtils {
         EntityType entityType = EntityType.fromNamespaceId(namespaceId);
 
         if (entityType == null) {
-            return EntityType.DOLPHIN;
+            return EntityType.CAT;
         }
         return entityType;
     }
