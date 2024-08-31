@@ -1,5 +1,8 @@
 package rip.snicon.modules.oblivion;
 
+import com.github.sniconmc.utils.entity.EntityUtils;
+import com.github.sniconmc.utils.placeholder.PlaceholderReplacer;
+import com.github.sniconmc.utils.skin.SkinUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
@@ -20,9 +23,7 @@ import rip.snicon.modules.oblivion.entity.DisplayText;
 import rip.snicon.modules.oblivion.entity.NPC;
 import rip.snicon.modules.oblivion.json.Oblivion;
 import rip.snicon.modules.oblivion.json.OblivionData;
-import rip.snicon.utils.EntityUtils;
-import rip.snicon.utils.PlaceholderReplacer;
-import rip.snicon.utils.SkinUtils;
+
 import rip.snicon.utils.function.FunctionUtils;
 
 import java.io.File;

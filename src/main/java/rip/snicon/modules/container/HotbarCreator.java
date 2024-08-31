@@ -1,5 +1,7 @@
 package rip.snicon.modules.container;
 
+import com.github.sniconmc.utils.item.ItemStackBuilder;
+import com.github.sniconmc.utils.item.MaterialUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
@@ -11,7 +13,6 @@ import net.minestom.server.item.ItemStack;
 import rip.snicon.Main;
 import rip.snicon.modules.container.json.InventorySettings;
 import rip.snicon.modules.container.json.Item;
-import rip.snicon.utils.item.ItemStackUtils;
 
 import java.io.File;
 import java.io.FileReader;
@@ -96,7 +97,7 @@ public class HotbarCreator {
 
             if (item != null) {
                 item.setContainerId(inventorySettings.getContainerID());
-                ItemStack itemInSlot = ItemStackUtils.createItemStack(item, player, inventorySettings);
+                ItemStack itemInSlot = new ItemStackBuilder().material(MaterialUtils.convertToNamespaceIdMaterial(item.getId())).count(item.getCount().getCurrent()).build();
                 playerInventory.setItemStack(item.getSlot(), itemInSlot);
             }
         }

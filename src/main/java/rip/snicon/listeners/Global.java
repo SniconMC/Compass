@@ -45,7 +45,7 @@ public class Global {
         AFK afkHandler = new AFK(MinecraftServer.getGlobalEventHandler());
         Container containerHandler = new Container(MinecraftServer.getGlobalEventHandler());
         Placeholder placeholderHandler = new Placeholder(MinecraftServer.getGlobalEventHandler());
-        Momentum momentumHandler = new Momentum(MinecraftServer.getGlobalEventHandler());
+        /*Momentum momentumHandler = new Momentum(MinecraftServer.getGlobalEventHandler());*/
     }
 
     public void onPlayerConfig(){

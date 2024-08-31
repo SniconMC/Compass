@@ -1,10 +1,10 @@
 package rip.snicon.utils.motd;
 
+import com.github.sniconmc.utils.text.TextUtils;
 import com.google.gson.*;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import rip.snicon.Main;
-import rip.snicon.utils.TextUtils;
 
 import java.io.File;
 import java.io.IOException;

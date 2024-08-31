@@ -27,7 +27,5 @@ public class BoundingBox {
             return playerLocation.blockX() >= minX && playerLocation.blockX() <= maxX &&
                     playerLocation.blockZ() >= minZ && playerLocation.blockZ() <= maxZ;
         }
-
-
     }
 }

@@ -17,7 +17,7 @@ import net.minestom.server.utils.nbt.BinaryTagSerializer;
 import net.minestom.server.utils.nbt.BinaryTagWriter;
 import org.jetbrains.annotations.NotNull;
 import rip.snicon.Main;
-import rip.snicon.utils.TextUtils;
+import com.github.sniconmc.utils.text.TextUtils;
 
 import java.awt.*;
 import java.util.*;

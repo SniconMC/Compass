@@ -1,20 +1,15 @@
 package rip.snicon.listeners.inventory;
 
-import com.google.gson.Gson;
 import net.minestom.server.entity.Player;
 import net.minestom.server.event.Event;
 import net.minestom.server.event.EventNode;
 import net.minestom.server.event.inventory.InventoryPreClickEvent;
 import net.minestom.server.event.player.PlayerBlockPlaceEvent;
 import net.minestom.server.event.player.PlayerUseItemEvent;
-import net.minestom.server.event.player.PlayerUseItemOnBlockEvent;
 import net.minestom.server.item.ItemComponent;
 import net.minestom.server.item.ItemStack;
-import rip.snicon.Main;
 import rip.snicon.modules.container.ContainerCreator;
-import rip.snicon.modules.container.json.Item;
 import rip.snicon.utils.function.FunctionUtils;
-import rip.snicon.utils.item.ItemStackUtils;
 
 public class Container {
 

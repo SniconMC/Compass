@@ -34,8 +34,10 @@ public class Main {
         HotbarCreator hotbarCreator = new HotbarCreator();
         ContainerCreator containerCreator = new ContainerCreator();
         OblivionCreator oblivionCreator = new OblivionCreator();
-        MomentumManager momentumManager = new MomentumManager();
+        /*MomentumManager momentumManager = new MomentumManager();*/
         MOTD motd = new MOTD();
+
+        com.github.sniconmc.momentum.Main momentum = com.github.sniconmc.momentum.Main.init();
 
         Global globalListener = new Global();
 

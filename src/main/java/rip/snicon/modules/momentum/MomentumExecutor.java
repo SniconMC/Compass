@@ -1,5 +1,6 @@
 package rip.snicon.modules.momentum;
 
+import com.github.sniconmc.utils.sound.SoundUtils;
 import net.kyori.adventure.sound.Sound;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
@@ -8,7 +9,7 @@ import net.minestom.server.entity.Player;
 import net.minestom.server.network.packet.server.ServerPacket;
 import rip.snicon.Main;
 import rip.snicon.modules.momentum.json.Coordinates;
-import rip.snicon.utils.SoundUtils;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +17,6 @@ import java.util.Map;
 
 public class MomentumExecutor {
     private static final Map<Player, Map<String, Long>> playerCooldowns = new HashMap<>();
-    private static final Map<Player, Map<String, BoundingBox>> lastTeleportDestinations = new HashMap<>();
     private static final Map<Player, Pos> oldPos = new HashMap<>();
 
     public static void isOnMomentumPad(MomentumConfig config, Player player, String fileName) {

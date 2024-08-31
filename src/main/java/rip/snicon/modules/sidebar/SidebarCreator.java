@@ -1,18 +1,16 @@
 package rip.snicon.modules.sidebar;
 
+import com.github.sniconmc.utils.placeholder.PlaceholderReplacer;
+import com.github.sniconmc.utils.text.TextUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.format.NamedTextColor;
-import net.kyori.adventure.text.format.TextColor;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
 import net.minestom.server.scoreboard.Sidebar;
 import rip.snicon.Main;
-import rip.snicon.utils.PlaceholderReplacer;
-import rip.snicon.utils.TextUtils;
 
 import java.io.File;
 import java.io.IOException;

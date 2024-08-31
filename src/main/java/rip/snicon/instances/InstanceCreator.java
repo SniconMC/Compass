@@ -1,5 +1,7 @@
 package rip.snicon.instances;
 
+import com.github.sniconmc.utils.time.TimeUtils;
+import com.github.sniconmc.utils.weather.WeatherUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
@@ -11,8 +13,6 @@ import net.minestom.server.instance.InstanceManager;
 import net.minestom.server.instance.anvil.AnvilLoader;
 import rip.snicon.Main;
 import rip.snicon.instances.worlds.WorldInfo;
-import rip.snicon.utils.world.TimeUtils;
-import rip.snicon.utils.world.WeatherUtils;
 
 import java.io.File;
 import java.io.FileReader;

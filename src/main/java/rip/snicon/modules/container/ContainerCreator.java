@@ -1,5 +1,10 @@
 package rip.snicon.modules.container;
 
+import com.github.sniconmc.utils.inventory.InventoryUtils;
+import com.github.sniconmc.utils.item.ItemStackBuilder;
+import com.github.sniconmc.utils.item.MaterialUtils;
+import com.github.sniconmc.utils.placeholder.PlaceholderReplacer;
+import com.github.sniconmc.utils.text.TextUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
@@ -9,6 +14,7 @@ import net.minestom.server.entity.Player;
 import net.minestom.server.inventory.Inventory;
 import net.minestom.server.inventory.InventoryType;
 import net.minestom.server.item.ItemStack;
+import net.minestom.server.item.Material;
 import rip.snicon.Main;
 import rip.snicon.modules.container.json.InventorySettings;
 import rip.snicon.modules.container.json.Item;
@@ -20,11 +26,6 @@ import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import rip.snicon.utils.PlaceholderReplacer;
-import rip.snicon.utils.TextUtils;
-import rip.snicon.utils.inventory.InventoryUtils;
-import rip.snicon.utils.item.ItemStackUtils;
 
 
 
@@ -118,12 +119,13 @@ public class ContainerCreator {
                 Item item = itemMap.get(slot);
                 if (item != null) {
                     item.setContainerId(inventorySettings.getContainerID());
-                    ItemStack containerItem = ItemStackUtils.createItemStack(item, player, inventorySettings);
+                    ItemStack containerItem = new ItemStackBuilder().material(MaterialUtils.convertToNamespaceIdMaterial(item.getId())).count(item.getCount().getCurrent()).build();
+                    /*ItemStack containerItem = ItemStackUtils.createItemStack(item, player, inventorySettings);*/
                     inventory.setItemStack(slot, containerItem);
                 } else {
                     Item defualtItem = config.getDefault_item();
                     defualtItem.setContainerId(inventorySettings.getContainerID());
-                    ItemStack containerItem = ItemStackUtils.createItemStack(defualtItem, player, inventorySettings);
+                    ItemStack containerItem = new ItemStackBuilder().material(MaterialUtils.convertToNamespaceIdMaterial(defualtItem.getId())).count(defualtItem.getCount().getCurrent()).build();
                     inventory.setItemStack(slot, containerItem);
                 }
             }

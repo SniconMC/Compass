@@ -9,7 +9,7 @@ import net.minestom.server.entity.Entity;
 import net.minestom.server.entity.Player;
 import rip.snicon.Main;
 import rip.snicon.modules.oblivion.entity.DisplayText;
-import rip.snicon.utils.PlaceholderReplacer;
+import com.github.sniconmc.utils.placeholder.PlaceholderReplacer;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,6 +21,7 @@ public class MomentumManager {
 
     private static final Map<String, File> momentumDataFolders = new HashMap<>();
     private static Gson gson;
+
     private static final Map<String, Map<String, String>> momentumMap = new HashMap<>();
     private static final Map<Player, Map<String, List<Entity>>> displayMap = new HashMap<>();
     private static final Map<Player, Map<String, Map<String, MomentumConfig>>> configMap = new HashMap<>();
@@ -76,7 +77,7 @@ public class MomentumManager {
                 if (file.isDirectory()) {
                     // Recursively search in subdirectories
                     searchFiles(file, name, processedFiles);
-                } else if (file.isFile() && file.getName().endsWith(".json")) {
+                } else if ( file.isFile() && file.getName().endsWith(".json")) {
                     // Process JSON files
                     processJsonFile(file, name);
                     processedFiles.add(file.getName().replace(".json", "")); // Add the file name to the processed list
