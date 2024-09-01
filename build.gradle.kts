@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "rip.snicon"
-version = "0.1-dev"
+version = "0.1"
 description = "The SniconMC lobby server"
 
 repositories {
