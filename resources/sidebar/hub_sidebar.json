@@ -1,7 +1,7 @@
 {
   "blanknumberFormat": true,
   "title": [
-    "<gradient:yellow:gold><bold>Hub Server</bold></gradient>"
+    "<gradient:#ffff1c:gold><bold>Hub Server</bold></gradient>"
   ],
   "layout": [
     [
@@ -41,7 +41,7 @@
       "     "
     ],
     [
-      "<white>IP</white>: <gradient:yellow:gold>play.znopp.pw</gradient>"
+      "<white>IP</white>: <gradient:#ffff1c:gold>play.znopp.pw</gradient>"
     ]
   ]
 }

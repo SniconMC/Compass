@@ -19,6 +19,7 @@
       "texture": ""
     },
     "data": {
+      "isVanillaItem" : true,
       "function": "",
       "page": ""
     }
@@ -54,6 +55,7 @@
         "texture": ""
       },
       "data": {
+        "isVanillaItem" : true,
         "function": "rip.snicon.utils.EmeraldUtils.addEmeralds(player, 2)",
         "page": ""
       }
@@ -89,6 +91,7 @@
         "texture": ""
       },
       "data": {
+        "isVanillaItem" : true,
         "function": "",
         "page": ""
       }
@@ -116,6 +119,7 @@
         "texture": ""
       },
       "data": {
+        "isVanillaItem" : true,
         "function": "",
         "page": "close"
       }
@@ -143,6 +147,7 @@
         "texture": ""
       },
       "data": {
+        "isVanillaItem" : true,
         "function": "",
         "page": ""
       }

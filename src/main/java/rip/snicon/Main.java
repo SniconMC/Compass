@@ -1,5 +1,6 @@
 package rip.snicon;
 
+import com.github.sniconmc.container.ContainerMain;
 import com.github.sniconmc.momentum.MomentumMain;
 import com.github.sniconmc.utils.UtilsMain;
 import net.minestom.server.MinecraftServer;
@@ -13,12 +14,11 @@ import rip.snicon.commands.admin.world.TravelCommand;
 import rip.snicon.commands.player.HubCommand;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.listeners.Global;
-import rip.snicon.modules.container.ContainerCreator;
-import rip.snicon.modules.container.HotbarCreator;
-import rip.snicon.modules.momentum.MomentumManager;
 import rip.snicon.modules.oblivion.OblivionCreator;
 import rip.snicon.modules.sidebar.SidebarCreator;
 import rip.snicon.utils.motd.MOTD;
+
+import java.util.List;
 
 public class Main {
 
@@ -30,21 +30,22 @@ public class Main {
         MinecraftServer minecraftServer = MinecraftServer.init();
         SchedulerManager scheduler = MinecraftServer.getSchedulerManager();
 
-        // Initialize your mother
+        // Initialize modules
         InstanceCreator instanceCreator = new InstanceCreator();
         SidebarCreator sidebarCreator = new SidebarCreator();
-        HotbarCreator hotbarCreator = new HotbarCreator();
-        ContainerCreator containerCreator = new ContainerCreator();
+
         OblivionCreator oblivionCreator = new OblivionCreator();
-        /*MomentumManager momentumManager = new MomentumManager();*/
         MOTD motd = new MOTD();
 
+        // Initialize plugins
         UtilsMain.init();
-
         MomentumMain.init();
+        ContainerMain.init();
 
+        // Set global listener
         Global globalListener = new Global();
 
+        // Register commands
         MinecraftServer.getCommandManager().register(new TravelCommand());
         MinecraftServer.getCommandManager().register(new ReloadCommand());
         MinecraftServer.getCommandManager().register(new HubCommand());

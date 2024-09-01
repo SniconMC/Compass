@@ -1,5 +1,6 @@
 package rip.snicon.listeners.inventory;
 
+import com.github.sniconmc.container.creators.ContainerCreator;
 import net.minestom.server.entity.Player;
 import net.minestom.server.event.Event;
 import net.minestom.server.event.EventNode;
@@ -8,7 +9,6 @@ import net.minestom.server.event.player.PlayerBlockPlaceEvent;
 import net.minestom.server.event.player.PlayerUseItemEvent;
 import net.minestom.server.item.ItemComponent;
 import net.minestom.server.item.ItemStack;
-import rip.snicon.modules.container.ContainerCreator;
 import rip.snicon.utils.function.FunctionUtils;
 
 public class Container {
@@ -41,7 +41,7 @@ public class Container {
                 return;
             }
 
-            String redirect = nbtTag.getString("redirect");
+            String redirect = nbtTag.getString("page");
             if (!redirect.isEmpty()){
                 event.setCancelled(true);
                 if (redirect.equals("close")){
@@ -69,7 +69,7 @@ public class Container {
                 return;
             }
             var nbtTag = data.nbt();
-            String redirect = nbtTag.getString("redirect");
+            String redirect = nbtTag.getString("page");
 
             ContainerCreator.openContainer(player, redirect);
         });
@@ -83,7 +83,7 @@ public class Container {
                 return;
             }
             var nbtTag = data.nbt();
-            String redirect = nbtTag.getString("redirect");
+            String redirect = nbtTag.getString("page");
             event.setCancelled(true);
             ContainerCreator.openContainer(player, redirect);
 

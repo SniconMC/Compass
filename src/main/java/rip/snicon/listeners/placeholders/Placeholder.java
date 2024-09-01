@@ -1,5 +1,6 @@
 package rip.snicon.listeners.placeholders;
 
+import com.github.sniconmc.utils.placeholder.PlaceholderManager;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
@@ -11,7 +12,6 @@ import net.minestom.server.event.player.PlayerDisconnectEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
 import rip.snicon.listeners.placeholders.enums.ColorEnum;
 import rip.snicon.listeners.placeholders.enums.HubExplorerEnum;
-import rip.snicon.modules.placeholders.PlaceholderManager;
 import rip.snicon.modules.sidebar.SidebarCreator;
 import java.util.Collection;
 import java.util.HashMap;

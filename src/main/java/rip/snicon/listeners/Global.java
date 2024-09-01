@@ -2,16 +2,11 @@ package rip.snicon.listeners;
 
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
-import net.minestom.server.entity.EntityCreature;
-import net.minestom.server.entity.GameMode;
 import net.minestom.server.entity.Player;
-import net.minestom.server.entity.damage.Damage;
 import net.minestom.server.event.GlobalEventHandler;
-import net.minestom.server.event.entity.EntityAttackEvent;
 import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.PlayerBlockBreakEvent;
 import net.minestom.server.event.player.PlayerBlockInteractEvent;
-import net.minestom.server.event.player.PlayerBlockPlaceEvent;
 import net.minestom.server.event.server.ServerListPingEvent;
 import net.minestom.server.instance.Instance;
 import net.minestom.server.ping.ResponseData;
@@ -20,11 +15,9 @@ import rip.snicon.Main;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.instances.worlds.WorldInfo;
 import rip.snicon.listeners.inventory.Container;
-import rip.snicon.listeners.momentum.Momentum;
 import rip.snicon.listeners.placeholders.Placeholder;
 import rip.snicon.listeners.worlds.AFK;
 import rip.snicon.listeners.worlds.Hub;
-import rip.snicon.modules.placeholders.PlaceholderManager;
 import rip.snicon.utils.motd.MOTD;
 
 import javax.imageio.ImageIO;

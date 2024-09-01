@@ -1,5 +1,6 @@
 package rip.snicon.listeners.worlds;
 
+import com.github.sniconmc.container.creators.HotbarCreator;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Entity;
@@ -14,8 +15,6 @@ import net.minestom.server.event.trait.PlayerEvent;
 import net.minestom.server.instance.Instance;
 import net.minestom.server.scoreboard.Sidebar;
 import rip.snicon.instances.InstanceCreator;
-import rip.snicon.modules.container.HotbarCreator;
-import rip.snicon.modules.momentum.MomentumManager;
 import rip.snicon.modules.oblivion.OblivionCreator;
 import rip.snicon.modules.sidebar.SidebarCreator;
 

@@ -1,5 +1,6 @@
 package rip.snicon.modules.oblivion;
 
+import com.github.sniconmc.container.creators.ContainerCreator;
 import com.github.sniconmc.utils.entity.EntityUtils;
 import com.github.sniconmc.utils.placeholder.PlaceholderReplacer;
 import com.github.sniconmc.utils.skin.SkinUtils;
@@ -18,7 +19,6 @@ import net.minestom.server.network.packet.server.play.TeamsPacket;
 import net.minestom.server.scoreboard.Team;
 import rip.snicon.Main;
 import rip.snicon.instances.InstanceCreator;
-import rip.snicon.modules.container.ContainerCreator;
 import rip.snicon.modules.oblivion.entity.DisplayText;
 import rip.snicon.modules.oblivion.entity.NPC;
 import rip.snicon.modules.oblivion.json.Oblivion;
