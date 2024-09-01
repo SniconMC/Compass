@@ -4,6 +4,7 @@ plugins {
 
 group = "rip.snicon"
 version = "0.1-dev"
+description = "The SniconMC lobby server"
 
 repositories {
     mavenCentral()
