@@ -1,5 +1,7 @@
 package rip.snicon;
 
+import com.github.sniconmc.momentum.MomentumMain;
+import com.github.sniconmc.utils.UtilsMain;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.extras.MojangAuth;
 import net.minestom.server.timer.SchedulerManager;
@@ -37,7 +39,9 @@ public class Main {
         /*MomentumManager momentumManager = new MomentumManager();*/
         MOTD motd = new MOTD();
 
-        com.github.sniconmc.momentum.Main momentum = com.github.sniconmc.momentum.Main.init();
+        UtilsMain.init();
+
+        MomentumMain.init();
 
         Global globalListener = new Global();
 
