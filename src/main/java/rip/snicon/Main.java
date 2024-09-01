@@ -2,6 +2,7 @@ package rip.snicon;
 
 import com.github.sniconmc.container.ContainerMain;
 import com.github.sniconmc.momentum.MomentumMain;
+import com.github.sniconmc.sidebar.SidebarMain;
 import com.github.sniconmc.utils.UtilsMain;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.extras.MojangAuth;
@@ -15,7 +16,6 @@ import rip.snicon.commands.player.HubCommand;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.listeners.Global;
 import rip.snicon.modules.oblivion.OblivionCreator;
-import rip.snicon.modules.sidebar.SidebarCreator;
 import rip.snicon.utils.motd.MOTD;
 
 import java.util.List;
@@ -30,17 +30,19 @@ public class Main {
         MinecraftServer minecraftServer = MinecraftServer.init();
         SchedulerManager scheduler = MinecraftServer.getSchedulerManager();
 
-        // Initialize modules
         InstanceCreator instanceCreator = new InstanceCreator();
-        SidebarCreator sidebarCreator = new SidebarCreator();
+
+        // Initialize modules
 
         OblivionCreator oblivionCreator = new OblivionCreator();
         MOTD motd = new MOTD();
 
-        // Initialize plugins
+        // Initialize dependencies
         UtilsMain.init();
+        SidebarMain.init();
         MomentumMain.init();
         ContainerMain.init();
+
 
         // Set global listener
         Global globalListener = new Global();

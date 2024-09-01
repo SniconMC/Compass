@@ -21,5 +21,6 @@ dependencies {
     implementation("net.kyori:adventure-text-minimessage:4.17.0") // MiniMessage
     implementation("com.github.SniconMC:Minestom-Utils:0.1.6.1")
     implementation("com.github.SniconMC:Minestom-Momentum:0.1.6.1")
-    implementation("com.github.SniconMC:Minestom-Container:0.1.2")
+    implementation("com.github.SniconMC:Minestom-Container:0.1.2.1")
+    implementation("com.github.SniconMC:Minestom-Sidebar:0.1.2")
 }

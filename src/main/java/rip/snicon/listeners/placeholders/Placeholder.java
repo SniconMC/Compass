@@ -1,5 +1,6 @@
 package rip.snicon.listeners.placeholders;
 
+import com.github.sniconmc.sidebar.SidebarManager;
 import com.github.sniconmc.utils.placeholder.PlaceholderManager;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
@@ -12,7 +13,6 @@ import net.minestom.server.event.player.PlayerDisconnectEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
 import rip.snicon.listeners.placeholders.enums.ColorEnum;
 import rip.snicon.listeners.placeholders.enums.HubExplorerEnum;
-import rip.snicon.modules.sidebar.SidebarCreator;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -64,7 +64,6 @@ public class Placeholder {
 
             for (Player onlinePlayer : onlinePlayers) {
                 PlaceholderManager.setPlaceholderToPlayer(onlinePlayer, "online_server", String.valueOf(onlinePlayers.size()));
-                SidebarCreator.updateSidebar(onlinePlayer);
             }
             
             // TODO: make un-static
@@ -75,7 +74,7 @@ public class Placeholder {
             PlaceholderManager.setPlaceholderToPlayer(player, "player_emeralds", "427.0");
             PlaceholderManager.setPlaceholderToPlayer(player, "online_network", "12");
             PlaceholderManager.setPlaceholderToPlayer(player, "player_item", "minecraft:tnt");
-            SidebarCreator.updateSidebar(player);
+            SidebarManager.reloadSidebars();
         });
     }
     public void onPlayerQuit() {
@@ -84,8 +83,8 @@ public class Placeholder {
 
             for (Player onlinePlayer : onlinePlayers) {
                 PlaceholderManager.setPlaceholderToPlayer(onlinePlayer, "online_server", String.valueOf(onlinePlayers.size()));
-                SidebarCreator.updateSidebar(onlinePlayer);
             }
+            SidebarManager.reloadSidebars();
         });
     }
 
