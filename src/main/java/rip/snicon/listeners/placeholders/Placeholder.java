@@ -56,8 +56,6 @@ public class Placeholder {
 
             PlaceholderManager.setPlaceholderToPlayer(player, "hub_explorer_random", HubExplorerEnum.getRandomText());
 
-            PlaceholderManager.setPlaceholderToPlayer(player, "player_profession_icon", "<dark_gray>[<gray>?</gray>]</dark_gray>");
-            PlaceholderManager.setPlaceholderToPlayer(player, "player_profession", "<gray>Nitwit</gray>");
             GandalfManager.initiateGandalf(player);
         });
     }
@@ -71,7 +69,7 @@ public class Placeholder {
                 PlaceholderManager.setPlaceholderToPlayer(onlinePlayer, "online_server", String.valueOf(onlinePlayers.size()));
             }
 
-            PlaceholderManager.setPlaceholderToPlayer(player, "player_emeralds", "427.0");
+
             PlaceholderManager.setPlaceholderToPlayer(player, "online_network", "12");
             PlaceholderManager.setPlaceholderToPlayer(player, "player_item", "minecraft:tnt");
             SidebarManager.reloadSidebars();

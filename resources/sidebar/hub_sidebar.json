@@ -1,26 +1,26 @@
 {
   "blanknumberFormat": true,
   "title": [
-    "<gradient:#ffff1c:gold><bold>Hub Server</bold></gradient>"
+    "<gradient:#ffff1c:gold><bold>\u200CHub Server</bold></gradient>"
   ],
   "layout": [
     [
       " "
     ],
     [
-      "<white>Rank</white> » $(player_rank)"
+      "<white>Rank:</white> $(player_rank)"
     ],
     [
-      "<white>Profession</white> » $(player_profession_icon) $(player_profession)"
+      "<white>Profession:</white> $(player_profession_icon) $(player_profession_sidebar)"
     ],
     [
       "  "
     ],
     [
-      "<white>Emeralds</white>: <green>$(player_emeralds)</green>"
+      "<white>Emeralds:</white> <green>$(player_emeralds)</green>"
     ],
     [
-      "<white>Achievement Points</white>: <green>120</green>"
+      "<white>Achievements:</white> <green>$(player_achievement_points)</green>"
     ],
     [
       "   "
@@ -41,7 +41,7 @@
       "     "
     ],
     [
-      "<white>IP</white>: <gradient:#ffff1c:gold>play.znopp.pw</gradient>"
+      "     <bold>\u200C</bold><gradient:#ffff1c:gold>play.znopp.pw</gradient>"
     ]
   ]
 }
