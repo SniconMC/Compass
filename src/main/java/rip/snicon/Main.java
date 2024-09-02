@@ -2,6 +2,7 @@ package rip.snicon;
 
 import com.github.sniconmc.container.ContainerMain;
 import com.github.sniconmc.momentum.MomentumMain;
+import com.github.sniconmc.oblivion.OblivionMain;
 import com.github.sniconmc.sidebar.SidebarMain;
 import com.github.sniconmc.utils.UtilsMain;
 import net.minestom.server.MinecraftServer;
@@ -10,15 +11,11 @@ import net.minestom.server.timer.SchedulerManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rip.snicon.blockhandlers.SkullHandler;
-import rip.snicon.commands.admin.ReloadCommand;
 import rip.snicon.commands.admin.world.TravelCommand;
 import rip.snicon.commands.player.HubCommand;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.listeners.Global;
-import rip.snicon.modules.oblivion.OblivionCreator;
 import rip.snicon.utils.motd.MOTD;
-
-import java.util.List;
 
 public class Main {
 
@@ -32,9 +29,7 @@ public class Main {
 
         InstanceCreator instanceCreator = new InstanceCreator();
 
-        // Initialize modules
-
-        OblivionCreator oblivionCreator = new OblivionCreator();
+        // Initialize MOTD
         MOTD motd = new MOTD();
 
         // Initialize dependencies
@@ -42,6 +37,7 @@ public class Main {
         SidebarMain.init();
         MomentumMain.init();
         ContainerMain.init();
+        OblivionMain.init();
 
 
         // Set global listener
@@ -49,7 +45,6 @@ public class Main {
 
         // Register commands
         MinecraftServer.getCommandManager().register(new TravelCommand());
-        MinecraftServer.getCommandManager().register(new ReloadCommand());
         MinecraftServer.getCommandManager().register(new HubCommand());
 
         MinecraftServer.getBlockManager().registerHandler("minecraft:skull", SkullHandler::new);

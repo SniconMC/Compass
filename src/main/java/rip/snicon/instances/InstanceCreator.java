@@ -1,5 +1,6 @@
 package rip.snicon.instances;
 
+import com.github.sniconmc.oblivion.instance.OblivionInstance;
 import com.github.sniconmc.utils.time.TimeUtils;
 import com.github.sniconmc.utils.weather.WeatherUtils;
 import com.google.gson.Gson;
@@ -99,6 +100,8 @@ public class InstanceCreator {
             // save the instance with name
             instanceMap.put(worldName, instanceContainer);
         }
+
+        OblivionInstance.setInstanceMap(instanceMap);
     }
 
     public static Map<String, Instance> getInstanceMap() {

@@ -14,13 +14,17 @@ repositories {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.10.0"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("net.minestom:minestom-snapshots:65f75bb059") // Minestom
-    implementation("ch.qos.logback:logback-classic:1.5.7") // Logback
     implementation("net.kyori:adventure-text-minimessage:4.17.0") // MiniMessage
-    implementation("com.github.SniconMC:Minestom-Utils:0.1.6.1")
-    implementation("com.github.SniconMC:Minestom-Momentum:0.1.6.1")
-    implementation("com.github.SniconMC:Minestom-Container:0.1.2.1")
-    implementation("com.github.SniconMC:Minestom-Sidebar:0.1.2")
+    implementation("com.github.SniconMC:Utils:0.1.6.1")
+    implementation("com.github.SniconMC:Momentum:0.1.6.1")
+    implementation("com.github.SniconMC:Container:0.1.2.1")
+    implementation("com.github.SniconMC:Sidebar:0.1.2")
+    implementation("com.github.SniconMC:Oblivion:0.1.2.1")
+
+    implementation("ch.qos.logback:logback-classic:1.5.7") // Logback
+    implementation("org.slf4j:slf4j-api:2.0.15") // SLF4J API
+    implementation("ch.qos.logback:logback-classic:1.5.7") // Logback classic
+    implementation("ch.qos.logback:logback-core:1.5.7") // Logback core
+
 }
