@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import rip.snicon.blockhandlers.SkullHandler;
 import rip.snicon.commands.admin.world.TravelCommand;
 import rip.snicon.commands.player.HubCommand;
+import rip.snicon.gandalf.GandalfManager;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.listeners.Global;
 import rip.snicon.utils.motd.MOTD;
@@ -29,6 +30,7 @@ public class Main {
 
         InstanceCreator instanceCreator = new InstanceCreator();
 
+        GandalfManager gandalfManager = new GandalfManager();
         // Initialize MOTD
         MOTD motd = new MOTD();
 

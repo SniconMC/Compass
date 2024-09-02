@@ -12,6 +12,7 @@ import net.minestom.server.instance.Instance;
 import net.minestom.server.ping.ResponseData;
 import net.minestom.server.utils.identity.NamedAndIdentified;
 import rip.snicon.Main;
+import rip.snicon.gandalf.GandalfManager;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.instances.worlds.WorldInfo;
 import rip.snicon.listeners.inventory.Container;
@@ -53,6 +54,8 @@ public class Global {
 
             event.setSpawningInstance(instance);
             player.setRespawnPoint(instanceStartingPos);
+
+
         });
     }
 

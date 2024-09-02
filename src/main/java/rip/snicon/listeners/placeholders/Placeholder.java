@@ -11,6 +11,7 @@ import net.minestom.server.event.inventory.InventoryOpenEvent;
 import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.PlayerDisconnectEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
+import rip.snicon.gandalf.GandalfManager;
 import rip.snicon.listeners.placeholders.enums.ColorEnum;
 import rip.snicon.listeners.placeholders.enums.HubExplorerEnum;
 import java.util.Collection;
@@ -54,6 +55,10 @@ public class Placeholder {
             PlaceholderManager.setPlaceholderToPlayer(player, "player_name", player.getUsername());
 
             PlaceholderManager.setPlaceholderToPlayer(player, "hub_explorer_random", HubExplorerEnum.getRandomText());
+
+            PlaceholderManager.setPlaceholderToPlayer(player, "player_profession_icon", "<dark_gray>[<gray>?</gray>]</dark_gray>");
+            PlaceholderManager.setPlaceholderToPlayer(player, "player_profession", "<gray>Nitwit</gray>");
+            GandalfManager.initiateGandalf(player);
         });
     }
     public void onPlayerSpawn(){
@@ -65,12 +70,7 @@ public class Placeholder {
             for (Player onlinePlayer : onlinePlayers) {
                 PlaceholderManager.setPlaceholderToPlayer(onlinePlayer, "online_server", String.valueOf(onlinePlayers.size()));
             }
-            
-            // TODO: make un-static
-            String playerRank = "<red>Admin</red>";
-            PlaceholderManager.setPlaceholderToPlayer(player, "player_rank", playerRank);
-            PlaceholderManager.setPlaceholderToPlayer(player, "player_profession_icon", "<dark_gray>[<gray>?</gray>]</dark_gray>");
-            PlaceholderManager.setPlaceholderToPlayer(player, "player_profession", "<gray>Nitwit</gray>");
+
             PlaceholderManager.setPlaceholderToPlayer(player, "player_emeralds", "427.0");
             PlaceholderManager.setPlaceholderToPlayer(player, "online_network", "12");
             PlaceholderManager.setPlaceholderToPlayer(player, "player_item", "minecraft:tnt");
