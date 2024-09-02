@@ -18,7 +18,7 @@ public class TeamUtils {
 
     public static void createTeam(Player player, GandalfConfig config) {
 
-        Team team = MinecraftServer.getTeamManager().createTeam(config.getRankId(), TextUtils.convertStringToComponent(List.of(PlaceholderReplacer.replacePlaceholders(player, config.getRankFormat().getFirst()))), NamedTextColor.WHITE , Component.empty());
+        Team team = MinecraftServer.getTeamManager().createTeam(config.getRankId(), TextUtils.convertStringToComponent(List.of(PlaceholderReplacer.replacePlaceholders(player, config.getRankFormat().getFirst()))), NamedTextColor.WHITE  , Component.empty());
 
         team.addMember(player.getUsername());
         team.setCollisionRule(TeamsPacket.CollisionRule.NEVER);
