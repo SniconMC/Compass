@@ -32,12 +32,47 @@
         "max": 64
       },
       "display": {
-        "name": ["» <gold>Lorem Ipsum</gold> «"],
+        "name": ["» <gold>Profession Format</gold> «"],
         "lore": [
           [""],
-          ["Dolor Sit"],
+          ["Toggle between displaying"],
+          ["an icon or the full name"],
           [""],
-          ["<gray>» <aqua>Amet</aqua> «</gray>"]
+          ["Currently set to: <green>$(profession_format_state)</green>"],
+          [""],
+          ["<gray>» <aqua>Click to show $(profession_format_state_other)</aqua> «</gray>"]
+        ],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 12,
+      "id": "minecraft:feather",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": ["» <gold>Player Visibility</gold> «"],
+        "lore": [
+          [""],
+          ["Toggle visibility of players"],
+          [""],
+          ["Currently set to: <green>$(player_visibility_state)</green>"],
+          [""],
+          ["<gray>» <aqua>Click to $(player_visibility_state_other)</aqua> «</gray>"]
         ],
         "model_data": null,
         "glint": false,

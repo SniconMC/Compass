@@ -1,6 +1,6 @@
 {
   "name": [
-    ["<gray>Hello there, <gradient:#ff00da:#ff8300>$(player_name)</gradient>!</gray>"],
+    ["<gray>Hello there, <gradient:#ffff1c:gold>$(player_name)</gradient>!</gray>"],
     ["<gray>$(hub_explorer_random)</gray>"]
   ],
   "uuid": "uuid",
