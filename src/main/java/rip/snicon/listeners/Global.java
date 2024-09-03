@@ -1,12 +1,11 @@
 package rip.snicon.listeners;
 
+import com.github.sniconmc.oblivion.OblivionManager;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
 import net.minestom.server.event.GlobalEventHandler;
-import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
-import net.minestom.server.event.player.PlayerBlockBreakEvent;
-import net.minestom.server.event.player.PlayerBlockInteractEvent;
+import net.minestom.server.event.player.*;
 import net.minestom.server.event.server.ServerListPingEvent;
 import net.minestom.server.instance.Instance;
 import net.minestom.server.ping.ResponseData;
@@ -32,6 +31,8 @@ public class Global {
 
     public Global(){
         onPlayerConfig();
+        onPlayerJoin();
+        onPlayerQuit();
         onServerPing();
         eventsToBeCanceled();
 
@@ -59,7 +60,20 @@ public class Global {
         });
     }
 
+    public void onPlayerJoin(){
+        GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
 
+        globalEventHandler.addListener(PlayerSpawnEvent.class, event -> {
+            OblivionManager.addViewerToAllNpcs(event.getPlayer());
+        });
+    }
+
+    public void onPlayerQuit(){
+        GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
+        globalEventHandler.addListener(PlayerDisconnectEvent.class, event -> {
+            OblivionManager.removeViewerToAllNpcs(event.getPlayer());
+        });
+    }
 
     public void onServerPing() {
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();

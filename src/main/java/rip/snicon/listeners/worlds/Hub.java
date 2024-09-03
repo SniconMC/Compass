@@ -37,7 +37,6 @@ public class Hub {
         hubNode.addListener(PlayerSpawnEvent.class, event -> {
             Player player = event.getPlayer();
             Instance playerInstance = player.getInstance();
-            OblivionManager.spawnOblivions(player);
             Set<Player> players = playerInstance.getPlayers();
             for (Player onlinePlayer : players) {
                 SidebarManager.setSidebar(player, "hub_sidebar");
@@ -53,7 +52,6 @@ public class Hub {
         hubNode.addListener(PlayerDisconnectEvent.class, event -> {
             Player player = event.getPlayer();
             Instance playerInstance = player.getInstance();
-            OblivionManager.despawnOblivions(player);
 
             Set<Player> players = playerInstance.getPlayers();
             for (Player onlinePlayer : players) {

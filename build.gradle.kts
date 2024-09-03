@@ -20,7 +20,7 @@ dependencies {
     implementation("com.github.SniconMC:Momentum:0.1.6.1")
     implementation("com.github.SniconMC:Container:0.1.2.1")
     implementation("com.github.SniconMC:Sidebar:0.1.2")
-    implementation("com.github.SniconMC:Oblivion:0.1.2.1")
+    implementation("com.github.SniconMC:Oblivion:0.1.5.20")
 
     implementation("ch.qos.logback:logback-classic:1.5.7") // Logback
     implementation("org.slf4j:slf4j-api:2.0.15") // SLF4J API

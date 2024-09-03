@@ -10,7 +10,7 @@ public class GandalfProfile {
 
     public GandalfProfile() {
         this.rank_id = "villager";
-        this.profession = "Nitwit";
+        this.profession = "nitwit";
         this.profession_icon = "?";
         this.emeralds = 0.0;
         this.achievements = 0.0;

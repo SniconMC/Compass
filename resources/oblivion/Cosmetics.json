@@ -27,7 +27,7 @@
     "hat": true
   },
   "data": {
-    "function": "rip.snicon.utils.EmeraldUtils.addEmeralds(player, 2)",
+    "function": "",
     "page": "server_selector"
   },
   "in_tab": false,
