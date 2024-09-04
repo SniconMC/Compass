@@ -2,7 +2,6 @@ package rip.snicon;
 
 import com.github.sniconmc.container.ContainerMain;
 import com.github.sniconmc.momentum.MomentumMain;
-import com.github.sniconmc.oblivion.OblivionMain;
 import com.github.sniconmc.sidebar.SidebarMain;
 import com.github.sniconmc.utils.UtilsMain;
 import net.minestom.server.MinecraftServer;
@@ -16,7 +15,7 @@ import rip.snicon.commands.player.HubCommand;
 import rip.snicon.gandalf.GandalfManager;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.listeners.Global;
-import rip.snicon.listeners.InteractListener;
+import rip.snicon.oblivion.OblivionMain;
 import rip.snicon.utils.motd.MOTD;
 
 public class Main {
