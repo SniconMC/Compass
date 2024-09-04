@@ -10,6 +10,7 @@ import net.minestom.server.extras.MojangAuth;
 import net.minestom.server.timer.SchedulerManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rip.snicon.blockhandlers.SignHandler;
 import rip.snicon.blockhandlers.SkullHandler;
 import rip.snicon.commands.admin.world.TravelCommand;
 import rip.snicon.commands.player.HubCommand;
@@ -52,7 +53,8 @@ public class Main {
         MinecraftServer.getCommandManager().register(new TravelCommand());
         MinecraftServer.getCommandManager().register(new HubCommand());
 
-        MinecraftServer.getBlockManager().registerHandler("minecraft:skull", SkullHandler::new);
+        MinecraftServer.getBlockManager().registerHandler(SkullHandler.KEY, SkullHandler::new);
+        MinecraftServer.getBlockManager().registerHandler(SignHandler.KEY, SignHandler::new);
 
         scheduler.buildShutdownTask(() -> {
             Main.logger.info("Shutting down...");

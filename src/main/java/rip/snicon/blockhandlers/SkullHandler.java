@@ -10,9 +10,11 @@ import java.util.Collections;
 
 public class SkullHandler implements BlockHandler {
 
+    public static final NamespaceID KEY = NamespaceID.from("minecraft:skull");
+
     @Override
     public @NotNull NamespaceID getNamespaceId() {
-        return NamespaceID.from("minecraft:skull");
+        return NamespaceID.from(KEY);
     }
 
     @Override

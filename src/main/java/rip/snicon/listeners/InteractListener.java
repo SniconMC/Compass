@@ -9,7 +9,7 @@ public class InteractListener {
     public static void onYourMother(){
         GlobalEventHandler global = MinecraftServer.getGlobalEventHandler();
         global.addListener(PlayerEntityInteractEvent.class, event -> {
-           event.getPlayer().sendMessage("ballsman");
+           event.getPlayer().sendMessage("Click!");
         });
     }
 
