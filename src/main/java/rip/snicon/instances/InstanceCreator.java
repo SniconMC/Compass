@@ -1,5 +1,6 @@
 package rip.snicon.instances;
 
+import com.github.sniconmc.oblivion.instance.OblivionInstance;
 import com.github.sniconmc.utils.time.TimeUtils;
 import com.github.sniconmc.utils.weather.WeatherUtils;
 import com.google.gson.Gson;
@@ -13,7 +14,6 @@ import net.minestom.server.instance.InstanceManager;
 import net.minestom.server.instance.anvil.AnvilLoader;
 import rip.snicon.Main;
 import rip.snicon.instances.worlds.WorldInfo;
-import rip.snicon.oblivion.instance.OblivionInstance;
 
 import java.io.File;
 import java.io.FileReader;

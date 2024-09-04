@@ -33,6 +33,10 @@ public class Oblivion {
             String page = clickedEntity.getTag(Tag.String("page"));
             String function = clickedEntity.getTag(Tag.String("function"));
 
+            if (page == null || function == null) {
+                return;
+            }
+
             if (!function.isEmpty()) {
                 new FunctionUtils(player, event, function);
                 return;
