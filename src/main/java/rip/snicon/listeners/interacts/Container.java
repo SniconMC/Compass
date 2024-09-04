@@ -1,4 +1,4 @@
-package rip.snicon.listeners.inventory;
+package rip.snicon.listeners.interacts;
 
 import com.github.sniconmc.container.creators.ContainerCreator;
 import net.minestom.server.entity.Player;

@@ -17,7 +17,6 @@ import rip.snicon.commands.player.HubCommand;
 import rip.snicon.gandalf.GandalfManager;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.listeners.Global;
-import rip.snicon.listeners.InteractListener;
 import rip.snicon.utils.motd.MOTD;
 
 public class Main {
@@ -43,7 +42,6 @@ public class Main {
         ContainerMain.init();
         OblivionMain.init();
 
-        InteractListener.onYourMother();
 
 
         // Set global listener

@@ -1,7 +1,6 @@
 package rip.snicon.listeners.worlds;
 
 import com.github.sniconmc.container.creators.HotbarCreator;
-import com.github.sniconmc.oblivion.OblivionManager;
 import com.github.sniconmc.sidebar.SidebarManager;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.minestom.server.MinecraftServer;

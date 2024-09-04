@@ -11,10 +11,10 @@ import net.minestom.server.instance.Instance;
 import net.minestom.server.ping.ResponseData;
 import net.minestom.server.utils.identity.NamedAndIdentified;
 import rip.snicon.Main;
-import rip.snicon.gandalf.GandalfManager;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.instances.worlds.WorldInfo;
-import rip.snicon.listeners.inventory.Container;
+import rip.snicon.listeners.interacts.Container;
+import rip.snicon.listeners.interacts.Oblivion;
 import rip.snicon.listeners.placeholders.Placeholder;
 import rip.snicon.listeners.worlds.AFK;
 import rip.snicon.listeners.worlds.Hub;
@@ -39,8 +39,8 @@ public class Global {
         Hub hubHandler = new Hub(MinecraftServer.getGlobalEventHandler());
         AFK afkHandler = new AFK(MinecraftServer.getGlobalEventHandler());
         Container containerHandler = new Container(MinecraftServer.getGlobalEventHandler());
+        Oblivion oblivionHandler = new Oblivion(MinecraftServer.getGlobalEventHandler());
         Placeholder placeholderHandler = new Placeholder(MinecraftServer.getGlobalEventHandler());
-        /*Momentum momentumHandler = new Momentum(MinecraftServer.getGlobalEventHandler());*/
     }
 
     public void onPlayerConfig(){
