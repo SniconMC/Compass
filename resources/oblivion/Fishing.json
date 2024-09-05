@@ -24,6 +24,10 @@
     "right_pants": true,
     "hat": true
   },
+  "data": {
+    "function": "",
+    "page": ""
+  },
   "in_tab": false,
   "world" : "hub"
 }

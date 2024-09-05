@@ -56,7 +56,7 @@
       },
       "data": {
         "isVanillaItem" : true,
-        "function": "rip.snicon.utils.EmeraldUtils.addEmeralds(player, 2)",
+        "function": "",
         "page": ""
       }
     },

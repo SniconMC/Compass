@@ -56,6 +56,18 @@ public class Placeholder {
 
             PlaceholderManager.setPlaceholderToPlayer(player, "hub_explorer_random", HubExplorerEnum.getRandomText());
 
+            Map<String, String> placeholders = new HashMap<>();
+
+            placeholders.put("profession_format_state", "Icon");
+
+            placeholders.put("player_visibility_item", "lime_dye");
+            placeholders.put("player_visibility_state", "<green>Show Players</green>");
+
+            placeholders.put("player_visibility_item_geri", "gray_dye");
+            placeholders.put("player_visibility_state_geri", "<red>Hide Geri</red>");
+
+            PlaceholderManager.addPlaceholdersToPlayer(player, placeholders);
+
             GandalfManager.initiateGandalf(player);
         });
     }

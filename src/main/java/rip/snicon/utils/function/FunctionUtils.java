@@ -25,7 +25,7 @@ public class FunctionUtils {
 
     public void invokeFunction(String function) {
         try {
-            // Validate that the function string contains a '.'
+            // Validate that the function string is not null and contains a '.'
             if (function == null || !function.contains(".")) {
                 throw new IllegalArgumentException("Invalid function string: " + function);
             }
@@ -45,9 +45,14 @@ public class FunctionUtils {
                 methodWithArgs += "()";  // Assume no arguments if parentheses are missing
             }
 
-            // Extract method name and argument string
-            String methodName = methodWithArgs.split("\\(")[0];
-            String argsString = methodWithArgs.split("\\(")[1].replace(")", "");
+            // Extract method name and argument string safely
+            String[] methodParts = methodWithArgs.split("\\(");
+            if (methodParts.length < 2) {
+                throw new IllegalArgumentException("Invalid method call format. Expected 'MethodName(args)'.");
+            }
+
+            String methodName = methodParts[0];
+            String argsString = methodParts[1].replace(")", "");
 
             // Split arguments, handle empty arguments case
             String[] argNames = argsString.isEmpty() ? new String[0] : argsString.split(",");
@@ -59,10 +64,10 @@ public class FunctionUtils {
             for (int i = 0; i < argNames.length; i++) {
                 argNames[i] = argNames[i].trim();
 
-                if (argNames[i].equals("player")) {
+                if (argNames[i].equalsIgnoreCase("player")) {
                     arguments[i] = this.player;
                     paramTypes[i] = Player.class;
-                } else if (argNames[i].equals("event")) {
+                } else if (argNames[i].equalsIgnoreCase("event")) {
                     arguments[i] = this.event;
                     paramTypes[i] = Event.class;
                 } else {
@@ -82,7 +87,9 @@ public class FunctionUtils {
             method.invoke(null, arguments); // Static method, no instance required
 
         } catch (Exception e) {
-            Main.logger.error("Error finding Class from function string {}", function);
+            e.printStackTrace();
+            Main.logger.error("Error finding Class from function string {}, {}", function, e.getMessage());
         }
     }
+
 }

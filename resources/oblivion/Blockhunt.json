@@ -27,8 +27,8 @@
     "hat": true
   },
   "data": {
-    "function": "rip.snicon.utils.connection.Item.giveItem(player)",
-    "page": "server_selector"
+    "function": "",
+    "page": ""
   },
   "in_tab": false,
   "world" : "hub"

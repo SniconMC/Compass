@@ -18,7 +18,7 @@ dependencies {
     implementation("net.kyori:adventure-text-minimessage:4.17.0") // MiniMessage
     implementation("com.github.SniconMC:Utils:0.1.6.1")
     implementation("com.github.SniconMC:Momentum:0.1.6.1")
-    implementation("com.github.SniconMC:Container:0.1.2.1")
+    implementation("com.github.SniconMC:Container:0.1.3")
     implementation("com.github.SniconMC:Sidebar:0.1.2")
     implementation("com.github.SniconMC:Oblivion:0.1.5.21")
 

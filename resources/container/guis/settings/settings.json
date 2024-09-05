@@ -25,8 +25,8 @@
   },
   "items": [
     {
-      "slot": 10,
-      "id": "minecraft:feather",
+      "slot": 11,
+      "id": "minecraft:oak_sign",
       "count": {
         "current": 1,
         "max": 64
@@ -38,9 +38,9 @@
           ["Toggle between displaying"],
           ["an icon or the full name"],
           [""],
-          ["Currently set to: <green>$(profession_format_state)</green>"],
+          ["Currently set to: <light_purple>$(profession_format_state)</light_purple>"],
           [""],
-          ["<gray>» <aqua>Click to show $(profession_format_state_other)</aqua> «</gray>"]
+          ["<gray>» <aqua>Click to toggle</aqua> «</gray>"]
         ],
         "model_data": null,
         "glint": false,
@@ -53,13 +53,13 @@
         "texture": ""
       },
       "data": {
-        "function": "",
+        "function": "rip.snicon.motherfucker.Bitch.toggleProfession(player, event)",
         "page": ""
       }
     },
     {
-      "slot": 12,
-      "id": "minecraft:feather",
+      "slot": 13,
+      "id": "$(player_visibility_item)",
       "count": {
         "current": 1,
         "max": 64
@@ -70,9 +70,9 @@
           [""],
           ["Toggle visibility of players"],
           [""],
-          ["Currently set to: <green>$(player_visibility_state)</green>"],
+          ["Currently set to: $(player_visibility_state)"],
           [""],
-          ["<gray>» <aqua>Click to $(player_visibility_state_other)</aqua> «</gray>"]
+          ["<gray>» <aqua>Click to toggle</aqua> «</gray>"]
         ],
         "model_data": null,
         "glint": false,
@@ -85,17 +85,79 @@
         "texture": ""
       },
       "data": {
-        "function": "",
+        "function": "rip.snicon.motherfucker.Bitch.togglePlayerVisibility(player, event)",
         "page": ""
+      }
+    },
+    {
+      "slot": 15,
+      "id": "$(player_visibility_item_geri)",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": ["» <gold>Geri Visibility</gold> «"],
+        "lore": [
+          [""],
+          ["Toggle visibility of Geri"],
+          ["Overrides <gold>Player Visibility</gold> setting"],
+          [""],
+          ["Currently set to: $(player_visibility_state_geri)"],
+          [""],
+          ["<gray>» <aqua>Click to toggle</aqua> «</gray>"]
+        ],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "rip.snicon.motherfucker.Bitch.toggleGeriVisibility(player, event)",
+        "page": ""
+      }
+    }
+  ,
+    {
+      "slot": 31,
+      "id": "minecraft:barrier",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+          "<gray>» <red>Close</red> «"
+        ],
+        "lore": [],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "isVanillaItem" : true,
+        "function": "",
+        "page": "close"
       }
     }
   ],
   "settings": {
     "rows": 4,
     "display_name": [
-      "Server Selector"
+      "Settings"
     ],
-    "container_id":"compass",
+    "container_id":"settings",
     "modify": false,
     "modify_creative": true
   }
