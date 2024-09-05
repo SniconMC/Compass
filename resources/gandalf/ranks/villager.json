@@ -1,0 +1,15 @@
+{
+  "rank_id" : "villager",
+  "rank_style": ["<dark_gray>[<gray>Villager</gray>]</dark_gray>"],
+  "rank_color" : "gray",
+  "rank_chat_color" : "white",
+
+  "rank_format": ["$(player_profession_icon) $(player_rank) $(username)"],
+  "rank_format_simple": ["$(player_rank) $(username)"],
+  "permissions": {
+    "parent": "",
+    "rank_specific" : [
+      "command.hub"
+    ]
+  }
+}

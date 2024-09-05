@@ -4,13 +4,10 @@ import java.util.Random;
 
 public enum HubExplorerEnum {
 
-    A("Enjoy your stay!"),
-    B("Hope to see you again!"),
-    C("In development!"),
-    D("Crafted with love"),
-    E("Of Swedish origin!"),
-    F("Balls"),
-    G("balls");
+    TEXT1("Enjoy your stay!"),
+    TEXT2("Hope to see you again!"),
+    TEXT3("Have a look around!"),
+    TEXT4("Invite your friends!");
 
     private final String text;
 

@@ -1,5 +1,7 @@
 package rip.snicon.listeners.placeholders;
 
+import com.github.sniconmc.sidebar.SidebarManager;
+import com.github.sniconmc.utils.placeholder.PlaceholderManager;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
@@ -9,10 +11,9 @@ import net.minestom.server.event.inventory.InventoryOpenEvent;
 import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.PlayerDisconnectEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
+import rip.snicon.gandalf.GandalfManager;
 import rip.snicon.listeners.placeholders.enums.ColorEnum;
 import rip.snicon.listeners.placeholders.enums.HubExplorerEnum;
-import rip.snicon.modules.placeholders.PlaceholderManager;
-import rip.snicon.modules.sidebar.SidebarCreator;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -54,6 +55,20 @@ public class Placeholder {
             PlaceholderManager.setPlaceholderToPlayer(player, "player_name", player.getUsername());
 
             PlaceholderManager.setPlaceholderToPlayer(player, "hub_explorer_random", HubExplorerEnum.getRandomText());
+
+            Map<String, String> placeholders = new HashMap<>();
+
+            placeholders.put("profession_format_state", "Icon");
+
+            placeholders.put("player_visibility_item", "lime_dye");
+            placeholders.put("player_visibility_state", "<green>Show Players</green>");
+
+            placeholders.put("player_visibility_item_geri", "gray_dye");
+            placeholders.put("player_visibility_state_geri", "<red>Hide Geri</red>");
+
+            PlaceholderManager.addPlaceholdersToPlayer(player, placeholders);
+
+            GandalfManager.initiateGandalf(player);
         });
     }
     public void onPlayerSpawn(){
@@ -64,18 +79,12 @@ public class Placeholder {
 
             for (Player onlinePlayer : onlinePlayers) {
                 PlaceholderManager.setPlaceholderToPlayer(onlinePlayer, "online_server", String.valueOf(onlinePlayers.size()));
-                SidebarCreator.updateSidebar(onlinePlayer);
             }
-            
-            // TODO: make un-static
-            String playerRank = "<red>Admin</red>";
-            PlaceholderManager.setPlaceholderToPlayer(player, "player_rank", playerRank);
-            PlaceholderManager.setPlaceholderToPlayer(player, "player_profession_icon", "<dark_gray>[<gray>?</gray>]</dark_gray>");
-            PlaceholderManager.setPlaceholderToPlayer(player, "player_profession", "<gray>Nitwit</gray>");
-            PlaceholderManager.setPlaceholderToPlayer(player, "player_emeralds", "427.0");
+
+
             PlaceholderManager.setPlaceholderToPlayer(player, "online_network", "12");
             PlaceholderManager.setPlaceholderToPlayer(player, "player_item", "minecraft:tnt");
-            SidebarCreator.updateSidebar(player);
+            SidebarManager.reloadSidebars();
         });
     }
     public void onPlayerQuit() {
@@ -84,8 +93,8 @@ public class Placeholder {
 
             for (Player onlinePlayer : onlinePlayers) {
                 PlaceholderManager.setPlaceholderToPlayer(onlinePlayer, "online_server", String.valueOf(onlinePlayers.size()));
-                SidebarCreator.updateSidebar(onlinePlayer);
             }
+            SidebarManager.reloadSidebars();
         });
     }
 

@@ -1,21 +1,22 @@
 package rip.snicon;
 
+import com.github.sniconmc.container.ContainerMain;
+import com.github.sniconmc.momentum.MomentumMain;
+import com.github.sniconmc.oblivion.OblivionMain;
+import com.github.sniconmc.sidebar.SidebarMain;
+import com.github.sniconmc.utils.UtilsMain;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.extras.MojangAuth;
 import net.minestom.server.timer.SchedulerManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rip.snicon.blockhandlers.SignHandler;
 import rip.snicon.blockhandlers.SkullHandler;
-import rip.snicon.commands.admin.ReloadCommand;
 import rip.snicon.commands.admin.world.TravelCommand;
 import rip.snicon.commands.player.HubCommand;
+import rip.snicon.gandalf.GandalfManager;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.listeners.Global;
-import rip.snicon.modules.container.ContainerCreator;
-import rip.snicon.modules.container.HotbarCreator;
-import rip.snicon.modules.momentum.MomentumManager;
-import rip.snicon.modules.oblivion.OblivionCreator;
-import rip.snicon.modules.sidebar.SidebarCreator;
 import rip.snicon.utils.motd.MOTD;
 
 public class Main {
@@ -28,22 +29,30 @@ public class Main {
         MinecraftServer minecraftServer = MinecraftServer.init();
         SchedulerManager scheduler = MinecraftServer.getSchedulerManager();
 
-        // Initialize your mother
         InstanceCreator instanceCreator = new InstanceCreator();
-        SidebarCreator sidebarCreator = new SidebarCreator();
-        HotbarCreator hotbarCreator = new HotbarCreator();
-        ContainerCreator containerCreator = new ContainerCreator();
-        OblivionCreator oblivionCreator = new OblivionCreator();
-        MomentumManager momentumManager = new MomentumManager();
+
+        GandalfManager gandalfManager = new GandalfManager();
+        // Initialize MOTD
         MOTD motd = new MOTD();
 
+        // Initialize dependencies
+        UtilsMain.init();
+        SidebarMain.init();
+        MomentumMain.init();
+        ContainerMain.init();
+        OblivionMain.init();
+
+
+
+        // Set global listener
         Global globalListener = new Global();
 
+        // Register commands
         MinecraftServer.getCommandManager().register(new TravelCommand());
-        MinecraftServer.getCommandManager().register(new ReloadCommand());
         MinecraftServer.getCommandManager().register(new HubCommand());
 
-        MinecraftServer.getBlockManager().registerHandler("minecraft:skull", SkullHandler::new);
+        MinecraftServer.getBlockManager().registerHandler(SkullHandler.KEY, SkullHandler::new);
+        MinecraftServer.getBlockManager().registerHandler(SignHandler.KEY, SignHandler::new);
 
         scheduler.buildShutdownTask(() -> {
             Main.logger.info("Shutting down...");

@@ -1,5 +1,7 @@
 package rip.snicon.listeners.worlds;
 
+import com.github.sniconmc.container.creators.HotbarCreator;
+import com.github.sniconmc.sidebar.SidebarManager;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Entity;
@@ -14,10 +16,6 @@ import net.minestom.server.event.trait.PlayerEvent;
 import net.minestom.server.instance.Instance;
 import net.minestom.server.scoreboard.Sidebar;
 import rip.snicon.instances.InstanceCreator;
-import rip.snicon.modules.container.HotbarCreator;
-import rip.snicon.modules.momentum.MomentumManager;
-import rip.snicon.modules.oblivion.OblivionCreator;
-import rip.snicon.modules.sidebar.SidebarCreator;
 
 import java.util.Set;
 
@@ -38,11 +36,9 @@ public class Hub {
         hubNode.addListener(PlayerSpawnEvent.class, event -> {
             Player player = event.getPlayer();
             Instance playerInstance = player.getInstance();
-            OblivionCreator.despawnOblivions(player);
-            OblivionCreator.spawnOblivions(player);
             Set<Player> players = playerInstance.getPlayers();
             for (Player onlinePlayer : players) {
-                SidebarCreator.setSidebar(player, "hub_sidebar");
+                SidebarManager.setSidebar(player, "hub_sidebar");
                 HotbarCreator.setHotbar(player, "lobby");
 
                 onlinePlayer.sendMessage(MiniMessage.miniMessage().deserialize("<dark_gray>[<green>+</green>]</dark_gray> " + player.getUsername()));
@@ -55,7 +51,6 @@ public class Hub {
         hubNode.addListener(PlayerDisconnectEvent.class, event -> {
             Player player = event.getPlayer();
             Instance playerInstance = player.getInstance();
-            OblivionCreator.despawnOblivions(player);
 
             Set<Player> players = playerInstance.getPlayers();
             for (Player onlinePlayer : players) {

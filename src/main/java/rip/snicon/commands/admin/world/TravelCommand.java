@@ -23,7 +23,7 @@ public class TravelCommand extends Command {
         addSyntax((commandSender, commandContext) -> {
             String worldName = commandContext.get(worldArgument);
 
-            if (!(commandSender instanceof Player)) {
+            if (!(commandSender instanceof Player player)) {
                 commandSender.sendMessage("Sender not player");
                 return;
             }
@@ -36,8 +36,6 @@ public class TravelCommand extends Command {
             }
 
             Pos instanceStartingPos = new Pos(info.getSpawnX(), info.getSpawnY(), info.getSpawnZ(), info.getSpawnYaw(), info.getSpawnPitch());
-
-            Player player = (Player) commandSender;
 
             player.setInstance(instance, instanceStartingPos);
 

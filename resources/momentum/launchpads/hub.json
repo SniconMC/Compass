@@ -2,16 +2,16 @@
   "corners": {
     "x1": 0,
     "y1": 65,
-    "z1": 4,
+    "z1": 5,
     "x2": 2,
     "y2": 65,
-    "z2": 3
+    "z2": 4
   },
   "display": {
-    "show_text": false,
-    "text_uuid": [
-    ],
-    "text_list": []
+    "show_text": true,
+    "text_list": [
+      ["<gray>» <aqua>Walk on to get launched!</aqua> «</gray>"]
+    ]
   },
   "sound" : {
     "sound_event": "ENTITY.FIREWORK_ROCKET.LAUNCH",
@@ -21,5 +21,5 @@
   "directional_strength": 0.0,
   "vertical_strength": 1.875,
   "world": "hub",
-  "cooldown" : 500
+  "cooldown" : 200
 }

@@ -17,7 +17,9 @@
   },
   "display": {
     "show_text": true,
-    "text_list": []
+    "text_list": [
+      ["<gray>» <aqua>Warp to Hub</aqua> «</gray>"]
+    ]
   },
   "sound": {
     "sound_event": "entity.enderman.teleport",

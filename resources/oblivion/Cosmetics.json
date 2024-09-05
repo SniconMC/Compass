@@ -1,0 +1,36 @@
+{
+  "name": [
+    ["<red>100 New Cosmetics</red>"],
+    ["<light_purple>Cosmetics </light_purple>"],
+    ["<yellow>Click to Shop</yellow>"]
+  ],
+  "uuid": "uuid",
+  "entity_type": "player",
+  "position": {
+    "x": 26.5,
+    "y": 64.0,
+    "z": -3.5,
+    "pitch": 0.0,
+    "yaw": -13.0,
+    "look_at_player": true
+  },
+  "skin": {
+    "player": "",
+    "signature": "JupYHgA9/V5qIiJoOlA+J36/hIGJhCrBkalgzX0/kprBUNHIvhf8T5/MimYzg+ydLTJNyE9ICyw09SoIjy1+Oj+o0dmnMy4eSmktN1xue3i+4kk9fXFQf02zDR+Q4TMgYo8GAgYK/7rJa9bynXwkm8dICnbPGLlGTrvviGBR/NyA1ytqWcXOZVWeB8KuC+6HDJ6MClPyhPWsaBGtlrXufhuaFQ4STYTfPndFg+M1ueB2CEQgeRePKmumhJQpi13nGgBW4/AJGv04hZ8elPhiuFEe5vUGD+Kpgc6KyUys2i611i2qpmZUzUEJ3/5lt0gmvukl6zE0AyoVTsPeKf8/I9Sns31XtHB4AvMCe7Ba+jIFpLN3eekjN0juAhjX/lmakMSq/Fb1sutaOTAWT4zZUtVr9BRZH3dzR1CWqCuhJEenvvKCP+ICp8rf3uvwPJN16CnDnKovMrfFmHDzv0eti5n2RnCpsCVcq7bZlfYawn517+l1R9AgYDW49DOpyxvr0iC3Rn1DLxr+SMRxe72ASDSaboJ25l+4vuAq7CuM9W0qF2gkOH0I34cjVjbIG+vCq536C5Eqh13Zo5Aw9M1d/JekMwKR0Dh3rK38sPsqtXx2514vXm8AcaufW4AF5vxI19qS3d/qCiK4C2gvXvG6PdsQPBWApZrDPkdE6rC7UTc=",
+    "texture": "ewogICJ0aW1lc3RhbXAiIDogMTcyNDU5MTk2MTc0OCwKICAicHJvZmlsZUlkIiA6ICI5ZmNhYjFmNTg2OWM0NzFlODA3MDkxNTY3OGEzMWUyMSIsCiAgInByb2ZpbGVOYW1lIiA6ICJOZWlsXzM5NCIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9kNjgzNTU5OGQ0YzYzZmE5ZTA5ZmY1ZDYyZWE3MzcyM2YwNmQ2NjIzYWQ0MzBiODcxYjdjYzdjNDNhYzBhYmVjIgogICAgfSwKICAgICJDQVBFIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS9mOWE3NjUzNzY0Nzk4OWY5YTBiNmQwMDFlMzIwZGFjNTkxYzM1OWU5ZTYxYTMxZjRjZTExYzg4ZjIwN2YwYWQ0IgogICAgfQogIH0KfQ==",
+    "cape": false,
+    "jacket": true,
+    "left_sleeve": true,
+    "right_sleeve": true,
+    "left_pants": true,
+    "right_pants": true,
+    "hat": true
+  },
+  "data": {
+    "function": "",
+    "page": ""
+  },
+  "in_tab": false,
+  "world" : "hub"
+}
+
