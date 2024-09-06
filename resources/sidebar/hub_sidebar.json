@@ -14,6 +14,9 @@
       "<white>Profession:</white> $(player_profession_icon) $(player_profession_sidebar)"
     ],
     [
+      "$(player_profession)"
+    ],
+    [
       "  "
     ],
     [

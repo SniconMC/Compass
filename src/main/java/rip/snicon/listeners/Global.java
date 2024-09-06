@@ -11,6 +11,7 @@ import net.minestom.server.instance.Instance;
 import net.minestom.server.ping.ResponseData;
 import net.minestom.server.utils.identity.NamedAndIdentified;
 import rip.snicon.Main;
+import rip.snicon.gandalf.utils.TabUtils;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.instances.worlds.WorldInfo;
 import rip.snicon.listeners.interacts.Container;
@@ -55,8 +56,6 @@ public class Global {
 
             event.setSpawningInstance(instance);
             player.setRespawnPoint(instanceStartingPos);
-
-
         });
     }
 
@@ -64,7 +63,12 @@ public class Global {
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
 
         globalEventHandler.addListener(PlayerSpawnEvent.class, event -> {
-            OblivionManager.addViewerToAllNpcs(event.getPlayer());
+            Player player = event.getPlayer();
+
+            OblivionManager.addViewerToAllNpcs(player);
+            player.setHeldItemSlot((byte) 4);
+
+
         });
     }
 

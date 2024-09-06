@@ -14,6 +14,7 @@ import rip.snicon.blockhandlers.SignHandler;
 import rip.snicon.blockhandlers.SkullHandler;
 import rip.snicon.commands.admin.world.TravelCommand;
 import rip.snicon.commands.player.HubCommand;
+import rip.snicon.gandalf.GandalfMain;
 import rip.snicon.gandalf.GandalfManager;
 import rip.snicon.instances.InstanceCreator;
 import rip.snicon.listeners.Global;
@@ -31,7 +32,6 @@ public class Main {
 
         InstanceCreator instanceCreator = new InstanceCreator();
 
-        GandalfManager gandalfManager = new GandalfManager();
         // Initialize MOTD
         MOTD motd = new MOTD();
 
@@ -41,7 +41,7 @@ public class Main {
         MomentumMain.init();
         ContainerMain.init();
         OblivionMain.init();
-
+        GandalfMain.init();
 
 
         // Set global listener

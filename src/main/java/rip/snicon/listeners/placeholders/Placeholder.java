@@ -2,6 +2,7 @@ package rip.snicon.listeners.placeholders;
 
 import com.github.sniconmc.sidebar.SidebarManager;
 import com.github.sniconmc.utils.placeholder.PlaceholderManager;
+import com.google.gson.Gson;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
@@ -12,13 +13,23 @@ import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.PlayerDisconnectEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
 import rip.snicon.gandalf.GandalfManager;
+import rip.snicon.gandalf.config.GandalfProfession;
+import rip.snicon.gandalf.config.GandalfProfile;
+import rip.snicon.gandalf.utils.LoadGandalf;
 import rip.snicon.listeners.placeholders.enums.ColorEnum;
 import rip.snicon.listeners.placeholders.enums.HubExplorerEnum;
+
+import java.io.File;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Placeholder {
+
+    private static final Gson gson = new Gson().newBuilder().setPrettyPrinting().create();
+
+    private static final File dataProfileFolder = new File("resources/profiles");
+
 
     private final EventNode<Event> placeholderNode;
 
@@ -52,13 +63,26 @@ public class Placeholder {
         placeholderNode.addListener(AsyncPlayerConfigurationEvent.class, event -> {
             final Player player = event.getPlayer();
 
+            // TODO
+
+
+            Map<String, String> profileDataJSONData = new LoadGandalf().load(dataProfileFolder);
+
+            String playerProfile = profileDataJSONData.get(player.getUuid().toString());
+
+            GandalfProfile profile = gson.fromJson(playerProfile, GandalfProfile.class);
+
+
+
+
             PlaceholderManager.setPlaceholderToPlayer(player, "player_name", player.getUsername());
+
 
             PlaceholderManager.setPlaceholderToPlayer(player, "hub_explorer_random", HubExplorerEnum.getRandomText());
 
             Map<String, String> placeholders = new HashMap<>();
 
-            placeholders.put("profession_format_state", "Icon");
+            placeholders.put("profession_format_state", profile.getSettings().getProfession_format());
 
             placeholders.put("player_visibility_item", "lime_dye");
             placeholders.put("player_visibility_state", "<green>Show Players</green>");

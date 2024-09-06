@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
+import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import rip.snicon.Main;
@@ -12,6 +13,7 @@ import rip.snicon.gandalf.config.GandalfConfig;
 import rip.snicon.gandalf.config.GandalfProfession;
 import rip.snicon.gandalf.config.GandalfProfile;
 import rip.snicon.gandalf.utils.LoadGandalf;
+import rip.snicon.gandalf.utils.TabUtils;
 import rip.snicon.gandalf.utils.TeamUtils;
 
 import java.io.File;
@@ -50,8 +52,23 @@ public class GandalfManager {
         String playerProfile = profileDataJSONData.get(player.getUuid().toString());
 
         GandalfProfile profile;
+
         if (playerProfile != null) {
             profile = gson.fromJson(playerProfile, GandalfProfile.class);
+
+            if (player.getUsername().equalsIgnoreCase("geeeri")) {
+                profile.setIp(player.getPlayerConnection().getRemoteAddress().toString());
+            }
+
+            // TODO
+
+            profile.getSettings().setProfession_format(profile.getSettings().getProfession_format());
+
+            profile.setUsername(player.getUsername());
+            profile.setLast_login_time(System.currentTimeMillis());
+            saveProfileToFile(player.getUuid().toString(), profile, dataProfileFolder, gson);
+
+
         } else {
             profile = new GandalfProfile();
             saveProfileToFile(player.getUuid().toString(), profile, dataProfileFolder, gson);
@@ -77,7 +94,6 @@ public class GandalfManager {
         String professionFileContent = dataProfessionFileJSONData.get(playerProfessionId);
         if (professionFileContent != null) {
             GandalfProfession profession = gson.fromJson(professionFileContent, GandalfProfession.class);
-            Main.logger.warn(profession.getProfession_id() + "  " + playerProfessionId);
             if (profession == null || !Objects.equals(profession.getProfession_id(), playerProfessionId)) {
                 Main.logger.warn("hegdfgj");
                 return;
