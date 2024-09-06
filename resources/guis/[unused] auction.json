@@ -1,0 +1,870 @@
+{
+  "default_item": {
+    "id": "minecraft:orange_stained_glass_pane",
+    "count": {
+      "current": 1,
+      "max": 64
+    },
+    "display": {
+      "name": [],
+      "lore": [],
+      "model_data": null,
+      "glint": false,
+      "dye_color": "",
+      "show_tooltip": false
+    },
+    "skin": {
+      "player": "this",
+      "uuid": "",
+      "texture": ""
+    },
+    "data": {
+      "function": "",
+      "page": ""
+    }
+  },
+  "items": [
+    {
+      "slot": 0,
+      "id": "minecraft:golden_sword",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [{"text": "Weapons","color": "gold"}],
+        "lore": [
+          [{"text": "Category","color": "dark_gray"}],
+          [{"text": " ","color": "gold"}],
+          [{"text": "Examples:","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Swords","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Bows","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Magic Weapons","color": "gray"}],
+          [{"text": " ","color": "gray"}],
+          [{"text": "Currently browsing!","color": "green"}]
+        ],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 9,
+      "id": "minecraft:diamond_chestplate",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [{"text": "Armor","color": "aqua"}],
+        "lore": [
+          [{"text": "Category","color": "dark_gray"}],
+          [{"text": " ","color": "gold"}],
+          [{"text": "Examples:","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Hats","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Chestplates","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Leggings","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Boots","color": "gray"}],
+          [{"text": " ","color": "gray"}],
+          [{"text": "Click to view items!","color": "yellow"}]
+        ],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 18,
+      "id": "minecraft:player_head",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [{"text": "Accessories","color": "dark_green"}],
+        "lore": [
+          [{"text": "Category","color": "dark_gray"}],
+          [{"text": " ","color": "gold"}],
+          [{"text": "Examples:","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Talismans","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Rings","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Orbs","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Artifacts","color": "gray"}],
+          [{"text": " ","color": "gray"}],
+          [{"text": "Click to view items!","color": "yellow"}]
+        ],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjM2YjgyMWMxYWZkZDVhNWQxNGUzYjNiZDBhMzIyNjNjOGRmNWRmNWRiNmUxZTg4YmY2NWU5N2IyN2E4NTMwIn19fQ=="
+      },
+      "data": {
+        "function": "",
+        "page": "profile"
+      }
+    },
+    {
+      "slot": 27,
+      "id": "minecraft:apple",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [{"text": "Consumables","color": "red"}],
+        "lore": [
+          [{"text": "Category","color": "dark_gray"}],
+          [{"text": " ","color": "gold"}],
+          [{"text": "Examples:","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Potions","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Food","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Books","color": "gray"}],
+          [{"text": " ","color": "gray"}],
+          [{"text": "Click to view items!","color": "yellow"}]
+        ],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 36,
+      "id": "minecraft:cobblestone",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [{"text": "Blocks","color": "yellow"}],
+        "lore": [
+          [{"text": "Category","color": "dark_gray"}],
+          [{"text": " ","color": "gold"}],
+          [{"text": "Examples:","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Dirt","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Stone","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Any blocks really","color": "gray"}],
+          [{"text": " ","color": "gray"}],
+          [{"text": "Click to view items!","color": "yellow"}]
+        ],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 45,
+      "id": "minecraft:stick",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [{"text": "Tool & Misc","color": "light_purple"}],
+        "lore": [
+          [{"text": "Category","color": "dark_gray"}],
+          [{"text": " ","color": "gold"}],
+          [{"text": "Examples:","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Tools","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Specials","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Magic","color": "gray"}],
+          [{"text": "■","color": "dark_gray"},{"text": " Staff items","color": "gray"}],
+          [{"text": " ","color": "gray"}],
+          [{"text": "Click to view items!","color": "yellow"}]
+        ],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 11,
+      "id": "$(ah_slot_11_item)",
+      "count": $(ah_slot_11_item_count),
+      "display": {
+        "name": $(ah_slot_11_item_name),
+        "lore": [
+          $(ah_slot_11_item_lore),
+          [{"text": " "}],
+          [{"text": "Seller: ","color": "gray"},$(ah_slot_11_seller_rank),$(ah_slot_11_seller_username)],
+          [{"text": "Buy it now: ", "color": "gray"},{"text": "$(ah_slot_11_price)","color": "gold"},{"text": " coins","color": "gold"}]
+        ],
+        "model_data": "",
+        "glint": $(ah_slot_11_item_glint),
+        "dye_color": "$(ah_slot_11_item_dye)",
+        "show_tooltip": true
+      },
+      "skin": $(ah_slot_11_item_skin),
+      "data": $(ah_slot_11_item_data)
+    },
+    {
+      "slot": 12,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 13,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 14,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 15,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 16,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 20,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 21,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 22,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 23,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 24,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 25,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 29,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 30,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 31,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 32,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 33,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 34,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 38,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 39,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 40,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 41,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 42,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 43,
+      "id": "minecraft:air",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 52,
+      "id": "minecraft:powered_rail",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [{"text": "BIN Filter","color": "green"}],
+        "lore": [
+          [{"text": " ","color": "green"}],
+          [{"text": "▶ Show All","color": "dark_aqua"}],
+          [{"text": "BIN Only","color": "gray"}],
+          [{"text": "Auctions Only","color": "gray"}],
+          [{"text": " ","color": "green"}],
+          [{"text": "Right-Click to go backwards!","color": "aqua"}],
+          [{"text": "Click to switch filer!","color": "yellow"}]
+        ],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    }
+  ],
+  "settings": {
+    "rows": 6,
+    "display_name": [{"text":"Auctions Browser ","color":"dark_gray"}],
+    "container_id": "auction",
+    "modify": false,
+    "modify_creative": false
+  }
+}

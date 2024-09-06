@@ -1,0 +1,243 @@
+{
+  "default_item": {
+    "id": "minecraft:gray_stained_glass_pane",
+    "count": {
+      "current": 1,
+      "max": 64
+    },
+    "display": {
+      "name": [],
+      "lore": [],
+      "model_data": null,
+      "glint": false,
+      "dye_color": "",
+      "show_tooltip": false
+    },
+    "skin": {
+      "player": "this",
+      "uuid": "",
+      "texture": ""
+    },
+    "data": {
+      "function": "menus:menu_logic/no_function",
+      "page": ""
+    }
+  },
+  "items": [
+    {
+      "slot": 4,
+      "id": "minecraft:leather_chestplate",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "$(cosmetics_dye)",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": "profession"
+      }
+    },
+    {
+      "slot": 11,
+      "id": "minecraft:fishing_rod",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+            
+        ],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 13,
+      "id": "minecraft:redstone",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 15,
+      "id": "minecraft:bamboo_sign",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 29,
+      "id": "minecraft:spyglass",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 31,
+      "id": "minecraft:jukebox",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 33,
+      "id": "minecraft:leather_chestplate",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "$(cosmetics_dye)",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 49,
+      "id": "minecraft:arrow",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+          "<gray>» <red>Back to Profile</red> «"
+        ],
+        "lore": [
+            
+        ],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": "profile"
+      }
+    }
+  ],
+  "settings": {
+    "rows": 6,
+    "display_name": [
+      "<dark_gray>Your Cosmetics"
+    ],
+    "container_id": "cosmetics",
+    "modify": false,
+    "modify_creative": true
+  }
+}

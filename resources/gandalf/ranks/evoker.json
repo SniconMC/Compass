@@ -1,11 +1,11 @@
 {
   "rank_id" : "evoker",
-  "rank_style": ["<dark_gray>[<red>Evoker</red>]</dark_gray>"],
+  "rank_style": "<dark_gray>[<red>Evoker</red>]</dark_gray>",
   "rank_color" : "red",
   "rank_chat_color" : "white",
 
-  "rank_format": ["$(player_profession) $(player_rank) $(username)"],
-  "rank_format_simple": ["$(rank) $(username)"],
+  "rank_format": "$(player_profession) $(player_rank) $(username)",
+  "rank_format_simple": "$(rank) $(username)",
   "permissions": {
     "parent": "villager",
     "rank_specific" : [
