@@ -35,6 +35,10 @@ public class Main {
         // Initialize MOTD
         MOTD motd = new MOTD();
 
+        // Set global listener
+        Global globalListener = new Global();
+
+
         // Initialize dependencies
         UtilsMain.init();
         SidebarMain.init();
@@ -44,8 +48,6 @@ public class Main {
         GandalfMain.init();
 
 
-        // Set global listener
-        Global globalListener = new Global();
 
         // Register commands
         MinecraftServer.getCommandManager().register(new TravelCommand());

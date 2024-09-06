@@ -27,9 +27,9 @@ public class GandalfManager {
 
     private static Gson gson = new Gson();
 
-    private static final File dataFolderRanks = new File("resources/gandalf/ranks");
-    private static final File dataFolderProfession = new File("resources/gandalf/professions");
-    private static final File dataProfileFolder = new File("resources/profiles");
+    private static File dataFolderRanks = new File("resources/gandalf/ranks");
+    private static File dataFolderProfession = new File("resources/gandalf/professions");
+    private static File dataProfileFolder = new File("resources/profiles");
 
     private static Map<String, String> dataRanksFileJSONData;
 
@@ -50,7 +50,7 @@ public class GandalfManager {
     public static void initiateGandalf(Player player) {
 
         String playerProfile = profileDataJSONData.get(player.getUuid().toString());
-
+        Main.logger.error(playerProfile);
         GandalfProfile profile;
 
         if (playerProfile != null) {
@@ -155,5 +155,33 @@ public class GandalfManager {
         placeholderMap.put("player_emeralds", String.valueOf(profile.getEmeralds()));
         placeholderMap.put("player_achievement_points", String.valueOf(profile.getAchievements()));
         return placeholderMap;
+    }
+
+    public static Gson getGson() {
+        return gson;
+    }
+
+    public static Map<String, String> getDataRanksFileJSONData() {
+        return dataRanksFileJSONData;
+    }
+
+    public static Map<String, String> getDataProfessionFileJSONData() {
+        return dataProfessionFileJSONData;
+    }
+
+    public static Map<String, String> getProfileDataJSONData() {
+        return profileDataJSONData;
+    }
+
+    public static File getDataFolderRanks() {
+        return dataFolderRanks;
+    }
+
+    public static File getDataFolderProfession() {
+        return dataFolderProfession;
+    }
+
+    public static File getDataProfileFolder() {
+        return dataProfileFolder;
     }
 }

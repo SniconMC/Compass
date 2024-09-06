@@ -2,6 +2,7 @@ package rip.snicon.motherfucker;
 
 import com.github.sniconmc.container.utils.ReloadContainer;
 import com.github.sniconmc.utils.placeholder.PlaceholderManager;
+import com.github.sniconmc.utils.placeholder.PlaceholderReplacer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.minestom.server.MinecraftServer;
@@ -13,39 +14,36 @@ import net.minestom.server.item.ItemStack;
 import net.minestom.server.item.Material;
 import net.minestom.server.network.packet.server.play.PlayerInfoRemovePacket;
 import rip.snicon.Main;
+import rip.snicon.gandalf.GandalfManager;
+import rip.snicon.gandalf.config.GandalfConfig;
 import rip.snicon.gandalf.config.GandalfProfession;
 import rip.snicon.gandalf.config.GandalfProfile;
 import rip.snicon.gandalf.utils.LoadGandalf;
 import rip.snicon.gandalf.utils.TabUtils;
+import rip.snicon.gandalf.utils.TeamUtils;
 
-import java.io.File;
+import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.UUID;
-import java.util.function.Predicate;
 
 import static rip.snicon.gandalf.utils.SaveProfile.saveProfileToFile;
 
 public class Bitch {
 
-    private static final Gson gson = new Gson().newBuilder().setPrettyPrinting().create();
-
-    private static final File dataFolderProfession = new File("resources/gandalf/professions");
-    private static final File dataProfileFolder = new File("resources/profiles");
 
     public static void toggleProfession(Player player, Event event) {
 
         // TODO
 
-        Map<String, String> profileDataJSONData = new LoadGandalf().load(dataProfileFolder);
+        Map<String, String> profileDataJSONData = new LoadGandalf().load(GandalfManager.getDataProfileFolder());
 
         String playerProfile = profileDataJSONData.get(player.getUuid().toString());
 
-        Map<String, String> dataProfessionFileJSONData = new LoadGandalf().load(dataFolderProfession);
+        Map<String, String> dataRankFileJSONData = new LoadGandalf().load(GandalfManager.getDataFolderRanks());
 
-        GandalfProfile profile = gson.fromJson(playerProfile, GandalfProfile.class);
+        GandalfProfile profile = GandalfManager.getGson().fromJson(playerProfile, GandalfProfile.class);
 
-        GandalfProfession profession = gson.fromJson(dataProfessionFileJSONData.get(profile.getProfession()), GandalfProfession.class);
+        GandalfConfig config = GandalfManager.getGson().fromJson(dataRankFileJSONData.get(profile.getRank_id()), GandalfConfig.class);
 
         // Cast the event to InventoryPreClickEvent if needed
         if (!(event instanceof InventoryPreClickEvent clickEvent)) {
@@ -56,37 +54,40 @@ public class Bitch {
 
         if (clickedItem.material() == Material.OAK_SIGN) {
 
-            String oldProfessionFormatState = PlaceholderManager.getPlaceholderForPlayer(player, "profession_format_state");
+            String oldProfessionFormatState = profile.getSettings().getProfession_format();
 
-            switch (oldProfessionFormatState) {
-                case "Icon" -> {
+            switch (oldProfessionFormatState.toLowerCase()) {
+                case "icon" -> {
+                    player.sendMessage("nub");
                     PlaceholderManager.setPlaceholderToPlayer(player, "profession_format_state", "Text");
-                    PlaceholderManager.setPlaceholderToPlayer(player, "player_profession", profession.getProfession_style().getFirst());
 
-                    profile.getSettings().setProfession_format("Text");
+                    profile.getSettings().setProfession_format("text");
 
-/*                    for (Player onlinePlayer : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
-                        if (onlinePlayer != player) {
-                            TabUtils.removePlayerTab(player, onlinePlayer);
-                            TabUtils.setTabPlayer(player, onlinePlayer, Objects.requireNonNull(onlinePlayer.getSkin()), "", "");
-                        }
-                    }*/
+                    // Extract common logic for config.getRankFormat()
+                    List<String> prefixComplex = List.of(PlaceholderReplacer.replacePlaceholders(player, TeamUtils.getPrefixBeforeUsernamePlaceholder(config.getRankFormat().getFirst())));
+                    List<String> suffixComplex = List.of(PlaceholderReplacer.replacePlaceholders(player, TeamUtils.getSuffixAfterUsernamePlaceholder(config.getRankFormat().getFirst())));
+
+                    // Iterate through UUIDs and change appearance using the complex rank format
+                    for (UUID uuid : TabUtils.getPlayerUUIDMap().get(player).values()) {
+                        TeamUtils.changeApperence(player, uuid, prefixComplex, suffixComplex);
+                    }
 
                 }
-                case "Text" -> {
+                case "text" -> {
+                    player.sendMessage("obama");
                     PlaceholderManager.setPlaceholderToPlayer(player, "profession_format_state", "Icon");
-                    PlaceholderManager.setPlaceholderToPlayer(player, "player_profession", profession.getProfession_icon_style().getFirst());
 
-                    profile.getSettings().setProfession_format("Icon");
-/*                    for (Player onlinePlayer : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
-                        if (onlinePlayer != player) {
-                            TabUtils.removePlayerTab(player, onlinePlayer);
-                            TabUtils.setTabPlayer(player, onlinePlayer, Objects.requireNonNull(onlinePlayer.getSkin()), "", "");
-                        }
-                    }*/
+                    profile.getSettings().setProfession_format("icon");
+                    List<String> prefixSimple = List.of(PlaceholderReplacer.replacePlaceholders(player, TeamUtils.getPrefixBeforeUsernamePlaceholder(config.getRankFormatSimple().getFirst())));
+                    List<String> suffixSimple = List.of(PlaceholderReplacer.replacePlaceholders(player, TeamUtils.getSuffixAfterUsernamePlaceholder(config.getRankFormatSimple().getFirst())));
+
+                    // Iterate through UUIDs and change appearance using the simple rank format
+                    for (UUID uuid : TabUtils.getPlayerUUIDMap().get(player).values()) {
+                        TeamUtils.changeApperence(player, uuid, prefixSimple, suffixSimple);
+                    }
                 }
             }
-            saveProfileToFile(player.getUuid().toString(), profile, dataProfileFolder, gson);
+            saveProfileToFile(player.getUuid().toString(), profile, GandalfManager.getDataProfileFolder(), GandalfManager.getGson());
         }
 
         ReloadContainer.reloadCurrentContainers(player);
@@ -122,25 +123,19 @@ public class Bitch {
             return;
         }
 
-        UUID geri = UUID.fromString("c600eeb7c7da4bddbff1d26e71001d39");
+
         ItemStack clickedItem = clickEvent.getClickedItem();
 
         if (clickedItem.material() == Material.LIME_DYE) {
             PlaceholderManager.setPlaceholderToPlayer(player, "player_visibility_item_geri", "gray_dye");
             PlaceholderManager.setPlaceholderToPlayer(player, "player_visibility_state_geri", "<red>Hide Geri</red>");
 
-            if (MinecraftServer.getConnectionManager().getOnlinePlayerByUuid(geri) != null) {
-                player.removeViewer(MinecraftServer.getConnectionManager().getOnlinePlayerByUuid(geri));
-            }
+
         }
 
         if (clickedItem.material() == Material.GRAY_DYE) {
             PlaceholderManager.setPlaceholderToPlayer(player, "player_visibility_item_geri", "lime_dye");
             PlaceholderManager.setPlaceholderToPlayer(player, "player_visibility_state_geri", "<green>Show Geri</green>");
-
-            if (MinecraftServer.getConnectionManager().getOnlinePlayerByUuid(geri) != null) {
-                player.addViewer(MinecraftServer.getConnectionManager().getOnlinePlayerByUuid(geri));
-            }
 
         }
 

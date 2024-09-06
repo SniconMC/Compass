@@ -64,7 +64,7 @@ public class Placeholder {
             final Player player = event.getPlayer();
 
             // TODO
-
+            GandalfManager.initiateGandalf(player);
 
             Map<String, String> profileDataJSONData = new LoadGandalf().load(dataProfileFolder);
 
@@ -92,7 +92,7 @@ public class Placeholder {
 
             PlaceholderManager.addPlaceholdersToPlayer(player, placeholders);
 
-            GandalfManager.initiateGandalf(player);
+
         });
     }
     public void onPlayerSpawn(){

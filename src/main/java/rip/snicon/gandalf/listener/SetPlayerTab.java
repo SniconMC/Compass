@@ -23,14 +23,14 @@ public class SetPlayerTab {
                 for (Player player : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
 
                     TabUtils.removePlayerTab(player, joinedPlayer);
-                    TabUtils.setTabPlayer(player, joinedPlayer, Objects.requireNonNull(joinedPlayer.getSkin()), "", "");
+                    TabUtils.setTabPlayer(player, joinedPlayer, Objects.requireNonNull(joinedPlayer.getSkin()), List.of(""), List.of(""));
                 }
 
                 // Update the joined player's tab with all other players
                 for (Player player : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
                     if (player != joinedPlayer) {
                         TabUtils.removePlayerTab(joinedPlayer, player);
-                        TabUtils.setTabPlayer(joinedPlayer, player, Objects.requireNonNull(player.getSkin()), "", "");
+                        TabUtils.setTabPlayer(joinedPlayer, player, Objects.requireNonNull(player.getSkin()), List.of(""), List.of(""));
                     }
                 }
             });
