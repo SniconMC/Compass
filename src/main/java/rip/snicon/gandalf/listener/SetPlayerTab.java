@@ -22,27 +22,16 @@ public class SetPlayerTab {
                 // Remove and then re-add the player to all other players' tabs
                 for (Player player : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
 
-                    TabUtils.removePlayerTab(player, joinedPlayer);
-                    TabUtils.setTabPlayer(player, joinedPlayer, Objects.requireNonNull(joinedPlayer.getSkin()), List.of(""), List.of(""));
+                    TabUtils.setTabPlayer(player, joinedPlayer, Objects.requireNonNull(joinedPlayer.getSkin()));
                 }
 
                 // Update the joined player's tab with all other players
                 for (Player player : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
                     if (player != joinedPlayer) {
-                        TabUtils.removePlayerTab(joinedPlayer, player);
                         TabUtils.setTabPlayer(joinedPlayer, player, Objects.requireNonNull(player.getSkin()), List.of(""), List.of(""));
                     }
                 }
             });
-        });
-
-        MinecraftServer.getGlobalEventHandler().addListener(PlayerDisconnectEvent.class, event -> {
-            Player disconnectingPlayer = event.getPlayer();
-
-            // Remove the disconnecting player's fake and real entries from all online players
-            for (Player player : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
-                TabUtils.removePlayerTab(player, disconnectingPlayer);
-            }
         });
     }
 }
