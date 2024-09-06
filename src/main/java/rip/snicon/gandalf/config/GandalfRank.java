@@ -2,7 +2,7 @@ package rip.snicon.gandalf.config;
 
 import java.util.List;
 
-public class GandalfConfig {
+public class GandalfRank {
 
     private String rank_id;
     private List<String> rank_style;

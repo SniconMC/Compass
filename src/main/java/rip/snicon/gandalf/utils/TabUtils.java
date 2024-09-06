@@ -10,6 +10,7 @@ import net.minestom.server.network.packet.server.play.PlayerInfoUpdatePacket;
 import net.minestom.server.network.packet.server.play.TeamsPacket;
 import org.jetbrains.annotations.NotNull;
 import rip.snicon.Main;
+import rip.snicon.gandalf.GandalfManager;
 
 import java.util.*;
 
@@ -27,9 +28,11 @@ public class TabUtils {
         // Send the packet to update the player's display name
         viewer.sendPacket(packet);
 
+    }
 
     public static String getPlayerDisplayName(Player player){
-       Map<String, String> dataRanksFileJSONData
+
+        return "";
     }
 }
 

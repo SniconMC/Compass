@@ -1,9 +1,7 @@
 package rip.snicon.gandalf.utils;
 
 import com.github.sniconmc.utils.placeholder.PlaceholderReplacer;
-import com.github.sniconmc.utils.text.ColorUtils;
 import com.github.sniconmc.utils.text.TextUtils;
-import it.unimi.dsi.fastutil.Pair;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.minestom.server.MinecraftServer;
@@ -11,7 +9,7 @@ import net.minestom.server.entity.Player;
 import net.minestom.server.network.packet.server.play.TeamsPacket;
 import net.minestom.server.scoreboard.Team;
 import rip.snicon.gandalf.GandalfMain;
-import rip.snicon.gandalf.config.GandalfConfig;
+import rip.snicon.gandalf.config.GandalfRank;
 
 import java.util.List;
 import java.util.UUID;
@@ -19,7 +17,7 @@ import java.util.UUID;
 public class TeamUtils {
 
 
-    public static void createTeam(Player player, GandalfConfig config) {
+    public static void createTeam(Player player, GandalfRank config) {
         // Get the raw rank format (containing the placeholder $(username))
         String rawRankFormat = config.getRankFormatSimple().getFirst();
 

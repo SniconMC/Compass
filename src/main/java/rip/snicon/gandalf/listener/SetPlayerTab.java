@@ -19,18 +19,6 @@ public class SetPlayerTab {
             MinecraftServer.getSchedulerManager().scheduleNextTick(() -> {
                 Player joinedPlayer = event.getPlayer();
 
-                // Remove and then re-add the player to all other players' tabs
-                for (Player player : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
-
-                    TabUtils.setTabPlayer(player, joinedPlayer, Objects.requireNonNull(joinedPlayer.getSkin()));
-                }
-
-                // Update the joined player's tab with all other players
-                for (Player player : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
-                    if (player != joinedPlayer) {
-                        TabUtils.setTabPlayer(joinedPlayer, player, Objects.requireNonNull(player.getSkin()), List.of(""), List.of(""));
-                    }
-                }
             });
         });
     }

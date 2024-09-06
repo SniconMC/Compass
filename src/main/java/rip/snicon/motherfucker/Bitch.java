@@ -3,20 +3,13 @@ package rip.snicon.motherfucker;
 import com.github.sniconmc.container.utils.ReloadContainer;
 import com.github.sniconmc.utils.placeholder.PlaceholderManager;
 import com.github.sniconmc.utils.placeholder.PlaceholderReplacer;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import net.minestom.server.MinecraftServer;
-import net.minestom.server.entity.Entity;
 import net.minestom.server.entity.Player;
 import net.minestom.server.event.Event;
 import net.minestom.server.event.inventory.InventoryPreClickEvent;
 import net.minestom.server.item.ItemStack;
 import net.minestom.server.item.Material;
-import net.minestom.server.network.packet.server.play.PlayerInfoRemovePacket;
-import rip.snicon.Main;
 import rip.snicon.gandalf.GandalfManager;
-import rip.snicon.gandalf.config.GandalfConfig;
-import rip.snicon.gandalf.config.GandalfProfession;
+import rip.snicon.gandalf.config.GandalfRank;
 import rip.snicon.gandalf.config.GandalfProfile;
 import rip.snicon.gandalf.utils.LoadGandalf;
 import rip.snicon.gandalf.utils.TabUtils;
@@ -43,7 +36,7 @@ public class Bitch {
 
         GandalfProfile profile = GandalfManager.getGson().fromJson(playerProfile, GandalfProfile.class);
 
-        GandalfConfig config = GandalfManager.getGson().fromJson(dataRankFileJSONData.get(profile.getRank_id()), GandalfConfig.class);
+        GandalfRank config = GandalfManager.getGson().fromJson(dataRankFileJSONData.get(profile.getRank_id()), GandalfRank.class);
 
         // Cast the event to InventoryPreClickEvent if needed
         if (!(event instanceof InventoryPreClickEvent clickEvent)) {
