@@ -16,6 +16,13 @@ public class SetPlayerTab {
                 for (Player onlinePlayer : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
                     TabUtils.setExistingPlayer(onlinePlayer, joinedPlayer);
                 }
+
+                for (Player onlinePlayer : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
+                    if (joinedPlayer == onlinePlayer) {
+                        continue;
+                    }
+                    TabUtils.setExistingPlayer(joinedPlayer, onlinePlayer);
+                }
             });
         });
     }

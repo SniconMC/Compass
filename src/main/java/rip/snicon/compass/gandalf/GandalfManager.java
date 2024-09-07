@@ -1,5 +1,6 @@
 package rip.snicon.compass.gandalf;
 
+import com.github.sniconmc.utils.placeholder.PlaceholderManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
@@ -7,6 +8,7 @@ import com.google.gson.JsonSyntaxException;
 import net.minestom.server.entity.Player;
 import rip.snicon.compass.gandalf.config.GandalfProfession;
 import rip.snicon.compass.gandalf.config.GandalfProfile;
+import rip.snicon.compass.gandalf.config.GandalfProfileSettings;
 import rip.snicon.compass.gandalf.config.GandalfRank;
 import rip.snicon.compass.gandalf.utils.LoadGandalf;
 import rip.snicon.compass.gandalf.utils.SaveProfile;
@@ -77,6 +79,8 @@ public class GandalfManager {
 
     public static void initiateGandalf(Player player) {
 
+
+
         String playerUUID = player.getUuid().toString();
 
         if (!profileData.containsKey(player.getUuid().toString())){
@@ -91,6 +95,8 @@ public class GandalfManager {
         try{
 
             GandalfProfile profile = gson.fromJson(content, GandalfProfile.class);
+
+            setPlaceholders(player, profile);
 
             playerProfiles.put(playerUUID, profile);
 
@@ -129,6 +135,39 @@ public class GandalfManager {
 
     public static void saveProfileToFile(String uuid, GandalfProfile profile){
         SaveProfile.saveProfileToFile(uuid, profile, dataProfileFolder, gson);
+    }
+
+    private static void setPlaceholders(Player player, GandalfProfile profile){
+        Map<String, String> placeholders = new HashMap<>();
+
+        String username = player.getUsername();
+        String rank = profile.getRank_id();
+        String profession = profile.getProfession();
+        double emeralds = profile.getEmeralds();
+        double achivements = profile.getAchievements();
+
+        GandalfProfileSettings setting = profile.getSettings();
+        String icon_format = setting.getProfession_format();
+
+        GandalfRank rankConfig = rankMap.get(rank);
+        GandalfProfession professionConfig = professionMap.get(profession);
+
+        String rankStyle = rankConfig.getRankStyle();
+        String professionStyle = professionConfig.getProfession_style();
+        String professionStyleSidebar = professionConfig.getProfession_style_sidebar();
+        String professionIconStyle = professionConfig.getProfession_icon_style();
+
+        placeholders.put("username",username);
+        placeholders.put("player_rank", rankStyle);
+        placeholders.put("player_profession", professionStyle);
+        placeholders.put("player_profession_sidebar", professionStyleSidebar);
+        placeholders.put("player_profession_icon", professionIconStyle);
+        placeholders.put("player_emeralds", Double.toString(emeralds));
+        placeholders.put("player_achievement_points", Double.toString(achivements));
+
+        placeholders.put("profession_format_state", icon_format);
+
+        PlaceholderManager.addPlaceholdersToPlayer(player, placeholders);
     }
 }
 

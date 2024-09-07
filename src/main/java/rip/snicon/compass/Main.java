@@ -37,7 +37,6 @@ public class Main {
         // Set global listener
         Global globalListener = new Global();
 
-
         // Initialize dependencies
         UtilsMain.init();
         SidebarMain.init();

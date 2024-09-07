@@ -14,7 +14,7 @@ public class TabUtils {
 
     public static void setExistingPlayer(Player viewer, Player playerToSet) {
 
-        String displayName = getPlayerDisplayName(playerToSet);
+        String displayName = getPlayerDisplayName(viewer, playerToSet);
 
         PlayerSkin skin = playerToSet.getSkin();
         List<PlayerInfoUpdatePacket.Property> properties = skin != null ? List.of(new PlayerInfoUpdatePacket.Property("textures", skin.textures(), skin.signature())) : List.of();
@@ -28,18 +28,18 @@ public class TabUtils {
 
     }
 
-    public static String getPlayerDisplayName(Player player) {
+    public static String getPlayerDisplayName(Player viewer, Player playerToSet) {
 
-        GandalfProfile profile = GandalfManager.getProfiles(player);
+        GandalfProfile profile = GandalfManager.getProfiles(viewer);
         if (profile == null) {
-            return player.getUsername();
+            return playerToSet.getUsername();
         }
 
         String id = profile.getRank_id();
 
         GandalfRank config = GandalfManager.getRank(id);
         if (config == null) {
-            return player.getUsername();
+            return playerToSet.getUsername();
         }
         String format;
 
@@ -60,7 +60,7 @@ public class TabUtils {
         };
 
         // Convert the formatted string to a Component and return it
-        return PlaceholderReplacer.replacePlaceholders(player, format);
+        return PlaceholderReplacer.replacePlaceholders(playerToSet, format);
     }
 }
 

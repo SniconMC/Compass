@@ -9,7 +9,7 @@
   "settings": {
     "player_visibility": false,
     "geri_visibility": false,
-    "profession_format": "icon"
+    "profession_format": "text"
   },
   "last_login_time": 1725569476712,
   "ip": ""

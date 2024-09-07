@@ -5,147 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/TabUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/TeamUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/[unused] auction.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/cosmetics/cosmetics.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/profession/profession.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/profile.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/statistics/stats.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/server selector/server_selector.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/settings/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/favicon/obama.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/favicon/stormhold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/favicon/znopp logo 8x8 emblem 64x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/nitwit.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/ranks/evoker.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/ranks/villager.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/momentum/launchpads/garden.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/momentum/launchpads/hub.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/momentum/launchpads/windmill.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/momentum/telepads/from_anbil.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/momentum/telepads/to_anbil.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/motd/motd.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/Blockhunt.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/Cosmetics.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/Farming.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/Fishing.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/Hub Explorer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/Parkour.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/Dinnerbone.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/Grumm.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/Herobrine.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/Michael.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/NPC C418.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/NPC Notch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/NPC Snicon.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/NPC jeb_.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/NPC julius.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/NPC wi1helm_.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/NPC znopp.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/0541ed27-7595-4e6a-9101-6c07f879b7b5.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/29bbaf64-6e35-408d-9eb4-7b26bfd17cc2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/2b19ed72-6b78-40e7-946a-024594e57a63.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/702d572f-1766-427a-8aaa-de1a960dfa98.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/913a4e59-664e-444c-b694-eed7d74d9062.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/9f34e48c-96a4-4b09-ae5d-ac7c619a1297.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/a6b75c1a-bfb0-4ec4-aa95-e76835f38704.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/e51531e8-b001-42d5-bc52-35d86196f320.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/e6b73dac-4618-4d55-98c9-86d3ede1ca11.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sidebar/hub_sidebar.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/afk/afk.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/afk/level.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/afk/level.dat_old" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/afk/region/r.-1.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/afk/region/r.-1.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/afk/region/r.0.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/afk/region/r.0.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/entities/r.-1.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/entities/r.-1.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/entities/r.0.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/entities/r.0.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/hub.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/level.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/level.dat_old" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-1.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-1.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-1.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-1.1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-2.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-2.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-2.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-2.1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.0.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.0.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.0.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.0.1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.1.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.1.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.1.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.1.1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/level.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/level.dat_old" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/old_hub.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-1.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-1.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-1.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-1.1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-2.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-2.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-2.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-2.1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.0.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.0.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.0.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.0.1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.1.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.1.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.1.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.1.1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/blockhandlers/SignHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/blockhandlers/SignHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/blockhandlers/SkullHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/blockhandlers/SkullHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/commands/admin/world/TravelCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/commands/admin/world/TravelCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/commands/player/HubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/commands/player/HubCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/gandalf/GandalfMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/gandalf/GandalfManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/gandalf/config/GandalfPermission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfPermission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/gandalf/config/GandalfProfession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/gandalf/config/GandalfProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/gandalf/config/GandalfProfileSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfileSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/gandalf/config/GandalfRank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfRank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/gandalf/data/PlayerProfile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/gandalf/listener/SetPlayerTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/listener/SetPlayerTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/gandalf/utils/LoadGandalf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/LoadGandalf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/gandalf/utils/SaveProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/SaveProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/gandalf/utils/TabUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/gandalf/utils/TeamUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/instances/InstanceCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/InstanceCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/instances/worlds/WorldInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/worlds/WorldInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/listeners/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/listeners/interacts/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/interacts/Container.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/listeners/interacts/Oblivion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/interacts/Oblivion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/listeners/placeholders/Placeholder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/listeners/placeholders/enums/ColorEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/enums/ColorEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/listeners/placeholders/enums/HubExplorerEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/enums/HubExplorerEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/listeners/worlds/AFK.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/worlds/AFK.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/listeners/worlds/Hub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/worlds/Hub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/motherfucker/Bitch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/motherfucker/Bitch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/utils/function/FunctionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/function/FunctionUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/utils/motd/MOTD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/motd/MOTD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/utils/motd/MOTDConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/motd/MOTDConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/container/guis/settings/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/settings/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/nitwit.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/nitwit.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/guis/[unused] auction.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/guis/profile/cosmetics/cosmetics.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/guis/profile/profession/profession.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/guis/profile/profile.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/guis/profile/statistics/stats.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/guis/server selector/server_selector.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/guis/settings/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/profiles/913a4e59-664e-444c-b694-eed7d74d9062.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/913a4e59-664e-444c-b694-eed7d74d9062.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sidebar/hub_sidebar.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sidebar/hub_sidebar.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/listener/SetPlayerTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/listener/SetPlayerTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/TabUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/TabUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/motherfucker/Bitch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/motherfucker/Bitch.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,29 +63,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build Compass.executor": "Run",
-    "Gradle.Compass [:Main.main()].executor": "Run",
-    "Gradle.Compass [:rip.snicon.compass.Main.main()].executor": "Run",
-    "Kotlin script (Beta).build.gradle.kts.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Documents/Github Repositories/SniconMC/Servers/Compass",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "File.Encoding",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Run Compass.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build Compass.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Compass [:Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Compass [:rip.snicon.compass.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin script (Beta).build.gradle.kts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Documents/Github Repositories/SniconMC/Servers/Compass&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\src\main\java\rip\snicon" />
@@ -219,19 +98,11 @@
       <option name="ALTERNATIVE_JRE_PATH" value="temurin-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="rip.snicon.compass.Main" />
-      <module name="rip.snicon.Compass.main" />
+      <module name="Compass.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

@@ -53,7 +53,7 @@
         "texture": ""
       },
       "data": {
-        "function": "rip.snicon.motherfucker.Bitch.toggleProfession(player, event)",
+        "function": "rip.snicon.compass.motherfucker.Bitch.toggleProfession(player, event)",
         "page": ""
       }
     },
@@ -85,7 +85,7 @@
         "texture": ""
       },
       "data": {
-        "function": "rip.snicon.motherfucker.Bitch.togglePlayerVisibility(player, event)",
+        "function": "rip.snicon.compass.motherfucker.Bitch.togglePlayerVisibility(player, event)",
         "page": ""
       }
     },
@@ -118,7 +118,7 @@
         "texture": ""
       },
       "data": {
-        "function": "rip.snicon.motherfucker.Bitch.toggleGeriVisibility(player, event)",
+        "function": "rip.snicon.compass.motherfucker.Bitch.toggleGeriVisibility(player, event)",
         "page": ""
       }
     }
