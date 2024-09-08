@@ -7,7 +7,7 @@ public class GandalfProfileSettings {
     private String profession_format;
 
     public GandalfProfileSettings() {
-        this.player_visibility = false;
+        this.player_visibility = true;
         this.geri_visibility = false;
         this.profession_format = "icon";
     }

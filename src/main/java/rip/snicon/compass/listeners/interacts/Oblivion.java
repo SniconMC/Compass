@@ -56,11 +56,11 @@ public class Oblivion {
             String page = clickedEntity.getTag(Tag.String("page"));
             String function = clickedEntity.getTag(Tag.String("function"));
 
-            if (!function.isEmpty()) {
+            if (function != null && !function.isEmpty()) {
                 new FunctionUtils(player, event, function);
                 return;
             }
-            if (!page.isEmpty()) {
+            if (page != null && !page.isEmpty()) {
                 ContainerCreator.openContainer(player, page);
             }
 

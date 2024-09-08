@@ -1,0 +1,14 @@
+{
+  "rank_id" : "trader",
+  "rank_style": "<dark_gray>[<light_purple>Trader</light_purple>]</dark_gray>",
+  "rank_color" : "yellow",
+  "rank_chat_color" : "gray",
+
+  "rank_format": "$(player_profession) $(player_rank) $(username)",
+  "rank_format_simple": "$(player_profession_icon) $(player_rank) $(username)",
+  "permissions": {
+    "parent": "villager",
+    "specific_permissions" : [
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "profession_id": "cartographer",
+  "profession_style": "<dark_gray>[<gray>Cartographer</gray>]</dark_gray>",
+  "profession_style_sidebar": "<gray>Cartographer</gray>",
+  "profession_icon": "⅐",
+  "profession_icon_style" : "<dark_gray>[<gray>⅐</gray>]</dark_gray>",
+  "xp_to_next": 400,
+  "permissions": {
+    "parent": "cleric",
+    "specific_permissions" : [
+    ]
+  }
+}

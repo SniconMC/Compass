@@ -1,0 +1,34 @@
+{
+  "name": [
+    [""]
+  ],
+  "uuid": "uuid",
+  "entity_type": "minecraft:player",
+  "position": {
+    "x": 36.0,
+    "y": 65.0,
+    "z": 28.7,
+    "pitch": 1.4,
+    "yaw": 81.0,
+    "look_at_player": true
+  },
+  "skin": {
+    "player": "",
+    "texture" : "ewogICJ0aW1lc3RhbXAiIDogMTcyNTgwNDAzNTI3NiwKICAicHJvZmlsZUlkIiA6ICI0ZDBiMDE4ZTU2OGU0OGZhYTA4MWEzMmIzMjExMjgxOSIsCiAgInByb2ZpbGVOYW1lIiA6ICJIdWdvX0xlc2NhcmdvdCIsCiAgInNpZ25hdHVyZVJlcXVpcmVkIiA6IHRydWUsCiAgInRleHR1cmVzIiA6IHsKICAgICJTS0lOIiA6IHsKICAgICAgInVybCIgOiAiaHR0cDovL3RleHR1cmVzLm1pbmVjcmFmdC5uZXQvdGV4dHVyZS81MmY4ZmNiZjNjOGFjZDYyMTY0NzRhOGUzNzFiMTAwMGY1ZTA3NThiYmU1NGI1NjI2YzczYWZmYjFmYjJhMzk1IgogICAgfQogIH0KfQ==",
+    "signature" : "Zocr4jZObtE9+tKtD4PR1F9LO8OJmLq3d2jkNxaiklPdYiv52nC8L6IXOfSF9s6CRZAi6D2hosvAoKSbM6+4kDz4CcP7J39U/OtWLMfmBVMerjU+pUGs4oPPsQgBkztSiwSLvmm3Bu5Nkx/XG5x7zBjK47Oggsldk+Qke5Mm3039VZI0g03quQh5zicsFPtfXachMwYIQ+2o7x/u5UV77nTGWwNZRrBsDjBlVDGVBGyh3jSnR8/mpZfnXiZ++pfsgZBQl5qKRkrvG7i28M16pQZ3/NKJ/egwnOlj+Lk6Opi+PjlgYhtDpk+q8Z+8ezj3KwRei5AJSTGU9fy74utSOHZY0nSsu1dl4nD+1Vb8DNLPmbMRtAZNeD5SecGDKV71u8yWsm7RZigOcOOhcrNBnLvix/ROF8aqhkyGaxTPCWUAzm6D8QAHNLR7s3UA+C8R4xa21jmR9rYLk6Gr20Pezq9ToejFzPTxCMdGtb4FmAwjmvEknwfOeePz0QUJj5lvvHbQ1JpQBPMSTH1eTqtdPcRicWZL2HSvm4ZYpkUTOzdwX79y5L+y6sTYY6jhGcjfKVIJmqQwfN7Hzt/mkPDXhu9AThnQh5cnJbdxTsssOtZEdCFr3nHBB3DJk4njYO/MDt/AeicBI4L5rlF9MBEC38YYCUTiMjJrGYHz6yUy4fM=",
+    "cape": false,
+    "jacket": true,
+    "left_sleeve": true,
+    "right_sleeve": true,
+    "left_pants": true,
+    "right_pants": true,
+    "hat": true
+  },
+  "data": {
+    "function": "",
+    "page": ""
+  },
+  "in_tab": false,
+  "world" : "hub"
+}
+

@@ -1,16 +1,15 @@
 {
   "username": "znopp",
   "rank_id": "evoker",
-  "profession": "nitwit",
-  "profession_icon": "?",
-  "emeralds": 69.0,
-  "achievements": 0.0,
+  "profession": "librarian",
+  "emeralds": 0.0,
+  "achievements": 0,
   "profession_total_xp": 0.0,
   "settings": {
-    "player_visibility": false,
+    "player_visibility": true,
     "geri_visibility": false,
     "profession_format": "icon"
   },
-  "last_login_time": 1725621793659,
+  "last_login_time": 1725721746024,
   "ip": ""
 }

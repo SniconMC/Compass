@@ -1,0 +1,13 @@
+{
+  "profession_id": "cleric",
+  "profession_style": "<dark_gray>[<gray>Cleric</gray>]</dark_gray>",
+  "profession_style_sidebar": "<gray>Cleric</gray>",
+  "profession_icon": "✝",
+  "profession_icon_style" : "<dark_gray>[<gray>✝</gray>]</dark_gray>",
+  "xp_to_next": 400,
+  "permissions": {
+    "parent": "armorer",
+    "specific_permissions" : [
+    ]
+  }
+}

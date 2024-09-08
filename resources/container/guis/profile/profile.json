@@ -26,24 +26,21 @@
   "items": [
     {
       "slot": 11,
-      "id": "minecraft:bell",
+      "id": "minecraft:diamond",
       "count": {
         "current": 1,
         "max": 64
       },
       "display": {
         "name": [
-          "<gold>Profession</gold>"
+          "» <#ffaa00>Achievements</#ffaa00> «"
         ],
         "lore": [
           [""],
-          ["<gray>Profession: <green>$(player_profession)"],
-          ["<gray>Total XP: <yellow>$(player_total_xp)"],
-          ["<gray>XP to next profession: <green>$(player_xp_to_next)"],
+          ["<gray>Unlocked:</gray> <aqua>100<dark_aqua>/</dark_aqua>1000</aqua> <dark_gray>(10%)</dark_gray>"],
+          ["<gray>Points:</gray> <yellow>$(player_achievement_points)<gold>/</gold>1350</yellow> <dark_gray>(13.27%)</dark_gray>"],
           [""],
-          [""],
-          ["<yellow><bold>Click for detailed view"]
-	
+          ["<gray>» <aqua>Click to open</aqua> «</gray>"]
         ],
         "model_data": "",
         "glint": false,
@@ -51,13 +48,13 @@
         "show_tooltip": true
       },
       "skin": {
-        "player": "",
+        "player": "this",
         "uuid": "",
         "texture": ""
       },
       "data": {
         "function": "",
-        "page": "profession"
+        "page": "stats"
       }
     },
     {
@@ -69,18 +66,16 @@
       },
       "display": {
         "name": [
-          "<#ffaa00>Statistics"
+          "» <gold>Statistics</gold> «"
         ],
         "lore": [
+          ["View all your network-wide"],
+          ["statistics in one place!"],
           [""],
-          ["<gray>Network:"],
-          ["<gray>Total XP: <yellow>$(player_total_xp)"],
-          ["<gray>Emeralds: <green>$(player_emeralds)"],
+          ["<gray>Total XP:</gray> <yellow>$(player_total_xp)"],
+          ["<gray>Emeralds:</gray> <green>$(player_emeralds)"],
           [""],
-          ["<gray>Server Specific:"],
-          ["<gray>??? ???"],
-          [""],
-          ["<yellow><bold>Click for detailed view"]
+          ["<gray>» <aqua>Click to open</aqua> «</gray>"]
         ],
         "model_data": "",
         "glint": false,
@@ -106,22 +101,20 @@
       },
       "display": {
         "name": [
-          "<gold>Cosmetics"
+          "» <gold>Cosmetics</gold> «"
         ],
         "lore": [
+          ["Choose between custom outfits,"],
+          ["items, particles, music, and more!"],
           [""],
-          ["<gray>Network:"],
-          ["<gray>Total XP: <yellow>$(player_total_xp)"],
-          ["<gray>Emeralds: <green>$(player_emeralds)"],
+          ["<gray>Lorem:</gray> <yellow>Ipsum</yellow>"],
+          ["<gray>Dolor:</gray> <green>Sit</green>"],
           [""],
-          ["<gray>Server Specific:"],
-          ["<gray>??? ???"],
-          [""],
-          ["<yellow><bold>Click for detailed view"]
+          ["<gray>» <aqua>Click to open</aqua> «</gray>"]
         ],
         "model_data": "",
         "glint": false,
-        "dye_color": "$(cosmetics_dye)",
+        "dye_color": "#0077c3",
         "show_tooltip": true
       },
       "skin": {
@@ -135,7 +128,36 @@
       }
     },
     {
-      "slot": 31,
+      "slot": 22,
+      "id": "minecraft:redstone",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": ["» <gold>Settings</gold> «"],
+        "lore": [
+          ["Change your settings!"],
+          [""],
+          ["<gray>» <aqua>Click to open</aqua> «</gray>"]
+        ],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": "settings"
+      }
+    },
+    {
+      "slot": 40,
       "id": "minecraft:barrier",
       "count": {
         "current": 1,
@@ -143,7 +165,7 @@
       },
       "display": {
         "name": [
-          "<gray>» <red>Close</red> «"
+          "<gray>» <red>Close</red> «</gray>"
         ],
         "lore": [
         ],
@@ -164,9 +186,9 @@
     }
   ],
   "settings": {
-    "rows": 4,
+    "rows": 5,
     "display_name": [
-      "Your Profile"
+      "<dark_gray>Your Profile</dark_gray>"
     ],
     "container_id": "profile",
     "modify": false,

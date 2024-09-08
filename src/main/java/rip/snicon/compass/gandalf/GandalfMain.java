@@ -3,6 +3,7 @@ package rip.snicon.compass.gandalf;
 import com.github.sniconmc.utils.UtilsMain;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import rip.snicon.compass.gandalf.listener.SetPlayerChat;
 import rip.snicon.compass.gandalf.listener.SetPlayerTab;
 
 public class GandalfMain {
@@ -15,5 +16,6 @@ public class GandalfMain {
         GandalfManager gandalfManager = new GandalfManager();
 
         SetPlayerTab removePlayerTab = new SetPlayerTab();
+        SetPlayerChat onChat = new SetPlayerChat();
     }
 }

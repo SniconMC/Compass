@@ -19,7 +19,7 @@
       "texture": ""
     },
     "data": {
-      "function": "menus:menu_logic/no_function",
+      "function": "",
       "page": ""
     }
   },
@@ -32,11 +32,19 @@
         "max": 64
       },
       "display": {
-        "name": [],
-        "lore": [],
+        "name": [
+          "» <gold>Cosmetics</gold> «"
+        ],
+        "lore": [
+          ["Choose between custom outfits,"],
+          ["items, particles, music, and more!"],
+          [""],
+          ["<gray>Lorem:</gray> <yellow>Ipsum</yellow>"],
+          ["<gray>Dolor:</gray> <green>Sit</green>"]
+        ],
         "model_data": "",
         "glint": false,
-        "dye_color": "$(cosmetics_dye)",
+        "dye_color": "#0077c3",
         "show_tooltip": true
       },
       "skin": {
@@ -46,7 +54,7 @@
       },
       "data": {
         "function": "",
-        "page": "profession"
+        "page": ""
       }
     },
     {
@@ -58,7 +66,7 @@
       },
       "display": {
         "name": [
-            
+            "» <gold>Microgames</gold> «"
         ],
         "lore": [],
         "model_data": "",
@@ -84,7 +92,9 @@
         "max": 64
       },
       "display": {
-        "name": [],
+        "name": [
+          "» <gold>Particles</gold> «"
+        ],
         "lore": [],
         "model_data": "",
         "glint": false,
@@ -109,7 +119,9 @@
         "max": 64
       },
       "display": {
-        "name": [],
+        "name": [
+          "» <gold>Sidebar</gold> «"
+        ],
         "lore": [],
         "model_data": "",
         "glint": false,
@@ -134,7 +146,9 @@
         "max": 64
       },
       "display": {
-        "name": [],
+        "name": [
+          "» <gold>???</gold> «"
+        ],
         "lore": [],
         "model_data": "",
         "glint": false,
@@ -159,7 +173,9 @@
         "max": 64
       },
       "display": {
-        "name": [],
+        "name": [
+          "» <gold>Sounds</gold> «"
+        ],
         "lore": [],
         "model_data": "",
         "glint": false,
@@ -184,7 +200,9 @@
         "max": 64
       },
       "display": {
-        "name": [],
+        "name": [
+          "» <gold>Appearance</gold> «"
+        ],
         "lore": [],
         "model_data": "",
         "glint": false,

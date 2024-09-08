@@ -126,4 +126,36 @@ public class LoadGandalf {
 
         return processedFiles;
     }
+
+    /**
+     * Searches for a specific JSON file by its name within the parent folder and its subdirectories.
+     * If the file is found, its contents are returned as a string. If the file is not found, an empty
+     * string is returned.
+     *
+     * @param parentFolder The directory where the search for the JSON file starts.
+     * @param fileName     The name of the JSON file to search for (without the .json extension).
+     * @return The content of the JSON file as a string if found, otherwise an empty string.
+     */
+    public String loadSpecificJsonFile(File parentFolder, String fileName) {
+
+        // Recursively search for JSON files
+        Set<File> foundJsonFiles = searchFiles(parentFolder);
+
+        // Iterate through the found JSON files and search for the file that matches the fileName
+        for (File file : foundJsonFiles) {
+            if (file.getName().equalsIgnoreCase(fileName + ".json")) {
+                try {
+                    // Read the content of the file and return it as a string
+                    return new String(Files.readAllBytes(file.toPath()));
+                } catch (IOException e) {
+                    MomentumMain.logger.error("Error loading specific file '{}' in folder '{}'", fileName, parentFolder.getName());
+                    return "";
+                }
+            }
+        }
+
+        // If the file is not found, return an empty string
+        MomentumMain.logger.warn("The file {}.json could not be found in folder: {}", fileName, parentFolder.getAbsolutePath());
+        return "";
+    }
 }

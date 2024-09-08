@@ -1,0 +1,13 @@
+{
+  "profession_id": "butcher",
+  "profession_style": "<dark_gray>[<gray>Butcher</gray>]</dark_gray>",
+  "profession_style_sidebar": "<gray>Butcher</gray>",
+  "profession_icon": "\uD83C\uDF56",
+  "profession_icon_style" : "<dark_gray>[<gray>\uD83C\uDF56</gray>]</dark_gray>",
+  "xp_to_next": 400,
+  "permissions": {
+    "parent": "nitwit",
+    "specific_permissions" : [
+    ]
+  }
+}

@@ -4,6 +4,7 @@ import net.minestom.server.coordinate.Pos;
 
 public class WorldInfo {
 
+    private String name;
     private double spawnX;
     private double spawnY;
     private double spawnZ;
@@ -23,6 +24,9 @@ public class WorldInfo {
 
     private String defaultGamemode;
 
+    public String getName() {
+        return name;
+    }
 
     public double getSpawnX() {
         return spawnX;

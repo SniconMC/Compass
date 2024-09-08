@@ -1,0 +1,14 @@
+{
+  "rank_id" : "vindicator",
+  "rank_style": "<dark_gray>[<green>Vindicator</green>]</dark_gray>",
+  "rank_color" : "light_purple",
+  "rank_chat_color" : "gray",
+
+  "rank_format": "$(player_profession) $(player_rank) $(username)",
+  "rank_format_simple": "$(player_profession_icon) $(player_rank) $(username)",
+  "permissions": {
+    "parent": "vex",
+    "specific_permissions" : [
+  ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "profession_id": "farmer",
+  "profession_style": "<dark_gray>[<gray>Farmer</gray>]</dark_gray>",
+  "profession_style_sidebar": "<gray>Farmer</gray>",
+  "profession_icon": "⅖",
+  "profession_icon_style" : "<dark_gray>[<gray>⅖</gray>]</dark_gray>",
+  "xp_to_next": 400,
+  "permissions": {
+    "parent": "fisherman",
+    "specific_permissions" : [
+
+    ]
+  }
+}

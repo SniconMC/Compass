@@ -1,0 +1,13 @@
+{
+  "profession_id": "weaponsmith",
+  "profession_style": "<dark_gray>[<gray>Weaponsmith</gray>]</dark_gray>",
+  "profession_style_sidebar": "<gray>Weaponsmith</gray>",
+  "profession_icon": "\uD83D\uDDE1",
+  "profession_icon_style" : "<dark_gray>[<gray>\uD83D\uDDE1</gray>]</dark_gray>",
+  "xp_to_next": 400,
+  "permissions": {
+    "parent": "mason",
+    "specific_permissions" : [
+    ]
+  }
+}

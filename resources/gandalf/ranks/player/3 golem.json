@@ -1,0 +1,14 @@
+{
+  "rank_id" : "golem",
+  "rank_style": "<dark_gray>[<white>Golem</white>]</dark_gray>",
+  "rank_color" : "white",
+  "rank_chat_color" : "gray",
+
+  "rank_format": "$(player_profession) $(player_rank) $(username)",
+  "rank_format_simple": "$(player_profession_icon) $(player_rank) $(username)",
+  "permissions": {
+    "parent": "trader",
+    "specific_permissions" : [
+    ]
+  }
+}

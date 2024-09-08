@@ -1,0 +1,13 @@
+{
+  "profession_id": "shepherd",
+  "profession_style": "<dark_gray>[<gray>Shepherd</gray>]</dark_gray>",
+  "profession_style_sidebar": "<gray>Shepherd</gray>",
+  "profession_icon": "✂",
+  "profession_icon_style" : "<dark_gray>[<gray>✂</gray>]</dark_gray>",
+  "xp_to_next": 400,
+  "permissions": {
+    "parent": "butcher",
+    "specific_permissions" : [
+    ]
+  }
+}

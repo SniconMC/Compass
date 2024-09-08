@@ -12,6 +12,8 @@ import net.minestom.server.event.player.*;
 import net.minestom.server.event.trait.PlayerEvent;
 import net.minestom.server.instance.Instance;
 import rip.snicon.compass.instances.InstanceCreator;
+import rip.snicon.compass.instances.worlds.WorldInfo;
+import rip.snicon.compass.listeners.VoidListener;
 
 import java.util.Set;
 
@@ -20,9 +22,10 @@ public class Hub {
     private final EventNode<PlayerEvent> hubNode;
 
     public Hub(EventNode<Event> node) {
-        this.hubNode = EventNode.value("hub", EventFilter.PLAYER, player -> player.getInstance() == InstanceCreator.getInstanceMap().get("hub"));
+        this.hubNode = EventNode.value("hub", EventFilter.PLAYER, player -> player.getInstance() == InstanceCreator.getInstance().getInstanceByWorldName("hub"));
         onPlayerJoin();
         onPlayerQuit();
+        onPlayerMove();
         eventsToBeCanceled();
         node.addChild(hubNode);
 
@@ -47,7 +50,6 @@ public class Hub {
         hubNode.addListener(PlayerDisconnectEvent.class, event -> {
             Player player = event.getPlayer();
             Instance playerInstance = player.getInstance();
-
             Set<Player> players = playerInstance.getPlayers();
             for (Player onlinePlayer : players) {
 
@@ -61,6 +63,10 @@ public class Hub {
         hubNode.addListener(ItemDropEvent.class, event -> {
             event.setCancelled(true);
         });
+    }
+
+    public void onPlayerMove() {
+        hubNode.addListener(PlayerMoveEvent.class, event -> new VoidListener().onVoidLimit(event));
     }
 
 }

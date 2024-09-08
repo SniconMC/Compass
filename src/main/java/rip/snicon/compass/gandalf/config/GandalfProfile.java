@@ -5,9 +5,8 @@ public class GandalfProfile {
     private String username;
     private String rank_id;
     private String profession;
-    private String profession_icon;
     private double emeralds;
-    private double achievements;
+    private int achievements;
     private double profession_total_xp;
     private GandalfProfileSettings settings;
     private long last_login_time;
@@ -17,9 +16,8 @@ public class GandalfProfile {
         this.username = "";
         this.rank_id = "villager";
         this.profession = "nitwit";
-        this.profession_icon = "?";
         this.emeralds = 0.0;
-        this.achievements = 0.0;
+        this.achievements = 0;
         this.profession_total_xp = 0.0;
         this.settings = new GandalfProfileSettings();
         this.last_login_time = System.currentTimeMillis();
@@ -78,14 +76,6 @@ public class GandalfProfile {
         this.profession = profession;
     }
 
-    public String getProfession_icon() {
-        return profession_icon;
-    }
-
-    public void setProfession_icon(String profession_icon) {
-        this.profession_icon = profession_icon;
-    }
-
     public double getEmeralds() {
         return emeralds;
     }
@@ -94,11 +84,11 @@ public class GandalfProfile {
         this.emeralds = emeralds;
     }
 
-    public double getAchievements() {
+    public int getAchievements() {
         return achievements;
     }
 
-    public void setAchievements(double achievements) {
+    public void setAchievements(int achievements) {
         this.achievements = achievements;
     }
 }

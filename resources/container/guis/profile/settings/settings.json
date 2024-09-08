@@ -36,9 +36,9 @@
         "lore": [
           [""],
           ["Toggle between displaying"],
-          ["an icon or the full name"],
+          ["an icon or the full name."],
           [""],
-          ["Currently set to: <light_purple>$(profession_format_state)</light_purple>"],
+          ["<gray>Currently set to: </gray><light_purple>$(profession_format_state)</light_purple>"],
           [""],
           ["<gray>» <aqua>Click to toggle</aqua> «</gray>"]
         ],
@@ -53,7 +53,7 @@
         "texture": ""
       },
       "data": {
-        "function": "rip.snicon.compass.motherfucker.Bitch.toggleProfession(player, event)",
+        "function": "rip.snicon.compass.interactions.containers.Settings.toggleProfession(player, event)",
         "page": ""
       }
     },
@@ -68,9 +68,9 @@
         "name": ["» <gold>Player Visibility</gold> «"],
         "lore": [
           [""],
-          ["Toggle visibility of players"],
+          ["Toggle visibility of players."],
           [""],
-          ["Currently set to: $(player_visibility_state)"],
+          ["<gray>Currently set to: </gray>$(player_visibility_state)"],
           [""],
           ["<gray>» <aqua>Click to toggle</aqua> «</gray>"]
         ],
@@ -85,7 +85,7 @@
         "texture": ""
       },
       "data": {
-        "function": "rip.snicon.compass.motherfucker.Bitch.togglePlayerVisibility(player, event)",
+        "function": "rip.snicon.compass.interactions.containers.Settings.togglePlayerVisibility(player, event)",
         "page": ""
       }
     },
@@ -100,10 +100,10 @@
         "name": ["» <gold>Geri Visibility</gold> «"],
         "lore": [
           [""],
-          ["Toggle visibility of Geri"],
-          ["Overrides <gold>Player Visibility</gold> setting"],
+          ["Toggle visibility of Geri."],
+          ["Overrides <gold>Player Visibility</gold> setting!"],
           [""],
-          ["Currently set to: $(player_visibility_state_geri)"],
+          ["<gray>Currently set to:</gray> $(player_visibility_state_geri)"],
           [""],
           ["<gray>» <aqua>Click to toggle</aqua> «</gray>"]
         ],
@@ -118,24 +118,23 @@
         "texture": ""
       },
       "data": {
-        "function": "rip.snicon.compass.motherfucker.Bitch.toggleGeriVisibility(player, event)",
+        "function": "rip.snicon.compass.interactions.containers.Settings.toggleGeriVisibility(player, event)",
         "page": ""
       }
-    }
-  ,
+    },
     {
       "slot": 31,
-      "id": "minecraft:barrier",
+      "id": "minecraft:arrow",
       "count": {
         "current": 1,
         "max": 64
       },
       "display": {
         "name": [
-          "<gray>» <red>Close</red> «"
+          "<gray>» <red>Back to Profile</red> «"
         ],
         "lore": [],
-        "model_data": null,
+        "model_data": "",
         "glint": false,
         "dye_color": "",
         "show_tooltip": true
@@ -146,16 +145,15 @@
         "texture": ""
       },
       "data": {
-        "isVanillaItem" : true,
         "function": "",
-        "page": "close"
+        "page": "profile"
       }
     }
   ],
   "settings": {
     "rows": 4,
     "display_name": [
-      "Settings"
+      "<dark_gray>Your Settings</dark_gray>"
     ],
     "container_id":"settings",
     "modify": false,

@@ -1,0 +1,13 @@
+{
+  "profession_id": "leatherworker",
+  "profession_style": "<dark_gray>[<gray>Leatherworker</gray>]</dark_gray>",
+  "profession_style_sidebar": "<gray>Leatherworker</gray>",
+  "profession_icon": "⅗",
+  "profession_icon_style" : "<dark_gray>[<gray>⅗</gray>]</dark_gray>",
+  "xp_to_next": 400,
+  "permissions": {
+    "parent": "shepherd",
+    "specific_permissions" : [
+    ]
+  }
+}

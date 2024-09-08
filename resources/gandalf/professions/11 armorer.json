@@ -1,0 +1,13 @@
+{
+  "profession_id": "armorer",
+  "profession_style": "<dark_gray>[<gray>Armorer</gray>]</dark_gray>",
+  "profession_style_sidebar": "<gray>Armorer</gray>",
+  "profession_icon": "\uD83D\uDEE1",
+  "profession_icon_style" : "<dark_gray>[<gray>\uD83D\uDEE1</gray>]</dark_gray>",
+  "xp_to_next": 400,
+  "permissions": {
+    "parent": "toolsmith",
+    "specific_permissions" : [
+    ]
+  }
+}

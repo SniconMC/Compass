@@ -9,6 +9,13 @@ public class GandalfProfession {
     private String profession_style_sidebar;
     private String profession_icon;
     private String profession_icon_style;
+    private double xp_to_next;
+
+    private GandalfPermission permissions;
+
+    public double getXp_to_next() {
+        return xp_to_next;
+    }
 
     public String getProfession_id() {
         return profession_id;
@@ -28,5 +35,9 @@ public class GandalfProfession {
 
     public String getProfession_icon_style() {
         return profession_icon_style;
+    }
+
+    public GandalfPermission getPermissions() {
+        return permissions;
     }
 }

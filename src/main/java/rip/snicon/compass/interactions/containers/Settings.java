@@ -1,4 +1,4 @@
-package rip.snicon.compass.motherfucker;
+package rip.snicon.compass.interactions.containers;
 
 import com.github.sniconmc.container.utils.ReloadContainer;
 import com.github.sniconmc.utils.placeholder.PlaceholderManager;
@@ -12,8 +12,10 @@ import rip.snicon.compass.gandalf.GandalfManager;
 import rip.snicon.compass.gandalf.config.GandalfProfile;
 import rip.snicon.compass.gandalf.utils.TabUtils;
 
+import java.util.UUID;
 
-public class Bitch {
+
+public class Settings {
 
 
     public static void toggleProfession(Player player, Event event) {
@@ -35,7 +37,6 @@ public class Bitch {
 
             switch (oldProfessionFormatState.toLowerCase()) {
                 case "icon" -> {
-                    player.sendMessage("nub");
                     PlaceholderManager.setPlaceholderToPlayer(player, "profession_format_state", "Text");
 
                     profile.getSettings().setProfession_format("text");
@@ -48,7 +49,6 @@ public class Bitch {
 
                 }
                 case "text" -> {
-                    player.sendMessage("obama");
                     PlaceholderManager.setPlaceholderToPlayer(player, "profession_format_state", "Icon");
 
                     profile.getSettings().setProfession_format("icon");
@@ -69,23 +69,29 @@ public class Bitch {
             return;
         }
 
+        GandalfProfile profile = GandalfManager.getProfiles(player);
+        if (profile == null) {
+            return;
+        }
+
         ItemStack clickedItem = clickEvent.getClickedItem();
 
         if (clickedItem.material() == Material.LIME_DYE) {
             PlaceholderManager.setPlaceholderToPlayer(player, "player_visibility_item", "gray_dye");
             PlaceholderManager.setPlaceholderToPlayer(player, "player_visibility_state", "<red>Hide Players</red>");
 
-            player.updateViewerRule(other -> !(other instanceof Player));
-
+            profile.getSettings().setPlayer_visibility(false);
         }
 
         if (clickedItem.material() == Material.GRAY_DYE) {
             PlaceholderManager.setPlaceholderToPlayer(player, "player_visibility_item", "lime_dye");
             PlaceholderManager.setPlaceholderToPlayer(player, "player_visibility_state", "<green>Show Players</green>");
 
-            player.updateViewerRule(null);
+            profile.getSettings().setPlayer_visibility(true);
         }
 
+        updateViewerRule(player, profile);
+        GandalfManager.saveProfileToFile(player.getUuid().toString(), profile);
         ReloadContainer.reloadCurrentContainers(player);
     }
 
@@ -94,6 +100,10 @@ public class Bitch {
             return;
         }
 
+        GandalfProfile profile = GandalfManager.getProfiles(player);
+        if (profile == null) {
+            return;
+        }
 
         ItemStack clickedItem = clickEvent.getClickedItem();
 
@@ -101,16 +111,44 @@ public class Bitch {
             PlaceholderManager.setPlaceholderToPlayer(player, "player_visibility_item_geri", "gray_dye");
             PlaceholderManager.setPlaceholderToPlayer(player, "player_visibility_state_geri", "<red>Hide Geri</red>");
 
-
+            profile.getSettings().setGeri_visibility(false);
         }
 
         if (clickedItem.material() == Material.GRAY_DYE) {
             PlaceholderManager.setPlaceholderToPlayer(player, "player_visibility_item_geri", "lime_dye");
             PlaceholderManager.setPlaceholderToPlayer(player, "player_visibility_state_geri", "<green>Show Geri</green>");
 
+            profile.getSettings().setGeri_visibility(true);
         }
 
+        updateViewerRule(player, profile);
+        GandalfManager.saveProfileToFile(player.getUuid().toString(), profile);
         ReloadContainer.reloadCurrentContainers(player);
     }
+
+    public static void updateViewerRule(Player player, GandalfProfile profile) {
+        boolean playerVisibility = profile.getSettings().isPlayer_visibility();
+        boolean geriVisibility = profile.getSettings().isGeri_visibility();
+
+        // Updating the viewer rule based on the combined visibility settings
+        player.updateViewerRule(other -> {
+            if (!(other instanceof Player otherPlayer)) {
+                return true; // Always show non-player entities
+            }
+
+            UUID geriUUID = UUID.fromString("c600eeb7-c7da-4bdd-bff1-d26e71001d39");
+
+            if (playerVisibility && geriVisibility) {
+                return true; // Show all players
+            } else if (playerVisibility && !geriVisibility) {
+                return !otherPlayer.getUuid().equals(geriUUID); // Show all except Geri
+            } else if (!playerVisibility && geriVisibility) {
+                return otherPlayer.getUuid().equals(geriUUID); // Show only Geri
+            } else {
+                return false; // Hide all players
+            }
+        });
+    }
+
 
 }

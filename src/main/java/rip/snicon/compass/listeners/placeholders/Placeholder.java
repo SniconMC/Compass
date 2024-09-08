@@ -1,5 +1,9 @@
 package rip.snicon.compass.listeners.placeholders;
 
+import com.github.sniconmc.container.config.ContainerItem;
+import com.github.sniconmc.container.config.ContainerItemData;
+import com.github.sniconmc.container.config.ContainerItemDisplay;
+import com.github.sniconmc.container.creators.ContainerCreator;
 import com.github.sniconmc.sidebar.SidebarManager;
 import com.github.sniconmc.utils.placeholder.PlaceholderManager;
 import com.google.gson.Gson;
@@ -21,14 +25,10 @@ import rip.snicon.compass.listeners.placeholders.enums.HubExplorerEnum;
 import java.io.File;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Placeholder {
-
-    private static final Gson gson = new Gson().newBuilder().setPrettyPrinting().create();
-
-    private static final File dataProfileFolder = new File("resources/profiles");
-
 
     private final EventNode<Event> placeholderNode;
 
@@ -62,16 +62,7 @@ public class Placeholder {
         placeholderNode.addListener(AsyncPlayerConfigurationEvent.class, event -> {
             final Player player = event.getPlayer();
 
-            // TODO
             GandalfManager.initiateGandalf(player);
-
-            Map<String, String> profileDataJSONData = new LoadGandalf().load(dataProfileFolder);
-
-            String playerProfile = profileDataJSONData.get(player.getUuid().toString());
-
-            GandalfProfile profile = gson.fromJson(playerProfile, GandalfProfile.class);
-
-
 
 
             PlaceholderManager.setPlaceholderToPlayer(player, "player_name", player.getUsername());
@@ -79,19 +70,19 @@ public class Placeholder {
 
             PlaceholderManager.setPlaceholderToPlayer(player, "hub_explorer_random", HubExplorerEnum.getRandomText());
 
-            Map<String, String> placeholders = new HashMap<>();
+            ContainerItem item = new ContainerItem(19   , "green_stained_glass_pane", 1);
+            ContainerItemDisplay display = new ContainerItemDisplay(List.of("$(player_profession_icon) $(player_profession_sidebar)"), List.of(List.of("")), false, "", true);
+            item.setDisplay(display);
+            String json = new Gson().toJson(item, ContainerItem.class);
 
-            placeholders.put("profession_format_state", profile.getSettings().getProfession_format());
+            ContainerItem item_1 = new ContainerItem(20, "red_stained_glass_pane", 1);
+            ContainerItemDisplay display_1 = new ContainerItemDisplay(List.of("Obama"), List.of(List.of("")), false, "", true);
+            ContainerItemData data = new ContainerItemData("","profession_detailed_view",false);
+            item_1.setDisplay(display_1);
+            item_1.setData(data);
+            String json_1 = new Gson().toJson(item_1, ContainerItem.class);
 
-            placeholders.put("player_visibility_item", "lime_dye");
-            placeholders.put("player_visibility_state", "<green>Show Players</green>");
-
-            placeholders.put("player_visibility_item_geri", "gray_dye");
-            placeholders.put("player_visibility_state_geri", "<red>Hide Geri</red>");
-
-            PlaceholderManager.addPlaceholdersToPlayer(player, placeholders);
-
-
+            PlaceholderManager.setPlaceholderToPlayer(player, "cool_item", json + "," + json_1);
         });
     }
     public void onPlayerSpawn(){
@@ -106,7 +97,6 @@ public class Placeholder {
 
 
             PlaceholderManager.setPlaceholderToPlayer(player, "online_network", "12");
-            PlaceholderManager.setPlaceholderToPlayer(player, "player_item", "minecraft:tnt");
             SidebarManager.reloadSidebars();
         });
     }

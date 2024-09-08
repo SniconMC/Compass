@@ -1,0 +1,13 @@
+{
+  "profession_id": "librarian",
+  "profession_style": "<dark_gray>[<gray>Librarian</gray>]</dark_gray>",
+  "profession_style_sidebar": "<gray>Librarian</gray>",
+  "profession_icon": "✎",
+  "profession_icon_style" : "<dark_gray>[<gray>✎</gray>]</dark_gray>",
+  "xp_to_next": 400,
+  "permissions": {
+    "parent": "cartographer",
+    "specific_permissions" : [
+    ]
+  }
+}

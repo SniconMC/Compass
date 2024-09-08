@@ -1,0 +1,166 @@
+{
+  "default_item": {
+    "id": "minecraft:gray_stained_glass_pane",
+    "count": {
+      "current": 1,
+      "max": 64
+    },
+    "display": {
+      "name": [],
+      "lore": [],
+      "model_data": null,
+      "glint": false,
+      "dye_color": "",
+      "show_tooltip": false
+    },
+    "skin": {
+      "player": "this",
+      "uuid": "",
+      "texture": ""
+    },
+    "data": {
+      "function": "",
+      "page": ""
+    }
+  },
+  "items": [
+    $(cool_item),
+    {
+      "slot": 3,
+      "id": "minecraft:book",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": ["» <gold>Progression</gold> «"],
+        "lore": [
+          [
+            "Succession Order:"
+          ],
+          ["Nitwit"],
+          ["Buthcher"]
+        ],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 4,
+      "id": "minecraft:emerald",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+          "» <gold>Profession</gold> «"
+        ],
+        "lore": [
+          ["Professions are a skill-based"],
+          ["progression system. Level up"],
+          ["by playing games and getting XP"],
+          [""],
+          ["<gray>Title:</gray> $(player_profession_icon) $(player_profession_sidebar)"],
+          ["<gray>Total XP:</gray> <green>$(player_total_xp)</green>"],
+          [""],
+          ["<gray>Progress to <dark_gray>[</dark_gray><gray>?</gray><dark_gray>]</dark_gray> Nitwit:</gray>"],
+          ["<blue><st>            </st></blue><white><st>                  </st></white> <yellow>40.0</yellow><gold>%</gold>"],
+          [""]
+        ],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 5,
+      "id": "minecraft:redstone_torch",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": ["» <gold>Ways to Level</gold> «"],
+        "lore": [
+          [
+            "Succession Order:"
+          ],
+          ["Nitwit"],
+          ["Buthcher"]
+        ],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 49,
+      "id": "minecraft:barrier",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+          "<gray>» <red>Close</red> «"
+        ],
+        "lore": [],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "isVanillaItem": true,
+        "function": "",
+        "page": "close"
+      }
+    }
+  ],
+  "settings": {
+    "rows": 6,
+    "display_name": [
+      "<dark_gray>Your Profession Progress</dark_gray>"
+    ],
+    "container_id": "stats",
+    "modify": false,
+    "modify_creative": true
+  }
+}

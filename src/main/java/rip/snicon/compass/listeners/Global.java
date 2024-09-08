@@ -1,6 +1,13 @@
 package rip.snicon.compass.listeners;
 
+import com.github.sniconmc.container.utils.ReloadContainer;
 import com.github.sniconmc.oblivion.OblivionManager;
+import com.github.sniconmc.utils.item.ItemStackBuilder;
+import com.github.sniconmc.utils.item.ItemStackDestroyer;
+import com.github.sniconmc.utils.placeholder.PlaceholderManager;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import net.kyori.adventure.text.Component;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
@@ -8,11 +15,17 @@ import net.minestom.server.event.GlobalEventHandler;
 import net.minestom.server.event.player.*;
 import net.minestom.server.event.server.ServerListPingEvent;
 import net.minestom.server.instance.Instance;
+import net.minestom.server.item.ItemStack;
+import net.minestom.server.item.Material;
 import net.minestom.server.ping.ResponseData;
 import net.minestom.server.utils.identity.NamedAndIdentified;
 import rip.snicon.compass.Main;
+import rip.snicon.compass.gandalf.GandalfManager;
+import rip.snicon.compass.gandalf.config.GandalfProfile;
+import rip.snicon.compass.instances.CustomInstanceContainer;
 import rip.snicon.compass.instances.InstanceCreator;
 import rip.snicon.compass.instances.worlds.WorldInfo;
+import rip.snicon.compass.interactions.containers.Settings;
 import rip.snicon.compass.listeners.interacts.Container;
 import rip.snicon.compass.listeners.interacts.Oblivion;
 import rip.snicon.compass.listeners.placeholders.Placeholder;
@@ -50,12 +63,21 @@ public class Global {
         globalEventHandler.addListener(AsyncPlayerConfigurationEvent.class, event -> {
             final Player player = event.getPlayer();
 
-            Instance instance = InstanceCreator.getInstanceMap().get("hub");
-            WorldInfo info = InstanceCreator.getWorldMap().get("hub");
-            Pos instanceStartingPos = new Pos(info.getSpawnX(), info.getSpawnY(), info.getSpawnZ(), info.getSpawnYaw(), info.getSpawnPitch());
+            Instance instance = InstanceCreator.getInstance().getInstanceByWorldName("hub");
+            Main.logger.info(instance.toString());
+            if (instance instanceof CustomInstanceContainer customInstance) {
+                // Cast the instance to CustomInstanceContainer
 
-            event.setSpawningInstance(instance);
-            player.setRespawnPoint(instanceStartingPos);
+                WorldInfo info = customInstance.getWorldInfo();
+                if (info == null) {
+                    player.sendMessage("World does not exist");
+                    return;
+                }
+                Pos instanceStartingPos = new Pos(info.getSpawnX(), info.getSpawnY(), info.getSpawnZ(), info.getSpawnYaw(), info.getSpawnPitch());
+
+                event.setSpawningInstance(instance);
+                player.setRespawnPoint(instanceStartingPos);
+            }
         });
     }
 
@@ -68,6 +90,14 @@ public class Global {
             OblivionManager.addViewerToAllNpcs(player);
             player.setHeldItemSlot((byte) 4);
 
+
+            GandalfProfile profile = GandalfManager.getProfiles(player);
+            if (profile == null) {
+                return;
+            }
+
+            Settings.updateViewerRule(player, profile);
+            ReloadContainer.reloadCurrentContainers(player);
 
         });
     }

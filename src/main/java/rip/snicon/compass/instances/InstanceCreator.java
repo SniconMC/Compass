@@ -9,105 +9,72 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.instance.Instance;
-import net.minestom.server.instance.InstanceContainer;
 import net.minestom.server.instance.InstanceManager;
 import net.minestom.server.instance.anvil.AnvilLoader;
 import rip.snicon.compass.Main;
+import rip.snicon.compass.instances.utils.LoadInstances;
 import rip.snicon.compass.instances.worlds.WorldInfo;
 
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class InstanceCreator {
 
-    private static Map<String, Instance> instanceMap;
-    private static Map<String, WorldInfo> worldMap;
+    private static InstanceCreator instance; // Singleton instance
 
-    private final File dataFolder;
+    private final File dataFolder = new File("resources/worlds");
     private final Gson gson;
+    private final Map<String, String> worldMap; // FileName to World JSON map
+    private final Map<String, Instance> worldNameToInstanceMap = new HashMap<>(); // WorldName to Instance map
 
-    public InstanceCreator() {
-        this.dataFolder = new File("resources/worlds");
+    // Private constructor to prevent external instantiation
+    private InstanceCreator() {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
-        instanceMap = new HashMap<>();
-        worldMap = new HashMap<>();
-        loadWorldInfo();
+        this.worldMap = new LoadInstances().load(dataFolder);
         createInstancesFromJson();
     }
 
-    private void loadWorldInfo() {
-        instanceMap.clear();
-        if (dataFolder.exists() && dataFolder.isDirectory()) {
-            // Start searching from the containerFolder
-            searchFiles(dataFolder);
-        } else {
-            Main.logger.error("The worlds dataFolder does not exist!");
+    // Public method to access the singleton instance
+    public static synchronized InstanceCreator getInstance() {
+        if (instance == null) {
+            instance = new InstanceCreator();
         }
-    }
-
-    private void searchFiles(File folder) {
-        File[] files = folder.listFiles();
-        if (files != null) {
-            for (File file : files) {
-                if (file.isDirectory()) {
-                    // Recursively search in subdirectories
-                    searchFiles(file);
-                } else if (file.isFile() && file.getName().endsWith(".json")) {
-                    // Process JSON files
-                    processJsonFile(file);
-                }
-            }
-        }
-    }
-
-    private void processJsonFile(File file) {
-        try (FileReader reader = new FileReader(file)) {
-            WorldInfo info = gson.fromJson(reader, WorldInfo.class);
-            String name = file.getName().replace(".json", "");
-
-            worldMap.put(name, info);
-            Main.logger.info("Loaded world info: " + name);
-
-        } catch (JsonSyntaxException | JsonIOException e) {
-            // Handle Gson-specific errors
-            Main.logger.error("Error parsing JSON file: " + file.getName());
-        } catch (IOException e) {
-            // Handle IO errors
-            Main.logger.error("Error loading Instance file: " + file.getName());
-        }
+        return instance;
     }
 
     public void createInstancesFromJson() {
-        // get instanceManager
         InstanceManager instanceManager = MinecraftServer.getInstanceManager();
-        // loop all loaded world names
+
         for (String worldName : worldMap.keySet()) {
+            try {
+                WorldInfo worldInfo = gson.fromJson(worldMap.get(worldName), WorldInfo.class);
 
-            WorldInfo info = worldMap.get(worldName);
+                CustomInstanceContainer instanceContainer = new CustomInstanceContainer(
+                        new AnvilLoader("resources/worlds/" + worldName), worldInfo);
 
-            // create a new instance with the selected world (if failed to load will result in empty void world)
-            InstanceContainer instanceContainer = instanceManager.createInstanceContainer(new AnvilLoader("resources/worlds/" + worldName));
+                instanceContainer.setTime(TimeUtils.convertTime(worldInfo.getTime()));
+                instanceContainer.setWeather(WeatherUtils.convertWeather(worldInfo.getWeather()));
+                instanceContainer.setTimeRate(worldInfo.isDoDaylightCycle() ? 1 : 0);
 
-            // time, weather and daylight cycle
-            instanceContainer.setTime(TimeUtils.convertTime(info.getTime()));
-            instanceContainer.setWeather(WeatherUtils.convertWeather(info.getWeather()));
+                instanceManager.registerInstance(instanceContainer);
+                worldNameToInstanceMap.put(worldName, instanceContainer);
 
-            instanceContainer.setTimeRate(info.isDoDaylightCycle() ? 1 : 0);
-
-            // save the instance with name
-            instanceMap.put(worldName, instanceContainer);
+            } catch (JsonSyntaxException | JsonIOException e) {
+                Main.logger.error("Error parsing JSON in world file: {}", worldName, e);
+            } catch (Exception e) {
+                Main.logger.error("Unexpected error processing world file: {}, {}", worldName, e.fillInStackTrace());
+            }
         }
-
-        OblivionInstance.setInstanceMap(instanceMap);
+        Main.logger.info(worldNameToInstanceMap.toString());
+        OblivionInstance.setInstanceMap(worldNameToInstanceMap);
     }
 
-    public static Map<String, Instance> getInstanceMap() {
-        return instanceMap;
+    public Instance getInstanceByWorldName(String worldName) {
+        return worldNameToInstanceMap.get(worldName);
     }
-    public static Map<String, WorldInfo> getWorldMap() {
+
+    public Map<String, String> getWorldMap() {
         return worldMap;
     }
 }

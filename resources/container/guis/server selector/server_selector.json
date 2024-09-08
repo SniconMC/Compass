@@ -35,7 +35,6 @@
       "display": {
         "name": ["» <gold>Parkour</gold> «"],
         "lore": [
-          [""],
           ["Master courses in 3 difficulty levels!"],
           ["Hone your skill and set new records,"],
           ["or race others to the finish line!"],
@@ -70,7 +69,6 @@
       "display": {
         "name": ["» <gold>Blockhunt++</gold> «"],
         "lore": [
-          [""],
           ["Hide as blocks and entities"],
           ["and become your surroundings!"],
           ["If caught, you become a seeker."],

@@ -16,9 +16,9 @@ repositories {
 dependencies {
     implementation("net.minestom:minestom-snapshots:65f75bb059") // Minestom
     implementation("net.kyori:adventure-text-minimessage:4.17.0") // MiniMessage
-    implementation("com.github.SniconMC:Utils:0.1.6.4")
+    implementation("com.github.SniconMC:Utils:0.1.7")
     implementation("com.github.SniconMC:Momentum:0.1.7")
-    implementation("com.github.SniconMC:Container:0.1.4")
+    implementation("com.github.SniconMC:Container:0.1.6")
     implementation("com.github.SniconMC:Sidebar:0.1.3")
     implementation("com.github.SniconMC:Oblivion:0.1.6")
 

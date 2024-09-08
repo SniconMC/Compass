@@ -1,12 +1,17 @@
 package rip.snicon.compass;
 
 import com.github.sniconmc.container.ContainerMain;
+import com.github.sniconmc.container.config.ContainerItem;
+import com.github.sniconmc.container.config.ContainerItemDisplay;
 import com.github.sniconmc.momentum.MomentumMain;
 import com.github.sniconmc.oblivion.OblivionMain;
 import com.github.sniconmc.sidebar.SidebarMain;
 import com.github.sniconmc.utils.UtilsMain;
+import com.github.sniconmc.utils.item.ItemStackDestroyer;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.extras.MojangAuth;
+import net.minestom.server.item.ItemStack;
+import net.minestom.server.item.Material;
 import net.minestom.server.timer.SchedulerManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +34,7 @@ public class Main {
         MinecraftServer minecraftServer = MinecraftServer.init();
         SchedulerManager scheduler = MinecraftServer.getSchedulerManager();
 
-        InstanceCreator instanceCreator = new InstanceCreator();
+        InstanceCreator instanceCreator = InstanceCreator.getInstance();
 
         // Initialize MOTD
         MOTD motd = new MOTD();
@@ -62,6 +67,5 @@ public class Main {
         // Start the server
         MojangAuth.init();
         minecraftServer.start("0.0.0.0", 25565);
-
     }
 }
