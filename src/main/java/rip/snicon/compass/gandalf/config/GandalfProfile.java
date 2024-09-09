@@ -5,6 +5,7 @@ public class GandalfProfile {
     private String username;
     private String rank_id;
     private String profession;
+    private String old_profession;
     private double emeralds;
     private int achievements;
     private double profession_total_xp;
@@ -16,6 +17,7 @@ public class GandalfProfile {
         this.username = "";
         this.rank_id = "villager";
         this.profession = "nitwit";
+        this.old_profession = "";
         this.emeralds = 0.0;
         this.achievements = 0;
         this.profession_total_xp = 0.0;
@@ -56,6 +58,14 @@ public class GandalfProfile {
         this.profession_total_xp = profession_total_xp;
     }
 
+    public void addProfession_total_xp(double profession_total_xp) {
+        this.profession_total_xp += profession_total_xp;
+    }
+
+    public void removeProfession_total_xp(double profession_total_xp) {
+        this.profession_total_xp -= profession_total_xp;
+    }
+
     public void setIp(String ip) {
         this.ip = ip;
     }
@@ -76,12 +86,28 @@ public class GandalfProfile {
         this.profession = profession;
     }
 
+    public String getOldProfession() {
+        return old_profession;
+    }
+
+    public void setOldProfession(String oldProfession) {
+        this.old_profession = oldProfession;
+    }
+
     public double getEmeralds() {
         return emeralds;
     }
 
     public void setEmeralds(double emeralds) {
         this.emeralds = emeralds;
+    }
+
+    public void addEmeralds(double emeralds) {
+        this.emeralds += emeralds;
+    }
+
+    public void removeEmeralds(double emeralds) {
+        this.emeralds -= emeralds;
     }
 
     public int getAchievements() {

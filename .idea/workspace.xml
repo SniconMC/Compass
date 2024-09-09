@@ -5,98 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/container/guis/profession/profession_detailed_view.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/professions/10 toolsmith.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/professions/11 armorer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/professions/12 cleric.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/professions/13 cartographer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/professions/14 librarian.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/professions/2 butcher.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/professions/3 shepherd.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/professions/4 leatherworker.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/professions/5 fletcher.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/professions/6 fisherman.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/professions/7 farmer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/professions/8 mason.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/professions/9 weaponsmith.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/professions/permissions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/ranks/permissions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/ranks/player/2 trader.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/ranks/player/3 golem.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/ranks/player/4 allay.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/ranks/staff/5 vex.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/gandalf/ranks/staff/6 vindicator.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/oblivion/Blocks.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/listener/SetPlayerChat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/CustomInstanceContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/utils/CalculateProfession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/utils/LoadInstances.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/VoidListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/ProfessionSorter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/ProfileUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/cosmetics/cosmetics.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profile/cosmetics/cosmetics.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/profession/profession.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profile/profile.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/statistics/stats.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profile/statistics/stats.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/server selector/server_selector.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/server selector/server_selector.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/settings/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profile/settings/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/ranks/evoker.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/ranks/staff/7 evoker.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/ranks/villager.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/ranks/player/1 villager.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/hotbars/lobby.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/0541ed27-7595-4e6a-9101-6c07f879b7b5.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/29bbaf64-6e35-408d-9eb4-7b26bfd17cc2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/2b19ed72-6b78-40e7-946a-024594e57a63.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/702d572f-1766-427a-8aaa-de1a960dfa98.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/913a4e59-664e-444c-b694-eed7d74d9062.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/9f34e48c-96a4-4b09-ae5d-ac7c619a1297.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/a6b75c1a-bfb0-4ec4-aa95-e76835f38704.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/e51531e8-b001-42d5-bc52-35d86196f320.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/e6b73dac-4618-4d55-98c9-86d3ede1ca11.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/afk/afk.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/worlds/afk/afk.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/commands/player/HubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/commands/player/HubCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/container/guis/profession/profession_detailed_view.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profession/profession_detailed_view.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/1 nitwit.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/1 nitwit.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/10 toolsmith.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/10 toolsmith.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/11 armorer.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/11 armorer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/12 cleric.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/12 cleric.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/13 cartographer.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/13 cartographer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/14 librarian.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/14 librarian.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/2 butcher.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/2 butcher.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/3 shepherd.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/3 shepherd.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/4 leatherworker.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/4 leatherworker.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/5 fletcher.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/5 fletcher.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/6 fisherman.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/6 fisherman.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/7 farmer.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/7 farmer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/8 mason.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/8 mason.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/9 weaponsmith.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/9 weaponsmith.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/profiles/e6b73dac-4618-4d55-98c9-86d3ede1ca11.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/e6b73dac-4618-4d55-98c9-86d3ede1ca11.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfession.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/InstanceCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/InstanceCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/worlds/WorldInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/worlds/WorldInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/interacts/Oblivion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/interacts/Oblivion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/utils/CalculateProfession.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/worlds/AFK.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/worlds/AFK.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/worlds/Hub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/worlds/Hub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/motherfucker/Bitch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" afterDir="false" />
     </list>
     <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/ChatUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/cosmetics/cosmetics.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profile/cosmetics/cosmetics.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/profession/profession.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profile/profile.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/server selector/server_selector.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/server selector/server_selector.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/nitwit.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/1 nitwit.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/ranks/villager.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/ranks/player/1 villager.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/hub.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/worlds/hub/hub.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/old_hub.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/worlds/old_hub/old_hub.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/commands/admin/world/TravelCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/commands/admin/world/TravelCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/commands/player/HubCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/commands/player/HubCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfPermission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfPermission.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfileSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfileSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/listener/SetPlayerTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/listener/SetPlayerTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/LoadGandalf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/LoadGandalf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/TeamUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/TeamUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/worlds/WorldInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/worlds/WorldInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/interacts/Oblivion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/interacts/Oblivion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/worlds/Hub.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/worlds/Hub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/motherfucker/Bitch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,213 +73,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="3" end1="3" start2="4" end2="10" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="10" end1="10" start2="17" end2="19" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="13" end1="13" start2="22" end2="25" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="15" end1="15" start2="27" end2="28" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="52" end1="55" start2="65" end2="76" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="56" end1="58" start2="77" end2="80" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="70" end1="70" start2="92" end2="100" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/resources/container/guis/profile/cosmetics/cosmetics.json">
-      <ranges>
-        <range start1="21" end1="22" start2="21" end2="22" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="34" end1="36" start2="34" end2="44" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="38" end1="39" start2="46" end2="47" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="48" end1="49" start2="56" end2="57" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="60" end1="61" start2="68" end2="69" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="86" end1="87" start2="94" end2="97" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="111" end1="112" start2="121" end2="124" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="136" end1="137" start2="148" end2="151" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="161" end1="162" start2="175" end2="178" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="186" end1="187" start2="202" end2="205" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java">
-      <ranges>
-        <range start1="0" end1="1" start2="0" end2="1" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="14" end1="14" start2="14" end2="15" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="15" end1="16" start2="16" end2="18" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="37" end1="38" start2="39" end2="39" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="50" end1="51" start2="51" end2="51" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="70" end1="70" start2="70" end2="75" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="77" end1="79" start2="82" end2="83" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="85" end1="86" start2="89" end2="90" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="88" end1="88" start2="92" end2="94" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="96" end1="96" start2="102" end2="106" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="103" end1="104" start2="113" end2="114" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="110" end1="110" start2="120" end2="121" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="112" end1="112" start2="123" end2="125" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="115" end1="115" start2="128" end2="153" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/worlds/WorldInfo.java">
-      <ranges>
-        <range start1="6" end1="6" start2="6" end2="7" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="25" end1="25" start2="26" end2="29" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/resources/container/hotbars/lobby.json">
-      <ranges>
-        <range start1="4" end1="5" start2="4" end2="5" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="10" end1="11" start2="10" end2="13" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="12" end1="13" start2="14" end2="17" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="14" end1="15" start2="18" end2="20" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="28" end1="29" start2="33" end2="34" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="39" end1="40" start2="44" end2="45" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="41" end1="42" start2="46" end2="47" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="70" end1="72" start2="75" end2="77" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/resources/container/guis/profile/profile.json">
-      <ranges>
-        <range start1="28" end1="29" start2="28" end2="29" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="35" end1="36" start2="35" end2="36" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="39" end1="42" start2="39" end2="41" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="43" end1="46" start2="42" end2="43" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="53" end1="54" start2="50" end2="51" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="59" end1="60" start2="56" end2="57" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="71" end1="72" start2="68" end2="69" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="74" end1="78" start2="71" end2="73" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="79" end1="81" start2="74" end2="76" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="82" end1="83" start2="77" end2="78" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="108" end1="109" start2="103" end2="104" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="111" end1="111" start2="106" end2="108" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="112" end1="118" start2="109" end2="111" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="119" end1="120" start2="112" end2="113" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="123" end1="124" start2="116" end2="117" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="136" end1="136" start2="129" end2="158" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="137" end1="138" start2="159" end2="160" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="145" end1="146" start2="167" end2="168" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="166" end1="167" start2="188" end2="189" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="168" end1="169" start2="190" end2="191" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="6" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="23" end1="23" start2="27" end2="28" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="26" end1="31" start2="31" end2="31" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="64" end1="65" start2="64" end2="64" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="67" end1="75" start2="66" end2="66" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="81" end1="90" start2="72" end2="76" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="91" end1="92" start2="77" end2="83" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="93" end1="94" start2="84" end2="85" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="108" end1="109" start2="99" end2="99" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-      </ranges>
-    </file>
     <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java">
       <ranges>
-        <range start1="7" end1="7" start2="7" end2="8" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="8" end1="12" start2="9" end2="12" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="14" end1="14" start2="14" end2="15" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="16" end1="16" start2="17" end2="19" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="17" end1="17" start2="20" end2="21" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="29" end1="30" start2="33" end2="33" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="31" end1="34" start2="34" end2="35" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="38" end1="40" start2="39" end2="39" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="44" end1="45" start2="43" end2="43" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="47" end1="49" start2="45" end2="45" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="52" end1="53" start2="48" end2="83" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="54" end1="55" start2="84" end2="84" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="57" end1="57" start2="86" end2="87" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="59" end1="60" start2="89" end2="90" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="61" end1="62" start2="91" end2="92" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="63" end1="64" start2="93" end2="93" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="71" end1="72" start2="100" end2="101" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="73" end1="74" start2="102" end2="103" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="78" end1="79" start2="107" end2="110" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="80" end1="83" start2="111" end2="111" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="84" end1="84" start2="112" end2="113" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="85" end1="90" start2="114" end2="119" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="92" end1="93" start2="121" end2="122" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="94" end1="95" start2="123" end2="123" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="96" end1="97" start2="124" end2="127" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="98" end1="99" start2="128" end2="130" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="100" end1="106" start2="131" end2="134" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="108" end1="108" start2="136" end2="138" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="110" end1="113" start2="140" end2="172" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="114" end1="116" start2="173" end2="186" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="121" end1="122" start2="191" end2="191" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="125" end1="127" start2="194" end2="198" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="135" end1="136" start2="206" end2="210" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="139" end1="140" start2="213" end2="217" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="146" end1="147" start2="223" end2="225" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="150" end1="150" start2="228" end2="230" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="151" end1="153" start2="231" end2="233" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="154" end1="158" start2="234" end2="238" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="159" end1="160" start2="239" end2="240" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="165" end1="166" start2="245" end2="253" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="167" end1="168" start2="254" end2="269" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="173" end1="174" start2="274" end2="274" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/resources/container/guis/server selector/server_selector.json">
-      <ranges>
-        <range start1="37" end1="38" start2="37" end2="37" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="72" end1="73" start2="71" end2="71" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/worlds/Hub.java">
-      <ranges>
-        <range start1="14" end1="14" start2="14" end2="16" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="22" end1="23" start2="24" end2="25" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="25" end1="25" start2="27" end2="28" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="49" end1="50" start2="52" end2="52" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="65" end1="65" start2="67" end2="71" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfile.java">
-      <ranges>
-        <range start1="7" end1="8" start2="7" end2="7" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="9" end1="10" start2="8" end2="9" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="19" end1="20" start2="18" end2="18" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="21" end1="22" start2="19" end2="20" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="80" end1="88" start2="78" end2="78" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="96" end1="97" start2="86" end2="87" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="100" end1="101" start2="90" end2="91" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/commands/player/HubCommand.java">
-      <ranges>
-        <range start1="4" end1="4" start2="4" end2="7" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="13" end1="13" start2="16" end2="17" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="15" end1="15" start2="19" end2="20" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="18" end1="20" start2="23" end2="24" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="21" end1="21" start2="25" end2="40" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/interacts/Oblivion.java">
-      <ranges>
-        <range start1="58" end1="59" start2="58" end2="59" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="62" end1="63" start2="62" end2="63" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/resources/container/guis/profession/profession.json">
-      <ranges>
-        <range start1="26" end1="26" start2="26" end2="127" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="28" end1="29" start2="129" end2="130" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="35" end1="36" start2="136" end2="137" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="38" end1="39" start2="139" end2="140" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="49" end1="49" start2="150" end2="151" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="50" end1="51" start2="152" end2="153" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="57" end1="58" start2="159" end2="160" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/resources/gandalf/ranks/player/1 villager.json">
-      <ranges>
-        <range start1="4" end1="5" start2="4" end2="5" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="10" end1="11" start2="10" end2="11" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfession.java">
-      <ranges>
-        <range start1="11" end1="11" start2="11" end2="18" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="31" end1="31" start2="38" end2="42" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="7" end1="8" start2="7" end2="7" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+        <range start1="10" end1="11" start2="9" end2="9" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+        <range start1="13" end1="13" start2="11" end2="12" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+        <range start1="14" end1="15" start2="13" end2="14" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+        <range start1="19" end1="23" start2="18" end2="19" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+        <range start1="120" end1="123" start2="116" end2="116" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+        <range start1="206" end1="206" start2="199" end2="206" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+        <range start1="216" end1="217" start2="216" end2="217" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
       </ranges>
     </file>
   </component>
@@ -369,7 +109,7 @@
     "extract.method.default.visibility": "public",
     "git-widget-placeholder": "dev",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Documents/Github Repositories/SniconMC/Servers/Compass/resources/container/guis/profession",
+    "last_opened_file_path": "D:/Documents/Github Repositories/SniconMC/Servers/Compass/resources/gandalf/professions",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -378,15 +118,15 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "File.Encoding",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\professions" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\container\guis\profession" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\oblivion" />
-      <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\professions" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\ranks" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\src\main\java\rip\snicon" />
     </key>
@@ -433,7 +173,8 @@
       <workItem from="1725647986517" duration="1030000" />
       <workItem from="1725712672978" duration="3805000" />
       <workItem from="1725716519824" duration="25135000" />
-      <workItem from="1725786735943" duration="28936000" />
+      <workItem from="1725786735943" duration="29004000" />
+      <workItem from="1725890602855" duration="22256000" />
     </task>
     <servers />
   </component>

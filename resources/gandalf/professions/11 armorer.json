@@ -4,7 +4,7 @@
   "profession_style_sidebar": "<gray>Armorer</gray>",
   "profession_icon": "\uD83D\uDEE1",
   "profession_icon_style" : "<dark_gray>[<gray>\uD83D\uDEE1</gray>]</dark_gray>",
-  "xp_to_next": 400,
+  "required_xp": 400,
   "permissions": {
     "parent": "toolsmith",
     "specific_permissions" : [

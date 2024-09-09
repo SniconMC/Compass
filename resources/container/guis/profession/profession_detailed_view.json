@@ -140,7 +140,7 @@
   "settings": {
     "rows": 4,
     "display_name": [
-      "<dark_gray>Detailed Reward View</dark_gray>"
+      "<dark_gray>Detailed Rewards Menu</dark_gray>"
     ],
     "container_id": "stats",
     "modify": false,

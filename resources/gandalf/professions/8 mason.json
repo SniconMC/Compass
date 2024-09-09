@@ -4,7 +4,7 @@
   "profession_style_sidebar": "<gray>Mason</gray>",
   "profession_icon": "⅕",
   "profession_icon_style" : "<dark_gray>[<gray>⅕</gray>]</dark_gray>",
-  "xp_to_next": 400,
+  "required_xp": 400,
   "permissions": {
     "parent": "farmer",
     "specific_permissions" : [

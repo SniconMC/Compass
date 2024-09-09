@@ -4,7 +4,7 @@
   "profession_style_sidebar": "<gray>Toolsmith</gray>",
   "profession_icon": "⅑",
   "profession_icon_style" : "<dark_gray>[<gray>⅑</gray>]</dark_gray>",
-  "xp_to_next": 400,
+  "required_xp": 400,
   "permissions": {
     "parent": "weaponsmith",
     "specific_permissions" : [

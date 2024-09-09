@@ -5,22 +5,18 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
-import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
 import net.minestom.server.permission.Permission;
-import rip.snicon.compass.Main;
 import rip.snicon.compass.gandalf.config.*;
 import rip.snicon.compass.gandalf.utils.LoadGandalf;
+import rip.snicon.compass.gandalf.utils.ProfessionSorter;
 import rip.snicon.compass.gandalf.utils.SaveProfile;
-import rip.snicon.compass.instances.utils.CalculateProfession;
+import rip.snicon.compass.gandalf.utils.CalculateProfession;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class GandalfManager {
 
@@ -119,9 +115,6 @@ public class GandalfManager {
             saveProfileToFile(playerUUID, profile); // Save the new profile to file
         }
 
-        CalculateProfession.calculateProfession(player, profile);
-
-
         // No more changes to profile on load here pls
         loadPermission(player, getRank(profile.getRank_id()));
         loadPermission(player, getProfession(profile.getRank_id()));
@@ -205,6 +198,13 @@ public class GandalfManager {
     }
 
     /**
+     * Retrieves all Gandalf professions in order
+     */
+    public static List<GandalfProfession> getAllProfessions() {
+        return ProfessionSorter.sortProfessions(professionMap);
+    }
+
+    /**
      * Saves a player's profile to a file.
      */
     public static void saveProfileToFile(String uuid, GandalfProfile profile) {
@@ -214,7 +214,7 @@ public class GandalfManager {
     /**
      * Sets player-specific placeholders.
      */
-    private static void setPlaceholders(Player player, GandalfProfile profile) {
+    public static void setPlaceholders(Player player, GandalfProfile profile) {
         Map<String, String> placeholders = new HashMap<>();
 
         String username = player.getUsername();

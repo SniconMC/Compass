@@ -4,7 +4,7 @@
   "profession_style_sidebar": "<gray>Librarian</gray>",
   "profession_icon": "✎",
   "profession_icon_style" : "<dark_gray>[<gray>✎</gray>]</dark_gray>",
-  "xp_to_next": 400,
+  "required_xp": 400,
   "permissions": {
     "parent": "cartographer",
     "specific_permissions" : [

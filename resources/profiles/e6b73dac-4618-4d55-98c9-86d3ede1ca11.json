@@ -1,10 +1,11 @@
 {
   "username": "znopp",
   "rank_id": "evoker",
-  "profession": "librarian",
+  "profession": "butcher",
+  "old_profession": "leatherworker",
   "emeralds": 0.0,
   "achievements": 0,
-  "profession_total_xp": 0.0,
+  "profession_total_xp": 400.0,
   "settings": {
     "player_visibility": true,
     "geri_visibility": false,
