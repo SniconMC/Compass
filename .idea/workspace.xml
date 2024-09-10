@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/profiles/e6b73dac-4618-4d55-98c9-86d3ede1ca11.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/e6b73dac-4618-4d55-98c9-86d3ede1ca11.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java" afterDir="false" />
+    </list>
+    <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="">
       <change beforePath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java" afterDir="false" />
     </list>
-    <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,6 +49,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java">
+      <ranges>
+        <range start1="11" end1="11" start2="11" end2="12" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="12" end1="12" start2="13" end2="14" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="91" end1="91" start2="93" end2="112" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+        <range start1="95" end1="95" start2="116" end2="121" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="97" end1="97" start2="123" end2="126" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="99" end1="99" start2="128" end2="132" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="101" end1="111" start2="134" end2="134" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="128" end1="129" start2="151" end2="152" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+      </ranges>
+    </file>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -109,11 +124,19 @@
       <option name="ALTERNATIVE_JRE_PATH" value="temurin-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="rip.snicon.compass.Main" />
-      <module name="Compass.main" />
+      <module name="rip.snicon.compass.Compass.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -130,6 +153,7 @@
       <workItem from="1725716519824" duration="25135000" />
       <workItem from="1725786735943" duration="29004000" />
       <workItem from="1725890602855" duration="22256000" />
+      <workItem from="1726004922456" duration="7472000" />
     </task>
     <servers />
   </component>

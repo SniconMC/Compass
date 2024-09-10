@@ -9,7 +9,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
+import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
+import net.minestom.server.network.packet.client.common.ClientSettingsPacket;
 import rip.snicon.compass.Main;
 import rip.snicon.compass.gandalf.GandalfManager;
 import rip.snicon.compass.gandalf.config.GandalfProfession;
@@ -90,25 +92,46 @@ public class CalculateProfession {
                 item.setSlot(i + 18);
             }
 
-            // Determine glass pane color based on XP
-            if (totalXP >= cumulativeXP) {
-                item.setId("minecraft:green_stained_glass_pane"); // Unlocked
-            } else if (i > 1 && totalXP >= cumulativeXP - profession.getXpRequired()) {
-                item.setId("minecraft:orange_stained_glass_pane"); // Below this level
-            } else {
-                item.setId("minecraft:red_stained_glass_pane"); // Locked
-            }
-
             // Display settings for the item
             ContainerItemDisplay display = new ContainerItemDisplay(
                     List.of("» " + profession.getProfession_style() + " «"),
-                    List.of(
-                            List.of("balle1"),
-                            List.of("balle2"),
-                            List.of("balle3")
-                    ),
+                    new ArrayList<>(List.of(List.of(""),
+                        List.of("Cool thing"),
+                        List.of(""),
+                        List.of("→ <aqua>Click for rewards</aqua> ←"),
+                        List.of("- 1x <light_purple>Mythic"),
+                        List.of("- 7x <gold>Legendary"),
+                        List.of("- 3x <dark_purple>Epic"),
+                        List.of("- 5x <blue>Rare"),
+                        List.of("- 1x <green>Uncommon"),
+                        List.of("- 10x <white>Common"),
+                        List.of("")
+
+                    )),
                     false, "", true
             );
+
+            // Determine glass pane color based on XP
+            if (totalXP >= cumulativeXP) {
+                item.setId("minecraft:green_stained_glass_pane"); // Unlocked
+                display.getLore().add(List.of("<gray>Progress to " + profession.getProfession_icon_style() + " " + profession.getProfession_style_sidebar() + ":</gray>"));
+                display.getLore().add(List.of("<blue><st>                              </st></blue> <yellow>100.0</yellow><gold>%</gold>"));
+                display.getLore().add(List.of("<green><bold>Unlocked</bold></green>"));
+
+
+            } else if (i > 1 && totalXP >= cumulativeXP - profession.getXpRequired()) {
+                item.setId("minecraft:orange_stained_glass_pane"); // Below this level
+                display.getLore().add(List.of("<gray>Progress to " + profession.getProfession_icon_style() + " " + profession.getProfession_style_sidebar() + ":</gray>"));
+                display.getLore().add(List.of("<blue><st>            </st></blue><white><st>                  </st></white> <yellow>40.0</yellow><gold>%</gold>"));
+                display.getLore().add(List.of("<red><bold>Locked</bold></red>"));
+            } else {
+                item.setId("minecraft:red_stained_glass_pane"); // Locked
+                display.getLore().add(List.of("<gray>Progress to " + profession.getProfession_icon_style() + " " + profession.getProfession_style_sidebar() + ":</gray>"));
+                display.getLore().add(List.of("<white><st>                              </st></white> <yellow>0.0</yellow><gold>%</gold>"));
+                display.getLore().add(List.of("<red><bold>Locked</bold></red>"));
+
+            }
+
             ContainerItemData data = new ContainerItemData("", "", false);
             item.setDisplay(display);
             item.setData(data);
@@ -126,7 +149,7 @@ public class CalculateProfession {
             jsonItemsBuilder.append(prettyJson);
 
             if (Objects.equals(profile.getProfession(), profession.getProfession_id())) {
-                progession.add(List.of("\"<green><strikethrough>  </strikethrough>> </green>" + profession.getProfession_icon_style() + " " + profession.getProfession_style() + "\""));
+                progession.add(List.of("\"<green> →  </green>" + profession.getProfession_icon_style() + " " + profession.getProfession_style() + "\""));
             } else {
                 progession.add(List.of("\"     " + profession.getProfession_icon_style() + " " + profession.getProfession_style() + "\""));
             }
