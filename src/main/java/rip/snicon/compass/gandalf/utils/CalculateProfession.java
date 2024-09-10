@@ -10,14 +10,12 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import net.minestom.server.entity.Player;
+import rip.snicon.compass.Main;
 import rip.snicon.compass.gandalf.GandalfManager;
 import rip.snicon.compass.gandalf.config.GandalfProfession;
 import rip.snicon.compass.gandalf.config.GandalfProfile;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CalculateProfession {
 
@@ -50,7 +48,16 @@ public class CalculateProfession {
             String oldProfessionStyleIcon = GandalfManager.getProfession(profile.getOldProfession()).getProfession_icon_style();
             String professionStyleIcon = GandalfManager.getProfession(profile.getProfession()).getProfession_icon_style();
 
-            player.sendMessage(TextUtils.convertStringToComponent("<gradient:#ffff1c:gold>Congratulations!</gradient> <gold>You have leveled up from</gold> " + oldProfessionStyleIcon + " " + oldProfessionStyle + " <gold>to</gold> " + professionStyleIcon + " " + professionStyle + "<gold>!</gold>"));
+            player.sendMessage(TextUtils.convertStringToComponent(
+                    "<strikethrough><gray>                                                                                 </gray></strikethrough>\n" +
+                            "                                 <bold><gradient:#ffff1c:gold>LEVEL UP!</gradient></bold>\n" +
+                            "                        <yellow>You have advanced from</yellow>\n" +
+                            "                                   " + oldProfessionStyleIcon + " <gray>" + oldProfessionStyle + "</gray>\n" +
+                            "                                        <yellow>to</yellow>\n" +
+                            "                                   " + professionStyleIcon + " <gray>" + professionStyle + "</gray>\n" +
+                            "<strikethrough><gray>                                                                                 </gray></strikethrough>"
+            ));
+
         }
     }
 
@@ -67,6 +74,8 @@ public class CalculateProfession {
 
         int i = 0;
         double cumulativeXP = 0; // Keep track of cumulative XP for professions
+
+        List<List<String>> progession = new ArrayList<>();
 
         for (GandalfProfession profession : professions) {
             i++;
@@ -115,11 +124,18 @@ public class CalculateProfession {
                 jsonItemsBuilder.append(",\n");
             }
             jsonItemsBuilder.append(prettyJson);
+
+            if (Objects.equals(profile.getProfession(), profession.getProfession_id())) {
+                progession.add(List.of("\"<green><strikethrough>  </strikethrough>> </green>" + profession.getProfession_icon_style() + " " + profession.getProfession_style() + "\""));
+            } else {
+                progession.add(List.of("\"     " + profession.getProfession_icon_style() + " " + profession.getProfession_style() + "\""));
+            }
+
         }
-
+        
         // Add the JSON objects to the placeholders
-        placeholders.put("cool_item", jsonItemsBuilder.toString());
-
+        placeholders.put("profession_gui_items", jsonItemsBuilder.toString());
+        placeholders.put("profession_progression_order", progession.toString().substring(1, progession.toString().length() - 1));
         PlaceholderManager.addPlaceholdersToPlayer(player, placeholders);
 
         ProfileUtils.update(player, profile);

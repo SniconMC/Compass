@@ -1,10 +1,11 @@
 {
   "username": "wi1helm_",
   "rank_id": "villager",
-  "profession": "nitwit",
+  "profession": "shepherd",
+  "old_profession": "nitwit",
   "emeralds": 0.0,
   "achievements": 0,
-  "profession_total_xp": 10.0,
+  "profession_total_xp": 1000.0,
   "settings": {
     "player_visibility": true,
     "geri_visibility": false,

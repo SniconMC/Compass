@@ -24,7 +24,7 @@
     }
   },
   "items": [
-    $(cool_item),
+    $(profession_gui_items),
     {
       "slot": 3,
       "id": "minecraft:book",
@@ -38,8 +38,7 @@
           [
             "Succession Order:"
           ],
-          ["Nitwit"],
-          ["Buthcher"]
+          $(profession_progression_order)
         ],
         "model_data": "",
         "glint": false,
