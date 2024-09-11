@@ -4,7 +4,7 @@
   "profession_style_sidebar": "<gray>Cleric</gray>",
   "profession_icon": "✝",
   "profession_icon_style" : "<dark_gray>[<gray>✝</gray>]</dark_gray>",
-  "required_xp": 400,
+  "required_xp": 6000,
   "permissions": {
     "parent": "armorer",
     "specific_permissions" : [

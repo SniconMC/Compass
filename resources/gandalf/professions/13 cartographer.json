@@ -4,7 +4,7 @@
   "profession_style_sidebar": "<gray>Cartographer</gray>",
   "profession_icon": "⅐",
   "profession_icon_style" : "<dark_gray>[<gray>⅐</gray>]</dark_gray>",
-  "required_xp": 400,
+  "required_xp": 8500,
   "permissions": {
     "parent": "cleric",
     "specific_permissions" : [

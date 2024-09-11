@@ -25,14 +25,14 @@
   },
   "items": [
     {
-      "slot": 10,
-      "id": "slime_ball",
+      "slot": 11,
+      "id": "diamond",
       "count": {
         "current": 1,
         "max": 64
       },
       "display": {
-        "name": [],
+        "name": ["» <#ffaa00>Achievements</#ffaa00> «"],
         "lore": [],
         "model_data": "",
         "glint": false,
@@ -50,7 +50,7 @@
       }
     },
     {
-      "slot": 12,
+      "slot": 13,
       "id": "minecraft:emerald",
       "count": {
         "current": 1,
@@ -58,8 +58,116 @@
       },
       "display": {
         "name": [
-          "<green>Current position</green><gray>: $(player_coords)</gray>"
-		],
+          "» <#ffaa00>Profession</#ffaa00> «"
+        ],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 15,
+      "id": "minecraft:iron_ingot",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+          "» <#ffaa00>Emeralds</#ffaa00> «"
+        ],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 20,
+      "id": "minecraft:rabbit_foot",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+          "» <#ffaa00>Parkour</#ffaa00> «"
+        ],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 22,
+      "id": "minecraft:book",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+          "» <#ffaa00>General</#ffaa00> «"
+        ],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 24,
+      "id": "minecraft:bookshelf",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+          "» <#ffaa00>Blockhunt++</#ffaa00> «"
+        ],
         "lore": [],
         "model_data": "",
         "glint": false,

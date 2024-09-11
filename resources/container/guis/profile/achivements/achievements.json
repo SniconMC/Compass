@@ -26,95 +26,46 @@
   "items": [
     {
       "slot": 11,
-      "id": "minecraft:diamond",
+      "id": "minecraft:rabbit_foot",
       "count": {
         "current": 1,
         "max": 64
       },
       "display": {
         "name": [
-          "» <#ffaa00>Achievements</#ffaa00> «"
+          "» <#ffaa00>Parkour</#ffaa00> «"
         ],
-        "lore": [
-          [""],
-          ["<gray>Unlocked:</gray> <aqua>100<dark_aqua>/</dark_aqua>1000</aqua> <dark_gray>(10%)</dark_gray>"],
-          ["<gray>Points:</gray> <yellow>$(player_achievement_points)<gold>/</gold>1350</yellow> <dark_gray>(13.27%)</dark_gray>"],
-          [""],
-          ["<gray>» <aqua>Click to open</aqua> «</gray>"]
-        ],
+        "lore": [],
         "model_data": "",
         "glint": false,
         "dye_color": "",
         "show_tooltip": true
       },
       "skin": {
-        "player": "this",
+        "player": "",
         "uuid": "",
         "texture": ""
       },
       "data": {
         "function": "",
-        "page": "achievements"
+        "page": ""
       }
     },
     {
       "slot": 13,
-      "id": "minecraft:player_head",
+      "id": "minecraft:book",
       "count": {
         "current": 1,
         "max": 64
       },
       "display": {
         "name": [
-          "» <gold>Statistics</gold> «"
+          "» <#ffaa00>General</#ffaa00> «"
         ],
-        "lore": [
-          ["View all your network-wide"],
-          ["statistics in one place!"],
-          [""],
-          ["<gray>Total XP:</gray> <yellow>$(player_total_xp)"],
-          ["<gray>Emeralds:</gray> <green>$(player_emeralds)"],
-          [""],
-          ["<gray>» <aqua>Click to open</aqua> «</gray>"]
-        ],
+        "lore": [],
         "model_data": "",
         "glint": false,
         "dye_color": "",
-        "show_tooltip": true
-      },
-      "skin": {
-        "player": "this",
-        "uuid": "",
-        "texture": ""
-      },
-      "data": {
-        "function": "",
-        "page": "stats"
-      }
-    },
-    {
-      "slot": 15,
-      "id": "minecraft:leather_chestplate",
-      "count": {
-        "current": 1,
-        "max": 64
-      },
-      "display": {
-        "name": [
-          "» <gold>Cosmetics</gold> «"
-        ],
-        "lore": [
-          ["Choose between custom outfits,"],
-          ["items, particles, music, and more!"],
-          [""],
-          ["<gray>Lorem:</gray> <yellow>Ipsum</yellow>"],
-          ["<gray>Dolor:</gray> <green>Sit</green>"],
-          [""],
-          ["<gray>» <aqua>Click to open</aqua> «</gray>"]
-        ],
-        "model_data": "",
-        "glint": false,
-        "dye_color": "#0077c3",
         "show_tooltip": true
       },
       "skin": {
@@ -124,51 +75,21 @@
       },
       "data": {
         "function": "",
-        "page": "cosmetics"
+        "page": ""
       }
     },
     {
       "slot": 22,
-      "id": "minecraft:redstone",
-      "count": {
-        "current": 1,
-        "max": 64
-      },
-      "display": {
-        "name": ["» <gold>Settings</gold> «"],
-        "lore": [
-          ["Change your settings!"],
-          [""],
-          ["<gray>» <aqua>Click to open</aqua> «</gray>"]
-        ],
-        "model_data": "",
-        "glint": false,
-        "dye_color": "",
-        "show_tooltip": true
-      },
-      "skin": {
-        "player": "",
-        "uuid": "",
-        "texture": ""
-      },
-      "data": {
-        "function": "",
-        "page": "settings"
-      }
-    },
-    {
-      "slot": 40,
-      "id": "minecraft:barrier",
+      "id": "minecraft:gold_ingot",
       "count": {
         "current": 1,
         "max": 64
       },
       "display": {
         "name": [
-          "<gray>» <red>Close</red> «</gray>"
+          "» <#ffaa00>Achievement Rewards</#ffaa00> «"
         ],
-        "lore": [
-        ],
+        "lore": [],
         "model_data": "",
         "glint": false,
         "dye_color": "",
@@ -181,16 +102,70 @@
       },
       "data": {
         "function": "",
-        "page": "close"
+        "page": ""
+      }
+    },
+    {
+      "slot": 15,
+      "id": "minecraft:bookshelf",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+          "» <#ffaa00>Blockhunt++</#ffaa00> «"
+        ],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 40,
+      "id": "minecraft:arrow",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+          "<gray>» <red>Back to Profile</red> «"
+        ],
+        "lore": [],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "",
+        "page": "profile"
       }
     }
   ],
   "settings": {
     "rows": 5,
     "display_name": [
-      "<dark_gray>Your Profile</dark_gray>"
+      "<dark_gray>Your Achievements"
     ],
-    "container_id": "profile",
+    "container_id": "achievements",
     "modify": false,
     "modify_creative": true
   }

@@ -99,6 +99,7 @@ public class CalculateProfession {
                         List.of("Cool thing"),
                         List.of(""),
                         List.of("→ <aqua>Click for rewards</aqua> ←"),
+                        List.of("- 1x <dark_aqua>Perk"),
                         List.of("- 1x <light_purple>Mythic"),
                         List.of("- 7x <gold>Legendary"),
                         List.of("- 3x <dark_purple>Epic"),
@@ -115,21 +116,20 @@ public class CalculateProfession {
             if (totalXP >= cumulativeXP) {
                 item.setId("minecraft:green_stained_glass_pane"); // Unlocked
                 display.getLore().add(List.of("<gray>Progress to " + profession.getProfession_icon_style() + " " + profession.getProfession_style_sidebar() + ":</gray>"));
-                display.getLore().add(List.of("<green><st>                              </st></green> <green>100.0</green><dark_green>%</dark_green>"));
+                display.getLore().add(List.of("<green><st>                              </st></green> <yellow>100.0</yellow><gold>%</gold>"));
                 display.getLore().add(List.of("<green><bold>Unlocked</bold></green>"));
 
 
             } else if (i > 1 && totalXP >= cumulativeXP - profession.getXpRequired()) {
                 item.setId("minecraft:orange_stained_glass_pane"); // Below this level
                 display.getLore().add(List.of("<gray>Progress to " + profession.getProfession_icon_style() + " " + profession.getProfession_style_sidebar() + ":</gray>"));
-                display.getLore().add(List.of("<blue><st>            </st></blue><white><st>                  </st></white> <yellow>40.0</yellow><gold>%</gold>"));
+                display.getLore().add(List.of(getProgressBar(totalXP, cumulativeXP,  profession.getXpRequired())));
                 display.getLore().add(List.of("<red><bold>Locked</bold></red>"));
             } else {
                 item.setId("minecraft:red_stained_glass_pane"); // Locked
                 display.getLore().add(List.of("<gray>Progress to " + profession.getProfession_icon_style() + " " + profession.getProfession_style_sidebar() + ":</gray>"));
                 display.getLore().add(List.of("<white><st>                              </st></white> <yellow>0.0</yellow><gold>%</gold>"));
                 display.getLore().add(List.of("<red><bold>Locked</bold></red>"));
-
             }
 
             ContainerItemData data = new ContainerItemData("", "", false);
@@ -159,9 +159,54 @@ public class CalculateProfession {
         // Add the JSON objects to the placeholders
         placeholders.put("profession_gui_items", jsonItemsBuilder.toString());
         placeholders.put("profession_progression_order", progession.toString().substring(1, progession.toString().length() - 1));
+
+        double maxXP = professions.stream().mapToDouble(GandalfProfession::getXpRequired).sum(); // Total XP required for all professions
+
+        // Use getProgressBar to calculate the progress towards max profession
+        String progressBar = getProgressBar(totalXP, maxXP, maxXP);
+
+        // Set the placeholder with the progress bar
+        placeholders.put("max_profession_xp", String.valueOf(maxXP));
+        placeholders.put("player_percentage_to_max", progressBar);
         PlaceholderManager.addPlaceholdersToPlayer(player, placeholders);
 
         ProfileUtils.update(player, profile);
+    }
+
+    public static String getProgressBar(double totalXP, double cumulativeXP, double xpRequired) {
+        // Calculate progress percentage
+        double progress = (totalXP - (cumulativeXP - xpRequired)) / xpRequired;
+
+        // Allow progress to exceed 1 (i.e., allow more than 100%)
+        double progressPercent = progress * 100;
+
+        // Format the progress percentage to two decimal places
+        String formattedProgressPercent = String.format("%.1f", progressPercent);
+
+        // Create a progress bar with 28 characters total length
+        int totalBarLength = 28;
+        int filledBarLength = Math.min((int) (progress * totalBarLength), totalBarLength);
+        int emptyBarLength = totalBarLength - filledBarLength;
+
+        // Choose bar color based on progress percentage
+        String barColor = progressPercent >= 100 ? "<green>" : "<blue>";
+
+        // Build the progress bar string
+        StringBuilder progressBar = new StringBuilder();
+        progressBar.append(barColor).append("<st>");
+        for (int i = 0; i < filledBarLength; i++) {
+            progressBar.append(" ");
+        }
+        progressBar.append("</st>").append(barColor.replace("<", "</")); // Closing tag for color
+
+        progressBar.append("<white>").append("<st>");
+        for (int i = 0; i < emptyBarLength; i++) {
+            progressBar.append(" ");
+        }
+        progressBar.append("</st></white>");
+
+        // If the percentage is greater than 100%, don't limit the percentage display
+        return progressBar.toString() + " <yellow>" + formattedProgressPercent + "</yellow><gold>%</gold>";
     }
 
 }

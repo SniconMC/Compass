@@ -4,7 +4,7 @@
   "profession_style_sidebar": "<gray>Fisherman</gray>",
   "profession_icon": "\uD83C\uDFA3",
   "profession_icon_style" : "<dark_gray>[<gray>\uD83C\uDFA3</gray>]</dark_gray>",
-  "required_xp": 400,
+  "required_xp": 800,
   "permissions": {
     "parent": "fletcher",
     "specific_permissions" : [
