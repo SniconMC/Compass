@@ -7,22 +7,16 @@
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/statistics/stats.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profile/statistics/stats.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/settings/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profile/settings/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/profiles/e6b73dac-4618-4d55-98c9-86d3ede1ca11.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/e6b73dac-4618-4d55-98c9-86d3ede1ca11.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfileSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfileSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sidebar/hub_sidebar.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sidebar/hub_sidebar.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/ProfileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/ProfileUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" afterDir="false" />
     </list>
     <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/settings/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profile/settings/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfileSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfileSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,38 +56,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java">
+    <file path="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json">
       <ranges>
-        <range start1="118" end1="119" start2="118" end2="119" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="125" end1="126" start2="125" end2="126" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="130" end1="131" start2="130" end2="131" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="157" end1="158" start2="157" end2="158" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="165" end1="166" start2="165" end2="166" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="175" end1="177" start2="175" end2="177" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="179" end1="179" start2="179" end2="182" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="182" end1="183" start2="185" end2="186" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="207" end1="209" start2="210" end2="257" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/resources/container/guis/profession/profession.json">
-      <ranges>
-        <range start1="59" end1="60" start2="59" end2="60" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="74" end1="76" start2="74" end2="76" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="127" end1="127" start2="127" end2="160" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java">
-      <ranges>
-        <range start1="12" end1="12" start2="12" end2="13" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="128" end1="128" start2="129" end2="160" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="151" end1="153" start2="183" end2="183" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfileSettings.java">
-      <ranges>
-        <range start1="7" end1="7" start2="7" end2="8" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="12" end1="12" start2="13" end2="14" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="37" end1="37" start2="39" end2="47" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+        <range start1="3" end1="5" start2="3" end2="5" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+        <range start1="7" end1="8" start2="7" end2="8" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="11" end1="13" start2="11" end2="13" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
       </ranges>
     </file>
   </component>
@@ -188,7 +155,7 @@
       <workItem from="1725786735943" duration="29004000" />
       <workItem from="1725890602855" duration="22256000" />
       <workItem from="1726004922456" duration="7603000" />
-      <workItem from="1726063307653" duration="4687000" />
+      <workItem from="1726063307653" duration="8187000" />
     </task>
     <servers />
   </component>

@@ -273,10 +273,10 @@ public class GandalfManager {
 
         if (!profession_number_format) {
             placeholders.put("profession_gui_progression_item", "gold_nugget");
-            placeholders.put("profession_gui_progression_state", "Currently set to: <gold>Percent");
+            placeholders.put("profession_gui_progression_state", "<gradient:#f1d807:#f1b107>Percent</gradient>");
         } else {
             placeholders.put("profession_gui_progression_item", "iron_nugget");
-            placeholders.put("profession_gui_progression_state", "Currently set to: <#C0C0C0>Decimal");
+            placeholders.put("profession_gui_progression_state", "<gradient:#bbc3ce:#959aa2>Decimal</gradient>");
         }
 
         PlaceholderManager.addPlaceholdersToPlayer(player, placeholders);

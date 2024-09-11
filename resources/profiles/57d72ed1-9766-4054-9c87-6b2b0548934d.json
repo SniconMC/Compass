@@ -1,16 +1,16 @@
 {
   "username": "wi1helm_",
   "rank_id": "villager",
-  "profession": "cleric",
-  "old_profession": "fletcher",
+  "profession": "weaponsmith",
+  "old_profession": "toolsmith",
   "emeralds": 0.0,
   "achievements": 0,
-  "profession_total_xp": 20445.0,
+  "profession_total_xp": 8178.0,
   "settings": {
     "player_visibility": true,
     "geri_visibility": false,
-    "profession_format": "text",
-    "profession_number_format": true
+    "profession_format": "icon",
+    "profession_number_format": false
   },
   "last_login_time": 1725721163247,
   "ip": ""

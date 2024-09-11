@@ -134,13 +134,14 @@
       },
       "display": {
         "name": [
-          "<gold>Toggle Format"
+          "» <gold>Profession Progress Format</gold> «"
         ],
         "lore": [
-          ["Shortcut:D "],
-          ["$(profession_gui_progression_state)"],
+          ["Quick access to change your setting"],
           [""],
-          ["<aqua> Click to toggle</aqua>"]
+          ["<gray>Currently set to:</gray> $(profession_gui_progression_state)"],
+          [""],
+          ["<gray>» <aqua>Click to toggle</aqua> «</gray>"]
         ],
         "model_data": null,
         "glint": false,

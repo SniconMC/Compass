@@ -131,11 +131,11 @@
       },
       "display": {
         "name": [
-          "<gold>Toggle Format"
+          "» <gold>Profession Progress Format</gold> «"
         ],
         "lore": [
           [" "],
-          ["$(profession_gui_progression_state)"],
+          ["<gray>Currently set to:</gray> $(profession_gui_progression_state)"],
           [""],
           ["<aqua> Click to toggle</aqua>"]
         ],

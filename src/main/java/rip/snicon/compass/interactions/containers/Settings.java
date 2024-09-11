@@ -141,13 +141,13 @@ public class Settings {
 
         if (clickedItem.material() == Material.IRON_NUGGET) {
             PlaceholderManager.setPlaceholderToPlayer(player, "profession_gui_progression_item", "gold_nugget");
-            PlaceholderManager.setPlaceholderToPlayer(player, "profession_gui_progression_state", "Currently set to: Percent");
+            PlaceholderManager.setPlaceholderToPlayer(player, "profession_gui_progression_state", "<gradient:#f1d807:#f1b107>Percent</gradient>");
             profile.getSettings().setProfession_number_format(false);
         }
 
         if (clickedItem.material() == Material.GOLD_NUGGET) {
             PlaceholderManager.setPlaceholderToPlayer(player, "profession_gui_progression_item", "iron_nugget");
-            PlaceholderManager.setPlaceholderToPlayer(player, "profession_gui_progression_state", "Currently set to: YoMomma");
+            PlaceholderManager.setPlaceholderToPlayer(player, "profession_gui_progression_state", "<gradient:#bbc3ce:#959aa2>Decimal</gradient>");
 
             profile.getSettings().setProfession_number_format(true);
         }

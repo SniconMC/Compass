@@ -8,7 +8,7 @@
   "profession_total_xp": 400.0,
   "settings": {
     "player_visibility": true,
-    "geri_visibility": false,
+    "geri_visibility": true,
     "profession_format": "icon",
     "profession_number_format": true
   },

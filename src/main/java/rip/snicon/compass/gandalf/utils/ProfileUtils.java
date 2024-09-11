@@ -8,7 +8,6 @@ import rip.snicon.compass.gandalf.config.GandalfProfile;
 public class ProfileUtils {
 
     public static void update(Player player, GandalfProfile profile) {
-        GandalfManager.setPlaceholders(player, profile); // Update placeholders
         GandalfManager.saveProfileToFile(player.getUuid().toString(), profile); // Save profile
         SidebarManager.reloadSidebars(); // Reload the sidebar
     }
