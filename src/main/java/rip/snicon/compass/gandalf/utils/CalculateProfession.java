@@ -115,7 +115,7 @@ public class CalculateProfession {
             if (totalXP >= cumulativeXP) {
                 item.setId("minecraft:green_stained_glass_pane"); // Unlocked
                 display.getLore().add(List.of("<gray>Progress to " + profession.getProfession_icon_style() + " " + profession.getProfession_style_sidebar() + ":</gray>"));
-                display.getLore().add(List.of("<blue><st>                              </st></blue> <yellow>100.0</yellow><gold>%</gold>"));
+                display.getLore().add(List.of("<green><st>                              </st></green> <green>100.0</green><dark_green>%</dark_green>"));
                 display.getLore().add(List.of("<green><bold>Unlocked</bold></green>"));
 
 
