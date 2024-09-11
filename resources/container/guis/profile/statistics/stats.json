@@ -51,7 +51,7 @@
     },
     {
       "slot": 13,
-      "id": "minecraft:emerald",
+      "id": "minecraft:totem_of_undying",
       "count": {
         "current": 1,
         "max": 64
@@ -78,7 +78,7 @@
     },
     {
       "slot": 15,
-      "id": "minecraft:iron_ingot",
+      "id": "minecraft:emerald",
       "count": {
         "current": 1,
         "max": 64

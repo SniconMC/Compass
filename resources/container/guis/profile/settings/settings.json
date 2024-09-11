@@ -25,7 +25,7 @@
   },
   "items": [
     {
-      "slot": 11,
+      "slot": 10,
       "id": "minecraft:oak_sign",
       "count": {
         "current": 1,
@@ -58,7 +58,7 @@
       }
     },
     {
-      "slot": 13,
+      "slot": 12,
       "id": "$(player_visibility_item)",
       "count": {
         "current": 1,
@@ -90,7 +90,7 @@
       }
     },
     {
-      "slot": 15,
+      "slot": 14,
       "id": "$(player_visibility_item_geri)",
       "count": {
         "current": 1,
@@ -119,6 +119,39 @@
       },
       "data": {
         "function": "rip.snicon.compass.interactions.containers.Settings.toggleGeriVisibility(player, event)",
+        "page": ""
+      }
+    },
+    {
+      "slot": 16,
+      "id": "minecraft:$(profession_gui_progression_item)",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+          "<gold>Toggle Format"
+        ],
+        "lore": [
+          [" "],
+          ["$(profession_gui_progression_state)"],
+          [""],
+          ["<aqua> Click to toggle</aqua>"]
+        ],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "isVanillaItem": true,
+        "function": "rip.snicon.compass.interactions.containers.Settings.toggleNumberFormat(player, event)",
         "page": ""
       }
     },

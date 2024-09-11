@@ -5,11 +5,13 @@ public class GandalfProfileSettings {
     private boolean player_visibility;
     private boolean geri_visibility;
     private String profession_format;
+    private boolean profession_number_format;
 
     public GandalfProfileSettings() {
         this.player_visibility = true;
         this.geri_visibility = false;
         this.profession_format = "icon";
+        this.profession_number_format = false;
     }
 
     public boolean isPlayer_visibility() {
@@ -34,5 +36,13 @@ public class GandalfProfileSettings {
 
     public void setProfession_format(String profession_format) {
         this.profession_format = profession_format;
+    }
+
+    public boolean isProfession_number_format() {
+        return profession_number_format;
+    }
+
+    public void setProfession_number_format(boolean profession_number_format) {
+        this.profession_number_format = profession_number_format;
     }
 }

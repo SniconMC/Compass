@@ -2,7 +2,7 @@
   "items": [
     {
       "slot": 3,
-      "id": "minecraft:emerald",
+      "id": "minecraft:totem_of_undying",
       "count": {
         "current": 1,
         "max": 64

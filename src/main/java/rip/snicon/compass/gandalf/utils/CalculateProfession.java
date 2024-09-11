@@ -116,19 +116,19 @@ public class CalculateProfession {
             if (totalXP >= cumulativeXP) {
                 item.setId("minecraft:green_stained_glass_pane"); // Unlocked
                 display.getLore().add(List.of("<gray>Progress to " + profession.getProfession_icon_style() + " " + profession.getProfession_style_sidebar() + ":</gray>"));
-                display.getLore().add(List.of("<green><st>                              </st></green> <yellow>100.0</yellow><gold>%</gold>"));
+                display.getLore().add(List.of(getProgressBar(profile ,totalXP, cumulativeXP,  profession.getXpRequired())));
                 display.getLore().add(List.of("<green><bold>Unlocked</bold></green>"));
 
 
             } else if (i > 1 && totalXP >= cumulativeXP - profession.getXpRequired()) {
                 item.setId("minecraft:orange_stained_glass_pane"); // Below this level
                 display.getLore().add(List.of("<gray>Progress to " + profession.getProfession_icon_style() + " " + profession.getProfession_style_sidebar() + ":</gray>"));
-                display.getLore().add(List.of(getProgressBar(totalXP, cumulativeXP,  profession.getXpRequired())));
+                display.getLore().add(List.of(getProgressBar(profile ,totalXP, cumulativeXP,  profession.getXpRequired())));
                 display.getLore().add(List.of("<red><bold>Locked</bold></red>"));
             } else {
                 item.setId("minecraft:red_stained_glass_pane"); // Locked
                 display.getLore().add(List.of("<gray>Progress to " + profession.getProfession_icon_style() + " " + profession.getProfession_style_sidebar() + ":</gray>"));
-                display.getLore().add(List.of("<white><st>                              </st></white> <yellow>0.0</yellow><gold>%</gold>"));
+                display.getLore().add(List.of(getProgressBar(profile ,totalXP, cumulativeXP,  profession.getXpRequired())));
                 display.getLore().add(List.of("<red><bold>Locked</bold></red>"));
             }
 
@@ -155,7 +155,7 @@ public class CalculateProfession {
             }
 
         }
-        
+
         // Add the JSON objects to the placeholders
         placeholders.put("profession_gui_items", jsonItemsBuilder.toString());
         placeholders.put("profession_progression_order", progession.toString().substring(1, progession.toString().length() - 1));
@@ -163,7 +163,7 @@ public class CalculateProfession {
         double maxXP = professions.stream().mapToDouble(GandalfProfession::getXpRequired).sum(); // Total XP required for all professions
 
         // Use getProgressBar to calculate the progress towards max profession
-        String progressBar = getProgressBar(totalXP, maxXP, maxXP);
+        String progressBar = getProgressBar(profile,totalXP, maxXP, maxXP);
 
         // Set the placeholder with the progress bar
         placeholders.put("max_profession_xp", String.valueOf(maxXP));
@@ -173,14 +173,17 @@ public class CalculateProfession {
         ProfileUtils.update(player, profile);
     }
 
-    public static String getProgressBar(double totalXP, double cumulativeXP, double xpRequired) {
-        // Calculate progress percentage
+    public static String getProgressBar(GandalfProfile profile, double totalXP, double cumulativeXP, double xpRequired) {
+        // Calculate progress percentage based on current profession
         double progress = (totalXP - (cumulativeXP - xpRequired)) / xpRequired;
+
+        // Ensure progress is not negative
+        progress = Math.max(progress, 0);
 
         // Allow progress to exceed 1 (i.e., allow more than 100%)
         double progressPercent = progress * 100;
 
-        // Format the progress percentage to two decimal places
+        // Format the progress percentage to one decimal place
         String formattedProgressPercent = String.format("%.1f", progressPercent);
 
         // Create a progress bar with 28 characters total length
@@ -205,8 +208,53 @@ public class CalculateProfession {
         }
         progressBar.append("</st></white>");
 
-        // If the percentage is greater than 100%, don't limit the percentage display
-        return progressBar.toString() + " <yellow>" + formattedProgressPercent + "</yellow><gold>%</gold>";
+        // Calculate overflow XP only if the totalXP is greater than or equal to cumulativeXP (meaning profession is unlocked)
+        boolean isUnlocked = totalXP >= cumulativeXP; // Check if the profession is unlocked
+        double xpProgress = Math.max(0, totalXP - (cumulativeXP - xpRequired));
+
+        // Calculate the overflow XP only for unlocked professions
+        if (isUnlocked) {
+            double overflowXP = totalXP - xpRequired;
+            if (overflowXP > 0) {
+                // If overflow XP exists, show it in number format or percentage format based on settings
+                if (profile.getSettings().isProfession_number_format()) {
+                    return progressBar + " <yellow>" + xpRequired + " / </yellow><gold>" + xpRequired + "</gold> " + formatWithUnitPrefix(overflowXP);
+                } else {
+                    return progressBar + " <yellow>" + formattedProgressPercent + "</yellow><gold>%</gold> " + formatWithUnitPrefix(overflowXP);
+                }
+            } else {
+                // If no overflow, show regular progress
+                if (profile.getSettings().isProfession_number_format()) {
+                    return progressBar + " <yellow>" + xpProgress + " / </yellow><gold>" + xpRequired + "</gold>";
+                } else {
+                    return progressBar + " <yellow>" + formattedProgressPercent + "</yellow><gold>%</gold>";
+                }
+            }
+        } else {
+            // If profession isn't unlocked, just show progress without overflow
+            if (profile.getSettings().isProfession_number_format()) {
+                return progressBar + " <yellow>" + xpProgress + " / </yellow><gold>" + xpRequired + "</gold>";
+            } else {
+                return progressBar + " <yellow>" + formattedProgressPercent + "</yellow><gold>%</gold>";
+            }
+        }
+    }
+
+
+
+    // Helper method to format large numbers with unit prefixes
+    public static String formatWithUnitPrefix(double number) {
+        String[] units = { "", "k", "M", "B", "T", "Q", "∞"};
+        int unitIndex = 0;
+
+        // Scale the number down to an appropriate unit
+        while (Math.abs(number) >= 1000 && unitIndex < units.length - 1) {
+            number /= 1000.0;
+            unitIndex++;
+        }
+
+        // Format the number with one decimal place and the appropriate unit
+        return String.format("(+%.1f%s XP)", number, units[unitIndex]);
     }
 
 }

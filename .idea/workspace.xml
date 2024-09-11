@@ -5,27 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/container/guis/profile/achivements/achievements.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/profile.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profile/profile.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/statistics/stats.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profile/statistics/stats.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/10 toolsmith.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/10 toolsmith.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/11 armorer.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/11 armorer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/12 cleric.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/12 cleric.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/13 cartographer.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/13 cartographer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/14 librarian.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/14 librarian.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/2 butcher.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/2 butcher.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/3 shepherd.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/3 shepherd.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/5 fletcher.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/5 fletcher.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/6 fisherman.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/6 fisherman.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/7 farmer.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/7 farmer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/8 mason.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/8 mason.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/9 weaponsmith.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/gandalf/professions/9 weaponsmith.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/profiles/e6b73dac-4618-4d55-98c9-86d3ede1ca11.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/e6b73dac-4618-4d55-98c9-86d3ede1ca11.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfileSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfileSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" afterDir="false" />
     </list>
-    <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="" />
+    <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="">
+      <change beforePath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/settings/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profile/settings/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfileSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfileSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,6 +61,42 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java">
+      <ranges>
+        <range start1="118" end1="119" start2="118" end2="119" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="125" end1="126" start2="125" end2="126" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="130" end1="131" start2="130" end2="131" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="157" end1="158" start2="157" end2="158" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="165" end1="166" start2="165" end2="166" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+        <range start1="175" end1="177" start2="175" end2="177" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="179" end1="179" start2="179" end2="182" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="182" end1="183" start2="185" end2="186" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="207" end1="209" start2="210" end2="257" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/resources/container/guis/profession/profession.json">
+      <ranges>
+        <range start1="59" end1="60" start2="59" end2="60" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="74" end1="76" start2="74" end2="76" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+        <range start1="127" end1="127" start2="127" end2="160" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java">
+      <ranges>
+        <range start1="12" end1="12" start2="12" end2="13" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="128" end1="128" start2="129" end2="160" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="151" end1="153" start2="183" end2="183" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfileSettings.java">
+      <ranges>
+        <range start1="7" end1="7" start2="7" end2="8" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+        <range start1="12" end1="12" start2="13" end2="14" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+        <range start1="37" end1="37" start2="39" end2="47" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+      </ranges>
+    </file>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -74,31 +108,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Run Compass.executor": "Run",
-    "Gradle.Build Compass.executor": "Run",
-    "Gradle.Compass [:Main.main()].executor": "Run",
-    "Gradle.Compass [:rip.snicon.compass.Main.main()].executor": "Run",
-    "Kotlin script (Beta).build.gradle.kts.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "extract.method.default.visibility": "public",
-    "git-widget-placeholder": "dev",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/wilhe/OneDrive/Dokument/GitHub/Compass/resources/container/guis/profile/achivements",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Run Compass.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build Compass.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Compass [:Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Compass [:rip.snicon.compass.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin script (Beta).build.gradle.kts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;public&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/wilhe/OneDrive/Dokument/GitHub/Compass/resources/container/guis/profile/achivements&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\wilhe\OneDrive\Dokument\GitHub\Compass\resources\container\guis\profile\achivements" />
@@ -115,6 +149,7 @@
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\container\guis" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="rip.snicon.compass.interactions.containers" />
       <recent name="rip.snicon.compass.instances.utils" />
     </key>
   </component>
@@ -123,11 +158,19 @@
       <option name="ALTERNATIVE_JRE_PATH" value="temurin-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="rip.snicon.compass.Main" />
-      <module name="Compass.main" />
+      <module name="rip.snicon.compass.Compass.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
+        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -145,6 +188,7 @@
       <workItem from="1725786735943" duration="29004000" />
       <workItem from="1725890602855" duration="22256000" />
       <workItem from="1726004922456" duration="7603000" />
+      <workItem from="1726063307653" duration="4687000" />
     </task>
     <servers />
   </component>

@@ -2,14 +2,15 @@
   "username": "wi1helm_",
   "rank_id": "villager",
   "profession": "cleric",
-  "old_profession": "librarian",
+  "old_profession": "fletcher",
   "emeralds": 0.0,
   "achievements": 0,
-  "profession_total_xp": 22000.0,
+  "profession_total_xp": 20445.0,
   "settings": {
     "player_visibility": true,
     "geri_visibility": false,
-    "profession_format": "text"
+    "profession_format": "text",
+    "profession_number_format": true
   },
   "last_login_time": 1725721163247,
   "ip": ""

@@ -228,6 +228,7 @@ public class GandalfManager {
         String icon_format = setting.getProfession_format();
         boolean hide_players = setting.isPlayer_visibility();
         boolean hide_geri = setting.isGeri_visibility();
+        boolean profession_number_format = setting.isProfession_number_format();
 
         GandalfRank rankConfig = getRank(rank);
         GandalfProfession professionConfig = getProfession(profession);
@@ -245,6 +246,8 @@ public class GandalfManager {
         placeholders.put("player_emeralds", Double.toString(emeralds));
         placeholders.put("player_achievement_points", Integer.toString(achievements));
         placeholders.put("player_total_xp", Double.toString(profession_total_xp));
+        placeholders.put("profession_gui_progression_item", "gold_nugget");
+        placeholders.put("profession_gui_progression_state", "Currently set to: Percent");
 
         if (Objects.equals(icon_format, "icon")) {
             placeholders.put("profession_format_state", "Icon");
@@ -266,6 +269,14 @@ public class GandalfManager {
         } else {
             placeholders.put("player_visibility_item_geri", "lime_dye");
             placeholders.put("player_visibility_state_geri", "<green>Show Geri</green>");
+        }
+
+        if (!profession_number_format) {
+            placeholders.put("profession_gui_progression_item", "gold_nugget");
+            placeholders.put("profession_gui_progression_state", "Currently set to: <gold>Percent");
+        } else {
+            placeholders.put("profession_gui_progression_item", "iron_nugget");
+            placeholders.put("profession_gui_progression_state", "Currently set to: <#C0C0C0>Decimal");
         }
 
         PlaceholderManager.addPlaceholdersToPlayer(player, placeholders);

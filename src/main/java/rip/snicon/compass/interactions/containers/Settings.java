@@ -10,6 +10,7 @@ import net.minestom.server.item.ItemStack;
 import net.minestom.server.item.Material;
 import rip.snicon.compass.gandalf.GandalfManager;
 import rip.snicon.compass.gandalf.config.GandalfProfile;
+import rip.snicon.compass.gandalf.utils.CalculateProfession;
 import rip.snicon.compass.gandalf.utils.TabUtils;
 
 import java.util.UUID;
@@ -126,6 +127,37 @@ public class Settings {
         ReloadContainer.reloadCurrentContainers(player);
     }
 
+    public static void toggleNumberFormat(Player player, Event event) {
+        if (!(event instanceof InventoryPreClickEvent clickEvent)) {
+            return;
+        }
+
+        GandalfProfile profile = GandalfManager.getProfiles(player);
+        if (profile == null) {
+            return;
+        }
+
+        ItemStack clickedItem = clickEvent.getClickedItem();
+
+        if (clickedItem.material() == Material.IRON_NUGGET) {
+            PlaceholderManager.setPlaceholderToPlayer(player, "profession_gui_progression_item", "gold_nugget");
+            PlaceholderManager.setPlaceholderToPlayer(player, "profession_gui_progression_state", "Currently set to: Percent");
+            profile.getSettings().setProfession_number_format(false);
+        }
+
+        if (clickedItem.material() == Material.GOLD_NUGGET) {
+            PlaceholderManager.setPlaceholderToPlayer(player, "profession_gui_progression_item", "iron_nugget");
+            PlaceholderManager.setPlaceholderToPlayer(player, "profession_gui_progression_state", "Currently set to: YoMomma");
+
+            profile.getSettings().setProfession_number_format(true);
+        }
+
+        updateViewerRule(player, profile);
+        GandalfManager.saveProfileToFile(player.getUuid().toString(), profile);
+        CalculateProfession.updateProfessionGUI(player, profile);
+        ReloadContainer.reloadCurrentContainers(player);
+    }
+
     public static void updateViewerRule(Player player, GandalfProfile profile) {
         boolean playerVisibility = profile.getSettings().isPlayer_visibility();
         boolean geriVisibility = profile.getSettings().isGeri_visibility();
@@ -149,6 +181,4 @@ public class Settings {
             }
         });
     }
-
-
 }

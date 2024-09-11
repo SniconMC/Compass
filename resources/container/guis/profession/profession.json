@@ -57,7 +57,7 @@
     },
     {
       "slot": 4,
-      "id": "minecraft:emerald",
+      "id": "minecraft:totem_of_undying",
       "count": {
         "current": 1,
         "max": 64
@@ -72,8 +72,8 @@
           ["by playing games and getting XP"],
           [""],
           ["<gray>Title:</gray> $(player_profession_icon) $(player_profession_sidebar)"],
-          ["<gray>Total Xp:</gray> <green>$(player_total_xp)</green>"],
-          ["<gray>Max Xp:</gray> <aqua>$(max_profession_xp)</aqua>"],
+          ["<gray>Total XP:</gray> <green>$(player_total_xp)</green>"],
+          ["<gray>Max XP:</gray> <aqua>$(max_profession_xp)</aqua>"],
           [""],
           ["<gray>Progress to <dark_gray>[</dark_gray><gray>✎</gray><dark_gray>]</dark_gray> Librarian:</gray>"],
           ["$(player_percentage_to_max)"],
@@ -122,6 +122,39 @@
       },
       "data": {
         "function": "",
+        "page": ""
+      }
+    },
+    {
+      "slot": 53,
+      "id": "minecraft:$(profession_gui_progression_item)",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": [
+          "<gold>Toggle Format"
+        ],
+        "lore": [
+          ["Shortcut:D "],
+          ["$(profession_gui_progression_state)"],
+          [""],
+          ["<aqua> Click to toggle</aqua>"]
+        ],
+        "model_data": null,
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "isVanillaItem": true,
+        "function": "rip.snicon.compass.interactions.containers.Settings.toggleNumberFormat(player, event)",
         "page": ""
       }
     },

@@ -59,6 +59,7 @@ public class Placeholder {
 
             PlaceholderManager.setPlaceholderToPlayer(player, "player_name", player.getUsername());
             PlaceholderManager.setPlaceholderToPlayer(player, "hub_explorer_random", HubExplorerEnum.getRandomText());
+
             CalculateProfession.updateProfessionGUI(player, profile);
         });
     }
