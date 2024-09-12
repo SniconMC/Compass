@@ -7,16 +7,12 @@
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/settings/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profile/settings/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/e6b73dac-4618-4d55-98c9-86d3ede1ca11.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/e6b73dac-4618-4d55-98c9-86d3ede1ca11.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sidebar/hub_sidebar.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sidebar/hub_sidebar.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/ProfileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/ProfileUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/hub.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/worlds/hub/hub.json" afterDir="false" />
     </list>
     <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/listener/SetPlayerChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/listener/SetPlayerChat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,20 +45,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json">
-      <ranges>
-        <range start1="3" end1="5" start2="3" end2="5" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="7" end1="8" start2="7" end2="8" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="11" end1="13" start2="11" end2="13" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-      </ranges>
-    </file>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -155,7 +143,8 @@
       <workItem from="1725786735943" duration="29004000" />
       <workItem from="1725890602855" duration="22256000" />
       <workItem from="1726004922456" duration="7603000" />
-      <workItem from="1726063307653" duration="8187000" />
+      <workItem from="1726063307653" duration="8818000" />
+      <workItem from="1726136861341" duration="4453000" />
     </task>
     <servers />
   </component>

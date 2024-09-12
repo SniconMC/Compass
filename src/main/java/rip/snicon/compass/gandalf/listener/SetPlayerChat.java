@@ -18,12 +18,6 @@ import java.util.Random;
 
 public class SetPlayerChat {
 
-    private List<String> randomMessages = List.of(
-            "im so confused",
-            "Maybe I will just shove the memory device up my ass and be done with it already",
-            "I used the word aforelinked today"
-    );
-
     public SetPlayerChat(){
         MinecraftServer.getGlobalEventHandler().addListener(PlayerChatEvent.class, event -> {
             event.setCancelled(true);

@@ -104,11 +104,10 @@
       "display": {
         "name": ["» <gold>Ways to Level</gold> «"],
         "lore": [
-          [
-            "Succession Order:"
-          ],
-          ["Nitwit"],
-          ["Buthcher"]
+          ["Shows a list of all XP sources"],
+          ["on the [NAME] Network"],
+          [""],
+          ["<gray>» <aqua>Click to toggle</aqua> «</gray>"]
         ],
         "model_data": "",
         "glint": false,

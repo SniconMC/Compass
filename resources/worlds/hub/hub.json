@@ -6,7 +6,7 @@
   "spawnPitch": 0.0,
   "spawnYaw": -180.0,
   "hasVoidLimit": true,
-  "voidLimitHeight": -64.0,
+  "voidLimitHeight": 0.0,
   "blockUpdates": false,
   "weather": "clear",
   "time": "4500",

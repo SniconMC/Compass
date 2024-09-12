@@ -22,10 +22,6 @@ public class GandalfManager {
 
     private static Gson gson = new Gson();
 
-    private static File dataFolderRanks = new File("resources/gandalf/ranks");
-    private static File dataFolderProfession = new File("resources/gandalf/professions");
-    private static File dataProfileFolder = new File("resources/profiles");
-
     private static Map<String, String> rankFileData;
     private static Map<String, String> professionFileData;
     private static Map<String, GandalfProfile> playerProfiles = new HashMap<>(); // Cached profiles
@@ -36,8 +32,8 @@ public class GandalfManager {
     public GandalfManager() {
         gson = new GsonBuilder().setPrettyPrinting().create();
 
-        rankFileData = new LoadGandalf().load(dataFolderRanks);
-        professionFileData = new LoadGandalf().load(dataFolderProfession);
+        rankFileData = new LoadGandalf().load(ProfileFolders.RANK_FOLDER.getFolder());
+        professionFileData = new LoadGandalf().load(ProfileFolders.PROFESSION_FOLDER.getFolder());
 
         getConstantConfigFiles();
     }
@@ -156,7 +152,7 @@ public class GandalfManager {
      * Loads a player profile from a file based on the player's UUID.
      */
     private static GandalfProfile getProfileFromFile(String playerUUID) {
-        File profileFile = new File(dataProfileFolder, playerUUID + ".json"); // Profile file path
+        File profileFile = new File(ProfileFolders.PROFILE_FOLDER.getFolder(), playerUUID + ".json"); // Profile file path
 
         if (!profileFile.exists()) {
             // If the file doesn't exist, return null
@@ -208,7 +204,7 @@ public class GandalfManager {
      * Saves a player's profile to a file.
      */
     public static void saveProfileToFile(String uuid, GandalfProfile profile) {
-        SaveProfile.saveProfileToFile(uuid, profile, dataProfileFolder, gson);
+        SaveProfile.saveProfileToFile(uuid, profile, ProfileFolders.PROFILE_FOLDER.getFolder(), gson);
     }
 
     /**
