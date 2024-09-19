@@ -1,17 +1,13 @@
 package rip.snicon.compass;
 
 import com.github.sniconmc.container.ContainerMain;
-import com.github.sniconmc.container.config.ContainerItem;
-import com.github.sniconmc.container.config.ContainerItemDisplay;
+import com.github.sniconmc.gandalf.GandalfMain;
 import com.github.sniconmc.momentum.MomentumMain;
 import com.github.sniconmc.oblivion.OblivionMain;
 import com.github.sniconmc.sidebar.SidebarMain;
 import com.github.sniconmc.utils.UtilsMain;
-import com.github.sniconmc.utils.item.ItemStackDestroyer;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.extras.MojangAuth;
-import net.minestom.server.item.ItemStack;
-import net.minestom.server.item.Material;
 import net.minestom.server.timer.SchedulerManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +15,6 @@ import rip.snicon.compass.blockhandlers.SignHandler;
 import rip.snicon.compass.blockhandlers.SkullHandler;
 import rip.snicon.compass.commands.admin.world.TravelCommand;
 import rip.snicon.compass.commands.player.HubCommand;
-import rip.snicon.compass.gandalf.GandalfMain;
 import rip.snicon.compass.instances.InstanceCreator;
 import rip.snicon.compass.listeners.Global;
 import rip.snicon.compass.utils.motd.MOTD;

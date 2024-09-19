@@ -11,9 +11,9 @@ import net.minestom.server.event.inventory.InventoryOpenEvent;
 import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.event.player.PlayerDisconnectEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
-import rip.snicon.compass.gandalf.GandalfManager;
-import rip.snicon.compass.gandalf.config.GandalfProfile;
-import rip.snicon.compass.gandalf.utils.CalculateProfession;
+import com.github.sniconmc.gandalf.GandalfManager;
+import com.github.sniconmc.gandalf.config.GandalfProfile;
+import com.github.sniconmc.gandalf.utils.CalculateProfession;
 import rip.snicon.compass.listeners.placeholders.enums.ColorEnum;
 import rip.snicon.compass.listeners.placeholders.enums.HubExplorerEnum;
 

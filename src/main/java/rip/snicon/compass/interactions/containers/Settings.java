@@ -8,10 +8,10 @@ import net.minestom.server.event.Event;
 import net.minestom.server.event.inventory.InventoryPreClickEvent;
 import net.minestom.server.item.ItemStack;
 import net.minestom.server.item.Material;
-import rip.snicon.compass.gandalf.GandalfManager;
-import rip.snicon.compass.gandalf.config.GandalfProfile;
-import rip.snicon.compass.gandalf.utils.CalculateProfession;
-import rip.snicon.compass.gandalf.utils.TabUtils;
+import com.github.sniconmc.gandalf.GandalfManager;
+import com.github.sniconmc.gandalf.config.GandalfProfile;
+import com.github.sniconmc.gandalf.utils.CalculateProfession;
+import com.github.sniconmc.gandalf.utils.TabUtils;
 
 import java.util.UUID;
 
