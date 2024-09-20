@@ -21,7 +21,7 @@ dependencies {
     implementation("com.github.SniconMC:Container:0.1.6")
     implementation("com.github.SniconMC:Sidebar:0.1.3")
     implementation("com.github.SniconMC:Oblivion:0.1.6")
-    implementation("com.github.SniconMC:Gandalf:0.1")
+    implementation("com.github.SniconMC:Gandalf:0.1.1")
 
     implementation("org.slf4j:slf4j-api:2.0.15") // SLF4J API
     implementation("ch.qos.logback:logback-classic:1.5.7") // Logback classic
