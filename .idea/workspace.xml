@@ -6,26 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/GandalfManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/ProfileFolders.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/ProfilePlayer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfPermission.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfession.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfProfileSettings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/config/GandalfRank.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/listener/SetPlayerChat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/listener/SetPlayerTab.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/CalculateProfession.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/ChatUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/LoadGandalf.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/ProfessionSorter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/ProfileUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/SaveProfile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/TabUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/gandalf/utils/TeamUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/container/guis/profession/profession_detailed_view.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profession/profession_detailed_view.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/achivements/achievements.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profile/achievements/achievements.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/statistics/stats.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/profile/statistics/stats.json" afterDir="false" />
     </list>
     <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,38 +61,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Run Compass.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build Compass.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Compass [:Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Compass [:rip.snicon.compass.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin script (Beta).build.gradle.kts.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;public&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/wilhe/OneDrive/Dokument/GitHub/Compass/resources/container/guis/profile/achivements&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Run Compass.executor": "Run",
+    "Gradle.Build Compass.executor": "Run",
+    "Gradle.Compass [:Main.main()].executor": "Run",
+    "Gradle.Compass [:rip.snicon.compass.Main.main()].executor": "Run",
+    "Kotlin script (Beta).build.gradle.kts.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "extract.method.default.visibility": "public",
+    "git-widget-placeholder": "dev",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Documents/Github Repositories/SniconMC/Servers/Compass/resources/momentum/telepads",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\momentum\telepads" />
       <recent name="C:\Users\wilhe\OneDrive\Dokument\GitHub\Compass\resources\container\guis\profile\achivements" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\professions" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\container\guis\profession" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\oblivion" />
-      <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\ranks" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\ranks" />
@@ -136,8 +120,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.22855.74" />
       </set>
     </attachedChunks>
   </component>
@@ -159,6 +143,11 @@
       <workItem from="1726004922456" duration="7603000" />
       <workItem from="1726063307653" duration="8818000" />
       <workItem from="1726136861341" duration="4453000" />
+      <workItem from="1726850511920" duration="114000" />
+      <workItem from="1727375760595" duration="1344000" />
+      <workItem from="1727377324429" duration="825000" />
+      <workItem from="1727380135905" duration="230000" />
+      <workItem from="1727481826223" duration="1587000" />
     </task>
     <servers />
   </component>

@@ -142,7 +142,7 @@
     "display_name": [
       "<dark_gray>Detailed Rewards Menu</dark_gray>"
     ],
-    "container_id": "stats",
+    "container_id": "profession_detailed_view",
     "modify": false,
     "modify_creative": true
   }
