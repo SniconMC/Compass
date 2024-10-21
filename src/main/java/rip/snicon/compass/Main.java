@@ -1,27 +1,18 @@
 package rip.snicon.compass;
 
-import com.github.sniconmc.container.ContainerMain;
-import com.github.sniconmc.gandalf.GandalfMain;
-import com.github.sniconmc.momentum.MomentumMain;
-import com.github.sniconmc.oblivion.OblivionMain;
-import com.github.sniconmc.sidebar.SidebarMain;
-import com.github.sniconmc.utils.UtilsMain;
 import net.minestom.server.MinecraftServer;
+import net.minestom.server.coordinate.Pos;
+import net.minestom.server.entity.Player;
+import net.minestom.server.event.GlobalEventHandler;
 import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
-import net.minestom.server.extras.MojangAuth;
+import net.minestom.server.event.player.PlayerBlockBreakEvent;
 import net.minestom.server.extras.velocity.VelocityProxy;
+import net.minestom.server.instance.InstanceContainer;
+import net.minestom.server.instance.InstanceManager;
+import net.minestom.server.instance.block.Block;
 import net.minestom.server.timer.SchedulerManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rip.snicon.compass.blockhandlers.SignHandler;
-import rip.snicon.compass.blockhandlers.SkullHandler;
-import rip.snicon.compass.commands.admin.world.TravelCommand;
-import rip.snicon.compass.commands.player.HubCommand;
-import rip.snicon.compass.instances.InstanceCreator;
-import rip.snicon.compass.listeners.Global;
-import rip.snicon.compass.utils.motd.MOTD;
-
-import java.util.UUID;
 
 public class Main {
 
@@ -33,39 +24,31 @@ public class Main {
         MinecraftServer minecraftServer = MinecraftServer.init();
         SchedulerManager scheduler = MinecraftServer.getSchedulerManager();
 
-        InstanceCreator instanceCreator = InstanceCreator.getInstance();
-        
+        //Create the instance(world)
+        InstanceManager instanceManager = MinecraftServer.getInstanceManager();
+        InstanceContainer instanceContainer = instanceManager.createInstanceContainer();
 
-        // Initialize MOTD
-        MOTD motd = new MOTD();
-
-        // Set global listener
-        Global globalListener = new Global();
-
-        // Initialize dependencies
-        UtilsMain.init();
-        SidebarMain.init();
-        MomentumMain.init();
-        ContainerMain.init();
-        OblivionMain.init();
-        GandalfMain.init();
-
-
-
-        // Register commands
-        MinecraftServer.getCommandManager().register(new TravelCommand());
-        MinecraftServer.getCommandManager().register(new HubCommand());
-
-        MinecraftServer.getBlockManager().registerHandler(SkullHandler.KEY, SkullHandler::new);
-        MinecraftServer.getBlockManager().registerHandler(SignHandler.KEY, SignHandler::new);
-
+        //Generate the world
+        instanceContainer.setGenerator(unit -> {
+            unit.modifier().fillHeight(0, 1, Block.GRASS_BLOCK);
+        });
         scheduler.buildShutdownTask(() -> {
             Main.logger.info("Shutting down...");
         });
 
+        GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
+        globalEventHandler.addListener(AsyncPlayerConfigurationEvent.class, event -> {
+           final Player player = event.getPlayer();
+           event.setSpawningInstance(instanceContainer);
+           player.setRespawnPoint(new Pos(0,3,0));
+        });
+        globalEventHandler.addListener(PlayerBlockBreakEvent.class, event -> {
+            event.setCancelled(true);
+        });
 
         // Start the server
         VelocityProxy.enable("balle123");
-        minecraftServer.start("127.0.0.1", 25566);
+
+        minecraftServer.start("0.0.0.0", 25566);
     }
 }
