@@ -1,6 +1,7 @@
 package rip.snicon.compass.listeners;
 
 import com.github.sniconmc.container.utils.ReloadContainer;
+import com.github.sniconmc.gandalf.database.DatabasePlayer;
 import com.github.sniconmc.oblivion.OblivionManager;
 import com.github.sniconmc.utils.item.ItemStackBuilder;
 import com.github.sniconmc.utils.item.ItemStackDestroyer;
@@ -91,12 +92,12 @@ public class Global {
             player.setHeldItemSlot((byte) 4);
 
 
-            GandalfProfile profile = GandalfManager.getProfiles(player);
-            if (profile == null) {
+            DatabasePlayer dataPlayer = GandalfManager.getDataPlayer(player);
+            if (dataPlayer == null) {
                 return;
             }
 
-            Settings.updateViewerRule(player, profile);
+            Settings.updateViewerRule(player, dataPlayer);
             ReloadContainer.reloadCurrentContainers(player);
 
         });

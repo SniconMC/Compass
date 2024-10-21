@@ -14,14 +14,15 @@ repositories {
 }
 
 dependencies {
+    implementation("com.mysql:mysql-connector-j:9.1.0")
     implementation("net.minestom:minestom-snapshots:65f75bb059") // Minestom
     implementation("net.kyori:adventure-text-minimessage:4.17.0") // MiniMessage
-    implementation("com.github.SniconMC:Utils:0.1.7")
+    implementation("com.github.SniconMC:Utils:0.1.7.1")
     implementation("com.github.SniconMC:Momentum:0.1.7")
-    implementation("com.github.SniconMC:Container:0.1.6")
     implementation("com.github.SniconMC:Sidebar:0.1.3")
+    implementation("com.github.SniconMC:Container:0.1.6")
     implementation("com.github.SniconMC:Oblivion:0.1.6")
-    implementation("com.github.SniconMC:Gandalf:0.1.1")
+    implementation("com.github.SniconMC:Gandalf:0.1.2.8")
 
     implementation("org.slf4j:slf4j-api:2.0.15") // SLF4J API
     implementation("ch.qos.logback:logback-classic:1.5.7") // Logback classic

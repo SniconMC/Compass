@@ -1,8 +1,8 @@
 package rip.snicon.compass.instances.utils;
 
-import com.github.sniconmc.momentum.MomentumMain;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
+import rip.snicon.compass.Main;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,13 +37,13 @@ public class LoadInstances {
     public Map<String, String> load(File parentFolder) {
 
         if (!parentFolder.exists() || !parentFolder.isDirectory()) {
-            MomentumMain.logger.warn("Parent folder does not exist or is not a directory: {}", parentFolder.getAbsolutePath());
+            Main.logger.warn("Parent folder does not exist or is not a directory: {}", parentFolder.getAbsolutePath());
             boolean hasCreated = parentFolder.mkdirs();
 
             if (hasCreated) {
-                MomentumMain.logger.info("Created folder '{}'!", parentFolder.getName());
+                Main.logger.info("Created folder '{}'!", parentFolder.getName());
             } else {
-                MomentumMain.logger.warn("Failed to create folder '{}'!", parentFolder.getName());
+                Main.logger.warn("Failed to create folder '{}'!", parentFolder.getName());
             }
 
         }
@@ -67,7 +67,7 @@ public class LoadInstances {
         File[] files = folder.listFiles();
 
         if (files == null) {
-            MomentumMain.logger.warn("The {} folder does not contain any files", folder.getName());
+            Main.logger.warn("The {} folder does not contain any files", folder.getName());
             return new HashSet<>();
         }
 
@@ -102,7 +102,7 @@ public class LoadInstances {
     private static Map<String, String> processJsonFiles(Set<File> files, File parentFolder) {
 
         if (files == null || files.isEmpty()) {
-            MomentumMain.logger.warn("The {} folder does not contain any json files", parentFolder.getName());
+            Main.logger.warn("The {} folder does not contain any json files", parentFolder.getName());
             return new HashMap<>();
         }
 
@@ -117,10 +117,10 @@ public class LoadInstances {
 
             } catch (JsonSyntaxException | JsonIOException e) {
                 // Handle Gson-specific errors
-                MomentumMain.logger.error("Error parsing JSON file: {}", file.getName());
+                Main.logger.error("Error parsing JSON file: {}", file.getName());
             } catch (IOException e) {
                 // Handle IO errors
-                MomentumMain.logger.error("Error loading file in folder '{}' file: {}", parentFolder.getName(), file.getName());
+                Main.logger.error("Error loading file in folder '{}' file: {}", parentFolder.getName(), file.getName());
             }
         }
 
@@ -148,14 +148,14 @@ public class LoadInstances {
                     // Read the content of the file and return it as a string
                     return new String(Files.readAllBytes(file.toPath()));
                 } catch (IOException e) {
-                    MomentumMain.logger.error("Error loading specific file '{}' in folder '{}'", fileName, parentFolder.getName());
+                    Main.logger.error("Error loading specific file '{}' in folder '{}'", fileName, parentFolder.getName());
                     return "";
                 }
             }
         }
 
         // If the file is not found, return an empty string
-        MomentumMain.logger.warn("The file {}.json could not be found in folder: {}", fileName, parentFolder.getAbsolutePath());
+        Main.logger.warn("The file {}.json could not be found in folder: {}", fileName, parentFolder.getAbsolutePath());
         return "";
     }
 }

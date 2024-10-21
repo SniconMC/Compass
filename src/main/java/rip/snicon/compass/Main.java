@@ -7,7 +7,9 @@ import com.github.sniconmc.oblivion.OblivionMain;
 import com.github.sniconmc.sidebar.SidebarMain;
 import com.github.sniconmc.utils.UtilsMain;
 import net.minestom.server.MinecraftServer;
+import net.minestom.server.event.player.AsyncPlayerConfigurationEvent;
 import net.minestom.server.extras.MojangAuth;
+import net.minestom.server.extras.velocity.VelocityProxy;
 import net.minestom.server.timer.SchedulerManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +20,8 @@ import rip.snicon.compass.commands.player.HubCommand;
 import rip.snicon.compass.instances.InstanceCreator;
 import rip.snicon.compass.listeners.Global;
 import rip.snicon.compass.utils.motd.MOTD;
+
+import java.util.UUID;
 
 public class Main {
 
@@ -30,6 +34,7 @@ public class Main {
         SchedulerManager scheduler = MinecraftServer.getSchedulerManager();
 
         InstanceCreator instanceCreator = InstanceCreator.getInstance();
+        
 
         // Initialize MOTD
         MOTD motd = new MOTD();
@@ -60,7 +65,7 @@ public class Main {
 
 
         // Start the server
-        MojangAuth.init();
-        minecraftServer.start("0.0.0.0", 25565);
+        VelocityProxy.enable("balle123");
+        minecraftServer.start("127.0.0.1", 25566);
     }
 }

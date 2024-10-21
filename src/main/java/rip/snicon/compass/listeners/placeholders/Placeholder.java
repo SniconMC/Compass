@@ -1,5 +1,6 @@
 package rip.snicon.compass.listeners.placeholders;
 
+import com.github.sniconmc.gandalf.database.DatabasePlayer;
 import com.github.sniconmc.sidebar.SidebarManager;
 import com.github.sniconmc.utils.placeholder.PlaceholderManager;
 import net.minestom.server.MinecraftServer;
@@ -55,22 +56,22 @@ public class Placeholder {
 
             GandalfManager.initiateGandalf(player);
 
-            GandalfProfile profile = GandalfManager.getProfiles(player);
+            DatabasePlayer dataPlayer = GandalfManager.getDataPlayer(player);
 
             PlaceholderManager.setPlaceholderToPlayer(player, "player_name", player.getUsername());
             PlaceholderManager.setPlaceholderToPlayer(player, "hub_explorer_random", HubExplorerEnum.getRandomText());
 
-            CalculateProfession.updateProfessionGUI(player, profile);
+            CalculateProfession.updateProfessionGUI(player, dataPlayer);
         });
     }
     public void onPlayerSpawn(){
         placeholderNode.addListener(PlayerSpawnEvent.class, event -> {
             final Player player = event.getPlayer();
 
-            GandalfProfile profile = GandalfManager.getProfiles(player);
+            DatabasePlayer dataPlayer = GandalfManager.getDataPlayer(player);
 
             CalculateProfession.updateProfession(player);
-            CalculateProfession.updateProfessionGUI(player, profile);
+            CalculateProfession.updateProfessionGUI(player, dataPlayer);
 
             Collection<Player> onlinePlayers = MinecraftServer.getConnectionManager().getOnlinePlayers();
 

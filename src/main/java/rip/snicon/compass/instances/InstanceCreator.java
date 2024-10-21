@@ -63,7 +63,7 @@ public class InstanceCreator {
             } catch (JsonSyntaxException | JsonIOException e) {
                 Main.logger.error("Error parsing JSON in world file: {}", worldName, e);
             } catch (Exception e) {
-                Main.logger.error("Unexpected error processing world file: {}, {}", worldName, e.fillInStackTrace());
+                Main.logger.error("Unexpected error processing world file: {}", worldName, e.fillInStackTrace());
             }
         }
         Main.logger.info(worldNameToInstanceMap.toString());
