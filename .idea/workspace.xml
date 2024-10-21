@@ -6,149 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/[unused] auction.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profession/profession.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profession/profession_detailed_view.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/achievements/achievements.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/cosmetics/cosmetics.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/profile.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/settings/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/profile/statistics/stats.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/server selector/server_selector.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/favicon/obama.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/favicon/stormhold.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/favicon/znopp logo 8x8 emblem 64x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/1 nitwit.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/10 toolsmith.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/11 armorer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/12 cleric.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/13 cartographer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/14 librarian.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/2 butcher.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/3 shepherd.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/4 leatherworker.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/5 fletcher.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/6 fisherman.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/7 farmer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/8 mason.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/9 weaponsmith.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/professions/permissions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/ranks/permissions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/ranks/player/1 villager.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/ranks/player/2 trader.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/ranks/player/3 golem.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/ranks/player/4 allay.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/ranks/staff/5 vex.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/ranks/staff/6 vindicator.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/gandalf/ranks/staff/7 evoker.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/momentum/launchpads/garden.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/momentum/launchpads/hub.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/momentum/launchpads/windmill.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/momentum/telepads/from_anbil.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/momentum/telepads/to_anbil.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/motd/motd.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/Blockhunt.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/Blocks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/Cosmetics.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/Farming.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/Fishing.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/Hub Explorer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/Parkour.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/Dinnerbone.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/Grumm.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/Herobrine.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/Michael.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/NPC C418.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/NPC Notch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/NPC Snicon.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/NPC jeb_.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/NPC julius.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/NPC wi1helm_.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/oblivion/fun/NPC znopp.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/29bbaf64-6e35-408d-9eb4-7b26bfd17cc2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/4f7c236f-d3d9-4eb3-8101-1b99a61224d9.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/57d72ed1-9766-4054-9c87-6b2b0548934d.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/74aead49-7372-4ef4-98ab-002cacc65511.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/913a4e59-664e-444c-b694-eed7d74d9062.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/9f34e48c-96a4-4b09-ae5d-ac7c619a1297.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/a6b75c1a-bfb0-4ec4-aa95-e76835f38704.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/e0fd6ae5-b395-49af-b377-f3e977f27bd9.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/e51531e8-b001-42d5-bc52-35d86196f320.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/e6b73dac-4618-4d55-98c9-86d3ede1ca11.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sidebar/hub_sidebar.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/afk/afk.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/afk/level.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/afk/level.dat_old" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/afk/region/r.-1.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/afk/region/r.-1.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/afk/region/r.0.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/afk/region/r.0.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/entities/r.-1.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/entities/r.-1.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/entities/r.0.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/entities/r.0.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/hub.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/level.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/level.dat_old" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-1.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-1.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-1.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-1.1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-2.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-2.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-2.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-2.1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.0.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.0.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.0.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.0.1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.1.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.1.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.1.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.1.1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/level.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/level.dat_old" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/old_hub.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-1.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-1.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-1.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-1.1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-2.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-2.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-2.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.-2.1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.0.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.0.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.0.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.0.1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.1.-1.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.1.-2.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.1.0.mca" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/worlds/old_hub/region/r.1.1.mca" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/blockhandlers/SignHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/blockhandlers/SkullHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/commands/admin/world/TravelCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/commands/player/HubCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/CustomInstanceContainer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/InstanceCreator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/utils/LoadInstances.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/worlds/WorldInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/VoidListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/interacts/Container.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/interacts/Oblivion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/enums/ColorEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/enums/HubExplorerEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/worlds/AFK.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/worlds/Hub.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/function/FunctionUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/motd/MOTD.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/motd/MOTDConfig.java" beforeDir="false" />
     </list>
     <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -270,7 +128,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="temurin-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="rip.snicon.compass.Main" />
-      <module name="rip.snicon.compass.Compass.main" />
+      <module name="Compass.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

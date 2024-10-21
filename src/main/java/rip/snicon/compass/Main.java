@@ -9,6 +9,7 @@ import net.minestom.server.event.player.PlayerBlockBreakEvent;
 import net.minestom.server.extras.velocity.VelocityProxy;
 import net.minestom.server.instance.InstanceContainer;
 import net.minestom.server.instance.InstanceManager;
+import net.minestom.server.instance.LightingChunk;
 import net.minestom.server.instance.block.Block;
 import net.minestom.server.timer.SchedulerManager;
 import org.slf4j.Logger;
@@ -32,6 +33,9 @@ public class Main {
         instanceContainer.setGenerator(unit -> {
             unit.modifier().fillHeight(0, 1, Block.GRASS_BLOCK);
         });
+        //Add Lighting
+        instanceContainer.setChunkSupplier(LightingChunk::new);
+
         scheduler.buildShutdownTask(() -> {
             Main.logger.info("Shutting down...");
         });
@@ -45,9 +49,6 @@ public class Main {
         globalEventHandler.addListener(PlayerBlockBreakEvent.class, event -> {
             event.setCancelled(true);
         });
-
-        // Start the server
-        VelocityProxy.enable("balle123");
 
         minecraftServer.start("0.0.0.0", 25566);
     }
