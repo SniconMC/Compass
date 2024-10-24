@@ -25,31 +25,46 @@ public class Main {
         MinecraftServer minecraftServer = MinecraftServer.init();
         SchedulerManager scheduler = MinecraftServer.getSchedulerManager();
 
-        //Create the instance(world)
+        // Set default port or use provided argument
+        int port = 25565; // Default port
+
+        if (args.length > 0) {
+            try {
+                port = Integer.parseInt(args[0]);
+            } catch (NumberFormatException e) {
+                Main.logger.error("Invalid port number. Using default port 25565.");
+            }
+        }
+        Main.logger.info("Server starting on port: {}",port);
+        // Create the instance(world)
         InstanceManager instanceManager = MinecraftServer.getInstanceManager();
         InstanceContainer instanceContainer = instanceManager.createInstanceContainer();
 
-        //Generate the world
+        // Generate the world
         instanceContainer.setGenerator(unit -> {
             unit.modifier().fillHeight(0, 1, Block.GRASS_BLOCK);
         });
-        //Add Lighting
+
+        // Add Lighting
         instanceContainer.setChunkSupplier(LightingChunk::new);
 
+        // Schedule shutdown task
         scheduler.buildShutdownTask(() -> {
             Main.logger.info("Shutting down...");
         });
 
+        // Global Event Handlers
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
         globalEventHandler.addListener(AsyncPlayerConfigurationEvent.class, event -> {
-           final Player player = event.getPlayer();
-           event.setSpawningInstance(instanceContainer);
-           player.setRespawnPoint(new Pos(0,3,0));
+            final Player player = event.getPlayer();
+            event.setSpawningInstance(instanceContainer);
+            player.setRespawnPoint(new Pos(0, 3, 0));
         });
         globalEventHandler.addListener(PlayerBlockBreakEvent.class, event -> {
             event.setCancelled(true);
         });
 
-        minecraftServer.start("0.0.0.0", 25566);
+        // Start the server on the chosen port
+        minecraftServer.start("0.0.0.0", port);
     }
 }
