@@ -1,14 +1,14 @@
-# Use a base image with OpenJDK installed
-FROM openjdk:21-jdk
+# Use a minimal base image with Java
+FROM openjdk:21-jdk-slim
 
-# Set the working directory inside the container
+# Set the working directory
 WORKDIR /app
 
-# Copy the Minestom JAR file into the container
-COPY ./Compass-0.1.jar ./server.jar
+# Copy the server JAR into the container
+COPY ./Compass-0.1.jar /app/server.jar
 
-# Expose the default Minecraft port
+# Expose the port
 EXPOSE 25565
 
-# Start the Minestom server on the internal port 25565
-CMD ["java", "-jar", "server.jar"]
+# Start the server with dynamic port configuration
+CMD ["java", "-jar", "/app/server.jar", "--port", "${SERVER_PORT:-25565}"]
