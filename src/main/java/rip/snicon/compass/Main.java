@@ -19,6 +19,7 @@ import rip.snicon.compass.commands.admin.world.TravelCommand;
 import rip.snicon.compass.commands.player.HubCommand;
 import rip.snicon.compass.instances.InstanceCreator;
 import rip.snicon.compass.listeners.Global;
+import rip.snicon.compass.proxy.Servers;
 import rip.snicon.compass.utils.motd.MOTD;
 
 import java.util.UUID;
@@ -60,6 +61,7 @@ public class Main {
         MinecraftServer.getBlockManager().registerHandler(SignHandler.KEY, SignHandler::new);
 
         scheduler.buildShutdownTask(() -> {
+            Servers.unregister(); // Deregisters the server
             Main.logger.info("Shutting down...");
         });
 
@@ -72,5 +74,7 @@ public class Main {
         VelocityProxy.enable(velocitySecret);
         // Start the server
         minecraftServer.start("0.0.0.0", port);
+        Servers.register();   // Registers the server
+
     }
 }
