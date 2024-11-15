@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-13_13_58_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-13_13_58_[Changes]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-13_13_58__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-13_13_58__Changes_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/container/guis/selectors/server_selector.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/LobbySelector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/proxy/PluginMessages.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/guis/server selector/server_selector.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/selectors/lobby_selector.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/interacts/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/interacts/Container.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" afterDir="false" />
     </list>
     <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,20 +114,7 @@
       <recent name="rip.snicon.compass.instances.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Run Compass">
-    <configuration name="QuickStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="rip.snicon.compass.QuickStart" />
-      <module name="rip.snicon.compass.Compass.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="rip.snicon.compass.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Gradle.Compass [build]">
     <configuration name="Run Compass" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="temurin-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -147,15 +124,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Compass [build]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.Run Compass" />
-      <item itemvalue="Application.QuickStart" />
+      <item itemvalue="Gradle.Compass [build]" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.QuickStart" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

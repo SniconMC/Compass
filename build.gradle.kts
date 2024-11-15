@@ -1,10 +1,11 @@
 plugins {
     id("java")
+    id("com.gradleup.shadow") version "8.3.0"
 }
 
 group = "rip.snicon.compass"
 version = "0.1"
-description = "The SniconMC lobby server"
+description = "The SniconMC hub lobby server"
 
 repositories {
     mavenCentral()
@@ -30,8 +31,28 @@ dependencies {
     implementation("com.google.guava:guava:32.1.2-jre") // Byte stuff
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21)) // Minestom has a minimum Java version of 21
+    }
+}
+
+
 tasks {
     compileJava {
         options.encoding = "UTF-8"
+    }
+    jar {
+        manifest {
+            attributes["Main-Class"] = "rip.snicon.compass.Main" // Change this to your main class
+        }
+    }
+
+    build {
+        dependsOn(shadowJar)
+    }
+    shadowJar {
+        mergeServiceFiles()
+        archiveClassifier.set("") // Prevent the -all suffix on the shadowjar file.
     }
 }

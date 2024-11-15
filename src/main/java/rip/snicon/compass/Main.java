@@ -64,8 +64,13 @@ public class Main {
         });
 
 
+        // Default port to 25565 if no environment variable is set
+        int port = Integer.parseInt(System.getenv().getOrDefault("SERVER_PORT", "25565"));
+        Main.logger.info("Server port: {}", port);
+        // Default port to 25565 if no environment variable is set
+        String velocitySecret = System.getenv().getOrDefault("SERVER_PORT", "balle123");
+        VelocityProxy.enable(velocitySecret);
         // Start the server
-        VelocityProxy.enable("balle123");
-        minecraftServer.start("127.0.0.1", 25566);
+        minecraftServer.start("127.0.0.1", port);
     }
 }
