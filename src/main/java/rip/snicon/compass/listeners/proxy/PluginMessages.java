@@ -31,7 +31,7 @@ public class PluginMessages {
 
     public void onPluginMessage() {
         placeholderNode.addListener(PlayerPluginMessageEvent.class, event -> {
-            Main.logger.info("Hello");
+
             if (!event.getIdentifier().equals("bungeecord:main")) {
                 return;
             }
@@ -50,17 +50,14 @@ public class PluginMessages {
                 for (int i = 0; i < playerCountList.length; i++) {
                     playerCountsArray[i] = Integer.parseInt(playerCountList[i]);
                 }
-
+                // Read the offline servers
+                String offlineServers = in.readUTF();
+                String[] offlineServerList = offlineServers.split(" ");
                 // Read the player's current server
                 String currentServer = in.readUTF();
 
-                // Log the information for debugging
-                Main.logger.info("Servers: " + servers);
-                Main.logger.info("Player Counts: " + playerCounts);
-                Main.logger.info("Current Server: " + currentServer);
-
                 // Directly call createLobbySelector with all necessary data
-                LobbySelector.createLobbySelector(event.getPlayer(), List.of(serverList), currentServer, playerCountsArray);
+                LobbySelector.createLobbySelector(event.getPlayer(), List.of(serverList), currentServer, playerCountsArray, List.of(offlineServerList));
             }
         });
     }

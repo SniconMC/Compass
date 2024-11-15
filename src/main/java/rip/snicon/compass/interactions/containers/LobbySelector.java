@@ -3,6 +3,7 @@ package rip.snicon.compass.interactions.containers;
 import com.github.sniconmc.container.ContainerMain;
 import com.github.sniconmc.container.ContainerManager;
 import com.github.sniconmc.container.config.ContainerItem;
+import com.github.sniconmc.container.config.ContainerItemData;
 import com.github.sniconmc.container.config.ContainerItemDisplay;
 import com.github.sniconmc.container.creators.ContainerCreator;
 import com.github.sniconmc.utils.item.ItemStackBuilder;
@@ -20,26 +21,40 @@ import net.minestom.server.item.Material;
 import rip.snicon.compass.Main;
 import rip.snicon.compass.listeners.proxy.PluginMessages;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LobbySelector {
 
     public static void requestServerInfo(Player player) {
-        Main.logger.info("Click");
         ByteArrayDataOutput out = ByteStreams.newDataOutput();
         out.writeUTF("ServerSelectorInfo");
         player.sendPluginMessage("bungeecord:main", out.toByteArray());
     }
 
-    public static void createLobbySelector(Player player, List<String> servers, String currentServer, int[] playerCounts) {
+    public static void createLobbySelector(Player player, List<String> servers, String currentServer, int[] playerCounts, List<String> offlineServers) {
         if (servers == null || servers.isEmpty()) {
             return;
         }
 
         Gson gson = new Gson();
         List<String> jsonItems = new ArrayList<>();
-        int server_count = servers.size();
+
+        // Create a list of ServerInfo objects to hold server details
+        List<ServerInfo> serverInfoList = new ArrayList<>();
+        for (int i = 0; i < servers.size(); i++) {
+            String serverName = servers.get(i);
+            int playerCount = playerCounts[i];
+            boolean isOffline = offlineServers.contains(serverName);
+            ServerInfo info = new ServerInfo(serverName, playerCount, isOffline);
+            serverInfoList.add(info);
+        }
+
+        // Sort the serverInfoList by server number extracted from server names
+        serverInfoList.sort(Comparator.comparingInt(info -> extractNumber(info.serverName)));
+
+        int server_count = serverInfoList.size();
         Main.logger.error(String.valueOf(server_count));
 
         // Calculate the required number of rows
@@ -47,34 +62,58 @@ public class LobbySelector {
         int itemsPerRow = 7;
 
         // Populate each server's information in the GUI
-        for (int i = 0; i < servers.size(); i++) {
-            String serverName = servers.get(i);
-            int playerCount = playerCounts[i];
+        for (int i = 0; i < serverInfoList.size(); i++) {
+            ServerInfo info = serverInfoList.get(i);
+            String serverName = info.serverName;
+            int serverNumber = extractNumber(serverName); // Extract the number from the server name
+            int playerCount = info.playerCount;
             int slot = getSlot(i);
 
             // Determine if this is the current server
             boolean isCurrentServer = serverName.equals(currentServer);
 
-            // Set the display name and color
-            String displayName = isCurrentServer
-                    ? "<green>Server: " + serverName  // Green color code for current server
-                    : "<yellow>Server: " + serverName;
+            // Check if the server is offline
+            boolean isOffline = info.isOffline;
 
-            // Set lore based on whether the player is on the server
-            List<List<String>> lore = isCurrentServer
-                    ? List.of(
-                    List.of("Players: " + playerCount),
-                    List.of(""),
-                    List.of("<green>You are connected to this server")
-            )
-                    : List.of(
-                    List.of("Players: " + playerCount),
-                    List.of(""),
-                    List.of("<yellow>Click to connect to server")
-            );
+            String displayName;
+            List<List<String>> lore;
+            String itemMaterial;
+            String clickAction = null; // Default to null; set if server is online
 
-            // Set item material based on current server
-            String itemMaterial = isCurrentServer ? "minecraft:emerald" : "minecraft:quartz";
+            if (isOffline) {
+                // Server is offline
+                displayName = "<red>Lobby #" + serverNumber + " (Offline)";
+                lore = List.of(
+                        List.of("Players: " + playerCount),
+                        List.of(""),
+                        List.of("<red>This lobby is currently offline")
+                );
+                itemMaterial = "minecraft:netherite_block"; // Use a barrier block to represent offline servers
+                // No click action for offline servers
+                clickAction = ""; // Or set to null
+            } else {
+                // Server is online
+                if (isCurrentServer) {
+                    displayName = "<green>Lobby #" + serverNumber;
+                    lore = List.of(
+                            List.of("Players: " + playerCount),
+                            List.of(""),
+                            List.of("<green>You are connected to this lobby")
+                    );
+                    itemMaterial = "minecraft:emerald_block";
+                } else {
+                    displayName = "<yellow>Lobby #" + serverNumber;
+                    lore = List.of(
+                            List.of("Players: " + playerCount),
+                            List.of(""),
+                            List.of("<yellow>Click to connect to this lobby")
+                    );
+                    itemMaterial = "minecraft:iron_block";
+                }
+                // Set click action to connect to the server
+                clickAction = "rip.snicon.compass.proxy.Connect.ConnectPlayerToServer(player," + serverName + ")";
+            }
+
             Main.logger.error(displayName);
 
             // Create the container item
@@ -84,6 +123,13 @@ public class LobbySelector {
                     lore,
                     false, "", true
             ));
+
+            if (clickAction != null && !clickAction.isEmpty()) {
+                item.setData(new ContainerItemData(clickAction, "", false));
+            } else {
+                // For offline servers, set item data to prevent any action
+                item.setData(new ContainerItemData("", "", false));
+            }
 
             String jsonString = gson.toJson(item, ContainerItem.class);
             jsonItems.add(jsonString);
@@ -105,7 +151,7 @@ public class LobbySelector {
             jsonItems.add(airJsonString);
         }
 
-        // Log the JSON data for debugging
+        // Log the number of rows for debugging
         Main.logger.info(String.valueOf(rows));
 
         // Set placeholders and open the container
@@ -113,6 +159,20 @@ public class LobbySelector {
         PlaceholderManager.setPlaceholderToPlayer(player, "lobby_selector_rows", String.valueOf(rows));
         ContainerCreator.openContainer(player, "lobby_selector");
     }
+
+    // Helper class to hold server information
+    static class ServerInfo {
+        String serverName;
+        int playerCount;
+        boolean isOffline;
+
+        public ServerInfo(String serverName, int playerCount, boolean isOffline) {
+            this.serverName = serverName;
+            this.playerCount = playerCount;
+            this.isOffline = isOffline;
+        }
+    }
+
 
 
     private static int getSlot(int index) {
@@ -136,25 +196,28 @@ public class LobbySelector {
 
         // Check if we need extra rows due to the 5-server limit per incomplete row
         int remainingServers = numServers;
-        int rows = 0;
+        int rows = 2;
         while (remainingServers > 0) {
             if (remainingServers >= 7) {
                 remainingServers -= 7;
                 rows += 1;
-            } else if (remainingServers > 5) {
-                // If we have 6 servers, we need 2 rows (3 servers each)
-                rows += 2;
-                remainingServers = 0;
             } else {
-                rows += 1;
                 remainingServers = 0;
-            }
-            if (remainingServers > 0) {
                 rows += 1;
             }
+
         }
         Main.logger.error(String.valueOf(rows));
         // Enforce minimum of 3 rows and maximum of 6 rows
         return Math.min(6, Math.max(3, rows));
+    }
+
+    public static int extractNumber(String serverName) {
+        Pattern pattern = Pattern.compile("-(\\d+)");
+        Matcher matcher = pattern.matcher(serverName);
+        if (matcher.find()) {
+            return Integer.parseInt(matcher.group(1));
+        }
+        return 666; // Return a large value if no match is found
     }
 }
