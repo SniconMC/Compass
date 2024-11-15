@@ -92,6 +92,35 @@
         "function": "",
         "page": "profile"
       }
+    },
+    {
+      "slot": 8,
+      "id": "minecraft:nether_star",
+      "count": {
+        "current": 1,
+        "max": 64
+      },
+      "display": {
+        "name": ["» <gradient:gold:#ffff1c>Lobby Selector</gradient> «"],
+        "lore": [
+          ["View other lobbies or change lobby"],
+          [""],
+          ["<gray>» <aqua>Click to open</aqua> «</gray>"]
+        ],
+        "model_data": "",
+        "glint": false,
+        "dye_color": "",
+        "show_tooltip": true
+      },
+      "skin": {
+        "player": "this",
+        "uuid": "",
+        "texture": ""
+      },
+      "data": {
+        "function": "rip.snicon.compass.interactions.containers.LobbySelector.requestServerInfo(player)",
+        "page": ""
+      }
     }
   ],
   "settings": {

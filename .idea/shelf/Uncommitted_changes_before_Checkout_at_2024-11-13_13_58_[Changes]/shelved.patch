@@ -1,0 +1,528 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"b0fce7a3-077c-4367-8c81-267978b239a1\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/build.gradle.kts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/build.gradle.kts\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/resources/profiles/913a4e59-664e-444c-b694-eed7d74d9062.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/resources/profiles/913a4e59-664e-444c-b694-eed7d74d9062.json\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/InstanceCreator.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/InstanceCreator.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/utils/LoadInstances.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/utils/LoadInstances.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java\" afterDir=\"false\" />\r\n    </list>\r\n    <list id=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" name=\"Changes by wilhe\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <projects_view>\r\n          <tree_state>\r\n            <expand>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"Compass\" type=\"f1a62948:ProjectNode\" />\r\n              </path>\r\n            </expand>\r\n            <select />\r\n          </tree_state>\r\n        </projects_view>\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Enum\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GoLibraries\">\r\n    <option name=\"indexEntireGoPath\" value=\"true\" />\r\n  </component>\r\n  <component name=\"LineStatusTrackerManager\">\r\n    <file path=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java\">\r\n      <ranges>\r\n        <range start1=\"3\" end1=\"3\" start2=\"3\" end2=\"5\" changelist=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" />\r\n        <range start1=\"11\" end1=\"12\" start2=\"13\" end2=\"13\" changelist=\"b0fce7a3-077c-4367-8c81-267978b239a1\" />\r\n        <range start1=\"28\" end1=\"30\" start2=\"29\" end2=\"31\" changelist=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" />\r\n        <range start1=\"36\" end1=\"37\" start2=\"37\" end2=\"38\" changelist=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" />\r\n        <range start1=\"42\" end1=\"50\" start2=\"43\" end2=\"44\" changelist=\"b0fce7a3-077c-4367-8c81-267978b239a1\" />\r\n        <range start1=\"51\" end1=\"51\" start2=\"45\" end2=\"46\" changelist=\"b0fce7a3-077c-4367-8c81-267978b239a1\" />\r\n        <range start1=\"54\" end1=\"59\" start2=\"49\" end2=\"50\" changelist=\"b0fce7a3-077c-4367-8c81-267978b239a1\" />\r\n        <range start1=\"61\" end1=\"62\" start2=\"52\" end2=\"57\" changelist=\"b0fce7a3-077c-4367-8c81-267978b239a1\" />\r\n        <range start1=\"72\" end1=\"74\" start2=\"67\" end2=\"69\" changelist=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" />\r\n        <range start1=\"83\" end1=\"84\" start2=\"78\" end2=\"79\" changelist=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" />\r\n        <range start1=\"90\" end1=\"91\" start2=\"85\" end2=\"86\" changelist=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" />\r\n        <range start1=\"93\" end1=\"95\" start2=\"88\" end2=\"90\" changelist=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" />\r\n        <range start1=\"103\" end1=\"105\" start2=\"98\" end2=\"100\" changelist=\"b0fce7a3-077c-4367-8c81-267978b239a1\" />\r\n        <range start1=\"114\" end1=\"115\" start2=\"109\" end2=\"110\" changelist=\"b0fce7a3-077c-4367-8c81-267978b239a1\" />\r\n        <range start1=\"121\" end1=\"122\" start2=\"116\" end2=\"117\" changelist=\"b0fce7a3-077c-4367-8c81-267978b239a1\" />\r\n        <range start1=\"124\" end1=\"126\" start2=\"119\" end2=\"121\" changelist=\"b0fce7a3-077c-4367-8c81-267978b239a1\" />\r\n        <range start1=\"134\" end1=\"136\" start2=\"129\" end2=\"131\" changelist=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" />\r\n        <range start1=\"144\" end1=\"145\" start2=\"139\" end2=\"140\" changelist=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" />\r\n        <range start1=\"151\" end1=\"152\" start2=\"146\" end2=\"147\" changelist=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" />\r\n        <range start1=\"154\" end1=\"157\" start2=\"149\" end2=\"151\" changelist=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" />\r\n        <range start1=\"160\" end1=\"163\" start2=\"154\" end2=\"157\" changelist=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" />\r\n      </ranges>\r\n    </file>\r\n    <file path=\"$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java\">\r\n      <ranges>\r\n        <range start1=\"9\" end1=\"9\" start2=\"9\" end2=\"10\" changelist=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" />\r\n        <range start1=\"10\" end1=\"10\" start2=\"11\" end2=\"12\" changelist=\"b0fce7a3-077c-4367-8c81-267978b239a1\" />\r\n        <range start1=\"21\" end1=\"21\" start2=\"23\" end2=\"25\" changelist=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" />\r\n        <range start1=\"32\" end1=\"32\" start2=\"36\" end2=\"37\" changelist=\"ced5d69c-4294-49fa-a5bf-73c849839e6c\" />\r\n        <range start1=\"62\" end1=\"64\" start2=\"67\" end2=\"69\" changelist=\"b0fce7a3-077c-4367-8c81-267978b239a1\" />\r\n      </ranges>\r\n    </file>\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 6\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2lhvlTXQTijdq364FebwAKUtVo1\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Application.Run Compass.executor\": \"Run\",\r\n    \"Gradle.Build Compass.executor\": \"Run\",\r\n    \"Gradle.Compass [:Main.main()].executor\": \"Run\",\r\n    \"Gradle.Compass [:rip.snicon.compass.Main.main()].executor\": \"Run\",\r\n    \"Gradle.Compass [:rip.snicon.compass.QuickStart.main()].executor\": \"Run\",\r\n    \"Kotlin script (Beta).build.gradle.kts.executor\": \"Run\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.go.formatter.settings.were.checked\": \"true\",\r\n    \"RunOnceActivity.go.migrated.go.modules.settings\": \"true\",\r\n    \"extract.method.default.visibility\": \"public\",\r\n    \"git-widget-placeholder\": \"dev\",\r\n    \"go.import.settings.migrated\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"D:/Documents/Github Repositories/SniconMC/Servers/Compass/resources/momentum/telepads\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Modules\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"settings.editor.selected.configurable\": \"preferences.lookFeel\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Documents\\Github Repositories\\SniconMC\\Servers\\Compass\\resources\\momentum\\telepads\" />\r\n      <recent name=\"C:\\Users\\wilhe\\OneDrive\\Dokument\\GitHub\\Compass\\resources\\container\\guis\\profile\\achivements\" />\r\n      <recent name=\"D:\\Documents\\Github Repositories\\SniconMC\\Servers\\Compass\\resources\\gandalf\\professions\" />\r\n      <recent name=\"D:\\Documents\\Github Repositories\\SniconMC\\Servers\\Compass\\resources\\container\\guis\\profession\" />\r\n      <recent name=\"D:\\Documents\\Github Repositories\\SniconMC\\Servers\\Compass\\resources\\oblivion\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\Documents\\Github Repositories\\SniconMC\\Servers\\Compass\\resources\\gandalf\\ranks\" />\r\n      <recent name=\"D:\\Documents\\Github Repositories\\SniconMC\\Servers\\Compass\\resources\\gandalf\\ranks\\staff\" />\r\n      <recent name=\"D:\\Documents\\Github Repositories\\SniconMC\\Servers\\Compass\\resources\\gandalf\\ranks\\player\" />\r\n      <recent name=\"D:\\Documents\\Github Repositories\\SniconMC\\Servers\\Compass\\resources\\container\\guis\\profile\" />\r\n      <recent name=\"D:\\Documents\\Github Repositories\\SniconMC\\Servers\\Compass\\resources\\container\\guis\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"rip.snicon.compass.interactions.containers\" />\r\n      <recent name=\"rip.snicon.compass.instances.utils\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Run Compass\">\r\n    <configuration name=\"QuickStart\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"rip.snicon.compass.QuickStart\" />\r\n      <module name=\"rip.snicon.compass.Compass.main\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"rip.snicon.compass.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Run Compass\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"temurin-21\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"rip.snicon.compass.Main\" />\r\n      <module name=\"rip.snicon.compass.Compass.main\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.QuickStart\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11\" />\r\n        <option value=\"bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"b0fce7a3-077c-4367-8c81-267978b239a1\" name=\"Changes\" comment=\"\" />\r\n      <created>1725645273923</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1725645273923</updated>\r\n      <workItem from=\"1725645274922\" duration=\"1707000\" />\r\n      <workItem from=\"1725647942583\" duration=\"39000\" />\r\n      <workItem from=\"1725647986517\" duration=\"1030000\" />\r\n      <workItem from=\"1725712672978\" duration=\"3805000\" />\r\n      <workItem from=\"1725716519824\" duration=\"25135000\" />\r\n      <workItem from=\"1725786735943\" duration=\"29004000\" />\r\n      <workItem from=\"1725890602855\" duration=\"22256000\" />\r\n      <workItem from=\"1726004922456\" duration=\"7603000\" />\r\n      <workItem from=\"1726063307653\" duration=\"8818000\" />\r\n      <workItem from=\"1726136861341\" duration=\"4453000\" />\r\n      <workItem from=\"1726850511920\" duration=\"114000\" />\r\n      <workItem from=\"1727375760595\" duration=\"1344000\" />\r\n      <workItem from=\"1727377324429\" duration=\"825000\" />\r\n      <workItem from=\"1727380135905\" duration=\"230000\" />\r\n      <workItem from=\"1727481826223\" duration=\"1587000\" />\r\n      <workItem from=\"1727627340597\" duration=\"1953000\" />\r\n      <workItem from=\"1729371283363\" duration=\"2604000\" />\r\n      <workItem from=\"1729430443393\" duration=\"525000\" />\r\n      <workItem from=\"1729431508830\" duration=\"10324000\" />\r\n      <workItem from=\"1729445009452\" duration=\"1461000\" />\r\n      <workItem from=\"1729448268612\" duration=\"10830000\" />\r\n      <workItem from=\"1729503952469\" duration=\"6431000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VgoProject\">\r\n    <integration-enabled>false</integration-enabled>\r\n    <settings-migrated>true</settings-migrated>\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision da75c6dc38f3a7f1e187063b0a27008880d42f75)
++++ b/.idea/workspace.xml	(date 1731502374645)
+@@ -5,20 +5,14 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/resources/container/guis/selectors/server_selector.json" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/LobbySelector.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/resources/profiles/913a4e59-664e-444c-b694-eed7d74d9062.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/913a4e59-664e-444c-b694-eed7d74d9062.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/InstanceCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/InstanceCreator.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/utils/LoadInstances.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/utils/LoadInstances.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" afterDir="false" />
+-    </list>
+-    <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="">
+-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/resources/container/guis/server selector/server_selector.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/selectors/lobby_selector.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/interacts/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/interacts/Container.java" afterDir="false" />
+     </list>
++    <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -55,46 +49,15 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="dockies" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="GoLibraries">
+     <option name="indexEntireGoPath" value="true" />
+-  </component>
+-  <component name="LineStatusTrackerManager">
+-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java">
+-      <ranges>
+-        <range start1="3" end1="3" start2="3" end2="5" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+-        <range start1="11" end1="12" start2="13" end2="13" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+-        <range start1="28" end1="30" start2="29" end2="31" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+-        <range start1="36" end1="37" start2="37" end2="38" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+-        <range start1="42" end1="50" start2="43" end2="44" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+-        <range start1="51" end1="51" start2="45" end2="46" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+-        <range start1="54" end1="59" start2="49" end2="50" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+-        <range start1="61" end1="62" start2="52" end2="57" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+-        <range start1="72" end1="74" start2="67" end2="69" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+-        <range start1="83" end1="84" start2="78" end2="79" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+-        <range start1="90" end1="91" start2="85" end2="86" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+-        <range start1="93" end1="95" start2="88" end2="90" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+-        <range start1="103" end1="105" start2="98" end2="100" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+-        <range start1="114" end1="115" start2="109" end2="110" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+-        <range start1="121" end1="122" start2="116" end2="117" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+-        <range start1="124" end1="126" start2="119" end2="121" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+-        <range start1="134" end1="136" start2="129" end2="131" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+-        <range start1="144" end1="145" start2="139" end2="140" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+-        <range start1="151" end1="152" start2="146" end2="147" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+-        <range start1="154" end1="157" start2="149" end2="151" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+-        <range start1="160" end1="163" start2="154" end2="157" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+-      </ranges>
+-    </file>
+-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java">
+-      <ranges>
+-        <range start1="9" end1="9" start2="9" end2="10" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+-        <range start1="10" end1="10" start2="11" end2="12" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+-        <range start1="21" end1="21" start2="23" end2="25" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+-        <range start1="32" end1="32" start2="36" end2="37" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
+-        <range start1="62" end1="64" start2="67" end2="69" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
+-      </ranges>
+-    </file>
+   </component>
+   <component name="ProblemsViewState">
+     <option name="selectedTabId" value="CurrentFile" />
+@@ -123,7 +86,7 @@
+     "git-widget-placeholder": "dev",
+     "go.import.settings.migrated": "true",
+     "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "D:/Documents/Github Repositories/SniconMC/Servers/Compass/resources/momentum/telepads",
++    "last_opened_file_path": "C:/Users/wilhe/OneDrive/Dokument/GitHub/Compass/resources/container/guis/selectors",
+     "node.js.detected.package.eslint": "true",
+     "node.js.detected.package.tslint": "true",
+     "node.js.selected.package.eslint": "(autodetect)",
+@@ -138,11 +101,11 @@
+ }]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
++      <recent name="C:\Users\wilhe\OneDrive\Dokument\GitHub\Compass\resources\container\guis\selectors" />
+       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\momentum\telepads" />
+       <recent name="C:\Users\wilhe\OneDrive\Dokument\GitHub\Compass\resources\container\guis\profile\achivements" />
+       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\professions" />
+       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\container\guis\profession" />
+-      <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\oblivion" />
+     </key>
+     <key name="MoveFile.RECENT_KEYS">
+       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\ranks" />
+@@ -152,6 +115,7 @@
+       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\container\guis" />
+     </key>
+     <key name="CopyClassDialog.RECENTS_KEY">
++      <recent name="rip.snicon.compass.listeners.interacts" />
+       <recent name="rip.snicon.compass.interactions.containers" />
+       <recent name="rip.snicon.compass.instances.utils" />
+     </key>
+@@ -174,11 +138,15 @@
+       <option name="ALTERNATIVE_JRE_PATH" value="temurin-21" />
+       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+       <option name="MAIN_CLASS_NAME" value="rip.snicon.compass.Main" />
+-      <module name="rip.snicon.compass.Compass.main" />
++      <module name="Compass.main" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <list>
++      <item itemvalue="Application.Run Compass" />
++      <item itemvalue="Application.QuickStart" />
++    </list>
+     <recent_temporary>
+       <list>
+         <item itemvalue="Application.QuickStart" />
+Index: resources/container/guis/selectors/server_selector.json
+===================================================================
+diff --git a/resources/container/guis/selectors/server_selector.json b/resources/container/guis/selectors/server_selector.json
+new file mode 100644
+--- /dev/null	(date 1731500558877)
++++ b/resources/container/guis/selectors/server_selector.json	(date 1731500558877)
+@@ -0,0 +1,163 @@
++{
++  "default_item": {
++    "id": "minecraft:gray_stained_glass_pane",
++    "count": {
++      "current": 1,
++      "max": 64
++    },
++    "display": {
++      "name": [],
++      "lore": [],
++      "model_data": null,
++      "glint": false,
++      "dye_color": "",
++      "show_tooltip": false
++    },
++    "skin": {
++      "player": "this",
++      "uuid": "",
++      "texture": ""
++    },
++    "data": {
++      "isVanillaItem" : true,
++      "function": "",
++      "page": ""
++    }
++  },
++  "items": [
++    {
++      "slot": 12,
++      "id": "minecraft:rabbit_foot",
++      "count": {
++        "current": 1,
++        "max": 64
++      },
++      "display": {
++        "name": ["» <gold>Parkour</gold> «"],
++        "lore": [
++          ["Master courses in 3 difficulty levels!"],
++          ["Hone your skill and set new records,"],
++          ["or race others to the finish line!"],
++          [""],
++          ["<gray>Players: </gray><yellow>$(playercount_parkour)</yellow>"],
++          [""],
++          ["<gray>» <aqua>Click to play</aqua> «</gray>"]
++        ],
++        "model_data": null,
++        "glint": false,
++        "dye_color": "",
++        "show_tooltip": true
++      },
++      "skin": {
++        "player": "",
++        "uuid": "",
++        "texture": ""
++      },
++      "data": {
++        "isVanillaItem" : true,
++        "function": "",
++        "page": ""
++      }
++    },
++    {
++      "slot": 14,
++      "id": "minecraft:bookshelf",
++      "count": {
++        "current": 1,
++        "max": 64
++      },
++      "display": {
++        "name": ["» <gold>Blockhunt++</gold> «"],
++        "lore": [
++          ["Hide as blocks and entities"],
++          ["and become your surroundings!"],
++          ["If caught, you become a seeker."],
++          ["Choose your guesses carefully!"],
++          [""],
++          ["<gray>Players: </gray><yellow>$(playercount_blockhunt)</yellow>"],
++          [""],
++          ["<gray>» <aqua>Click to play</aqua> «</gray>"]
++        ],
++        "model_data": null,
++        "glint": false,
++        "dye_color": "",
++        "show_tooltip": true
++      },
++      "skin": {
++        "player": "",
++        "uuid": "",
++        "texture": ""
++      },
++      "data": {
++        "isVanillaItem" : true,
++        "function": "",
++        "page": ""
++      }
++    },
++    {
++      "slot": 31,
++      "id": "minecraft:barrier",
++      "count": {
++        "current": 1,
++        "max": 64
++      },
++      "display": {
++        "name": [
++          "<gray>» <red>Close</red> «"
++        ],
++        "lore": [],
++        "model_data": null,
++        "glint": false,
++        "dye_color": "",
++        "show_tooltip": true
++      },
++      "skin": {
++        "player": "",
++        "uuid": "",
++        "texture": ""
++      },
++      "data": {
++        "isVanillaItem" : true,
++        "function": "",
++        "page": "close"
++      }
++    },
++    {
++      "slot": 35,
++      "id": "minecraft:apple",
++      "count": {
++        "current": 1,
++        "max": 64
++      },
++      "display": {
++        "name": [
++          "<dark_gray>[<red>Private</red>]</dark_gray> SMP"
++        ],
++        "lore": [],
++        "model_data": null,
++        "glint": false,
++        "dye_color": "",
++        "show_tooltip": true
++      },
++      "skin": {
++        "player": "",
++        "uuid": "",
++        "texture": ""
++      },
++      "data": {
++        "isVanillaItem" : true,
++        "function": "",
++        "page": ""
++      }
++    }
++  ],
++  "settings": {
++    "rows": 4,
++    "display_name": [
++      "Server Selector"
++    ],
++    "container_id":"compass",
++    "modify": false,
++    "modify_creative": true
++  }
++}
+\ No newline at end of file
+Index: src/main/java/rip/snicon/compass/listeners/interacts/Container.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package rip.snicon.compass.listeners.interacts;\r\n\r\nimport com.github.sniconmc.container.creators.ContainerCreator;\r\nimport net.minestom.server.entity.Player;\r\nimport net.minestom.server.event.Event;\r\nimport net.minestom.server.event.EventNode;\r\nimport net.minestom.server.event.inventory.InventoryPreClickEvent;\r\nimport net.minestom.server.event.player.PlayerBlockPlaceEvent;\r\nimport net.minestom.server.event.player.PlayerUseItemEvent;\r\nimport net.minestom.server.item.ItemComponent;\r\nimport net.minestom.server.item.ItemStack;\r\nimport rip.snicon.compass.utils.function.FunctionUtils;\r\n\r\npublic class Container {\r\n\r\n    private final EventNode<Event> containerNode;\r\n\r\n    public Container(EventNode<Event> node) {\r\n        this.containerNode = EventNode.all(\"container\");\r\n        node.addChild(containerNode);\r\n        onInventoryClick();\r\n        onHotbarClick();\r\n    }\r\n\r\n    public void onInventoryClick(){\r\n        containerNode.addListener(InventoryPreClickEvent.class, event -> {\r\n            Player player = event.getPlayer();\r\n\r\n            ItemStack itemStack = event.getClickedItem();\r\n\r\n            var data = itemStack.get(ItemComponent.CUSTOM_DATA);\r\n            if (data == null){\r\n                event.setCancelled(true);\r\n                return;\r\n            }\r\n            var nbtTag = data.nbt();\r\n            String function = nbtTag.getString(\"function\");\r\n            if (!function.isEmpty()) {\r\n                new FunctionUtils(player, event, function);\r\n                event.setCancelled(true);\r\n                return;\r\n            }\r\n\r\n            String redirect = nbtTag.getString(\"page\");\r\n            if (!redirect.isEmpty()){\r\n                event.setCancelled(true);\r\n                if (redirect.equals(\"close\")){\r\n\r\n                    player.closeInventory();\r\n                    return;\r\n                }\r\n                ContainerCreator.openContainer(player, redirect);\r\n                return;\r\n            }\r\n\r\n            event.setCancelled(true);\r\n\r\n        });\r\n    }\r\n\r\n    public void onHotbarClick(){\r\n        containerNode.addListener(PlayerUseItemEvent.class, event -> {\r\n            Player player = event.getPlayer();\r\n\r\n            ItemStack itemStack = event.getItemStack();\r\n\r\n            var data = itemStack.get(ItemComponent.CUSTOM_DATA);\r\n            if (data == null){\r\n                return;\r\n            }\r\n            var nbtTag = data.nbt();\r\n            String redirect = nbtTag.getString(\"page\");\r\n\r\n            ContainerCreator.openContainer(player, redirect);\r\n        });\r\n        containerNode.addListener(PlayerBlockPlaceEvent.class, event -> {\r\n            Player player = event.getPlayer();\r\n\r\n            ItemStack itemStack = event.getEntity().getItemInMainHand();\r\n\r\n            var data = itemStack.get(ItemComponent.CUSTOM_DATA);\r\n            if (data == null){\r\n                return;\r\n            }\r\n            var nbtTag = data.nbt();\r\n            String redirect = nbtTag.getString(\"page\");\r\n            event.setCancelled(true);\r\n            ContainerCreator.openContainer(player, redirect);\r\n\r\n        });\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/rip/snicon/compass/listeners/interacts/Container.java b/src/main/java/rip/snicon/compass/listeners/interacts/Container.java
+--- a/src/main/java/rip/snicon/compass/listeners/interacts/Container.java	(revision da75c6dc38f3a7f1e187063b0a27008880d42f75)
++++ b/src/main/java/rip/snicon/compass/listeners/interacts/Container.java	(date 1731502420789)
+@@ -69,9 +69,19 @@
+                 return;
+             }
+             var nbtTag = data.nbt();
++            String function = nbtTag.getString("function");
++            if (!function.isEmpty()) {
++                event.setCancelled(true);
++                new FunctionUtils(player, event, function);
++                return;
++            }
++
+             String redirect = nbtTag.getString("page");
+-
+-            ContainerCreator.openContainer(player, redirect);
++            if (!redirect.isEmpty()){
++                event.setCancelled(true);
++                ContainerCreator.openContainer(player, redirect);
++            }
++            event.setCancelled(true);
+         });
+         containerNode.addListener(PlayerBlockPlaceEvent.class, event -> {
+             Player player = event.getPlayer();
+Index: resources/container/guis/server selector/server_selector.json
+===================================================================
+diff --git a/resources/container/guis/server selector/server_selector.json b/resources/container/guis/selectors/lobby_selector.json
+rename from resources/container/guis/server selector/server_selector.json
+rename to resources/container/guis/selectors/lobby_selector.json
+--- a/resources/container/guis/server selector/server_selector.json	(revision da75c6dc38f3a7f1e187063b0a27008880d42f75)
++++ b/resources/container/guis/selectors/lobby_selector.json	(date 1731501599604)
+@@ -25,139 +25,15 @@
+     }
+   },
+   "items": [
+-    {
+-      "slot": 12,
+-      "id": "minecraft:rabbit_foot",
+-      "count": {
+-        "current": 1,
+-        "max": 64
+-      },
+-      "display": {
+-        "name": ["» <gold>Parkour</gold> «"],
+-        "lore": [
+-          ["Master courses in 3 difficulty levels!"],
+-          ["Hone your skill and set new records,"],
+-          ["or race others to the finish line!"],
+-          [""],
+-          ["<gray>Players: </gray><yellow>$(playercount_parkour)</yellow>"],
+-          [""],
+-          ["<gray>» <aqua>Click to play</aqua> «</gray>"]
+-        ],
+-        "model_data": null,
+-        "glint": false,
+-        "dye_color": "",
+-        "show_tooltip": true
+-      },
+-      "skin": {
+-        "player": "",
+-        "uuid": "",
+-        "texture": ""
+-      },
+-      "data": {
+-        "isVanillaItem" : true,
+-        "function": "",
+-        "page": ""
+-      }
+-    },
+-    {
+-      "slot": 14,
+-      "id": "minecraft:bookshelf",
+-      "count": {
+-        "current": 1,
+-        "max": 64
+-      },
+-      "display": {
+-        "name": ["» <gold>Blockhunt++</gold> «"],
+-        "lore": [
+-          ["Hide as blocks and entities"],
+-          ["and become your surroundings!"],
+-          ["If caught, you become a seeker."],
+-          ["Choose your guesses carefully!"],
+-          [""],
+-          ["<gray>Players: </gray><yellow>$(playercount_blockhunt)</yellow>"],
+-          [""],
+-          ["<gray>» <aqua>Click to play</aqua> «</gray>"]
+-        ],
+-        "model_data": null,
+-        "glint": false,
+-        "dye_color": "",
+-        "show_tooltip": true
+-      },
+-      "skin": {
+-        "player": "",
+-        "uuid": "",
+-        "texture": ""
+-      },
+-      "data": {
+-        "isVanillaItem" : true,
+-        "function": "",
+-        "page": ""
+-      }
+-    },
+-    {
+-      "slot": 31,
+-      "id": "minecraft:barrier",
+-      "count": {
+-        "current": 1,
+-        "max": 64
+-      },
+-      "display": {
+-        "name": [
+-          "<gray>» <red>Close</red> «"
+-        ],
+-        "lore": [],
+-        "model_data": null,
+-        "glint": false,
+-        "dye_color": "",
+-        "show_tooltip": true
+-      },
+-      "skin": {
+-        "player": "",
+-        "uuid": "",
+-        "texture": ""
+-      },
+-      "data": {
+-        "isVanillaItem" : true,
+-        "function": "",
+-        "page": "close"
+-      }
+-    },
+-    {
+-      "slot": 35,
+-      "id": "minecraft:apple",
+-      "count": {
+-        "current": 1,
+-        "max": 64
+-      },
+-      "display": {
+-        "name": [
+-          "<dark_gray>[<red>Private</red>]</dark_gray> SMP"
+-        ],
+-        "lore": [],
+-        "model_data": null,
+-        "glint": false,
+-        "dye_color": "",
+-        "show_tooltip": true
+-      },
+-      "skin": {
+-        "player": "",
+-        "uuid": "",
+-        "texture": ""
+-      },
+-      "data": {
+-        "isVanillaItem" : true,
+-        "function": "",
+-        "page": ""
+-      }
+-    }
++    $(lobbies)
+   ],
+   "settings": {
+     "rows": 4,
+     "display_name": [
+-      "Server Selector"
++      "Lobby Selector"
+     ],
+-    "container_id":"compass",
++    "container_id":"lobby_selector",
+     "modify": false,
+-    "modify_creative": true
++    "modify_creative": false
+   }
+ }
+\ No newline at end of file
+Index: resources/container/hotbars/lobby.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"items\": [\r\n    {\r\n      \"slot\": 3,\r\n      \"id\": \"minecraft:totem_of_undying\",\r\n      \"count\": {\r\n        \"current\": 1,\r\n        \"max\": 64\r\n      },\r\n      \"display\": {\r\n        \"name\": [\r\n          \"» <gradient:#ffff1c:gold>Profession</gradient> «\"\r\n        ],\r\n        \"lore\": [\r\n          [\"Professions are a skill-based\"],\r\n          [\"progression system. Level up\"],\r\n          [\"by playing games and getting XP\"],\r\n          [\"\"],\r\n          [\"<gray>» <aqua>Click for detailed view</aqua> «</gray>\"]\r\n\r\n        ],\r\n        \"model_data\": \"\",\r\n        \"glint\": false,\r\n        \"dye_color\": \"\",\r\n        \"show_tooltip\": true\r\n      },\r\n      \"skin\": {\r\n        \"player\": \"\",\r\n        \"uuid\": \"\",\r\n        \"texture\": \"\"\r\n      },\r\n      \"data\": {\r\n        \"function\": \"\",\r\n        \"page\": \"profession\"\r\n      }\r\n    },\r\n    {\r\n      \"slot\": 4,\r\n      \"id\": \"minecraft:compass\",\r\n      \"count\": {\r\n        \"current\": 1,\r\n        \"max\": 64\r\n      },\r\n      \"display\": {\r\n        \"name\": [\"» <gradient:gold:#ffff1c>Server</gradient> <gradient:#ffff1c:gold>Selector</gradient> «\"],\r\n        \"lore\": [\r\n          [\"Go on. Take a guess.\"],\r\n          [\"\"],\r\n          [\"<gray>» <aqua>Click to open</aqua> «</gray>\"]\r\n        ],\r\n        \"model_data\": \"\",\r\n        \"glint\": false,\r\n        \"dye_color\": \"\",\r\n        \"show_tooltip\": true\r\n      },\r\n      \"skin\": {\r\n        \"player\": \"\",\r\n        \"uuid\": \"\",\r\n        \"texture\": \"\"\r\n      },\r\n      \"data\": {\r\n        \"function\": \"\",\r\n        \"page\": \"server_selector\"\r\n      }\r\n    },\r\n    {\r\n      \"slot\": 5,\r\n      \"id\": \"minecraft:player_head\",\r\n      \"count\": {\r\n        \"current\": 1,\r\n        \"max\": 64\r\n      },\r\n      \"display\": {\r\n        \"name\": [\"» <gradient:gold:#ffff1c>Profile</gradient> «\"],\r\n        \"lore\": [\r\n          [\"View your cosmetics\"],\r\n          [\"and statistics!\"],\r\n          [\"\"],\r\n          [\"<gray>» <aqua>Click to open</aqua> «</gray>\"]\r\n        ],\r\n        \"model_data\": \"\",\r\n        \"glint\": false,\r\n        \"dye_color\": \"\",\r\n        \"show_tooltip\": true\r\n      },\r\n      \"skin\": {\r\n        \"player\": \"this\",\r\n        \"uuid\": \"\",\r\n        \"texture\": \"\"\r\n      },\r\n      \"data\": {\r\n        \"function\": \"\",\r\n        \"page\": \"profile\"\r\n      }\r\n    }\r\n  ],\r\n  \"settings\": {\r\n    \"hotbar_id\": \"lobby\",\r\n    \"modify\": false,\r\n    \"modify_creative\": true\r\n  }\r\n}
+===================================================================
+diff --git a/resources/container/hotbars/lobby.json b/resources/container/hotbars/lobby.json
+--- a/resources/container/hotbars/lobby.json	(revision da75c6dc38f3a7f1e187063b0a27008880d42f75)
++++ b/resources/container/hotbars/lobby.json	(date 1731501791236)
+@@ -92,6 +92,30 @@
+         "function": "",
+         "page": "profile"
+       }
++    },
++    {
++      "slot": 8,
++      "id": "minecraft:nether_star",
++      "count": {
++        "current": 1,
++        "max": 64
++      },
++      "display": {
++        "name": ["» <gradient:gold:#ffff1c>Lobby Selector</gradient> «"],
++        "lore": [
++          ["View Lobbies"],
++          [""],
++          ["<gray>» <aqua>Click to open</aqua> «</gray>"]
++        ],
++        "model_data": "",
++        "glint": false,
++        "dye_color": "",
++        "show_tooltip": true
++      },
++      "data": {
++        "function": "rip.snicon.compass.interactions.containers.LobbySelector.createLobbySelector(player, event)",
++        "page": ""
++      }
+     }
+   ],
+   "settings": {

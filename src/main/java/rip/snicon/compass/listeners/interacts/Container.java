@@ -69,9 +69,21 @@ public class Container {
                 return;
             }
             var nbtTag = data.nbt();
-            String redirect = nbtTag.getString("page");
+            String function = nbtTag.getString("function");
+            if (!function.isEmpty()) {
+                new FunctionUtils(player, event, function);
+                event.setCancelled(true);
+                return;
+            }
 
-            ContainerCreator.openContainer(player, redirect);
+            String redirect = nbtTag.getString("page");
+            if (!redirect.isEmpty()){
+                event.setCancelled(true);
+                ContainerCreator.openContainer(player, redirect);
+                return;
+            }
+
+            event.setCancelled(true);
         });
         containerNode.addListener(PlayerBlockPlaceEvent.class, event -> {
             Player player = event.getPlayer();

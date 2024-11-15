@@ -5,20 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-13_13_58_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-13_13_58_[Changes]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-13_13_58__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2024-11-13_13_58__Changes_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/container/guis/selectors/server_selector.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/LobbySelector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/proxy/PluginMessages.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/profiles/913a4e59-664e-444c-b694-eed7d74d9062.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/profiles/913a4e59-664e-444c-b694-eed7d74d9062.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/InstanceCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/InstanceCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/utils/LoadInstances.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/utils/LoadInstances.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/container/guis/server selector/server_selector.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/selectors/lobby_selector.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/hotbars/lobby.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/interacts/Container.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/interacts/Container.java" afterDir="false" />
     </list>
-    <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java" afterDir="false" />
-    </list>
+    <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,6 +33,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -60,42 +64,6 @@
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/interactions/containers/Settings.java">
-      <ranges>
-        <range start1="3" end1="3" start2="3" end2="5" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="11" end1="12" start2="13" end2="13" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="28" end1="30" start2="29" end2="31" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="36" end1="37" start2="37" end2="38" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="42" end1="50" start2="43" end2="44" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="51" end1="51" start2="45" end2="46" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="54" end1="59" start2="49" end2="50" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="61" end1="62" start2="52" end2="57" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="72" end1="74" start2="67" end2="69" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="83" end1="84" start2="78" end2="79" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="90" end1="91" start2="85" end2="86" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="93" end1="95" start2="88" end2="90" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="103" end1="105" start2="98" end2="100" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="114" end1="115" start2="109" end2="110" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="121" end1="122" start2="116" end2="117" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="124" end1="126" start2="119" end2="121" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="134" end1="136" start2="129" end2="131" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="144" end1="145" start2="139" end2="140" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="151" end1="152" start2="146" end2="147" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="154" end1="157" start2="149" end2="151" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="160" end1="163" start2="154" end2="157" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java">
-      <ranges>
-        <range start1="9" end1="9" start2="9" end2="10" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="10" end1="10" start2="11" end2="12" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-        <range start1="21" end1="21" start2="23" end2="25" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="32" end1="32" start2="36" end2="37" changelist="ced5d69c-4294-49fa-a5bf-73c849839e6c" />
-        <range start1="62" end1="64" start2="67" end2="69" changelist="b0fce7a3-077c-4367-8c81-267978b239a1" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -107,42 +75,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Run Compass.executor": "Run",
-    "Gradle.Build Compass.executor": "Run",
-    "Gradle.Compass [:Main.main()].executor": "Run",
-    "Gradle.Compass [:rip.snicon.compass.Main.main()].executor": "Run",
-    "Gradle.Compass [:rip.snicon.compass.QuickStart.main()].executor": "Run",
-    "Kotlin script (Beta).build.gradle.kts.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "extract.method.default.visibility": "public",
-    "git-widget-placeholder": "dev",
-    "go.import.settings.migrated": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Documents/Github Repositories/SniconMC/Servers/Compass/resources/momentum/telepads",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Run Compass.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build Compass.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Compass [:Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Compass [:rip.snicon.compass.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Compass [:rip.snicon.compass.QuickStart.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin script (Beta).build.gradle.kts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;public&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/wilhe/OneDrive/Dokument/GitHub/Compass/resources/container/guis/selectors&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\wilhe\OneDrive\Dokument\GitHub\Compass\resources\container\guis\selectors" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\momentum\telepads" />
       <recent name="C:\Users\wilhe\OneDrive\Dokument\GitHub\Compass\resources\container\guis\profile\achivements" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\professions" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\container\guis\profession" />
-      <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\oblivion" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\ranks" />
@@ -174,24 +142,20 @@
       <option name="ALTERNATIVE_JRE_PATH" value="temurin-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="rip.snicon.compass.Main" />
-      <module name="rip.snicon.compass.Compass.main" />
+      <module name="Compass.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Run Compass" />
+      <item itemvalue="Application.QuickStart" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.QuickStart" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

@@ -1,0 +1,29 @@
+Index: src/main/java/rip/snicon/compass/interactions/containers/LobbySelector.java
+===================================================================
+diff --git a/src/main/java/rip/snicon/compass/interactions/containers/LobbySelector.java b/src/main/java/rip/snicon/compass/interactions/containers/LobbySelector.java
+new file mode 100644
+--- /dev/null	(date 1731502707012)
++++ b/src/main/java/rip/snicon/compass/interactions/containers/LobbySelector.java	(date 1731502707012)
+@@ -0,0 +1,22 @@
++package rip.snicon.compass.interactions.containers;
++
++import net.minestom.server.entity.Player;
++import net.minestom.server.event.Event;
++import rip.snicon.compass.Main;
++
++import java.util.List;
++
++public class LobbySelector {
++
++
++    public static void createLobbySelector(Player player, Event event) {
++        requestServers();
++
++
++    }
++
++    private static void requestServers() {
++
++        
++    }
++}

@@ -30,6 +30,7 @@ import rip.snicon.compass.interactions.containers.Settings;
 import rip.snicon.compass.listeners.interacts.Container;
 import rip.snicon.compass.listeners.interacts.Oblivion;
 import rip.snicon.compass.listeners.placeholders.Placeholder;
+import rip.snicon.compass.listeners.proxy.PluginMessages;
 import rip.snicon.compass.listeners.worlds.AFK;
 import rip.snicon.compass.listeners.worlds.Hub;
 import rip.snicon.compass.utils.motd.MOTD;
@@ -56,6 +57,7 @@ public class Global {
         Container containerHandler = new Container(MinecraftServer.getGlobalEventHandler());
         Oblivion oblivionHandler = new Oblivion(MinecraftServer.getGlobalEventHandler());
         Placeholder placeholderHandler = new Placeholder(MinecraftServer.getGlobalEventHandler());
+        PluginMessages proxyHandler = new PluginMessages(MinecraftServer.getGlobalEventHandler());
     }
 
     public void onPlayerConfig(){
