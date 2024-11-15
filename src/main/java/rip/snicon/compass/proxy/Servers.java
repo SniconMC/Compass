@@ -11,7 +11,7 @@ public class Servers {
 
     private static final String GATE_API_HOST = System.getenv("GATE_API_HOST") != null
             ? System.getenv("GATE_API_HOST")
-            : "gate-proxy-service";
+            : "localhost";
     private static final String GATE_API_PORT = System.getenv("GATE_API_PORT") != null
             ? System.getenv("GATE_API_PORT")
             : "8080";
