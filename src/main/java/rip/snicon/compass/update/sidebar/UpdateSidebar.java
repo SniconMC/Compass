@@ -7,6 +7,9 @@ import net.minestom.server.entity.Player;
 import redis.clients.jedis.Jedis;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class UpdateSidebar {
 
@@ -16,23 +19,42 @@ public class UpdateSidebar {
 
     private static final int REDIS_PORT = 6379;
     private static final String PLAYER_COUNT_KEY = "network:playercount";
+    private static final String PROXY_KEY_PATTERN = "proxy-*"; // Pattern to match proxy keys
 
     public static void startPlayerCountUpdater() {
-        // Schedule task to run every 5 seconds (100 ticks = 5s at 20 TPS)
+        // Schedule task to run every 3 seconds (60 ticks = 3s at 20 TPS)
         MinecraftServer.getSchedulerManager().buildTask(() -> {
             try (Jedis jedis = new Jedis(REDIS_ADDRESS, REDIS_PORT)) {
-                // Fetch player count from Redis
+                // Fetch global player count
                 String playerCount = jedis.get(PLAYER_COUNT_KEY);
                 if (playerCount == null) {
                     playerCount = "0"; // Default to "0" if Redis key is not set
                 }
 
-                // Update placeholder for all players
-                for (Player player : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
-                    PlaceholderManager.setPlaceholderToPlayer(player, "online_network", playerCount);
+                // Fetch proxy-specific player counts
+                Map<String, String> proxyCounts = new HashMap<>();
+                Set<String> keys = jedis.keys(PROXY_KEY_PATTERN); // Get all keys matching pattern
+                for (String key : keys) {
+                    String proxyName = key.replace("proxy-", ""); // Extract proxy name
+                    String proxyCount = jedis.get(key);
+                    if (proxyCount == null) {
+                        proxyCount = "0"; // Default to "0" if Redis key is not set
+                    }
+                    proxyCounts.put(proxyName, proxyCount);
                 }
 
-                // Reload sidebars to reflect the updated placeholder
+                // Update placeholders for global and proxy-specific counts
+                for (Player player : MinecraftServer.getConnectionManager().getOnlinePlayers()) {
+                    // Update global placeholder
+                    PlaceholderManager.setPlaceholderToPlayer(player, "online_network", playerCount);
+
+                    // Update proxy-specific placeholders
+                    for (Map.Entry<String, String> entry : proxyCounts.entrySet()) {
+                        PlaceholderManager.setPlaceholderToPlayer(player, "playercount_" + entry.getKey(), entry.getValue());
+                    }
+                }
+
+                // Reload sidebars to reflect the updated placeholders
                 SidebarManager.reloadSidebars();
 
             } catch (Exception e) {
@@ -40,6 +62,4 @@ public class UpdateSidebar {
             }
         }).repeat(Duration.ofMillis(3000)).schedule();
     }
-
-
 }
