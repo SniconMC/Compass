@@ -15,11 +15,11 @@ public class Servers {
     private static final String GATE_API_PORT = System.getenv("GATE_API_PORT") != null
             ? System.getenv("GATE_API_PORT")
             : "8080";
-    private static final String AUTH_TOKEN = System.getenv("GATE_API_AUTH_TOKEN");
+    private static final String AUTH_TOKEN = System.getenv().getOrDefault("GATE_API_AUTH_TOKEN","");
 
     public static void register() {
-        String serverName = System.getenv("SERVER_NAME");
-        String serverAddress = System.getenv("SERVER_ADDRESS");
+        String serverName = System.getenv().getOrDefault("SERVER_NAME","hub-0");
+        String serverAddress = System.getenv().getOrDefault("SERVER_ADDRESS","0.0.0.0:25565");
 
         if (serverName == null || serverAddress == null) {
             System.err.println("Error: SERVER_NAME or SERVER_ADDRESS is not set!");

@@ -20,6 +20,7 @@ import rip.snicon.compass.commands.player.HubCommand;
 import rip.snicon.compass.instances.InstanceCreator;
 import rip.snicon.compass.listeners.Global;
 import rip.snicon.compass.proxy.Servers;
+import rip.snicon.compass.update.UpdateGlobal;
 import rip.snicon.compass.utils.motd.MOTD;
 
 import java.util.UUID;
@@ -51,7 +52,7 @@ public class Main {
         OblivionMain.init();
         GandalfMain.init();
 
-
+        UpdateGlobal.start();
 
         // Register commands
         MinecraftServer.getCommandManager().register(new TravelCommand());

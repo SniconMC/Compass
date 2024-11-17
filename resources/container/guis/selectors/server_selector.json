@@ -90,7 +90,7 @@
       },
       "data": {
         "isVanillaItem" : true,
-        "function": "",
+        "function": "rip.snicon.compass.proxy.Connect.ConnectPlayerToProxy(player, blockhunt, 25565)",
         "page": ""
       }
     },

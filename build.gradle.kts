@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.mysql:mysql-connector-j:9.1.0")
+    implementation("com.github.redis:jedis:4.3.1")
     implementation("net.minestom:minestom-snapshots:65f75bb059") // Minestom
     implementation("net.kyori:adventure-text-minimessage:4.17.0") // MiniMessage
     implementation("com.github.SniconMC:Utils:0.1.7.1")

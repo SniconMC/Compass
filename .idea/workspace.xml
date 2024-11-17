@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/update/UpdateGlobal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/update/sidebar/UpdateSidebar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/container/guis/selectors/server_selector.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/selectors/server_selector.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/placeholders/Placeholder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/proxy/Connect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/proxy/Connect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/proxy/Servers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/proxy/Servers.java" afterDir="false" />
     </list>
     <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="" />
@@ -109,6 +116,9 @@
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\ranks\player" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\container\guis\profile" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="rip.snicon.compass.update" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="rip.snicon.compass.interactions.containers" />
       <recent name="rip.snicon.compass.instances.utils" />
@@ -119,7 +129,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="temurin-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <envs>
-        <env name="SERVER_PORT" value="25569" />
+        <env name="SERVER_PORT" value="25566" />
       </envs>
       <option name="MAIN_CLASS_NAME" value="rip.snicon.compass.Main" />
       <module name="Compass.main" />

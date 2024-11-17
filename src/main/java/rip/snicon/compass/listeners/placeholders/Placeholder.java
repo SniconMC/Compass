@@ -80,7 +80,7 @@ public class Placeholder {
             }
 
 
-            PlaceholderManager.setPlaceholderToPlayer(player, "online_network", "12");
+            PlaceholderManager.setPlaceholderToPlayer(player, "online_network", "?");
             SidebarManager.reloadSidebars();
         });
     }

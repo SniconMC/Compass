@@ -4,6 +4,8 @@ import com.github.sniconmc.utils.text.TextUtils;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
 import net.minestom.server.entity.Player;
+import net.minestom.server.network.packet.server.common.TransferPacket;
+import rip.snicon.compass.Main;
 
 public class Connect {
 
@@ -20,5 +22,10 @@ public class Connect {
         player.sendPluginMessage("bungeecord:main", out.toByteArray());
     }
 
+    public static void ConnectPlayerToProxy(Player player, String proxy, String port) {
+        String targetHost = proxy + ".localhost";
+        Main.logger.info("Connecting to Proxy:" + targetHost);
+        player.sendPacket(new TransferPacket(targetHost, Integer.parseInt(port)));
+    }
 
 }
