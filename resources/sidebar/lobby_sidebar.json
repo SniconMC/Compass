@@ -1,0 +1,18 @@
+{
+  "defaultSidebar": true,
+  "title": "<gradient:#ffff1c:gold><bold>\u200CBlockhunt++</bold></gradient>",
+  "layout": [
+      " ",
+      "<white>Rank:</white> $(player_rank)",
+      "<white>Profession:</white> $(player_profession_icon) $(player_profession_sidebar)",
+      "  ",
+      "<white>Emeralds:</white> <green>$(player_emeralds)</green>",
+      "<white>Win Streak:</white> <green>$(player_current_streak)</green>",
+      "   ",
+      "<white>Bundles:</white> <green>$(player_bundle_count)</green>",
+      "    ",
+      "<white>Network Booster:</white> <green>3.0x</green>",
+      "     ",
+      "<gradient:#ffff1c:gold>play.znopp.pw</gradient>"
+  ]
+}

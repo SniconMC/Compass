@@ -18,10 +18,14 @@ repositories {
 dependencies {
     implementation("net.minestom:minestom-snapshots:65f75bb059") // Minestom
     implementation("net.kyori:adventure-text-minimessage:4.17.0") // MiniMessage
+    implementation("net.kyori:adventure-text-serializer-gson:4.17.0")
 
     implementation("org.slf4j:slf4j-api:2.0.15") // SLF4J API
     implementation("ch.qos.logback:logback-classic:1.5.7") // Logback classic
     implementation("ch.qos.logback:logback-core:1.5.7") // Logback core
+
+    implementation("org.mongodb:mongodb-driver-sync:4.10.0") // Database mongoDB
+
 
 }
 

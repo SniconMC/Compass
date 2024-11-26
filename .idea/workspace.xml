@@ -5,9 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/sidebar/lobby_sidebar.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/level.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/level.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/lobby.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.-1.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.-1.-2.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.-1.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.-1.1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.-2.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.-2.-2.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.-2.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.-2.1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.0.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.0.-2.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.0.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.0.1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.1.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.1.-2.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.1.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/worlds/lobby/region/r.1.1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/ShadowInstance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/ShadowInstanceCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/Global.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/instance/ShadowInstanceNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/player/ShadowPlayerNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/PlayerProfession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/PlayerRank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/ShadowPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/sidebar/ShadowSidebar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/sidebar/ShadowSidebarManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/LoadJSON.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/TextUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/TimeUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/WeatherUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/Compass-0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-1.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.-1.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.0.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/worlds/hub/region/r.0.0.mca" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" afterDir="false" />
     </list>
     <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="" />
@@ -45,11 +82,17 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GoLibraries">
@@ -66,43 +109,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Run Compass.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Build Compass.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Compass [:Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Compass [:rip.snicon.compass.Main.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Compass [:rip.snicon.compass.QuickStart.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Compass [build].executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin script (Beta).build.gradle.kts.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;public&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dockies&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Documents/Github Repositories/SniconMC/Servers/Compass/resources/momentum/telepads&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.QuickStart.executor": "Run",
+    "Application.Run Compass.executor": "Run",
+    "Gradle.Build Compass.executor": "Run",
+    "Gradle.Compass [:Main.main()].executor": "Run",
+    "Gradle.Compass [:rip.snicon.compass.Main.main()].executor": "Run",
+    "Gradle.Compass [:rip.snicon.compass.QuickStart.main()].executor": "Run",
+    "Gradle.Compass [build].executor": "Run",
+    "Kotlin script (Beta).build.gradle.kts.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "extract.method.default.visibility": "public",
+    "git-widget-placeholder": "dockies",
+    "go.import.settings.migrated": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/wilhe/OneDrive/Dokument/GitHub/Compass/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\wilhe\OneDrive\Dokument\GitHub\Compass\resources" />
+      <recent name="C:\Users\wilhe\OneDrive\Dokument\GitHub\Compass\resources\worlds" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\momentum\telepads" />
       <recent name="C:\Users\wilhe\OneDrive\Dokument\GitHub\Compass\resources\container\guis\profile\achivements" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\professions" />
-      <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\container\guis\profession" />
-      <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\oblivion" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\wilhe\OneDrive\Dokument\GitHub\Compass\docker" />
@@ -111,15 +155,20 @@
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\ranks\player" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\container\guis\profile" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="rip.snicon.compass.sidebar" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="rip.snicon.compass.sidebar" />
+      <recent name="rip.snicon.compass.player" />
       <recent name="rip.snicon.compass.interactions.containers" />
       <recent name="rip.snicon.compass.instances.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Compass [build]">
+  <component name="RunManager" selected="Application.Run Compass">
     <configuration name="QuickStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="rip.snicon.compass.QuickStart" />
-      <module name="rip.snicon.compass.Compass.main" />
+      <option name="MAIN_CLASS_NAME" value="rip.snicon.compass.Main" />
+      <module name="Compass.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="rip.snicon.compass.*" />
