@@ -39,7 +39,7 @@
           ["Hone your skill and set new records,"],
           ["or race others to the finish line!"],
           [""],
-          ["<gray>Players: </gray><yellow>$(playercount_parkour)</yellow>"],
+          ["<gray>Players: </gray><yellow>$(parkour:playercount)</yellow>"],
           [""],
           ["<gray>» <aqua>Click to play</aqua> «</gray>"]
         ],
@@ -74,7 +74,7 @@
           ["If caught, you become a seeker."],
           ["Choose your guesses carefully!"],
           [""],
-          ["<gray>Players: </gray><yellow>$(playercount_blockhunt)</yellow>"],
+          ["<gray>Players: </gray><yellow>$(blockhunt:playercount)</yellow>"],
           [""],
           ["<gray>» <aqua>Click to play</aqua> «</gray>"]
         ],

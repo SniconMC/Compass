@@ -5,6 +5,7 @@ import com.github.sniconmc.utils.placeholder.PlaceholderManager;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
 import redis.clients.jedis.Jedis;
+import rip.snicon.compass.Main;
 
 import java.time.Duration;
 import java.util.HashMap;
@@ -50,7 +51,7 @@ public class UpdateSidebar {
 
                     // Update proxy-specific placeholders
                     for (Map.Entry<String, String> entry : proxyCounts.entrySet()) {
-                        PlaceholderManager.setPlaceholderToPlayer(player, "playercount_" + entry.getKey(), entry.getValue());
+                        PlaceholderManager.setPlaceholderToPlayer(player, entry.getKey(), entry.getValue());
                     }
                 }
 

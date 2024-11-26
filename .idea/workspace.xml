@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/container/guis/selectors/server_selector.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/container/guis/selectors/server_selector.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/oblivion/Blockhunt.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/oblivion/Blockhunt.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/oblivion/Parkour.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/oblivion/Parkour.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/update/sidebar/UpdateSidebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/update/sidebar/UpdateSidebar.java" afterDir="false" />
     </list>
     <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="" />

@@ -2,7 +2,7 @@
   "name": [
     ["<red>Reload = ☠</red>"],
     ["<gold>Parkour <gray>[0.1]</gray></gold>"],
-    ["<yellow>$(playercount_parkour) Playing</yellow>"]
+    ["<yellow>$(parkour:playercount) Playing</yellow>"]
   ],
   "uuid": "uuid",
   "entity_type": "minecraft:player",
