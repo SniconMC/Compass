@@ -1,15 +1,15 @@
 {
-  "name": "lobby",
+  "name": "old_hub",
   "defaultSpawn": false,
   "spawnX": 5.5,
-  "spawnY": -55.0,
-  "spawnZ": 10.5,
+  "spawnY": 66.0,
+  "spawnZ": 21.5,
   "spawnPitch": 0.0,
-  "spawnYaw": -90.0,
+  "spawnYaw": -180.0,
   "hasVoidLimit": true,
   "voidLimitHeight": -64.0,
   "weather": "clear",
   "time": "4500",
   "doDaylightCycle": false,
-  "defaultGamemode": "ADVENTURE"
+  "defaultGamemode": "SURVIVAL"
 }

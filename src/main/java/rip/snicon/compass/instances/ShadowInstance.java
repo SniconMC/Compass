@@ -67,13 +67,28 @@ public class ShadowInstance extends InstanceContainer {
 
         // If default instance. Make the player spawn there.
         MinecraftServer.getGlobalEventHandler().addListener(AsyncPlayerConfigurationEvent.class, event -> {
-           if (this.defaultSpawn) event.setSpawningInstance(this);
 
-           event.getPlayer().setRespawnPoint(new Pos(this.spawnX, this.spawnY, this.spawnZ, this.spawnYaw, this.spawnPitch));
-           event.getPlayer().setGameMode(defaultGamemode != null ? GameMode.valueOf(defaultGamemode) : GameMode.SURVIVAL);
+
+            if (this.defaultSpawn) event.setSpawningInstance(this);
+
+
         });
 
+        MinecraftServer.getGlobalEventHandler().addListener(PlayerSpawnEvent.class, event -> {
+            if (event.getPlayer().getInstance() instanceof ShadowInstance instance && instance == this) {
+                event.getPlayer().teleport(new Pos(this.spawnX, this.spawnY, this.spawnZ, this.spawnYaw, this.spawnPitch));
+                event.getPlayer().setGameMode(defaultGamemode != null ? GameMode.valueOf(defaultGamemode) : GameMode.SURVIVAL);
+
+            }
+
+        });
+
+
         MinecraftServer.getGlobalEventHandler().addListener(PlayerMoveEvent.class, event -> {
+            if (event.getPlayer().getInstance() instanceof ShadowInstance instance && instance != this) {
+                return;
+            }
+
             if (event.getPlayer().getPosition().y() <= this.voidLimitHeight && this.hasVoidLimit) {
                 event.getPlayer().teleport(new Pos(this.spawnX, this.spawnY, this.spawnZ, this.spawnYaw, this.spawnPitch));
                 event.getPlayer().sendMessage(TextUtils.convertStringToComponent("<gray>oops.. the <light_purple>Void</light_purple>, sent you back!</gray>"));

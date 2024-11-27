@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/database/mongodb/MongoDatabaseManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/database/redisdb/RedisCacheManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/ShadowPlayerUtility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/player/ShadowPlayerNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/player/ShadowPlayerNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/ShadowPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/ShadowPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/worlds/lobby/lobby.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/worlds/lobby/lobby.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/ShadowInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/ShadowInstance.java" afterDir="false" />
     </list>
     <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,11 +111,11 @@
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\professions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\wilhe\OneDrive\Dokument\GitHub\Compass\resources\worlds" />
+      <recent name="C:\Users\wilhe\OneDrive\Dokument\GitHub\Compass\resource" />
       <recent name="C:\Users\wilhe\OneDrive\Dokument\GitHub\Compass\docker" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\ranks" />
       <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\ranks\staff" />
-      <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\gandalf\ranks\player" />
-      <recent name="D:\Documents\Github Repositories\SniconMC\Servers\Compass\resources\container\guis\profile" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="rip.snicon.compass.sidebar" />
