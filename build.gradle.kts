@@ -25,6 +25,7 @@ dependencies {
     implementation("ch.qos.logback:logback-core:1.5.7") // Logback core
 
     implementation("org.mongodb:mongodb-driver-sync:4.10.0") // Database mongoDB
+    implementation("redis.clients:jedis:5.0.0") // Cache Database redis
 
 
 }
