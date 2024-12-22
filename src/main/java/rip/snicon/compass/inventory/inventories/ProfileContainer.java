@@ -24,6 +24,7 @@ public class ProfileContainer extends MysteryInventory {
         setItem(15, MysteryItemType.COSMETICS_ITEM);
         setItem(22, MysteryItemType.SETTINGS_ITEM);
         setItem(40, MysteryItemType.CLOSE_ITEM);
+        setItem(20, MysteryItemType.GUIDES_PHONE_ITEM);
     }
 
 

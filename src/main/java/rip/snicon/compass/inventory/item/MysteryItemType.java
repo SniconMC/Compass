@@ -16,6 +16,7 @@ public enum MysteryItemType {
     COSMETICS_ITEM(new CosmeticsItem()),
     SETTINGS_ITEM(new SettingsItem()),
     PROFESSION_ITEM(new ProfessionItem()),
+    GUIDES_PHONE_ITEM(new GuidesPhoneItem()),
     CLOSE_ITEM(new CloseItem());
 
     private final MysteryItem item;
