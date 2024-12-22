@@ -79,12 +79,12 @@ public class ProfessionContainer extends MysteryInventory {
         for (int i = 0; i < totalBars; i++) {
             if (i < filledBars) {
                 if (unlocked) {
-                    progressBar.append("<green><st>-</st></green>");
+                    progressBar.append("<green><st> </st></green>");
                 } else {
-                    progressBar.append("<blue><st>-</st></blue>");
+                    progressBar.append("<blue><st> </st></blue>");
                 }
             } else {
-                progressBar.append("<gray><st>-</st></gray>");
+                progressBar.append("<gray><st> </st></gray>");
             }
         }
 

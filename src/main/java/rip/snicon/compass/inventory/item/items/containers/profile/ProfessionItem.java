@@ -45,9 +45,9 @@ public class ProfessionItem extends MysteryItem {
         StringBuilder progressBar = new StringBuilder();
         for (int i = 0; i < totalBars; i++) {
             if (i < filledBars) {
-                progressBar.append("<green><st>-</st></green>"); // Filled segments
+                progressBar.append("<green><st> </st></green>"); // Filled segments
             } else {
-                progressBar.append("<gray><st>-</st></gray>"); // Empty segments
+                progressBar.append("<gray><st> </st></gray>"); // Empty segments
             }
         }
 

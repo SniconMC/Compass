@@ -123,8 +123,8 @@ public class MysteryDataHandler {
     public void updateDiscoveredRegion(MysteryRegion region) {
         if (!discoveredRegions.contains(region.name())) {
             discoveredRegions.add(region.name());
-            updateEmeralds(region.getEmeralds());
-            updateProfessionXp(region.getXp());
+            updateEmeralds(getEmeralds() + region.getEmeralds());
+            updateProfessionXp(getProfessionXp() + region.getXp());
 
             saveDataToDatabase();
         }
