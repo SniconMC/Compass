@@ -1,0 +1,32 @@
+package rip.snicon.compass.inventory.item;
+
+import rip.snicon.compass.inventory.item.items.containers.CloseItem;
+import rip.snicon.compass.inventory.item.items.containers.MinigameSelector;
+import rip.snicon.compass.inventory.item.items.containers.ProfessionViewer;
+import rip.snicon.compass.inventory.item.items.containers.ProfileViewer;
+import rip.snicon.compass.inventory.item.items.containers.profile.*;
+import rip.snicon.compass.player.MysteryPlayer;
+
+public enum MysteryItemType {
+    MINIGAME_SELECTOR(new MinigameSelector()),
+    PROFESSION_VIEWER(new ProfessionViewer()),
+    PROFILE_VIEWER(new ProfileViewer()),
+    ACHIEVEMENT_ITEM(new AchievementItem()),
+    STATISTICS_ITEM(new StatisticsItem()),
+    COSMETICS_ITEM(new CosmeticsItem()),
+    SETTINGS_ITEM(new SettingsItem()),
+    PROFESSION_ITEM(new ProfessionItem()),
+    CLOSE_ITEM(new CloseItem());
+
+    private final MysteryItem item;
+
+    MysteryItemType(MysteryItem item) {
+        this.item = item;
+        this.item.setItemKey(this.name()); // Automatically set the type
+    }
+
+    public MysteryItem getItem(MysteryPlayer player) {
+        item.populateForPlayer(player);
+        return item;
+    }
+}

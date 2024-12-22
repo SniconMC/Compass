@@ -1,16 +1,21 @@
 package rip.snicon.compass.player;
 
 public enum PlayerRank {
-    VILLAGER("$(player_profession) $(player_rank) $(username)"),
-    TRADER("$(player_profession) $(player_rank) $(username)"),
-    GOLEM("$(player_profession) $(player_rank) $(username)"),
-    ALLAY("$(player_profession) $(player_rank) $(username)"),
-    VEX("$(player_profession) $(player_rank) $(username)"),
-    VINDICATOR("$(player_profession) $(player_rank) $(username)"),
-    EVOKER("$(player_profession) $(player_rank) $(username)");
+    VILLAGER("gray"),
+    TRADER("yellow"),
+    GOLEM("white"),
+    ALLAY("aqua"),
+    VEX("dark_aqua"),
+    VINDICATOR("dark_blue"),
+    EVOKER("red");
 
+    private final String color;
 
-    PlayerRank(String format) {
+    PlayerRank(String color) {
+        this.color = color;
+    }
 
+    public String getColor(){
+        return color;
     }
 }

@@ -1,0 +1,243 @@
+package rip.snicon.compass.inventory.item;
+
+import net.minestom.server.MinecraftServer;
+import net.minestom.server.entity.PlayerSkin;
+import net.minestom.server.event.inventory.InventoryPreClickEvent;
+import net.minestom.server.event.player.PlayerUseItemEvent;
+import net.minestom.server.item.ItemComponent;
+import net.minestom.server.item.ItemStack;
+import net.minestom.server.item.Material;
+import net.minestom.server.item.component.AttributeList;
+import net.minestom.server.item.component.DyedItemColor;
+import net.minestom.server.item.component.HeadProfile;
+import net.minestom.server.tag.Tag;
+import rip.snicon.compass.player.MysteryPlayer;
+import rip.snicon.compass.utils.ColorUtils;
+import rip.snicon.compass.utils.TextUtils;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+
+public abstract class MysteryItem {
+    private final Material material;
+
+    // Count
+    private int stackCount = 1;
+    private int maxCount = 64;
+
+    // Display properties
+    private String name = "";
+    private List<String> lore = Collections.emptyList();
+    private Integer modelData = null;
+    private boolean glint = false;
+    private String dyeColor = "";
+    private boolean showTooltip = true;
+
+    // Skin object
+    private PlayerSkin skin;
+
+    private MysteryItemOrigin origin;
+    private String itemKey;
+
+    // Constructors for different use cases
+    public MysteryItem(Material material) {
+        this.material = material;
+        registerEventListeners();
+
+    }
+
+    public MysteryItem(Material material, String name) {
+        this(material);
+        this.name = name;
+    }
+
+    public MysteryItem(Material material, String name, List<String> lore) {
+        this(material, name);
+        this.lore = lore;
+    }
+
+    public MysteryItem(Material material, String name, List<String> lore, int stackCount, int maxCount, MysteryItemOrigin origin) {
+        this(material, name, lore);
+        this.stackCount = stackCount;
+        this.maxCount = maxCount;
+        this.origin = origin;
+    }
+
+    public MysteryItem(Material material, MysteryItemOrigin origin) {
+        this(material);
+        this.origin = origin;
+    }
+
+    // Getters and setters for the fields
+    public Material getMaterial() {
+        return material;
+    }
+
+    public int getStackCount() {
+        return stackCount;
+    }
+
+    public void setStackCount(int count) {
+        this.stackCount = count;
+    }
+
+    public int getMaxCount() {
+        return maxCount;
+    }
+
+    public void setMaxCount(int maxCount) {
+        this.maxCount = maxCount;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<String> getLore() {
+        return lore;
+    }
+
+    public void setLore(List<String> lore) {
+        this.lore = lore;
+    }
+
+    public Integer getModelData() {
+        return modelData;
+    }
+
+    public void setModelData(Integer modelData) {
+        this.modelData = modelData;
+    }
+
+    public boolean hasGlint() {
+        return glint;
+    }
+
+    public void setGlint(boolean glint) {
+        this.glint = glint;
+    }
+
+    public String getDyeColor() {
+        return dyeColor;
+    }
+
+    public void setDyeColor(String dyeColor) {
+        this.dyeColor = dyeColor;
+    }
+
+    public boolean isShowTooltip() {
+        return showTooltip;
+    }
+
+    public void setShowTooltip(boolean showTooltip) {
+        this.showTooltip = showTooltip;
+    }
+
+    public PlayerSkin getSkin() {
+        return skin;
+    }
+
+    public void setSkin(PlayerSkin skin) {
+        this.skin = skin;
+    }
+
+    public MysteryItemOrigin getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(MysteryItemOrigin origin) {
+        this.origin = origin;
+    }
+
+    public String getItemKey() {
+        return itemKey;
+    }
+
+    public void setItemKey(String itemKey) {
+        this.itemKey = itemKey;
+    }
+
+    /**
+     * Populate the item dynamically for a player.
+     */
+    abstract public void populateForPlayer(MysteryPlayer player);
+
+    /**
+     * Creates the ItemStack representation of this item.
+     */
+    public ItemStack createItemStack() {
+        ItemStack.Builder builder = ItemStack.builder(material)
+                .amount(stackCount)
+                .maxStackSize(maxCount)
+                .set(ItemComponent.ITEM_NAME, TextUtils.convertStringToComponent(name))
+                .set(ItemComponent.LORE, TextUtils.convertStringToComponent(lore))
+                .glowing(glint)
+                .set(ItemComponent.DYED_COLOR, new DyedItemColor(ColorUtils.StringToRgb(dyeColor), false))
+                .set(ItemComponent.ATTRIBUTE_MODIFIERS, new AttributeList(AttributeList.EMPTY.modifiers(), false));
+        if (!showTooltip) {
+            builder.set(ItemComponent.HIDE_TOOLTIP);
+        }
+        if (modelData != null) {
+            builder.set(ItemComponent.CUSTOM_MODEL_DATA, modelData);
+        }
+
+        if (origin != null) {
+            builder.setTag(Tag.String(MysteryItemTags.ITEM_ORIGIN.name()), origin.name());
+        }
+
+        if (itemKey != null) {
+            builder.setTag(Tag.String(MysteryItemTags.MYSTERY_ITEM_TYPE.name()), itemKey);
+        }
+
+        if (skin != null && material == Material.PLAYER_HEAD) {
+            builder.set(ItemComponent.PROFILE, new HeadProfile(skin));
+        }
+
+        return builder.build();
+    }
+
+    public void registerEventListeners() {
+        MinecraftServer.getGlobalEventHandler().addListener(PlayerUseItemEvent.class, event -> {
+            if (event.getPlayer() instanceof MysteryPlayer player) {
+                // Only trigger this specific item
+                if (Objects.equals(event.getItemStack().getTag(Tag.String(MysteryItemTags.MYSTERY_ITEM_TYPE.name())), this.itemKey)) {
+                    onUse(player);
+                }
+            }
+        });
+
+        MinecraftServer.getGlobalEventHandler().addListener(InventoryPreClickEvent.class, event -> {
+            if (event.getPlayer() instanceof MysteryPlayer player) {
+                ItemStack clickedItem = event.getClickedItem();
+                // Retrieve the origin tag
+                String itemOrigin = clickedItem.getTag(Tag.String(MysteryItemTags.ITEM_ORIGIN.name()));
+                // Retrieve the item type
+                String itemType = clickedItem.getTag(Tag.String(MysteryItemTags.MYSTERY_ITEM_TYPE.name()));
+
+                if (itemOrigin != null && itemType != null) {
+                    // Allow interaction only if the origin is PLAYER
+                    if (Objects.equals(itemOrigin, MysteryItemOrigin.PLAYER.name())) {
+                        // Allow normal item movement
+                        return;
+                    }
+
+                    // Cancel the event if the origin is CONTAINER and the item matches this item's type
+                    if (Objects.equals(itemOrigin, MysteryItemOrigin.CONTAINER.name()) &&
+                            Objects.equals(itemType, this.itemKey)) {
+                        event.setCancelled(true);
+                        onUse(player);
+                    }
+                }
+            }
+        });
+
+    }
+
+
+    public abstract void onUse(MysteryPlayer player);
+}
