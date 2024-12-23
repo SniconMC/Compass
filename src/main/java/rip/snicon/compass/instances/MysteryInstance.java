@@ -47,11 +47,6 @@ public class MysteryInstance extends InstanceContainer {
         // Global event handler
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
 
-        // Player configuration event
-        globalEventHandler.addListener(AsyncPlayerConfigurationEvent.class, event -> {
-            event.setSpawningInstance(this);
-            event.getPlayer().setRespawnPoint(new Pos(SPAWN_X, SPAWN_Y, SPAWN_Z, SPAWN_YAW, SPAWN_PITCH));
-        });
 
         // Player spawn event
         globalEventHandler.addListener(PlayerSpawnEvent.class, event -> {
@@ -73,5 +68,9 @@ public class MysteryInstance extends InstanceContainer {
                 ));
             }
         });
+    }
+
+    public Pos getSpawnPos() {
+        return new Pos(SPAWN_X, SPAWN_Y, SPAWN_Z, SPAWN_YAW, SPAWN_PITCH);
     }
 }

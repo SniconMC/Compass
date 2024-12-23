@@ -33,5 +33,6 @@ public class StatisticsItem extends MysteryItem {
     @Override
     public void onUse(MysteryPlayer player) {
         // Logic for when the player uses this item.
+
     }
 }

@@ -4,31 +4,33 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 public class RedisCacheManager {
-    private final JedisPool jedisPool;
+    private static JedisPool jedisPool;
 
-    public RedisCacheManager(String host, int port) {
+    public static void initialize(String host, int port) {
         jedisPool = new JedisPool(host, port);
     }
 
-    public String fetch(String key) {
+    public static String fetch(String key) {
         try (Jedis jedis = jedisPool.getResource()) {
             return jedis.get(key);
         }
     }
 
-    public void save(String key, String value) {
+    public static void save(String key, String value) {
         try (Jedis jedis = jedisPool.getResource()) {
             jedis.set(key, value);
         }
     }
 
-    public void delete(String key) {
+    public static void delete(String key) {
         try (Jedis jedis = jedisPool.getResource()) {
             jedis.del(key);
         }
     }
 
-    public void shutdown() {
-        jedisPool.close();
+    public static void shutdown() {
+        if (jedisPool != null) {
+            jedisPool.close();
+        }
     }
 }

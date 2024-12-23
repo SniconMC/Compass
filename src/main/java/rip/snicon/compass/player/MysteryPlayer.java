@@ -1,13 +1,11 @@
 package rip.snicon.compass.player;
 
-import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
-import net.minestom.server.event.inventory.InventoryCloseEvent;
-import net.minestom.server.inventory.Inventory;
+import net.minestom.server.item.ItemStack;
 import net.minestom.server.network.player.PlayerConnection;
 import org.jetbrains.annotations.NotNull;
 import rip.snicon.compass.instances.regions.MysteryRegion;
-import rip.snicon.compass.inventory.MysteryInventory;
+import rip.snicon.compass.inventory.item.MysteryItem;
 import rip.snicon.compass.inventory.item.MysteryItemType;
 import rip.snicon.compass.player.profession.PlayerProfession;
 import rip.snicon.compass.player.settings.PlayerSetting;
@@ -192,7 +190,6 @@ public class MysteryPlayer extends Player {
         }
     }
 
-
     public List<MysteryRegion> getNeighboringRegions() {
         if (region == null) {
             return Collections.emptyList();
@@ -205,22 +202,32 @@ public class MysteryPlayer extends Player {
         return region == newRegion;
     }
 
-    public void loadPlayerInventory() {
-        // Clear the player's current inventory
-        this.getInventory().clear();
 
+    public void addItem(MysteryItemType item){
+        this.getDataHandler().addItem(item);
+        loadPlayerInventory();
+    }
+
+    public void loadPlayerInventory() {
         // Iterate through the saved inventory map
         for (Map.Entry<Integer, MysteryItemType> entry : this.getDataHandler().getFullInventory().entrySet()) {
             int slot = entry.getKey();
             MysteryItemType itemType = entry.getValue();
 
             if (itemType != null) {
-                // Create the ItemStack from the MysteryItemType and set it in the player's inventory
-                this.getInventory().setItemStack(slot, itemType.getItem(this).createItemStack());
+                // Create the new ItemStack from the MysteryItemType
+                ItemStack newItemStack = itemType.getItem(this).createItemStack();
+
+                // Get the existing ItemStack in the slot
+                ItemStack existingItemStack = this.getInventory().getItemStack(slot);
+
+                // Update the slot if the item is different or if the slot is empty
+                if (!existingItemStack.equals(newItemStack)) {
+                    this.getInventory().setItemStack(slot, newItemStack);
+                }
             }
         }
     }
-
 
 }
 

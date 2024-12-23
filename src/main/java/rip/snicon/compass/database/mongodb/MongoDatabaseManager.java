@@ -12,11 +12,11 @@ import org.bson.Document;
 import java.util.concurrent.CompletableFuture;
 
 public class MongoDatabaseManager {
-    private MongoClient mongoClient;
-    private MongoDatabase database;
-    private boolean isConnected = false;
+    private static MongoClient mongoClient;
+    private static MongoDatabase database;
+    private static boolean isConnected = false;
 
-    public void connect(String uri, String databaseName) {
+    public static void connect(String uri, String databaseName) {
         try {
             mongoClient = MongoClients.create(uri);
             database = mongoClient.getDatabase(databaseName);
@@ -24,11 +24,11 @@ public class MongoDatabaseManager {
             System.out.println("Connected to MongoDB!");
         } catch (Exception e) {
             isConnected = false;
-            System.err.println("Failed to connect to MongoDB: " + e.getMessage());
+            System.err.println("Failed to connect to MongoDB. Please check your connection settings.");
         }
     }
 
-    public void disconnect() {
+    public static void disconnect() {
         if (mongoClient != null) {
             mongoClient.close();
             isConnected = false;
@@ -36,11 +36,11 @@ public class MongoDatabaseManager {
         }
     }
 
-    public boolean isConnected() {
+    public static boolean isConnected() {
         return isConnected;
     }
 
-    public CompletableFuture<Document> fetch(String collectionName, String keyField, String key) {
+    public static CompletableFuture<Document> fetch(String collectionName, String keyField, String key) {
         CompletableFuture<Document> future = new CompletableFuture<>();
         if (!isConnected) {
             future.completeExceptionally(new IllegalStateException("MongoDB is offline!"));
@@ -60,8 +60,7 @@ public class MongoDatabaseManager {
         return future;
     }
 
-
-    public CompletableFuture<Void> save(String collectionName, String keyField, Document data) {
+    public static CompletableFuture<Void> save(String collectionName, String keyField, Document data) {
         CompletableFuture<Void> future = new CompletableFuture<>();
         if (!isConnected) {
             future.completeExceptionally(new IllegalStateException("MongoDB is offline!"));

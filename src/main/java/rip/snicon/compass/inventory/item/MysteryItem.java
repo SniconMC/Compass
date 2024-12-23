@@ -11,6 +11,7 @@ import net.minestom.server.item.component.AttributeList;
 import net.minestom.server.item.component.DyedItemColor;
 import net.minestom.server.item.component.HeadProfile;
 import net.minestom.server.tag.Tag;
+import rip.snicon.compass.Main;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.utils.ColorUtils;
 import rip.snicon.compass.utils.TextUtils;
@@ -214,6 +215,7 @@ public abstract class MysteryItem {
         MinecraftServer.getGlobalEventHandler().addListener(InventoryPreClickEvent.class, event -> {
             if (event.getPlayer() instanceof MysteryPlayer player) {
                 ItemStack clickedItem = event.getClickedItem();
+
                 // Retrieve the origin tag
                 String itemOrigin = clickedItem.getTag(Tag.String(MysteryItemTags.ITEM_ORIGIN.name()));
                 // Retrieve the item type

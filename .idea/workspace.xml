@@ -5,10 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/MysteryInstanceType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/BackgroundItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/ExampleItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/inventories/ProfessionContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/inventories/ProfessionContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/database/mongodb/MongoDatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/database/mongodb/MongoDatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/database/redisdb/RedisCacheManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/database/redisdb/RedisCacheManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/MysteryInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/MysteryInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/MysteryInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/MysteryInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/MysteryItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/MysteryItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/MysteryItemTags.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/MysteryItemTags.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/MysteryItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/MysteryItemType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/MinigameSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/MinigameSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/ProfessionViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/ProfessionViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/ProfileViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/ProfileViewer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/profile/ProfessionItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/profile/ProfessionItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/profile/StatisticsItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/profile/StatisticsItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/player/MysteryPlayerNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/player/MysteryPlayerNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/MysteryDataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/MysteryDataHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/MysteryPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/MysteryPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/sidebar/MysterySidebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/sidebar/MysterySidebar.java" afterDir="false" />
     </list>
     <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,8 +62,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -75,37 +92,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.QuickStart.executor": "Run",
-    "Application.Run Compass.executor": "Run",
-    "Gradle.Build Compass.executor": "Run",
-    "Gradle.Compass [:Main.main()].executor": "Run",
-    "Gradle.Compass [:rip.snicon.compass.Main.main()].executor": "Run",
-    "Gradle.Compass [:rip.snicon.compass.QuickStart.main()].executor": "Run",
-    "Gradle.Compass [build].executor": "Run",
-    "Kotlin script (Beta).build.gradle.kts.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "extract.method.default.visibility": "public",
-    "git-widget-placeholder": "dockies",
-    "go.import.settings.migrated": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/wilhe/OneDrive/Dokument/GitHub/Compass/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.QuickStart.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Run Compass.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build Compass.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Compass [:Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Compass [:rip.snicon.compass.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Compass [:rip.snicon.compass.QuickStart.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Compass [build].executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin script (Beta).build.gradle.kts.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;public&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dockies&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/wilhe/OneDrive/Dokument/GitHub/Compass/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\wilhe\OneDrive\Dokument\GitHub\Compass\resources" />
@@ -126,11 +143,11 @@
       <recent name="rip.snicon.compass.sidebar" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="rip.snicon.compass.inventory.item.items.containers" />
+      <recent name="rip.snicon.compass.npc" />
       <recent name="rip.snicon.compass.inventory.item.items.containers.profile" />
       <recent name="rip.snicon.compass.inventory.inventories" />
-      <recent name="rip.snicon.compass.inventory.item.items.containers" />
       <recent name="rip.snicon.compass.listeners.inventory" />
-      <recent name="rip.snicon.compass.sidebar" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Run Compass">

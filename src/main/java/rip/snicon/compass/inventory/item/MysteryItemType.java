@@ -1,9 +1,6 @@
 package rip.snicon.compass.inventory.item;
 
-import rip.snicon.compass.inventory.item.items.containers.CloseItem;
-import rip.snicon.compass.inventory.item.items.containers.MinigameSelector;
-import rip.snicon.compass.inventory.item.items.containers.ProfessionViewer;
-import rip.snicon.compass.inventory.item.items.containers.ProfileViewer;
+import rip.snicon.compass.inventory.item.items.containers.*;
 import rip.snicon.compass.inventory.item.items.containers.profile.*;
 import rip.snicon.compass.player.MysteryPlayer;
 
@@ -17,7 +14,9 @@ public enum MysteryItemType {
     SETTINGS_ITEM(new SettingsItem()),
     PROFESSION_ITEM(new ProfessionItem()),
     GUIDES_PHONE_ITEM(new GuidesPhoneItem()),
-    CLOSE_ITEM(new CloseItem());
+    CLOSE_ITEM(new CloseItem()),
+    BACKGROUND_ITEM(new BackgroundItem()),
+    EXAMPLE_ITEM(new ExampleItem());
 
     private final MysteryItem item;
 

@@ -7,25 +7,24 @@ import rip.snicon.compass.player.MysteryPlayer;
 
 import java.util.List;
 
-public class MinigameSelector extends MysteryItem {
+public class ExampleItem extends MysteryItem {
 
-    public MinigameSelector() {
-        super(
-                Material.COMPASS,
-                "<light_purple>Minigame Selector</light_purple>",
-                List.of("Select a minigame to play"),
-                1,1,
-                MysteryItemOrigin.CONTAINER
-        );
+    public ExampleItem() {
+        super(Material.DANDELION, "Example Dandelion", List.of(
+
+        ), 1, 64, MysteryItemOrigin.PLAYER);
+
+        setShowTooltip(true);
+        setDyeColor("");
+        setGlint(true);
     }
 
     @Override
     public void populateForPlayer(MysteryPlayer player) {
-
+        // Add any dynamic player-specific properties here.
     }
 
     @Override
     public void onUse(MysteryPlayer player) {
-        System.out.println("Opening minigame selector GUI...");
     }
 }

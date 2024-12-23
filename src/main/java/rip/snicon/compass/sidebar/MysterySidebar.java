@@ -4,6 +4,7 @@ import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.Player;
 import net.minestom.server.scoreboard.Sidebar;
 import net.minestom.server.timer.TaskSchedule;
+import rip.snicon.compass.Main;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.utils.TextUtils;
 
@@ -85,5 +86,9 @@ public class MysterySidebar {
 
         // Return the color based on the current animation step
         return colors[colorIndex] + baseText + endColor + endText;
+    }
+
+    public static Map<UUID, Sidebar> getSidebarCache(){
+        return sidebarCache;
     }
 }

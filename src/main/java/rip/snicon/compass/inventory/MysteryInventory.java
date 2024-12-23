@@ -36,6 +36,7 @@ public abstract class MysteryInventory {
         staticItems.put(slot, item);
     }
 
+
     /**
      * Sets a dynamic item using a MysteryItem instance.
      */
@@ -73,7 +74,10 @@ public abstract class MysteryInventory {
     /**
      * Converts the MysteryInventory into a Minestom Inventory with a filler item.
      */
-    public Inventory toMinestomInventory(MysteryPlayer player, InventoryType type, ItemStack fill) {
+    /**
+     * Converts the MysteryInventory into a Minestom Inventory with a filler MysteryItem.
+     */
+    public Inventory toMinestomInventory(MysteryPlayer player, InventoryType type, MysteryItem fill) {
         Inventory inventory = new Inventory(type, TextUtils.convertStringToComponent(title));
 
         // Populate static items
@@ -82,8 +86,6 @@ public abstract class MysteryInventory {
             MysteryItemType item = entry.getValue();
             if (item != null) {
                 inventory.setItemStack(slot, item.getItem(player).createItemStack());
-            } else {
-                inventory.setItemStack(slot, fill);
             }
         }
 
@@ -93,13 +95,19 @@ public abstract class MysteryInventory {
             MysteryItem item = entry.getValue();
             if (item != null) {
                 inventory.setItemStack(slot, item.createItemStack());
-            } else {
-                inventory.setItemStack(slot, fill);
+            }
+        }
+
+        // Fill remaining slots with the MysteryItem
+        for (int i = 0; i < inventory.getSize(); i++) {
+            if (inventory.getItemStack(i) == null || inventory.getItemStack(i).isAir()) {
+                inventory.setItemStack(i, fill.createItemStack());
             }
         }
 
         return inventory;
     }
+
 
     public Map<Integer, MysteryItemType> getItems() {
         return staticItems;

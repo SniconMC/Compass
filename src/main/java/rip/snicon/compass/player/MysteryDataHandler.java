@@ -1,5 +1,6 @@
 package rip.snicon.compass.player;
 
+import net.minestom.server.inventory.PlayerInventory;
 import org.bson.Document;
 import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
 import rip.snicon.compass.inventory.MysteryInventory;
@@ -13,14 +14,13 @@ import java.util.*;
 
 public class MysteryDataHandler {
 
-    private static final MongoDatabaseManager databaseManager = new MongoDatabaseManager();
     private static final Map<UUID, MysteryDataHandler> userCache = new HashMap<>();
 
     private final UUID uuid;
     private PlayerRank rank = PlayerRank.VILLAGER;
     private PlayerProfession profession = PlayerProfession.NITWIT;
     private double emeralds = 0;
-    private double professionXp = 90;
+    private double professionXp = 0;
     private double achievementPoints = 0;
 
     private final Map<Integer, MysteryItemType> inventory = new HashMap<>(MysteryInventoryType.DEFAULT.getStaticInventory().getItems());
@@ -36,8 +36,12 @@ public class MysteryDataHandler {
         return userCache.computeIfAbsent(uuid, MysteryDataHandler::new);
     }
 
+    public static void clearCache(UUID uuid) {
+        userCache.remove(uuid);
+    }
+
     public void fetchDataFromDatabase() {
-        databaseManager.fetch("players", "uuid", uuid.toString())
+        MongoDatabaseManager.fetch("players", "uuid", uuid.toString())
                 .thenAccept(document -> {
                     if (document != null) {
                         loadPlayerData(document);
@@ -69,7 +73,7 @@ public class MysteryDataHandler {
         data.append("inventory", inventoryDocument);
 
         // Save to the database
-        databaseManager.save("players", "uuid", data).exceptionally(throwable -> {
+        MongoDatabaseManager.save("players", "uuid", data).exceptionally(throwable -> {
             System.err.println("Failed to save player data: " + throwable.getMessage());
             return null;
         });
@@ -195,6 +199,27 @@ public class MysteryDataHandler {
         inventory.put(slot, itemType);
         saveDataToDatabase();
     }
+
+    public boolean addItem(MysteryItemType item) {
+        int maxSlotSize = PlayerInventory.INNER_INVENTORY_SIZE;
+
+        // Find the first available slot
+        for (int slot = 0; slot < maxSlotSize; slot++) {
+            if (!inventory.containsKey(slot)) {
+                // Slot is available, add the item
+                inventory.put(slot, item);
+                saveDataToDatabase();
+                return true; // Item added successfully
+            }
+        }
+        // If no slot is available, return false
+        return false;
+    }
+
+    public void updateInventorySlot(int slot, String itemType) {
+        this.getFullInventory().put(slot, MysteryItemType.valueOf(itemType));
+    }
+
 
     public MysteryItemType getInventoryItem(int slot) {
         return inventory.get(slot);
