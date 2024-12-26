@@ -25,7 +25,7 @@ public class ProfessionItem extends MysteryItem {
     @Override
     public void populateForPlayer(MysteryPlayer player) {
         // Get player's total XP
-        double totalXp = player.getProfessionXp();
+        double totalXp = player.getDataHandler().getProfessionXp();
         PlayerProfession[] professions = PlayerProfession.values();
 
         // Calculate the cumulative XP required for the last profession
@@ -54,7 +54,7 @@ public class ProfessionItem extends MysteryItem {
 
         // Set the lore for the item
         setLore(List.of(
-                "<yellow>Profession: " + TextUtils.capitalizeFirstLetter(player.getProfession().name()) + "</yellow>",
+                "<yellow>Profession: " + TextUtils.capitalizeFirstLetter(player.getDataHandler().getProfession().name()) + "</yellow>",
                 "<yellow>Profession XP: " + (int) totalXp + " / " + (int) cumulativeXp + "</yellow>",
                 "<yellow>Road to " + TextUtils.capitalizeFirstLetter(maxProfession.name()) + "</yellow>",
                 progressBar + " <yellow>" + (int) (progress * 100) + "%</yellow>"

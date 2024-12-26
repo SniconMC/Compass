@@ -26,7 +26,7 @@ public class ProfessionContainer extends MysteryInventory {
     @Override
     protected void populate(MysteryPlayer player) {
         setItem(4, MysteryItemType.PROFESSION_ITEM.getItem(player));
-        double totalXp = player.getProfessionXp();
+        double totalXp = player.getDataHandler().getProfessionXp();
         PlayerProfession[] professions = PlayerProfession.values();
         double cumulativeXp = 0;
 

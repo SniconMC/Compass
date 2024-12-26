@@ -1,9 +1,12 @@
 // File: SettingsItem.java
 package rip.snicon.compass.inventory.item.items.containers.profile;
 
+import net.minestom.server.inventory.InventoryType;
 import net.minestom.server.item.Material;
+import rip.snicon.compass.inventory.MysteryInventoryType;
 import rip.snicon.compass.inventory.item.MysteryItem;
 import rip.snicon.compass.inventory.item.MysteryItemOrigin;
+import rip.snicon.compass.inventory.item.MysteryItemType;
 import rip.snicon.compass.player.MysteryPlayer;
 
 import java.util.List;
@@ -30,5 +33,6 @@ public class SettingsItem extends MysteryItem {
     @Override
     public void onUse(MysteryPlayer player) {
         // Logic for when the player uses this item.
+        player.openInventory(MysteryInventoryType.SETTINGS_CONTAINER.getInventory(player).toMinestomInventory(player, InventoryType.CHEST_4_ROW, MysteryItemType.BACKGROUND_ITEM.getItem(player)));
     }
 }

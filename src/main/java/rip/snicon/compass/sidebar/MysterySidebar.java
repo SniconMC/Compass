@@ -39,8 +39,8 @@ public class MysterySidebar {
                         sidebar.createLine(new Sidebar.ScoreboardLine("space2", TextUtils.convertStringToComponent("<gray> "), 5, Sidebar.NumberFormat.blank()));
 
                         // Add dynamic player-specific stats
-                        sidebar.createLine(new Sidebar.ScoreboardLine("emeralds", TextUtils.convertStringToComponent("<white>Emeralds: <green>" + player.getEmeralds()), 4, Sidebar.NumberFormat.blank()));
-                        sidebar.createLine(new Sidebar.ScoreboardLine("xp", TextUtils.convertStringToComponent("<white>XP: <gold>" + player.getProfessionXp()), 3, Sidebar.NumberFormat.blank()));
+                        sidebar.createLine(new Sidebar.ScoreboardLine("emeralds", TextUtils.convertStringToComponent("<white>Emeralds: <green>" + player.getDataHandler().getEmeralds()), 4, Sidebar.NumberFormat.blank()));
+                        sidebar.createLine(new Sidebar.ScoreboardLine("xp", TextUtils.convertStringToComponent("<white>XP: <gold>" + player.getDataHandler().getProfessionXp()), 3, Sidebar.NumberFormat.blank()));
 
                         // Add end ip
                         sidebar.createLine(new Sidebar.ScoreboardLine("space3", TextUtils.convertStringToComponent("<gray> "), 1, Sidebar.NumberFormat.blank()));
@@ -56,9 +56,9 @@ public class MysterySidebar {
                         sidebar.setTitle(TextUtils.convertStringToComponent(getSidebarTitle(animationCounter)));
 
                         // Update dynamic player-specific stats
-                        sidebar.updateLineContent("emeralds", TextUtils.convertStringToComponent("<white>Emeralds: <green>" + player.getEmeralds()));
-                        sidebar.updateLineContent("xp", TextUtils.convertStringToComponent("<white>XP: <gold>" + player.getProfessionXp()));
-                        sidebar.updateLineContent("achievements", TextUtils.convertStringToComponent("<white>Achievements: <aqua>" + player.getAchievementPoints()));
+                        sidebar.updateLineContent("emeralds", TextUtils.convertStringToComponent("<white>Emeralds: <green>" + player.getDataHandler().getEmeralds()));
+                        sidebar.updateLineContent("xp", TextUtils.convertStringToComponent("<white>XP: <gold>" + player.getDataHandler().getProfessionXp()));
+                        sidebar.updateLineContent("achievements", TextUtils.convertStringToComponent("<white>Achievements: <aqua>" + player.getDataHandler().getAchievementPoints()));
 
                     }
                 }

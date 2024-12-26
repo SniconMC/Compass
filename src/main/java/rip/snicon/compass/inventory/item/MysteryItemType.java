@@ -1,7 +1,9 @@
 package rip.snicon.compass.inventory.item;
 
+import net.minestom.server.inventory.Inventory;
 import rip.snicon.compass.inventory.item.items.containers.*;
 import rip.snicon.compass.inventory.item.items.containers.profile.*;
+import rip.snicon.compass.inventory.item.items.containers.settings.ShowIconItem;
 import rip.snicon.compass.player.MysteryPlayer;
 
 public enum MysteryItemType {
@@ -16,7 +18,8 @@ public enum MysteryItemType {
     GUIDES_PHONE_ITEM(new GuidesPhoneItem()),
     CLOSE_ITEM(new CloseItem()),
     BACKGROUND_ITEM(new BackgroundItem()),
-    EXAMPLE_ITEM(new ExampleItem());
+    EXAMPLE_ITEM(new ExampleItem()),
+    SHOWICON_ITEM(new ShowIconItem());
 
     private final MysteryItem item;
 
@@ -29,4 +32,10 @@ public enum MysteryItemType {
         item.populateForPlayer(player);
         return item;
     }
+    public MysteryItem getItem(MysteryPlayer player, Inventory hostInventory, int hostSlot) {
+        item.populateForPlayer(player);
+        item.setHosts(hostInventory, hostSlot);
+        return item;
+    }
+
 }

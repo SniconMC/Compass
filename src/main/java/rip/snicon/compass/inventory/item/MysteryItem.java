@@ -5,6 +5,7 @@ import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.event.inventory.InventoryPreClickEvent;
 import net.minestom.server.event.item.ItemDropEvent;
 import net.minestom.server.event.player.PlayerUseItemEvent;
+import net.minestom.server.inventory.Inventory;
 import net.minestom.server.inventory.click.ClickType;
 import net.minestom.server.item.ItemComponent;
 import net.minestom.server.item.ItemStack;
@@ -42,6 +43,10 @@ public abstract class MysteryItem {
 
     private MysteryItemOrigin origin;
     private String itemIdentifier;
+
+    // Identification properties
+    private int hostSlot;
+    private Inventory hostInventory;
 
     // Constructors for different use cases
     public MysteryItem(Material material) {
@@ -163,6 +168,20 @@ public abstract class MysteryItem {
         this.itemIdentifier = itemKey;
     }
 
+    public int getHostSlot() {
+        return hostSlot;
+    }
+
+    public Inventory getHostInventory() {
+        return hostInventory;
+    }
+
+    public void setHosts(Inventory hostInventory, int hostSlot) {
+        this.hostInventory = hostInventory;
+        this.hostSlot = hostSlot;
+    }
+
+
     /**
      * Populate the item dynamically for a player.
      */
@@ -240,7 +259,7 @@ public abstract class MysteryItem {
                         return;
                     }
                     if (event.getClickType() == ClickType.DROP) {
-                        player.getDataHandler().removeInventoryItem(event.getSlot());
+                        player.getInventoryHandler().removeInventoryItem(event.getSlot());
                     }
 
                 }

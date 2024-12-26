@@ -85,7 +85,7 @@ public abstract class MysteryInventory {
             int slot = entry.getKey();
             MysteryItemType item = entry.getValue();
             if (item != null) {
-                inventory.setItemStack(slot, item.getItem(player).createItemStack());
+                inventory.setItemStack(slot, item.getItem(player, inventory, slot).createItemStack());
             }
         }
 
@@ -94,13 +94,15 @@ public abstract class MysteryInventory {
             int slot = entry.getKey();
             MysteryItem item = entry.getValue();
             if (item != null) {
+                item.setHosts(inventory, slot);
                 inventory.setItemStack(slot, item.createItemStack());
             }
         }
 
         // Fill remaining slots with the MysteryItem
         for (int i = 0; i < inventory.getSize(); i++) {
-            if (inventory.getItemStack(i) == null || inventory.getItemStack(i).isAir()) {
+            inventory.getItemStack(i);
+            if (inventory.getItemStack(i).isAir()) {
                 inventory.setItemStack(i, fill.createItemStack());
             }
         }
