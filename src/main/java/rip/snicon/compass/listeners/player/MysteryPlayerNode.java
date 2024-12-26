@@ -96,7 +96,7 @@ public class MysteryPlayerNode {
         this.mysteryPlayerNode.addListener(PlayerBlockBreakEvent.class, event -> {
             if (event.getPlayer() instanceof MysteryPlayer player) {
                 player.getDataHandler().updateProfessionXp(2000, true);
-                player.getInventoryHandler().addItem(player.getInventory(), MysteryItemType.SHOWICON_ITEM);
+                player.getInventoryHandler().addItem(player.getInventory(), MysteryItemType.EXAMPLE_ITEM);
             }
             event.setCancelled(true);
         });

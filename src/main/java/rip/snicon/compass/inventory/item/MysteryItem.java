@@ -241,6 +241,25 @@ public abstract class MysteryItem {
             }
         });
 
+        MinecraftServer.getGlobalEventHandler().addListener(ItemDropEvent.class, event -> {
+            if (event.getPlayer() instanceof MysteryPlayer player) {
+                // Only trigger this specific item
+
+                String itemType = event.getItemStack().getTag(Tag.String(MysteryItemTags.ITEM_IDENTIFIER.name()));
+                String itemOrigin = event.getItemStack().getTag(Tag.String(MysteryItemTags.ITEM_ORIGIN.name()));
+                if (Objects.equals(itemType, this.itemIdentifier)) {
+                    onUse(player);
+                    if (Objects.equals(itemOrigin, MysteryItemOrigin.CONTAINER.name())) {
+
+                        event.setCancelled(true);
+                    }
+
+                }
+
+            }
+        });
+
+
         MinecraftServer.getGlobalEventHandler().addListener(InventoryPreClickEvent.class, event -> {
             if (event.getPlayer() instanceof MysteryPlayer player) {
                 // Only trigger this specific item
