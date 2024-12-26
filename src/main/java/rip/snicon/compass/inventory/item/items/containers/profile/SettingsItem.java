@@ -15,7 +15,7 @@ public class SettingsItem extends MysteryItem {
                 "Change your settings!",
                 "",
                 "<gray>» <aqua>Click to open</aqua> «</gray>"
-        ), 1, 64, MysteryItemOrigin.CONTAINER);
+        ), 1, MysteryItemOrigin.CONTAINER);
 
         setShowTooltip(true);
         setDyeColor("");

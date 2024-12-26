@@ -12,7 +12,7 @@ public class CloseItem extends MysteryItem {
     public CloseItem() {
         super(Material.BARRIER, "<gray>» <red>Close</red> «</gray>", List.of(
 
-        ), 1, 64, MysteryItemOrigin.CONTAINER);
+        ), 1, MysteryItemOrigin.CONTAINER);
 
         setShowTooltip(true);
         setDyeColor("");

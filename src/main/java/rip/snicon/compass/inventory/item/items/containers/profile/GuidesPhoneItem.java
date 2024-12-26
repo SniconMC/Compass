@@ -17,7 +17,7 @@ public class GuidesPhoneItem extends MysteryItem {
                 "",
                 "<yellow>Click to call the Guide!</yellow>"
 
-        ), 1, 1, MysteryItemOrigin.CONTAINER);
+        ), 1, MysteryItemOrigin.CONTAINER);
 
         setShowTooltip(true);
         setGlint(false);

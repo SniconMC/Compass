@@ -203,10 +203,7 @@ public class MysteryPlayer extends Player {
     }
 
 
-    public void addItem(MysteryItemType item){
-        this.getDataHandler().addItem(item);
-        loadPlayerInventory();
-    }
+
 
     public void loadPlayerInventory() {
         // Iterate through the saved inventory map

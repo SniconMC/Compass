@@ -14,7 +14,7 @@ public class MinigameSelector extends MysteryItem {
                 Material.COMPASS,
                 "<light_purple>Minigame Selector</light_purple>",
                 List.of("Select a minigame to play"),
-                1,1,
+                1,
                 MysteryItemOrigin.CONTAINER
         );
     }

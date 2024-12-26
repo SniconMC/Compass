@@ -16,7 +16,7 @@ import java.util.List;
 public class ProfessionItem extends MysteryItem {
 
     public ProfessionItem() {
-        super(Material.TOTEM_OF_UNDYING, "<gold>Profession</gold>", new ArrayList<>(), 1, 64, MysteryItemOrigin.CONTAINER);
+        super(Material.TOTEM_OF_UNDYING, "<gold>Profession</gold>", new ArrayList<>(), 1, MysteryItemOrigin.CONTAINER);
 
         setShowTooltip(true);
         setGlint(false);

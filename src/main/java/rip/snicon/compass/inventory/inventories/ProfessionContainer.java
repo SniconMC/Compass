@@ -112,7 +112,7 @@ public class ProfessionContainer extends MysteryInventory {
         };
         professionItem.setName(name);
         professionItem.setLore(lore);
-        professionItem.setItemKey(professionName + "_ITEM");
+        professionItem.setItemIdentifier(professionName + "_ITEM");
         setItem(slot, professionItem);
     }
 

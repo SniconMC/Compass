@@ -25,7 +25,7 @@ public abstract class MysteryItem {
 
     // Count
     private int stackCount = 1;
-    private int maxCount = 64;
+    private int maxCount = 1;
 
     // Display properties
     private String name = "";
@@ -39,13 +39,12 @@ public abstract class MysteryItem {
     private PlayerSkin skin;
 
     private MysteryItemOrigin origin;
-    private String itemKey;
+    private String itemIdentifier;
 
     // Constructors for different use cases
     public MysteryItem(Material material) {
         this.material = material;
-        registerEventListeners();
-
+        registerEvent();
     }
 
     public MysteryItem(Material material, String name) {
@@ -58,10 +57,9 @@ public abstract class MysteryItem {
         this.lore = lore;
     }
 
-    public MysteryItem(Material material, String name, List<String> lore, int stackCount, int maxCount, MysteryItemOrigin origin) {
+    public MysteryItem(Material material, String name, List<String> lore, int stackCount, MysteryItemOrigin origin) {
         this(material, name, lore);
         this.stackCount = stackCount;
-        this.maxCount = maxCount;
         this.origin = origin;
     }
 
@@ -155,12 +153,12 @@ public abstract class MysteryItem {
         this.origin = origin;
     }
 
-    public String getItemKey() {
-        return itemKey;
+    public String getItemIdentifier() {
+        return itemIdentifier;
     }
 
-    public void setItemKey(String itemKey) {
-        this.itemKey = itemKey;
+    public void setItemIdentifier(String itemKey) {
+        this.itemIdentifier = itemKey;
     }
 
     /**
@@ -191,8 +189,8 @@ public abstract class MysteryItem {
             builder.setTag(Tag.String(MysteryItemTags.ITEM_ORIGIN.name()), origin.name());
         }
 
-        if (itemKey != null) {
-            builder.setTag(Tag.String(MysteryItemTags.MYSTERY_ITEM_TYPE.name()), itemKey);
+        if (itemIdentifier != null) {
+            builder.setTag(Tag.String(MysteryItemTags.ITEM_IDENTIFIER.name()), itemIdentifier);
         }
 
         if (skin != null && material == Material.PLAYER_HEAD) {
@@ -202,44 +200,34 @@ public abstract class MysteryItem {
         return builder.build();
     }
 
-    public void registerEventListeners() {
+
+    public void registerEvent() {
         MinecraftServer.getGlobalEventHandler().addListener(PlayerUseItemEvent.class, event -> {
             if (event.getPlayer() instanceof MysteryPlayer player) {
                 // Only trigger this specific item
-                if (Objects.equals(event.getItemStack().getTag(Tag.String(MysteryItemTags.MYSTERY_ITEM_TYPE.name())), this.itemKey)) {
+
+                String itemType = event.getItemStack().getTag(Tag.String(MysteryItemTags.ITEM_IDENTIFIER.name()));
+
+                if (Objects.equals(itemType, this.itemIdentifier)) {
                     onUse(player);
+                    event.setCancelled(true);
                 }
+
             }
         });
-
         MinecraftServer.getGlobalEventHandler().addListener(InventoryPreClickEvent.class, event -> {
             if (event.getPlayer() instanceof MysteryPlayer player) {
-                ItemStack clickedItem = event.getClickedItem();
+                // Only trigger this specific item
 
-                // Retrieve the origin tag
-                String itemOrigin = clickedItem.getTag(Tag.String(MysteryItemTags.ITEM_ORIGIN.name()));
-                // Retrieve the item type
-                String itemType = clickedItem.getTag(Tag.String(MysteryItemTags.MYSTERY_ITEM_TYPE.name()));
+                String itemType = event.getClickedItem().getTag(Tag.String(MysteryItemTags.ITEM_IDENTIFIER.name()));
 
-                if (itemOrigin != null && itemType != null) {
-                    // Allow interaction only if the origin is PLAYER
-                    if (Objects.equals(itemOrigin, MysteryItemOrigin.PLAYER.name())) {
-                        // Allow normal item movement
-                        return;
-                    }
-
-                    // Cancel the event if the origin is CONTAINER and the item matches this item's type
-                    if (Objects.equals(itemOrigin, MysteryItemOrigin.CONTAINER.name()) &&
-                            Objects.equals(itemType, this.itemKey)) {
-                        event.setCancelled(true);
-                        onUse(player);
-                    }
+                if (Objects.equals(itemType, this.itemIdentifier)) {
+                    onUse(player);
+                    event.setCancelled(true);
                 }
             }
         });
-
     }
-
 
     public abstract void onUse(MysteryPlayer player);
 }

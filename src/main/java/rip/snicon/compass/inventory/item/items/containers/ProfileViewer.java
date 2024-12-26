@@ -17,7 +17,7 @@ public class ProfileViewer extends MysteryItem {
                 Material.PLAYER_HEAD,
                 "<gold>Profile</gold>",
                 List.of("View your profile"),
-                1, 1,
+                1,
                 MysteryItemOrigin.CONTAINER
         );
     }

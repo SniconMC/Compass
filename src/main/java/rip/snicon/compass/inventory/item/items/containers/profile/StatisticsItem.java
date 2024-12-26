@@ -18,7 +18,7 @@ public class StatisticsItem extends MysteryItem {
                 "<gray>Emeralds:</gray> <green>$(player_emeralds)",
                 "",
                 "<gray>» <aqua>Click to open</aqua> «</gray>"
-        ), 1, 64, MysteryItemOrigin.CONTAINER);
+        ), 1, MysteryItemOrigin.CONTAINER);
 
         setShowTooltip(true);
         setDyeColor("");

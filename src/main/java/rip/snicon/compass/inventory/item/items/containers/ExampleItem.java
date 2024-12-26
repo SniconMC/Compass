@@ -12,7 +12,7 @@ public class ExampleItem extends MysteryItem {
     public ExampleItem() {
         super(Material.DANDELION, "Example Dandelion", List.of(
 
-        ), 1, 64, MysteryItemOrigin.PLAYER);
+        ), 1, MysteryItemOrigin.PLAYER);
 
         setShowTooltip(true);
         setDyeColor("");

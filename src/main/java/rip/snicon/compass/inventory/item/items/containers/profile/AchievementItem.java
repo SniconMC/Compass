@@ -18,7 +18,7 @@ public class AchievementItem extends MysteryItem {
                 "<gray>Points:</gray> <yellow>$(player_achievement_points)<gold>/</gold>1350</yellow> <dark_gray>(13.27%)</dark_gray>",
                 "",
                 "<gray>» <aqua>Click to open</aqua> «</gray>"
-        ), 1, 64, MysteryItemOrigin.CONTAINER);
+        ), 1, MysteryItemOrigin.CONTAINER);
 
         setShowTooltip(true);
         setDyeColor("");

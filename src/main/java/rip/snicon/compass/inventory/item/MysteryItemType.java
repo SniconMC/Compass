@@ -15,14 +15,13 @@ public enum MysteryItemType {
     PROFESSION_ITEM(new ProfessionItem()),
     GUIDES_PHONE_ITEM(new GuidesPhoneItem()),
     CLOSE_ITEM(new CloseItem()),
-    BACKGROUND_ITEM(new BackgroundItem()),
-    EXAMPLE_ITEM(new ExampleItem());
+    BACKGROUND_ITEM(new BackgroundItem());
 
     private final MysteryItem item;
 
     MysteryItemType(MysteryItem item) {
         this.item = item;
-        this.item.setItemKey(this.name()); // Automatically set the type
+        this.item.setItemIdentifier(this.name()); // Automatically set the type
     }
 
     public MysteryItem getItem(MysteryPlayer player) {

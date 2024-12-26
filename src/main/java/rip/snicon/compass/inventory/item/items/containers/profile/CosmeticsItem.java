@@ -19,7 +19,7 @@ public class CosmeticsItem extends MysteryItem {
                 "<gray>Dolor:</gray> <green>Sit</green>",
                 "",
                 "<gray>» <aqua>Click to open</aqua> «</gray>"
-        ), 1, 64, MysteryItemOrigin.CONTAINER);
+        ), 1, MysteryItemOrigin.CONTAINER);
 
         setShowTooltip(true);
         setDyeColor("#0077c3");

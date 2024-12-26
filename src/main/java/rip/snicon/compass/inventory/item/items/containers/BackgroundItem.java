@@ -12,7 +12,7 @@ public class BackgroundItem extends MysteryItem {
     public BackgroundItem() {
         super(Material.GRAY_STAINED_GLASS_PANE, "", List.of(
 
-        ), 1, 64, MysteryItemOrigin.CONTAINER);
+        ), 1, MysteryItemOrigin.CONTAINER);
 
         setShowTooltip(false);
         setDyeColor("");

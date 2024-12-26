@@ -2,6 +2,7 @@ package rip.snicon.compass.player;
 
 import net.minestom.server.inventory.PlayerInventory;
 import org.bson.Document;
+import rip.snicon.compass.Main;
 import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
 import rip.snicon.compass.inventory.MysteryInventory;
 import rip.snicon.compass.inventory.MysteryInventoryType;
@@ -24,6 +25,7 @@ public class MysteryDataHandler {
     private double achievementPoints = 0;
 
     private final Map<Integer, MysteryItemType> inventory = new HashMap<>(MysteryInventoryType.DEFAULT.getStaticInventory().getItems());
+
     private final Map<PlayerSetting, Boolean> settings = new EnumMap<>(PlayerSetting.class);
     private final Set<String> discoveredRegions = new HashSet<>();
 
@@ -52,6 +54,7 @@ public class MysteryDataHandler {
     }
 
     public void saveDataToDatabase() {
+        Main.logger.error("Saving new data to database");
         Document data = new Document("uuid", uuid.toString())
                 .append("rank", rank.name())
                 .append("profession", profession.name())
@@ -194,32 +197,18 @@ public class MysteryDataHandler {
         saveDataToDatabase();
     }
 
-
     public void setInventoryItem(int slot, MysteryItemType itemType) {
         inventory.put(slot, itemType);
         saveDataToDatabase();
-    }
-
-    public boolean addItem(MysteryItemType item) {
-        int maxSlotSize = PlayerInventory.INNER_INVENTORY_SIZE;
-
-        // Find the first available slot
-        for (int slot = 0; slot < maxSlotSize; slot++) {
-            if (!inventory.containsKey(slot)) {
-                // Slot is available, add the item
-                inventory.put(slot, item);
-                saveDataToDatabase();
-                return true; // Item added successfully
-            }
-        }
-        // If no slot is available, return false
-        return false;
     }
 
     public void updateInventorySlot(int slot, String itemType) {
         this.getFullInventory().put(slot, MysteryItemType.valueOf(itemType));
     }
 
+    public void removeInventoryItem(int slot) {
+        inventory.remove(slot);
+    }
 
     public MysteryItemType getInventoryItem(int slot) {
         return inventory.get(slot);

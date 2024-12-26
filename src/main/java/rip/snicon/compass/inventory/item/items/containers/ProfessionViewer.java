@@ -17,7 +17,7 @@ public class ProfessionViewer extends MysteryItem {
                 Material.TOTEM_OF_UNDYING,
                 "<gold>Profession</gold>",
                 List.of("View your profession progress"),
-                1,1,
+                1,
                 MysteryItemOrigin.CONTAINER
         );
     }

@@ -83,7 +83,6 @@ public class MysteryPlayerNode {
 
                 if (event.getPlayer() instanceof MysteryPlayer player) {
                     player.addProfessionXp(2000);
-                    player.addItem(MysteryItemType.EXAMPLE_ITEM);
                 }
 
 
