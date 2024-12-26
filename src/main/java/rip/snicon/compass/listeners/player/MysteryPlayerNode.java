@@ -55,6 +55,7 @@ public class MysteryPlayerNode {
     public void playerDisconnectEvent() {
         this.mysteryPlayerNode.addListener(PlayerDisconnectEvent.class, event -> {
             if (event.getPlayer() instanceof MysteryPlayer player) {
+                player.unloadPlayerInventory();
                 MysteryDataHandler dataHandler = player.getDataHandler();
                 dataHandler.saveDataToDatabase();
                 MysteryDataHandler.clearCache(player.getUuid());
@@ -76,13 +77,11 @@ public class MysteryPlayerNode {
 
 
     public void eventsToBeCanceled() {
-        mysteryPlayerNode.addListener(ItemDropEvent.class, event -> {
-                event.setCancelled(true);
-            });
         mysteryPlayerNode.addListener(PlayerBlockBreakEvent.class, event -> {
 
                 if (event.getPlayer() instanceof MysteryPlayer player) {
                     player.addProfessionXp(2000);
+                    player.addItem(MysteryItemType.EXAMPLE_ITEM);
                 }
 
 

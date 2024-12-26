@@ -15,7 +15,8 @@ public enum MysteryItemType {
     PROFESSION_ITEM(new ProfessionItem()),
     GUIDES_PHONE_ITEM(new GuidesPhoneItem()),
     CLOSE_ITEM(new CloseItem()),
-    BACKGROUND_ITEM(new BackgroundItem());
+    BACKGROUND_ITEM(new BackgroundItem()),
+    EXAMPLE_ITEM(new ExampleItem());
 
     private final MysteryItem item;
 

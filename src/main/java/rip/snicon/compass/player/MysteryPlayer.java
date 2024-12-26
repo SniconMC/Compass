@@ -1,11 +1,14 @@
 package rip.snicon.compass.player;
 
 import net.minestom.server.entity.Player;
+import net.minestom.server.inventory.PlayerInventory;
 import net.minestom.server.item.ItemStack;
 import net.minestom.server.network.player.PlayerConnection;
+import net.minestom.server.tag.Tag;
 import org.jetbrains.annotations.NotNull;
 import rip.snicon.compass.instances.regions.MysteryRegion;
 import rip.snicon.compass.inventory.item.MysteryItem;
+import rip.snicon.compass.inventory.item.MysteryItemTags;
 import rip.snicon.compass.inventory.item.MysteryItemType;
 import rip.snicon.compass.player.profession.PlayerProfession;
 import rip.snicon.compass.player.settings.PlayerSetting;
@@ -203,7 +206,20 @@ public class MysteryPlayer extends Player {
     }
 
 
+    public void unloadPlayerInventory() {
+        PlayerInventory inventory = this.getInventory();
 
+        for (int slot = 0; slot < inventory.getInnerSize(); slot++) {
+            String itemType = inventory.getItemStack(slot).getTag(Tag.String(MysteryItemTags.ITEM_IDENTIFIER.name()));
+
+            if (itemType != null) {
+                MysteryItemType item = MysteryItemType.valueOf(itemType);
+                getDataHandler().setInventoryItem(slot, item);
+            } else {
+                getDataHandler().removeInventoryItem(slot);
+            }
+        }
+    }
 
     public void loadPlayerInventory() {
         // Iterate through the saved inventory map
@@ -224,6 +240,18 @@ public class MysteryPlayer extends Player {
                 }
             }
         }
+    }
+
+    public void addItem(MysteryItemType item) {
+        // Find the first available slot
+        for (int slot = 0; slot < this.getInventory().getInnerSize(); slot++) {
+            if (this.getInventory().getItemStack(slot) == ItemStack.AIR) {
+                // Slot is available, add the item
+                this.getInventory().setItemStack(slot, item.getItem(this).createItemStack());
+                return; // Item added successfully
+            }
+        }
+        // If no slot is available, return false
     }
 
 }

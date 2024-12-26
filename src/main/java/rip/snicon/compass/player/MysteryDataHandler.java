@@ -4,7 +4,6 @@ import net.minestom.server.inventory.PlayerInventory;
 import org.bson.Document;
 import rip.snicon.compass.Main;
 import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
-import rip.snicon.compass.inventory.MysteryInventory;
 import rip.snicon.compass.inventory.MysteryInventoryType;
 import rip.snicon.compass.inventory.item.MysteryItemType;
 import rip.snicon.compass.player.profession.PlayerProfession;
@@ -209,6 +208,8 @@ public class MysteryDataHandler {
     public void removeInventoryItem(int slot) {
         inventory.remove(slot);
     }
+
+
 
     public MysteryItemType getInventoryItem(int slot) {
         return inventory.get(slot);

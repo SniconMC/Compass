@@ -3,7 +3,9 @@ package rip.snicon.compass.inventory.item;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.event.inventory.InventoryPreClickEvent;
+import net.minestom.server.event.item.ItemDropEvent;
 import net.minestom.server.event.player.PlayerUseItemEvent;
+import net.minestom.server.inventory.click.ClickType;
 import net.minestom.server.item.ItemComponent;
 import net.minestom.server.item.ItemStack;
 import net.minestom.server.item.Material;
@@ -207,24 +209,43 @@ public abstract class MysteryItem {
                 // Only trigger this specific item
 
                 String itemType = event.getItemStack().getTag(Tag.String(MysteryItemTags.ITEM_IDENTIFIER.name()));
-
+                String itemOrigin = event.getItemStack().getTag(Tag.String(MysteryItemTags.ITEM_ORIGIN.name()));
                 if (Objects.equals(itemType, this.itemIdentifier)) {
                     onUse(player);
-                    event.setCancelled(true);
+                    if (Objects.equals(itemOrigin, MysteryItemOrigin.CONTAINER.name())) {
+
+                        event.setCancelled(true);
+                    }
+
                 }
 
             }
         });
+
         MinecraftServer.getGlobalEventHandler().addListener(InventoryPreClickEvent.class, event -> {
             if (event.getPlayer() instanceof MysteryPlayer player) {
                 // Only trigger this specific item
 
+
+
                 String itemType = event.getClickedItem().getTag(Tag.String(MysteryItemTags.ITEM_IDENTIFIER.name()));
+                String itemOrigin = event.getClickedItem().getTag(Tag.String(MysteryItemTags.ITEM_ORIGIN.name()));
+
+
 
                 if (Objects.equals(itemType, this.itemIdentifier)) {
-                    onUse(player);
-                    event.setCancelled(true);
+                    if (Objects.equals(itemOrigin, MysteryItemOrigin.CONTAINER.name())) {
+                        onUse(player);
+                        event.setCancelled(true);
+                        return;
+                    }
+                    if (event.getClickType() == ClickType.DROP) {
+                        player.getDataHandler().removeInventoryItem(event.getSlot());
+                    }
+
                 }
+
+
             }
         });
     }
