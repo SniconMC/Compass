@@ -19,7 +19,7 @@ public class MysterySidebar {
     private static final Map<UUID, Sidebar> sidebarCache = new HashMap<>();
     private static int animationCounter = 0;
 
-    public static void start() {
+    public static void create() {
         MinecraftServer.getSchedulerManager().submitTask(() -> {
             animationCounter = (animationCounter + 1) % 80; // Cycle animation counter (0–50)
 

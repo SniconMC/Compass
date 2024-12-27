@@ -11,6 +11,7 @@ import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
 import rip.snicon.compass.database.redisdb.RedisCacheManager;
 import rip.snicon.compass.instances.MysteryInstance;
 import rip.snicon.compass.listeners.Global;
+import rip.snicon.compass.npc.MysteryNPC;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.sidebar.MysterySidebar;
 
@@ -28,7 +29,8 @@ public class Main {
 
         RedisCacheManager.initialize("localhost", 6379);
 
-        MysterySidebar.start();
+        MysterySidebar.create();
+        MysteryNPC.create();
 
         ChatFormatter.setup();
 
