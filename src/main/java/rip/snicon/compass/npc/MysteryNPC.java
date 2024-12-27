@@ -3,74 +3,73 @@ package rip.snicon.compass.npc;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.*;
-import net.minestom.server.entity.ai.goal.MeleeAttackGoal;
-import net.minestom.server.entity.ai.goal.RandomStrollGoal;
-import net.minestom.server.entity.ai.target.ClosestEntityTarget;
-import net.minestom.server.entity.ai.target.LastEntityDamagerTarget;
-import net.minestom.server.entity.metadata.PlayerMeta;
 import net.minestom.server.event.GlobalEventHandler;
 import net.minestom.server.event.player.PlayerEntityInteractEvent;
 import net.minestom.server.event.player.PlayerMoveEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
 import net.minestom.server.network.packet.server.play.PlayerInfoRemovePacket;
 import net.minestom.server.network.packet.server.play.PlayerInfoUpdatePacket;
-import net.minestom.server.utils.time.TimeUnit;
 import rip.snicon.compass.player.MysteryPlayer;
 
 import java.util.List;
 
 /**
- * Abstract base class for MysteryNPCs, handling spawning, visibility, and interaction logic.
+ * Abstract base class for MysteryNPCs, handling initialization, spawning, visibility, and packet logic.
  */
 public abstract class MysteryNPC extends EntityCreature {
 
     private String name;
     private PlayerSkin playerSkin;
     private double viewingDistance;
+    private Pos defaultPos;
     private boolean exists = false;
 
-    public MysteryNPC(EntityType type, String name, double viewingDistance) {
+    public MysteryNPC(EntityType type, String name, double viewingDistance, Pos defaultPos) {
         super(type);
-
-        setNoGravity(true);
-
         this.name = name;
         this.viewingDistance = viewingDistance;
+        this.defaultPos = defaultPos;
+
+        setNoGravity(true);
+        initialize(); // Call initialize once when NPC is created
         registerEvents();
     }
 
-    public MysteryNPC(EntityType type, String name, double viewingDistance, PlayerSkin playerSkin) {
-        this(type, name, viewingDistance);
+    public MysteryNPC(EntityType type, String name, double viewingDistance, Pos defaultPos, PlayerSkin playerSkin) {
+        this(type, name, viewingDistance, defaultPos);
         this.playerSkin = playerSkin;
     }
 
     // Abstract Methods
 
     /**
-     * Determines if the NPC should spawn.
-     *
-     * @return true if the NPC should spawn, false otherwise.
+     * Static method to create and initialize all NPCs.
      */
-    protected boolean spawnCondition() {
-        return true;
+    public static void create() {
+        for (MysteryNPCType npcType : MysteryNPCType.values()) {
+            MysteryNPC npc = npcType.getNpcInstance();
+            npc.initialize(); // Ensure shared setup logic is called
+        }
     }
 
     /**
-     * Initializes the NPC.
+     * Called once when the NPC is created. Shared setup logic goes here.
+     */
+    public abstract void initialize();
+
+    /**
+     * Triggered when the NPC spawns for a specific player.
      *
-     * @param player The player for whom the NPC is initialized.
+     * @param player The player for whom the NPC spawns.
      */
-    public abstract void initialize(MysteryPlayer player);
+    public abstract void onSpawn(MysteryPlayer player);
 
     /**
-     * Triggered when the NPC spawns.
+     * Triggered when the NPC despawns for a specific player.
+     *
+     * @param player The player for whom the NPC despawns.
      */
-    public abstract void onSpawn();
-
-    /**
-     * Triggered when the NPC disappears.
-     */
-    public abstract void onDisappear();
+    public abstract void onDespawn(MysteryPlayer player);
 
     /**
      * Triggered when a player interacts with the NPC.
@@ -79,29 +78,41 @@ public abstract class MysteryNPC extends EntityCreature {
      */
     public abstract void onInteract(MysteryPlayer player);
 
-    // Static Methods
+    // Centralized Spawn and Despawn Logic
 
-    /**
-     * Creates and registers all NPCs on server startup.
-     */
-    public static void create() {
-        for (MysteryNPCType npcType : MysteryNPCType.values()) {
-            MysteryNPC npc = npcType.getNpcInstance();
+    public void handleSpawnLogic(MysteryPlayer player) {
+        Pos playerPosition = player.getPosition();
+        boolean isWithinDistance = this.getDistance(playerPosition) <= viewingDistance;
 
+        if (isWithinDistance && !exists) {
+            spawn(player); // Only spawn if NPC doesn't already exist
+        } else if (!isWithinDistance && exists) {
+            despawn(player); // Only despawn if NPC exists
         }
+    }
+
+    private void spawn(MysteryPlayer player) {
+        exists = true; // Mark NPC as existing
+        onSpawn(player);
+        updateNewViewer(player);
+    }
+
+    private void despawn(MysteryPlayer player) {
+        exists = false; // Mark NPC as not existing
+        onDespawn(player);
+        updateOldViewer(player);
     }
 
     // Packet Handling
 
     /**
-     * Sends packets to spawn the NPC for a new viewer.
+     * Sends packets to spawn the NPC for a specific player.
      *
      * @param player The player who is seeing the NPC.
      */
     @Override
     public void updateNewViewer(Player player) {
         if (entityType == EntityType.PLAYER) {
-
             List<PlayerInfoUpdatePacket.Property> properties = (playerSkin != null)
                     ? List.of(new PlayerInfoUpdatePacket.Property("textures", playerSkin.textures(), playerSkin.signature()))
                     : List.of();
@@ -120,7 +131,7 @@ public abstract class MysteryNPC extends EntityCreature {
     }
 
     /**
-     * Sends packets to remove the NPC from an old viewer.
+     * Sends packets to remove the NPC from a player's view.
      *
      * @param player The player who is no longer seeing the NPC.
      */
@@ -133,47 +144,28 @@ public abstract class MysteryNPC extends EntityCreature {
     // Event Registration
 
     /**
-     * Registers events related to the NPC, such as movement and interaction.
+     * Registers events related to the NPC, such as spawning, despawning, and interactions.
      */
     private void registerEvents() {
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
 
         globalEventHandler.addListener(PlayerSpawnEvent.class, event -> {
             MysteryPlayer player = (MysteryPlayer) event.getPlayer();
-            if (spawnCondition()) {
-                initialize(player);
-                updateNewViewer(player);
-                onSpawn();
-                exists = true;
-            }
+            spawn(player); // Trigger NPC spawn for new players
         });
 
-        globalEventHandler.addListener(PlayerMoveEvent.class, this::handlePlayerMove);
+        globalEventHandler.addListener(PlayerMoveEvent.class, event -> {
+            MysteryPlayer player = (MysteryPlayer) event.getPlayer();
+            handleSpawnLogic(player);
+        });
 
         globalEventHandler.addListener(PlayerEntityInteractEvent.class, event -> {
-            this.onInteract((MysteryPlayer) event.getPlayer());
+            MysteryPlayer player = (MysteryPlayer) event.getPlayer();
+            if (event.getTarget() == this) {
+                this.onInteract(player);
+            }
+
         });
-    }
-
-    // Event Handlers
-
-    private void handlePlayerMove(PlayerMoveEvent event) {
-        MysteryPlayer player = (MysteryPlayer) event.getPlayer();
-        Pos playerPosition = player.getPosition();
-
-        if (exists) {
-            if (this.getDistance(playerPosition) >= viewingDistance) {
-                updateOldViewer(player);
-                onDisappear();
-                exists = false;
-            }
-        } else {
-            if (this.getDistance(playerPosition) <= viewingDistance && spawnCondition()) {
-                updateNewViewer(player);
-                onSpawn();
-                exists = true;
-            }
-        }
     }
 
     // Getters and Setters
@@ -202,7 +194,11 @@ public abstract class MysteryNPC extends EntityCreature {
         this.viewingDistance = viewingDistance;
     }
 
-    public void setPosition(Pos position) {
-        this.position = position;
+    public Pos getDefaultPos() {
+        return defaultPos;
+    }
+
+    public void setDefaultPos(Pos defaultPos) {
+        this.defaultPos = defaultPos;
     }
 }

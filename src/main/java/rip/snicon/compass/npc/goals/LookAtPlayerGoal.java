@@ -10,10 +10,12 @@ import rip.snicon.compass.Main;
 public final class LookAtPlayerGoal extends GoalSelector {
     private Entity target;
     private final double range;
+    private final Pos defaultPos;
 
-    public LookAtPlayerGoal(EntityCreature entityCreature, double range) {
+    public LookAtPlayerGoal(EntityCreature entityCreature, double range, Pos defaultPos) {
         super(entityCreature);
         this.range = range;
+        this.defaultPos = defaultPos;
     }
 
     @Override
@@ -30,20 +32,18 @@ public final class LookAtPlayerGoal extends GoalSelector {
 
     @Override
     public void tick(long time) {
+        target = findTarget(); // Update target dynamically
         if (target == null || entityCreature.getDistanceSquared(target) > range * range ||
                 entityCreature.getInstance() != target.getInstance()) {
-            // If target is invalid or out of range, reset rotation and stop looking
             resetHeadRotation();
             target = null;
             return;
         }
 
-        // Calculate the position to look at (adjust for the player's head height)
         Pos targetHeadPosition = target.getPosition().add(0, target.getEyeHeight(), 0);
-
-        // Make the NPC look at the target's head position
         entityCreature.lookAt(targetHeadPosition);
     }
+
 
     @Override
     public boolean shouldEnd() {
@@ -59,8 +59,7 @@ public final class LookAtPlayerGoal extends GoalSelector {
 
     private void resetHeadRotation() {
         // Reset the creature's rotation to its default view (facing forward)
-        Pos currentPosition = entityCreature.getPosition();
-        entityCreature.refreshPosition(currentPosition.withView(0, 0));
+        entityCreature.refreshPosition(defaultPos);
     }
 
     public Entity findTarget() {

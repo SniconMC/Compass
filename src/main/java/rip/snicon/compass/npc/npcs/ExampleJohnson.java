@@ -1,5 +1,6 @@
 package rip.snicon.compass.npc.npcs;
 
+import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.EntityType;
 import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.entity.ai.EntityAIGroupBuilder;
@@ -13,50 +14,46 @@ import rip.snicon.compass.player.MysteryPlayer;
 public class ExampleJohnson extends MysteryNPC {
 
     public ExampleJohnson() {
-        super(EntityType.PLAYER, "ExampleJohnson", 10);
+        super(EntityType.PLAYER, "ExampleJohnson", 32, new Pos(40,9,25,69,0));
     }
 
-    @Override
-    protected boolean spawnCondition() {
-        return true;
-    }
 
     @Override
-    public void initialize(MysteryPlayer player) {
-        player.sendMessage("obama");
-        setInstance(MysteryInstanceType.HUB.getInstance(), player.getPosition());
-
-        setPlayerSkin(player.getSkin());
+    public void initialize() {
 
         // Add AI group with LookAtPlayerGoal
         addAIGroup(
                 new EntityAIGroupBuilder()
-                        .addGoalSelector(new LookAtPlayerGoal(this, 5)) // Look at players within 5 blocks
+                        .addGoalSelector(new LookAtPlayerGoal(this, 7, getDefaultPos())) // Look at players within 5 blocks
                         .build()
         );
 
-        if (entityType == EntityType.PLAYER) {
-            editEntityMeta(PlayerMeta.class, meta -> {
-                meta.setCapeEnabled(false);
-                meta.setJacketEnabled(true);
-                meta.setLeftSleeveEnabled(true);
-                meta.setRightSleeveEnabled(true);
-                meta.setLeftLegEnabled(true);
-                meta.setRightLegEnabled(true);
-                meta.setHatEnabled(true);
-            });
-        }
+
+        editEntityMeta(PlayerMeta.class, meta -> {
+            meta.setCapeEnabled(false);
+            meta.setJacketEnabled(true);
+            meta.setLeftSleeveEnabled(true);
+            meta.setRightSleeveEnabled(true);
+            meta.setLeftLegEnabled(true);
+            meta.setRightLegEnabled(true);
+            meta.setHatEnabled(true);
+        });
+
+    }
+    @Override
+    public void onSpawn(MysteryPlayer player) {
+        ;
+        setInstance(MysteryInstanceType.HUB.getInstance(), getDefaultPos());
+
+        setPlayerSkin(new PlayerSkin("ewogICJ0aW1lc3RhbXAiIDogMTYxNjU0Mjk5MTMyNCwKICAicHJvZmlsZUlkIiA6ICIwNWQ0NTNiZWE0N2Y0MThiOWI2ZDUzODg0MWQxMDY2MCIsCiAgInByb2ZpbGVOYW1lIiA6ICJFY2hvcnJhIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2EzYjg5NTY2MmI1OWE0ODliY2ZkYWU0NTIxNDJkMWM5MWVjYjExNmYxYTQ4ZjA0NDJlYTQwZDdiMjg4OGYzOGEiCiAgICB9CiAgfQp9", "TNSXq/sjg65pAfdQ1kPcVuM38OeVudt/63nTRcoCrutPDIg3mhcFJDJ4G9xzYv7u4pqjRzMoDPgVufXdGQMa2S+i9GsyzaybA0YsNiZMfm4LKpbtpDv/224pefK+5adOLM8JGL0z92dLgAdEZ7ybWF7GdEoG126tqRRIYBpO1mHggY+xeK/CPJ3O/eDHGV0k5loxLlO5qL12c2q4Rdz0nZuzXGLzAZERKLcajrq5fkuZOILW9kr2FtbhuczOEP0T9pdRRb255WFKU0LSG+RDG6j7AuKr7hQMIFZ0/3X94f6ymY7nwOnKJxSGFPyZ7F5+yXE6NJaswRlvIIvgQpYT7kp6/YnRdYp5rFh2RyczAbKKFFQf8vWAT16drqf7pE+zyPdxkPkO381Q7PtVzG+dcg5/MqD3+YQhYwUk14e7C/ZZ12Rc0Pb3HINbEKDsspIPSot+uAbeQEiemBADi8HvPUuBIxHq2LkasPu9NDtKhTqy+sE2RNelWIBXxZCJEU0jJRLMJSEQOFRnr4ZOWq2soAcJehbfHimXTckbS48s4oWEB+kpGVYrfNS0muYUPzOi8VOyuEteARI1HYqJhqaqw/tTm34uEm1BX070/s3DmmOd8L1JXmEjQvW8vMbwNF76LQ73bv4lANYGNU1bRyAznXtimk43Lbw2vF1Vrd/hq8w="));
+
+        setName("Example Johnson");
 
     }
 
     @Override
-    public void onSpawn() {
-        System.out.println("ExampleJohnson spawned.");
-    }
+    public void onDespawn(MysteryPlayer player) {
 
-    @Override
-    public void onDisappear() {
-        System.out.println("ExampleJohnson disappeared.");
     }
 
     @Override
