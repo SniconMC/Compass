@@ -13,6 +13,7 @@ public enum MysteryNPCType {
 
     MysteryNPCType(MysteryNPC npcInstance) {
         this.npcInstance = npcInstance;
+        this.npcInstance.setNpcIdentifier(this.name());
     }
 
     public MysteryNPC getNpcInstance() {

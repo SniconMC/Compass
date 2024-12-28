@@ -12,22 +12,21 @@ import net.minestom.server.network.packet.server.play.PlayerInfoUpdatePacket;
 import rip.snicon.compass.player.MysteryPlayer;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Abstract base class for MysteryNPCs, handling initialization, spawning, visibility, and packet logic.
  */
-public abstract class MysteryNPC extends EntityCreature {
+public abstract class MysteryHologram extends Entity {
 
-    private List<String> name;
-    private String npcIdentifier;
-    private PlayerSkin playerSkin;
+    private String text;
     private double viewingDistance;
     private Pos defaultPos;
     private boolean exists = false;
 
-    public MysteryNPC(EntityType type, List<String> name, double viewingDistance, Pos defaultPos) {
+    public MysteryHologram(EntityType type, String text, double viewingDistance, Pos defaultPos) {
         super(type);
-        this.name = name;
+        this.text = text;
         this.viewingDistance = viewingDistance;
         this.defaultPos = defaultPos;
 
@@ -36,22 +35,7 @@ public abstract class MysteryNPC extends EntityCreature {
         registerEvents();
     }
 
-    public MysteryNPC(EntityType type, List<String> name, double viewingDistance, Pos defaultPos, PlayerSkin playerSkin) {
-        this(type, name, viewingDistance, defaultPos);
-        this.playerSkin = playerSkin;
-    }
-
     // Abstract Methods
-
-    /**
-     * Static method to create and initialize all NPCs.
-     */
-    public static void create() {
-        for (MysteryNPCType npcType : MysteryNPCType.values()) {
-            MysteryNPC npc = npcType.getNpcInstance();
-            npc.initialize(); // Ensure shared setup logic is called
-        }
-    }
 
     /**
      * Called once when the NPC is created. Shared setup logic goes here.
@@ -113,21 +97,10 @@ public abstract class MysteryNPC extends EntityCreature {
      */
     @Override
     public void updateNewViewer(Player player) {
-        if (entityType == EntityType.PLAYER) {
-            List<PlayerInfoUpdatePacket.Property> properties = (playerSkin != null)
-                    ? List.of(new PlayerInfoUpdatePacket.Property("textures", playerSkin.textures(), playerSkin.signature()))
-                    : List.of();
 
-            PlayerInfoUpdatePacket.Entry entry = new PlayerInfoUpdatePacket.Entry(
-                    this.getUuid(), npcIdentifier, properties, false, 0, GameMode.SURVIVAL, null, null
-            );
+        player.sendPacket(getMetadataPacket());
+        player.sendPacket(getEntityType().registry().spawnType().getSpawnPacket(this));
 
-            player.sendPacket(new PlayerInfoRemovePacket(this.getUuid()));
-            player.sendPacket(new PlayerInfoUpdatePacket(PlayerInfoUpdatePacket.Action.ADD_PLAYER, entry));
-        } else {
-            player.sendPacket(getMetadataPacket());
-            player.sendPacket(getEntityType().registry().spawnType().getSpawnPacket(this));
-        }
         super.updateNewViewer(player);
     }
 
@@ -142,59 +115,16 @@ public abstract class MysteryNPC extends EntityCreature {
         super.updateOldViewer(player);
     }
 
-    // Event Registration
-
-    /**
-     * Registers events related to the NPC, such as spawning, despawning, and interactions.
-     */
-    private void registerEvents() {
-        GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
-
-        globalEventHandler.addListener(PlayerSpawnEvent.class, event -> {
-            MysteryPlayer player = (MysteryPlayer) event.getPlayer();
-            spawn(player); // Trigger NPC spawn for new players
-        });
-
-        globalEventHandler.addListener(PlayerMoveEvent.class, event -> {
-            MysteryPlayer player = (MysteryPlayer) event.getPlayer();
-            handleSpawnLogic(player);
-        });
-
-        globalEventHandler.addListener(PlayerEntityInteractEvent.class, event -> {
-            MysteryPlayer player = (MysteryPlayer) event.getPlayer();
-            if (event.getTarget() == this) {
-                this.onInteract(player);
-            }
-
-        });
-    }
-
     // Getters and Setters
 
-    public List<String> getName() {
-        return name;
+    public String getText() {
+        return text;
     }
 
-    public void setName(List<String> name) {
-        this.name = name;
+    public void setText(String text) {
+        this.text= text;
     }
-
-    public String getNpcIdentifier() {
-        return npcIdentifier;
-    }
-
-    public void setNpcIdentifier(String identifier) {
-        this.npcIdentifier = identifier + " !";
-    }
-
-    public PlayerSkin getPlayerSkin() {
-        return playerSkin;
-    }
-
-    public void setPlayerSkin(PlayerSkin playerSkin) {
-        this.playerSkin = playerSkin;
-    }
-
+    
     public double getViewingDistance() {
         return viewingDistance;
     }
@@ -211,3 +141,4 @@ public abstract class MysteryNPC extends EntityCreature {
         this.defaultPos = defaultPos;
     }
 }
+
