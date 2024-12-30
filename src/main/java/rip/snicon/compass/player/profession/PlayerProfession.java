@@ -28,7 +28,7 @@ public enum PlayerProfession {
         return reqXP;
     }
 
-    public ProfessionIcon getIcon() {
+    public ProfessionIcon getIconData() {
         return icon;
     }
 }

@@ -34,4 +34,9 @@ public class AchievementItem extends MysteryItem {
     public void onUse(MysteryPlayer player) {
         // Logic for when the player uses this item.
     }
+
+    @Override
+    public void onDrop(MysteryPlayer player) {
+
+    }
 }

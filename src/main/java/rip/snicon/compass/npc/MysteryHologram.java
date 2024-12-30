@@ -1,12 +1,16 @@
 package rip.snicon.compass.npc;
 
+import net.kyori.adventure.text.Component;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.*;
+import net.minestom.server.entity.metadata.display.AbstractDisplayMeta;
+import net.minestom.server.entity.metadata.display.TextDisplayMeta;
 import net.minestom.server.event.GlobalEventHandler;
 import net.minestom.server.event.player.PlayerEntityInteractEvent;
 import net.minestom.server.event.player.PlayerMoveEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
+import net.minestom.server.network.packet.server.play.DestroyEntitiesPacket;
 import net.minestom.server.network.packet.server.play.PlayerInfoRemovePacket;
 import net.minestom.server.network.packet.server.play.PlayerInfoUpdatePacket;
 import rip.snicon.compass.player.MysteryPlayer;
@@ -19,20 +23,17 @@ import java.util.UUID;
  */
 public abstract class MysteryHologram extends Entity {
 
-    private String text;
+    private final int row;
     private double viewingDistance;
-    private Pos defaultPos;
     private boolean exists = false;
 
-    public MysteryHologram(EntityType type, String text, double viewingDistance, Pos defaultPos) {
-        super(type);
-        this.text = text;
-        this.viewingDistance = viewingDistance;
-        this.defaultPos = defaultPos;
+    public MysteryHologram(int row, Pos position) {
+        super(EntityType.TEXT_DISPLAY);
+        this.row = row;
+        this.position = position;
 
         setNoGravity(true);
         initialize(); // Call initialize once when NPC is created
-        registerEvents();
     }
 
     // Abstract Methods
@@ -76,16 +77,16 @@ public abstract class MysteryHologram extends Entity {
         }
     }
 
-    private void spawn(MysteryPlayer player) {
+    public void spawn(MysteryPlayer player) {
         exists = true; // Mark NPC as existing
         onSpawn(player);
-        updateNewViewer(player);
+        spawnHologramForPlayer(player);
     }
 
-    private void despawn(MysteryPlayer player) {
+    public void despawn(MysteryPlayer player) {
         exists = false; // Mark NPC as not existing
         onDespawn(player);
-        updateOldViewer(player);
+        despawnHologramForPlayer(player);
     }
 
     // Packet Handling
@@ -95,8 +96,7 @@ public abstract class MysteryHologram extends Entity {
      *
      * @param player The player who is seeing the NPC.
      */
-    @Override
-    public void updateNewViewer(Player player) {
+    public void spawnHologramForPlayer(Player player) {
 
         player.sendPacket(getMetadataPacket());
         player.sendPacket(getEntityType().registry().spawnType().getSpawnPacket(this));
@@ -109,36 +109,41 @@ public abstract class MysteryHologram extends Entity {
      *
      * @param player The player who is no longer seeing the NPC.
      */
-    @Override
-    public void updateOldViewer(Player player) {
-        player.sendPacket(new PlayerInfoRemovePacket(this.getUuid()));
+    public void despawnHologramForPlayer(Player player) {
+        player.sendPacket(new DestroyEntitiesPacket(this.getEntityId()));
         super.updateOldViewer(player);
     }
 
     // Getters and Setters
 
-    public String getText() {
-        return text;
+
+    public int getRow() {
+        return row;
     }
 
-    public void setText(String text) {
-        this.text= text;
+    public void setText(Component text) {
+        editEntityMeta(TextDisplayMeta.class, meta -> {
+            meta.setText(text);
+            meta.setBillboardRenderConstraints(AbstractDisplayMeta.BillboardConstraints.CENTER);
+            meta.setPosRotInterpolationDuration(1);
+        });
     }
-    
+
+    public void updateText(Component text, MysteryPlayer player) {
+        editEntityMeta(TextDisplayMeta.class, meta -> {
+            meta.setText(text);
+
+        });
+        player.sendPacket(this.getMetadataPacket());
+    }
+
+
     public double getViewingDistance() {
         return viewingDistance;
     }
 
     public void setViewingDistance(double viewingDistance) {
         this.viewingDistance = viewingDistance;
-    }
-
-    public Pos getDefaultPos() {
-        return defaultPos;
-    }
-
-    public void setDefaultPos(Pos defaultPos) {
-        this.defaultPos = defaultPos;
     }
 }
 

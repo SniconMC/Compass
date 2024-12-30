@@ -67,4 +67,9 @@ public class ProfessionItem extends MysteryItem {
     public void onUse(MysteryPlayer player) {
         player.openInventory(MysteryInventoryType.PROFESSION_CONTAINER.getInventory(player).toMinestomInventory(player, InventoryType.CHEST_5_ROW, MysteryItemType.BACKGROUND_ITEM.getItem(player)));
     }
+
+    @Override
+    public void onDrop(MysteryPlayer player) {
+
+    }
 }

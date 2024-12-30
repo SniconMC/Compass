@@ -33,6 +33,11 @@ public class SettingsItem extends MysteryItem {
     @Override
     public void onUse(MysteryPlayer player) {
         // Logic for when the player uses this item.
-        player.openInventory(MysteryInventoryType.SETTINGS_CONTAINER.getInventory(player).toMinestomInventory(player, InventoryType.CHEST_4_ROW, MysteryItemType.BACKGROUND_ITEM.getItem(player)));
+        player.openInventory(MysteryInventoryType.SETTINGS_CONTAINER.getInventory(player).toMinestomInventory(player, InventoryType.CHEST_5_ROW, MysteryItemType.BACKGROUND_ITEM.getItem(player)));
+    }
+
+    @Override
+    public void onDrop(MysteryPlayer player) {
+
     }
 }

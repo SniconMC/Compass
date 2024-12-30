@@ -4,17 +4,17 @@ import rip.snicon.compass.inventory.MysteryInventory;
 import rip.snicon.compass.inventory.item.MysteryItemType;
 import rip.snicon.compass.player.MysteryPlayer;
 
-public class SettingsContainer extends MysteryInventory {
+public class MinigameSelectorContainer extends MysteryInventory {
 
-    public SettingsContainer() {
-        super("Settings");
+    public MinigameSelectorContainer() {
+        super("Minigame Selector");
     }
 
     @Override
     protected void initialize() {
         // Add static items to the inventory
-        setItem(11, MysteryItemType.SHOWICON_ITEM);
-        setItem(13, MysteryItemType.SHOWDECIMAL_ITEM);
+        setItem(11, MysteryItemType.PARKOUR_ITEM);
+        setItem(15, MysteryItemType.BLOCKHUNT_ITEM);
 
     }
 

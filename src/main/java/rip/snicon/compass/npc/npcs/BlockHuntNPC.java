@@ -6,15 +6,19 @@ import net.minestom.server.entity.EntityType;
 import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.entity.metadata.PlayerMeta;
 import rip.snicon.compass.instances.MysteryInstanceType;
+import rip.snicon.compass.npc.MysteryHologram;
 import rip.snicon.compass.npc.MysteryNPC;
 import rip.snicon.compass.player.MysteryPlayer;
+import rip.snicon.compass.utils.TextUtils;
+
+import java.util.List;
 
 public class BlockHuntNPC extends MysteryNPC {
 
     public BlockHuntNPC() {
         super(
                 EntityType.PLAYER, // Entity type from JSON
-                "BlockHunt",
+                3,
                 32,
                 new Pos(26.5, 10, 36.5, -165, 0)
         );
@@ -38,6 +42,26 @@ public class BlockHuntNPC extends MysteryNPC {
             meta.setRightLegEnabled(true);
             meta.setHatEnabled(true);
         });
+    }
+
+    @Override
+    public void onSpawnHologram(MysteryHologram hologram, MysteryPlayer player) {
+        switch (hologram.getRow()) {
+            case 0:
+                hologram.setText(TextUtils.convertStringToComponent("<yellow>-1 Playing</yellow>"));
+                break;
+            case 1:
+                hologram.setText(TextUtils.convertStringToComponent("<gold>Blockhunt <gray>[0.1]</gray></gold>"));
+                break;
+            case 2:
+                hologram.setText(TextUtils.convertStringToComponent("<light_purple>Old Update is Avalible</light_purple>"));
+                break;
+        }
+    }
+
+    @Override
+    public void onDespawnHologram(MysteryHologram hologram, MysteryPlayer player) {
+
     }
 
     @Override

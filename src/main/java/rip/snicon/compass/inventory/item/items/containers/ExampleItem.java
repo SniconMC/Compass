@@ -45,4 +45,9 @@ public class ExampleItem extends MysteryItem {
         player.sendPacket(entity.getMetadataPacket());
         player.sendPacket(new EntityTeleportPacket(entity.getEntityId(), player.getPosition(), false));
     }
+
+    @Override
+    public void onDrop(MysteryPlayer player) {
+
+    }
 }

@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Objects;
 
 public abstract class MysteryItem {
-    private final Material material;
+    private Material material;
 
     // Count
     private int stackCount = 1;
@@ -76,6 +76,12 @@ public abstract class MysteryItem {
     }
 
     // Getters and setters for the fields
+
+
+    public void setMaterial(Material material) {
+        this.material = material;
+    }
+
     public Material getMaterial() {
         return material;
     }
@@ -248,7 +254,7 @@ public abstract class MysteryItem {
                 String itemType = event.getItemStack().getTag(Tag.String(MysteryItemTags.ITEM_IDENTIFIER.name()));
                 String itemOrigin = event.getItemStack().getTag(Tag.String(MysteryItemTags.ITEM_ORIGIN.name()));
                 if (Objects.equals(itemType, this.itemIdentifier)) {
-                    onUse(player);
+                    onDrop(player);
                     if (Objects.equals(itemOrigin, MysteryItemOrigin.CONTAINER.name())) {
 
                         event.setCancelled(true);
@@ -289,4 +295,5 @@ public abstract class MysteryItem {
     }
 
     public abstract void onUse(MysteryPlayer player);
+    public abstract void onDrop(MysteryPlayer player);
 }

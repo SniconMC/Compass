@@ -5,15 +5,19 @@ import net.minestom.server.entity.EntityType;
 import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.entity.metadata.PlayerMeta;
 import rip.snicon.compass.instances.MysteryInstanceType;
+import rip.snicon.compass.npc.MysteryHologram;
 import rip.snicon.compass.npc.MysteryNPC;
 import rip.snicon.compass.player.MysteryPlayer;
+import rip.snicon.compass.utils.TextUtils;
+
+import java.util.List;
 
 public class ParkourNPC extends MysteryNPC {
 
     public ParkourNPC() {
         super(
-                EntityType.PLAYER, // Entity type from JSON
-                "Parkour", // Name extracted from the second element of the name array in JSON
+                EntityType.PLAYER,
+                3,
                 32, // Viewing distance (adjust as needed)
                 new Pos(32.5, 10.0, 36.5, 165.0f, 0.0f) // Position from JSON
         );
@@ -37,6 +41,25 @@ public class ParkourNPC extends MysteryNPC {
             meta.setRightLegEnabled(true);
             meta.setHatEnabled(true);
         });
+    }
+
+    @Override
+    public void onSpawnHologram(MysteryHologram hologram, MysteryPlayer player) {
+        switch (hologram.getRow()) {
+            case 0:
+                hologram.setText(TextUtils.convertStringToComponent("<yellow>-1 Playing</yellow>"));
+                break;
+            case 1:
+                hologram.setText(TextUtils.convertStringToComponent("<gold>Parkour <gray>[0.1]</gray></gold>"));
+                break;
+            case 2:
+                hologram.setText(TextUtils.convertStringToComponent("<red>Reload = ☠</red>"));
+                break;
+        }
+    }
+
+    public void onDespawnHologram(MysteryHologram hologram, MysteryPlayer player) {
+
     }
 
     @Override

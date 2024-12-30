@@ -27,4 +27,9 @@ public class BackgroundItem extends MysteryItem {
     @Override
     public void onUse(MysteryPlayer player) {
     }
+
+    @Override
+    public void onDrop(MysteryPlayer player) {
+
+    }
 }

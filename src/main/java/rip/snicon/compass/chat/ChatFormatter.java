@@ -12,57 +12,68 @@ public class ChatFormatter {
 
     public static void setup() {
         MinecraftServer.getGlobalEventHandler().addListener(PlayerChatEvent.class, event -> {
-            if (event.getPlayer() instanceof MysteryPlayer player) {
+            if (event.getPlayer() instanceof MysteryPlayer sender) {
                 // Fetch player details
 
                 String message = event.getMessage();
 
-                // MiniMessage format
-                String formattedMessage = String.format(
-                        player.getFullDisplayName() + ": <gray>%s</gray>",
-                         message
-                );
-
                 // Convert to component and broadcast
                 event.setCancelled(true);
-                MinecraftServer.getConnectionManager().getOnlinePlayers().forEach(p ->
-                        p.sendMessage(TextUtils.convertStringToComponent(formattedMessage))
-                );
-            }
-        });
+                // Send a personalized message to each player
+                MinecraftServer.getConnectionManager().getOnlinePlayers().forEach(receiver -> {
+                    if (receiver instanceof MysteryPlayer mysteryReceiver) {
+                        // Determine if the receiver wants to see professionDisplay
+                        // Format the message
+                        String formattedMessage = String.format(
+                                "<dark_gray>[<gray>%s</gray>]</dark_gray> %s: <gray>%s</gray>",
+                                mysteryReceiver.getProfessionDisplay(),
+                                sender.getRankDisplayName(),
+                                message
+                        );
 
-        MinecraftServer.getGlobalEventHandler().addListener(PlayerSpawnEvent.class, event -> {
-            if (event.getPlayer() instanceof MysteryPlayer player) {
-                // Fetch player details
-
-                // MiniMessage format
-                String formattedMessage = String.format(
-                        "<dark_gray>[<green>+</green>]</dark_gray> %s", player.getFullDisplayName()
-                );
-
-                MinecraftServer.getConnectionManager().getOnlinePlayers().forEach(p -> {
-                        if (p == player) {
-                            return;
-                        }
-                        p.sendMessage(TextUtils.convertStringToComponent(formattedMessage));
-            });
-            }
-        });
-
-        MinecraftServer.getGlobalEventHandler().addListener(PlayerDisconnectEvent.class, event -> {
-            if (event.getPlayer() instanceof MysteryPlayer player) {
-                // Fetch player details
-
-                // MiniMessage format
-                String formattedMessage = String.format(
-                        "<dark_gray>[<red>-</red>]</dark_gray> %s", player.getFullDisplayName()
-                );
-
-                MinecraftServer.getConnectionManager().getOnlinePlayers().forEach(p -> {
-                    if (p == player) {
-                        return;
+                        // Send the customized message
+                        receiver.sendMessage(TextUtils.convertStringToComponent(formattedMessage));
                     }
-                    p.sendMessage(TextUtils.convertStringToComponent(formattedMessage));
+                });
+            }
+        });
+
+        // Player Spawn Event Listener
+        MinecraftServer.getGlobalEventHandler().addListener(PlayerSpawnEvent.class, event -> {
+            Player joiningPlayer = event.getPlayer();
+            if (joiningPlayer instanceof MysteryPlayer sender) {
+                MinecraftServer.getConnectionManager().getOnlinePlayers().forEach(receiver -> {
+                    if (receiver != joiningPlayer && receiver instanceof MysteryPlayer mysteryReceiver) {
+                        // Format the message
+                        String formattedMessage = String.format(
+                                "<dark_gray>[<green>+</green>]</dark_gray> <dark_gray>[<gray>%s</gray>]</dark_gray> %s",
+                                mysteryReceiver.getProfessionDisplay(),
+                                sender.getRankDisplayName()
+                        );
+
+                        // Send the customized message
+                        receiver.sendMessage(TextUtils.convertStringToComponent(formattedMessage));
+                    }
+                });
+            }
+        });
+
+        // Player Disconnect Event Listener
+        MinecraftServer.getGlobalEventHandler().addListener(PlayerDisconnectEvent.class, event -> {
+            Player leavingPlayer = event.getPlayer();
+            if (leavingPlayer instanceof MysteryPlayer sender) {
+                MinecraftServer.getConnectionManager().getOnlinePlayers().forEach(receiver -> {
+                    if (receiver != leavingPlayer && receiver instanceof MysteryPlayer mysteryReceiver) {
+                        // Format the message
+                        String formattedMessage = String.format(
+                                "<dark_gray>[<red>-</red>]</dark_gray> <dark_gray>[<gray>%s</gray>]</dark_gray> %s",
+                                mysteryReceiver.getProfessionDisplay(),
+                                sender.getRankDisplayName()
+                        );
+
+                        // Send the customized message
+                        receiver.sendMessage(TextUtils.convertStringToComponent(formattedMessage));
+                    }
                 });
             }
         });

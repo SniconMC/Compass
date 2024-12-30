@@ -1,15 +1,19 @@
 package rip.snicon.compass.listeners.player;
 
+import net.kyori.adventure.text.Component;
+import net.minestom.server.MinecraftServer;
+import net.minestom.server.entity.Player;
 import net.minestom.server.event.Event;
 import net.minestom.server.event.EventFilter;
 import net.minestom.server.event.EventNode;
 import net.minestom.server.event.player.*;
 import net.minestom.server.event.trait.PlayerEvent;
-import rip.snicon.compass.Main;
 import rip.snicon.compass.instances.MysteryInstanceType;
-import rip.snicon.compass.inventory.item.MysteryItemType;
+import rip.snicon.compass.other.LevelUp;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.sidebar.MysterySidebar;
+import rip.snicon.compass.utils.TabUtils;
+import rip.snicon.compass.utils.TextUtils;
 
 public class MysteryPlayerNode {
 
@@ -40,6 +44,8 @@ public class MysteryPlayerNode {
             if (event.getPlayer() instanceof MysteryPlayer player) {
                 player.loadPlayerInventory();
                 player.getRegionHandler().updateRegion();
+                TabUtils.setPlayerTab(player);
+                player.getDataHandler().checkForProfessionLevelUp();
             }
         });
     }
@@ -51,6 +57,7 @@ public class MysteryPlayerNode {
         this.mysteryPlayerNode.addListener(PlayerMoveEvent.class, event -> {
             if (event.getPlayer() instanceof MysteryPlayer player) {
                 player.getRegionHandler().updateRegion();
+
             }
         });
     }
@@ -68,6 +75,7 @@ public class MysteryPlayerNode {
 
                 // Clear cached sidebar and other player data
                 MysterySidebar.getSidebarCache().remove(player.getUuid());
+
             }
         });
     }
@@ -95,8 +103,7 @@ public class MysteryPlayerNode {
         // Prevent block breaking with additional actions
         this.mysteryPlayerNode.addListener(PlayerBlockBreakEvent.class, event -> {
             if (event.getPlayer() instanceof MysteryPlayer player) {
-                player.getDataHandler().updateProfessionXp(2000, true);
-                player.getInventoryHandler().addItem(player.getInventory(), MysteryItemType.EXAMPLE_ITEM);
+                player.getDataHandler().updateProfessionXp(100, true);
             }
             event.setCancelled(true);
         });
@@ -106,4 +113,5 @@ public class MysteryPlayerNode {
             event.setCancelled(true);
         });
     }
+
 }

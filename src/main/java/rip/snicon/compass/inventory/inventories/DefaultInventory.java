@@ -18,6 +18,7 @@ public class DefaultInventory extends MysteryInventory {
         setItem(3, MysteryItemType.PROFESSION_VIEWER);
         setItem(4, MysteryItemType.MINIGAME_SELECTOR);
         setItem(5, MysteryItemType.PROFILE_VIEWER);
+        setItem(8, MysteryItemType.UNIVERSE_SELECTOR);
 
     }
 

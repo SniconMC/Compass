@@ -29,4 +29,9 @@ public class CloseItem extends MysteryItem {
         player.closeInventory();
 
     }
+
+    @Override
+    public void onDrop(MysteryPlayer player) {
+
+    }
 }

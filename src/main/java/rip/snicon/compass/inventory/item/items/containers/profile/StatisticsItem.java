@@ -35,4 +35,9 @@ public class StatisticsItem extends MysteryItem {
         // Logic for when the player uses this item.
 
     }
+
+    @Override
+    public void onDrop(MysteryPlayer player) {
+
+    }
 }

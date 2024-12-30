@@ -7,6 +7,7 @@ import rip.snicon.compass.inventory.item.MysteryItemOrigin;
 import rip.snicon.compass.inventory.item.MysteryItemType;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.player.profession.PlayerProfession;
+import rip.snicon.compass.player.settings.PlayerSetting;
 import rip.snicon.compass.utils.TextUtils;
 
 import java.util.List;
@@ -32,6 +33,9 @@ public class ProfessionContainer extends MysteryInventory {
 
         int[] slots = getProfessionSlots(); // Slots for professions
 
+        // Get the setting for decimal or percentage display
+        boolean useDecimals = player.getSettingsHandler().getSetting(PlayerSetting.DECIMAL_NUMBERS);
+
         for (int i = 0; i < professions.length; i++) {
             PlayerProfession profession = professions[i];
             double professionXp = profession.getReqXP();
@@ -44,7 +48,7 @@ public class ProfessionContainer extends MysteryInventory {
             double xpRequired = professionXp;
 
             // Add profession item to inventory
-            addProfessionItem(slots[i], profession.name(), unlocked, xpGained, xpRequired);
+            addProfessionItem(slots[i], profession.name(), unlocked, xpGained, xpRequired, useDecimals);
 
             // Increment cumulative XP for the next profession
             cumulativeXp += professionXp;
@@ -63,13 +67,13 @@ public class ProfessionContainer extends MysteryInventory {
     /**
      * Adds a profession item to the inventory with the specified color.
      */
-    private void addProfessionItem(int slot, String professionName, boolean unlocked, double xpGained, double xpRequired) {
+    private void addProfessionItem(int slot, String professionName, boolean unlocked, double xpGained, double xpRequired, boolean useDecimals) {
         Material material = unlocked ? Material.LIME_STAINED_GLASS_PANE : Material.RED_STAINED_GLASS_PANE;
         String name = unlocked
                 ? "<green>Profession: " + TextUtils.capitalizeFirstLetter(professionName) + "</green>"
                 : "<red>Profession: " + TextUtils.capitalizeFirstLetter(professionName) + "</red>";
 
-        // Calculate the progress percentage
+        // Calculate the progress
         double progress = Math.min(xpGained / xpRequired, 1.0);
         int totalBars = 20; // Number of dashes in the progress bar
         int filledBars = (int) Math.round(progress * totalBars);
@@ -88,12 +92,25 @@ public class ProfessionContainer extends MysteryInventory {
             }
         }
 
-        // Add percentage next to the bar
-        String progressBarWithPercentage = progressBar + " <yellow>" + (int) (progress * 100) + "%</yellow>";
+        // Calculate overflow XP
+        double overflow = Math.max(0, xpGained - xpRequired);
+
+        // Determine the progress display with conditional overflow
+        String progressDisplay = useDecimals
+                ? String.format(" <yellow>%.0f / %.0f</yellow>%s",
+                xpGained,
+                xpRequired,
+                overflow > 0 ? String.format(" <gray>(+%.0f)</gray>", overflow) : "")
+                : String.format(" <yellow>%.0f%%</yellow>%s",
+                progress * 100,
+                overflow > 0 ? String.format(" <gray>(+%.0f)</gray>", overflow) : "");
+
+        // Add progress display to the bar
+        String progressBarWithDisplay = progressBar + progressDisplay;
 
         // Add lore, including the progress bar and additional text
         List<String> lore = List.of(
-                progressBarWithPercentage, // Progress bar with percentage
+                progressBarWithDisplay, // Progress bar with decimal or percentage
                 "<yellow>Click for Detailed View</yellow>", // Instruction text
                 unlocked ? "<green>Unlocked</green>" : "<red>Locked</red>" // Locked/unlocked status
         );
@@ -109,12 +126,21 @@ public class ProfessionContainer extends MysteryInventory {
             public void onUse(MysteryPlayer player) {
                 player.sendMessage("You selected: " + professionName);
             }
+
+            @Override
+            public void onDrop(MysteryPlayer player) {
+
+            }
         };
         professionItem.setName(name);
         professionItem.setLore(lore);
         professionItem.setItemIdentifier(professionName + "_ITEM");
         setItem(slot, professionItem);
     }
+
+
+
+
 
 
 

@@ -4,10 +4,10 @@ import rip.snicon.compass.inventory.MysteryInventory;
 import rip.snicon.compass.inventory.item.MysteryItemType;
 import rip.snicon.compass.player.MysteryPlayer;
 
-public class SettingsContainer extends MysteryInventory {
+public class UniverseSelectorContainer extends MysteryInventory {
 
-    public SettingsContainer() {
-        super("Settings");
+    public UniverseSelectorContainer() {
+        super("Universe Selector");
     }
 
     @Override

@@ -1,15 +1,22 @@
 package rip.snicon.compass.player.handler;
 
-import net.minestom.server.MinecraftServer;
+import net.kyori.adventure.text.format.TextColor;
+import net.minestom.server.item.component.FireworkExplosion;
 import org.bson.Document;
 import org.jetbrains.annotations.NotNull;
 import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.player.PlayerRank;
 import rip.snicon.compass.player.profession.PlayerProfession;
+import rip.snicon.compass.utils.ColorUtils;
+import rip.snicon.compass.utils.FireworkUtility;
+import rip.snicon.compass.utils.TabUtils;
 import rip.snicon.compass.utils.TextUtils;
 
+import java.util.List;
 import java.util.UUID;
+
+import static net.minestom.server.command.builder.arguments.ArgumentType.Color;
 
 public class MysteryDataHandler {
 
@@ -36,6 +43,7 @@ public class MysteryDataHandler {
 
     public void saveDataToDatabase() {
         Document data = new Document("uuid", uuid.toString())
+                .append("username", MysteryPlayer.getPlayer(uuid).getUsername())
                 .append("rank", rank.name())
                 .append("profession", profession.name())
                 .append("emeralds", emeralds)
@@ -54,6 +62,7 @@ public class MysteryDataHandler {
         this.emeralds = document.getDouble("emeralds");
         this.professionXp = document.getDouble("profession_xp");
         this.achievementPoints = document.getDouble("achievement_points");
+
     }
 
     // Getters and setters for rank, profession, emeralds, etc.
@@ -118,12 +127,12 @@ public class MysteryDataHandler {
         saveDataToDatabase();
     }
 
-    private void checkForProfessionLevelUp() {
-        double totalXp = getProfessionXp();
-        PlayerProfession currentProfession = getProfession();
-        PlayerProfession[] professions = PlayerProfession.values();
+    public void checkForProfessionLevelUp() {
+        double totalXp = getProfessionXp(); // Total XP player has
+        PlayerProfession currentProfession = getProfession(); // Current profession
+        PlayerProfession[] professions = PlayerProfession.values(); // All professions in order
 
-        // Find the current profession index
+        // Find the index of the current profession
         int currentIndex = -1;
         for (int i = 0; i < professions.length; i++) {
             if (professions[i] == currentProfession) {
@@ -133,30 +142,42 @@ public class MysteryDataHandler {
         }
 
         if (currentIndex == -1) {
-            return; // Invalid current profession
+            return; // Current profession not found, invalid state
         }
 
         double cumulativeXp = 0;
         PlayerProfession leveledProfession = null;
 
-        // Start from the next profession after the current one
-        for (int i = currentIndex + 1; i < professions.length; i++) {
-            cumulativeXp += professions[i].getReqXP();
+        // Iterate through professions starting from the first profession
+        for (int i = 0; i < professions.length; i++) {
+            cumulativeXp += professions[i].getReqXP(); // Add required XP of each profession
             if (totalXp >= cumulativeXp) {
-                leveledProfession = professions[i];
+                leveledProfession = professions[i]; // Player qualifies for this profession
             } else {
-                break;
+                break; // Stop if total XP is less than the cumulative XP
             }
         }
 
-        // If a level-up occurred
+        // If a level-up occurred and the leveled profession is different from the current one
         if (leveledProfession != null && leveledProfession != currentProfession) {
             updateProfession(leveledProfession, true);
+
+            MysteryPlayer player = MysteryPlayer.getPlayer(uuid);
+
             sendPlayerMessage(String.format(
-                    "Congratulations! You leveled up from %s to %s.",
+                    "<strikethrough><gray>                                                                                 </gray></strikethrough>\n" +
+                            "                                 <bold><gradient:dark_purple:light_purple>LEVEL UP!</gradient></bold>\n" +
+                            "                          <yellow>You have advanced from</yellow>\n" +
+                            "                                  <green> %s</green> <gray>%s</gray>\n" +
+                            "                                        <yellow>to</yellow>\n" +
+                            "                                  <green> %s</green> <gray>%s</gray>\n" +
+                            "<strikethrough><gray>                                                                                 </gray></strikethrough>",
                     currentProfession.name(),
-                    leveledProfession.name()
+                    currentProfession.getIconData().icon(),
+                    leveledProfession.name(),
+                    leveledProfession.getIconData().icon()
             ));
+            player.onLevelUp();
         }
     }
 

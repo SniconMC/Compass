@@ -30,7 +30,6 @@ public class MysteryInventoryHandler {
     // Fetch inventory data from the database
     public void fetchInventoryFromDatabase() {
         MongoDatabaseManager.fetch("inventories", "uuid", uuid.toString()).thenAccept(document -> {
-            Main.logger.debug(String.valueOf(document));
             if (document != null) {
                 loadInventoryData(document);
             } else {
@@ -69,7 +68,6 @@ public class MysteryInventoryHandler {
                     // Ensure the slot is within a valid range (optional, depending on your requirements)
                     if (slot >= 0 && slot < PlayerInventory.INNER_INVENTORY_SIZE) {
                         MysteryItemType itemType = MysteryItemType.valueOf(inventoryData.getString(slotKey));
-                        Main.logger.debug(itemType.name());
                         inventory.put(slot, itemType);
                     }
                 } catch (NumberFormatException e) {

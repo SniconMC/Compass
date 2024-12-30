@@ -34,4 +34,9 @@ public class GuidesPhoneItem extends MysteryItem {
         // Open the Guide inventory/menu
 
     }
+
+    @Override
+    public void onDrop(MysteryPlayer player) {
+
+    }
 }

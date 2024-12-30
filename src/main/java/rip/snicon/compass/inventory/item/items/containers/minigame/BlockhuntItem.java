@@ -1,5 +1,4 @@
-package rip.snicon.compass.inventory.item.items.containers.profile;
-
+package rip.snicon.compass.inventory.item.items.containers.minigame;
 
 import net.minestom.server.item.Material;
 import rip.snicon.compass.inventory.item.MysteryItem;
@@ -8,21 +7,15 @@ import rip.snicon.compass.player.MysteryPlayer;
 
 import java.util.List;
 
-public class CosmeticsItem extends MysteryItem {
+public class BlockhuntItem extends MysteryItem {
 
-    public CosmeticsItem() {
-        super(Material.LEATHER_CHESTPLATE, "» <gold>Cosmetics</gold> «", List.of(
-                "Choose between custom outfits,",
-                "items, particles, music, and more!",
-                "",
-                "<gray>Lorem:</gray> <yellow>Ipsum</yellow>",
-                "<gray>Dolor:</gray> <green>Sit</green>",
-                "",
-                "<gray>» <aqua>Click to open</aqua> «</gray>"
+    public BlockhuntItem() {
+        super(Material.CRAFTING_TABLE, "<gold>Blockhunt++</gold>", List.of(
+                ""
         ), 1, MysteryItemOrigin.CONTAINER);
 
         setShowTooltip(true);
-        setDyeColor("#0077c3");
+        setDyeColor("");
         setGlint(false);
     }
 
