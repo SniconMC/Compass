@@ -27,7 +27,7 @@ public class BlockhuntItem extends MysteryItem {
 
     @Override
     public void onUse(MysteryPlayer player) {
-        ServerRegistry.connectPlayerToBestServer(player, "minigame");
+
     }
 
     @Override

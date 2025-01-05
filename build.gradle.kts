@@ -12,6 +12,8 @@ repositories {
     mavenCentral()
     maven{
         url = uri("https://jitpack.io")
+        name = "buf"
+        url = uri("https://buf.build/gen/maven")
     }
 }
 
@@ -26,6 +28,12 @@ dependencies {
 
     implementation("org.mongodb:mongodb-driver-sync:4.10.0") // Database mongoDB
     implementation("redis.clients:jedis:5.0.0") // Cache Database redis
+    implementation("com.google.guava:guava:32.1.2-jre") // Byte stuff
+
+    // Check latest version at https://buf.build/minekube/gate/sdks
+    implementation("build.buf.gen:minekube_gate_protocolbuffers_java:29.2.0.1.20241120101512.f1a10b5029ce")
+    implementation("build.buf.gen:minekube_gate_grpc_java:1.69.0.1.20241120101512.f1a10b5029ce")
+    implementation("io.grpc:grpc-netty:1.69.0") // For gRPC transport
 
 
 }

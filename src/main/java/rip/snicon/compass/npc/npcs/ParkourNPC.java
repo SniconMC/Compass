@@ -4,6 +4,8 @@ import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.EntityType;
 import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.entity.metadata.PlayerMeta;
+import rip.snicon.compass.Main;
+import rip.snicon.compass.ServerRegistry;
 import rip.snicon.compass.instances.MysteryInstanceType;
 import rip.snicon.compass.npc.MysteryHologram;
 import rip.snicon.compass.npc.MysteryNPC;
@@ -77,5 +79,6 @@ public class ParkourNPC extends MysteryNPC {
         // Custom action: Execute the function from JSON's "data"
         System.out.println("Executing function: " + player.getUsername());
         // Add actual function call if needed
+        ServerRegistry.sendRemoveJoinablePluginMessage(player, Main.getServerName());
     }
 }

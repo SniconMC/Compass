@@ -3,6 +3,7 @@ package rip.snicon.compass.database.redisdb;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+import java.util.Map;
 import java.util.Set;
 
 public class RedisCacheManager {
@@ -18,6 +19,13 @@ public class RedisCacheManager {
             return jedis.get(key);
         }
     }
+
+    public static Map<String, String> fetchMap(String key) {
+        try (Jedis jedis = jedisPool.getResource()) {
+            return jedis.hgetAll(key);
+        }
+    }
+
 
     public static void save(String key, String value) {
         try (Jedis jedis = jedisPool.getResource()) {

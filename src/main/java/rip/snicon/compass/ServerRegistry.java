@@ -1,108 +1,169 @@
 package rip.snicon.compass;
 
+import com.google.common.io.ByteArrayDataOutput;
+import com.google.common.io.ByteStreams;
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+import build.buf.gen.minekube.gate.v1.*;
 import net.minestom.server.entity.Player;
 import net.minestom.server.network.packet.server.common.TransferPacket;
-import org.json.JSONObject;
-import rip.snicon.compass.database.redisdb.RedisCacheManager;
 
-import java.util.*;
+import java.util.List;
 
 public class ServerRegistry {
 
-    private static final String REDIS_KEY_PREFIX = "server:";
+    private static final String GATE_HOST = Main.getProxyAddress().split(":")[0];
+    private static final int GATE_PORT = 8080;
+
+    private static final ManagedChannel channel = ManagedChannelBuilder
+            .forAddress(GATE_HOST, GATE_PORT)
+            .usePlaintext()
+            .build();
+    private static final GateServiceGrpc.GateServiceBlockingStub stub = GateServiceGrpc.newBlockingStub(channel);
 
     /**
-     * Registers the server with Redis.
-     * @param id The server's unique ID.
-     * @param label The server's label (e.g., "hub", "minigame").
-     * @param properties Additional server properties (e.g., "state", "currentPlayers").
+     * Shutdown the gRPC channel.
      */
-    public static void registerServer(String id, String label, Map<String, String> properties) {
-        JSONObject json = new JSONObject(properties);
-        json.put("id", id);
-        json.put("label", label);
-        RedisCacheManager.save(REDIS_KEY_PREFIX + id, json.toString());
+    public static void shutdown() {
+        channel.shutdown();
     }
 
     /**
-     * Gets all servers with the given label.
-     * @param label The label to filter servers by.
-     * @return A list of server properties as JSON objects.
+     * Registers a server with Gate.
+     *
+     * @param name    The server's unique name.
+     * @param address The server's address (e.g., "127.0.0.1:25566").
      */
-    public static List<JSONObject> getServersByLabel(String label) {
-        List<JSONObject> servers = new ArrayList<>();
-        Set<String> keys = RedisCacheManager.getKeys(REDIS_KEY_PREFIX + "*");
-
-        for (String key : keys) {
-            String jsonString = RedisCacheManager.fetch(key);
-            if (jsonString != null) {
-                JSONObject server = new JSONObject(jsonString);
-                if (label.equals(server.optString("label"))) {
-                    servers.add(server);
-                }
-            }
-        }
-        return servers;
-    }
-
-    /**
-     * Gets the best available server by label.
-     * @param label The label to filter servers by.
-     * @return The properties of the best available server as a JSONObject.
-     */
-    public static Optional<JSONObject> getBestServer(String label) {
-        List<JSONObject> servers = getServersByLabel(label);
-
-        return servers.stream()
-                .filter(server -> "AVAILABLE".equalsIgnoreCase(server.optString("state")))
-                .min(Comparator.comparingInt(server -> server.optInt("currentPlayers", Integer.MAX_VALUE)));
-    }
-
-    /**
-     * Removes a server from the registry.
-     * @param id The server's unique ID.
-     */
-    public static void removeServer(String id) {
-        RedisCacheManager.delete(REDIS_KEY_PREFIX + id);
-    }
-
-    /**
-     * Generates a random unique ID for the server.
-     * @param label The label for the server.
-     * @return A random unique ID.
-     */
-    public static String generateServerId(String label) {
-        return label + "-" + UUID.randomUUID().toString().substring(0, 8);
-    }
-
-    /**
-     * Connects a player to the best available proxy based on label.
-     * @param player The player to connect.
-     * @param label The label of the target proxy (e.g., "hub", "minigame").
-     */
-    public static void connectPlayerToBestServer(Player player, String label) {
-        Optional<JSONObject> bestServer = getBestServer(label);
-
-        if (bestServer.isPresent()) {
-            JSONObject server = bestServer.get();
-            String ip = server.optString("ip");
-            int port = server.optInt("port");
-
-            Main.logger.info("Connecting player " + player.getUsername() + " to server: " + ip + ":" + port);
-            connectPlayer(player, ip, port);
-        } else {
-            player.sendMessage("No available servers found for label: " + label);
+    public static void registerServer(String name, String address) {
+        RegisterServerRequest request = RegisterServerRequest.newBuilder()
+                .setName(name)
+                .setAddress(address)
+                .build();
+        try {
+            stub.registerServer(request);
+            System.out.println("Server registered: " + name);
+        } catch (Exception e) {
+            System.err.println("Failed to register server: " + e.getMessage());
         }
     }
 
     /**
-     * Sends a player to a specific server using TransferPacket.
-     * @param player The player to connect.
-     * @param ip The IP address of the target server.
-     * @param port The port of the target server.
+     * Unregisters a server from Gate.
+     *
+     * @param name The server's unique name.
      */
-    public static void connectPlayer(Player player, String ip, int port) {
-        Main.logger.info("Sending player " + player.getUsername() + " to " + ip + ":" + port);
+    public static void unregisterServer(String name) {
+        UnregisterServerRequest request = UnregisterServerRequest.newBuilder()
+                .setName(name)
+                .build();
+        try {
+            stub.unregisterServer(request);
+            System.out.println("Server unregistered: " + name);
+        } catch (Exception e) {
+            System.err.println("Failed to unregister server: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Lists all registered servers.
+     *
+     * @return A list of servers.
+     */
+    public static List<Server> listServers() {
+        try {
+            ListServersResponse response = stub.listServers(ListServersRequest.getDefaultInstance());
+            return response.getServersList();
+        } catch (Exception e) {
+            System.err.println("Failed to list servers: " + e.getMessage());
+            return List.of();
+        }
+    }
+
+    /**
+     * Connects a player to a specified server.
+     *
+     * @param playerName The player's username or UUID.
+     * @param serverName The target server's name.
+     */
+    public static void connectPlayerToServer(String playerName, String serverName) {
+        ConnectPlayerRequest request = ConnectPlayerRequest.newBuilder()
+                .setPlayer(playerName)
+                .setServer(serverName)
+                .build();
+        try {
+            stub.connectPlayer(request);
+            System.out.println("Player " + playerName + " connected to server: " + serverName);
+        } catch (Exception e) {
+            System.err.println("Failed to connect player to server: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Disconnects a player from the proxy.
+     *
+     * @param playerName The player's username or UUID.
+     * @param reason     The reason for disconnection.
+     */
+    public static void disconnectPlayer(String playerName, String reason) {
+        DisconnectPlayerRequest request = DisconnectPlayerRequest.newBuilder()
+                .setPlayer(playerName)
+                .setReason(reason)
+                .build();
+        try {
+            stub.disconnectPlayer(request);
+            System.out.println("Player " + playerName + " disconnected: " + reason);
+        } catch (Exception e) {
+            System.err.println("Failed to disconnect player: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Sends a player to a proxy using TransferPacket.
+     *
+     * @param player The player to transfer.
+     * @param ip     The proxy IP address.
+     * @param port   The proxy port.
+     */
+    public static void connectPlayerToProxy(Player player, String ip, int port) {
+        if (player == null || ip == null) {
+            return;
+        }
+        player.sendMessage("<gray>Connecting to proxy: " + ip + ":" + port + "</gray>");
         player.sendPacket(new TransferPacket(ip, port));
+        System.out.println("Player " + player.getUsername() + " connected to proxy: " + ip + ":" + port);
+    }
+
+    /**
+     * Sends an AddJoinableServer plugin message.
+     *
+     * @param player     The player to send the message.
+     * @param serverName The server to add as joinable.
+     */
+    public static void sendAddJoinablePluginMessage(Player player, String serverName) {
+        if (player == null || serverName == null) {
+            return;
+        }
+        ByteArrayDataOutput out = ByteStreams.newDataOutput();
+        out.writeUTF("AddJoinableServer");
+        out.writeUTF(serverName);
+        player.sendPluginMessage("bungeecord:main", out.toByteArray());
+        System.out.println("Sent AddJoinableServer for: " + serverName);
+    }
+
+    /**
+     * Sends a RemoveJoinableServer plugin message.
+     *
+     * @param player     The player to send the message.
+     * @param serverName The server to remove from joinable.
+     */
+    public static void sendRemoveJoinablePluginMessage(Player player, String serverName) {
+        if (player == null || serverName == null) {
+            return;
+        }
+        ByteArrayDataOutput out = ByteStreams.newDataOutput();
+        out.writeUTF("RemoveJoinableServer");
+        out.writeUTF(serverName);
+        player.sendPluginMessage("bungeecord:main", out.toByteArray());
+        System.out.println("Sent RemoveJoinableServer for: " + serverName);
     }
 }
