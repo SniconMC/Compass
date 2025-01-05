@@ -9,7 +9,8 @@ public enum MysteryInventoryType {
     PROFILE_CONTAINER(new ProfileContainer()),
     SETTINGS_CONTAINER(new SettingsContainer()),
     MINIGAME_SELECTOR(new MinigameSelectorContainer()),
-    UNIVERSE_SELECTOR(new UniverseSelectorContainer());
+    UNIVERSE_SELECTOR(new UniverseSelectorContainer()),
+    BUNDLE_CONTAINER(new BundleViewerContainer());
     private final MysteryInventory inventory;
 
     MysteryInventoryType(MysteryInventory inventory) {

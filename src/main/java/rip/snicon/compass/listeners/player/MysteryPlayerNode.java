@@ -72,6 +72,7 @@ public class MysteryPlayerNode {
                 player.getDataHandler().saveDataToDatabase();
                 player.getRegionHandler().saveRegionsToDatabase();
                 player.getInventoryHandler().saveInventoryToDatabase();
+                player.getBundleHandler().saveBundlesToDatabase();
 
                 // Clear cached sidebar and other player data
                 MysterySidebar.getSidebarCache().remove(player.getUuid());
@@ -90,6 +91,7 @@ public class MysteryPlayerNode {
                 player.getRegionHandler().fetchRegionsFromDatabase();
                 player.getInventoryHandler().fetchInventoryFromDatabase();
                 player.getSettingsHandler().fetchSettingsFromDatabase();
+                player.getBundleHandler().fetchBundlesFromDatabase();
                 event.setSpawningInstance(MysteryInstanceType.HUB.getInstance());
                 event.getPlayer().setRespawnPoint(MysteryInstanceType.HUB.getInstance().getSpawnPos());
             }

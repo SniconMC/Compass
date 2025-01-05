@@ -11,7 +11,11 @@ import rip.snicon.compass.npc.MysteryHologram;
 import rip.snicon.compass.npc.MysteryNPC;
 import rip.snicon.compass.npc.goals.LookAtPlayerGoal;
 import rip.snicon.compass.player.MysteryPlayer;
+import rip.snicon.compass.player.bundle.MysteryBundle;
+import rip.snicon.compass.player.bundle.MysteryBundleTypes;
 import rip.snicon.compass.utils.TextUtils;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class GuideNPC extends MysteryNPC {
 
@@ -81,7 +85,14 @@ public class GuideNPC extends MysteryNPC {
 
     @Override
     public void onInteract(MysteryPlayer player) {
-        System.out.println("OldUpdateNPC interacted with " + player.getUsername() + ".");
+        player.sendMessage("I gave you 1 random bundle.");
+
+        // Get a random bundle type
+        int randomIndex = ThreadLocalRandom.current().nextInt(MysteryBundleTypes.values().length);
+        MysteryBundleTypes randomBundleType = MysteryBundleTypes.values()[randomIndex];
+
+        player.getBundleHandler().addBundle(randomBundleType);
     }
+
 }
 

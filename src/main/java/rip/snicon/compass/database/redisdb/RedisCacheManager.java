@@ -3,7 +3,10 @@ package rip.snicon.compass.database.redisdb;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
+import java.util.Set;
+
 public class RedisCacheManager {
+
     private static JedisPool jedisPool;
 
     public static void initialize(String host, int port) {
@@ -25,6 +28,12 @@ public class RedisCacheManager {
     public static void delete(String key) {
         try (Jedis jedis = jedisPool.getResource()) {
             jedis.del(key);
+        }
+    }
+
+    public static Set<String> getKeys(String pattern) {
+        try (Jedis jedis = jedisPool.getResource()) {
+            return jedis.keys(pattern);
         }
     }
 

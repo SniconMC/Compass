@@ -5,7 +5,10 @@ import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.EntityType;
 import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.entity.metadata.PlayerMeta;
+import net.minestom.server.inventory.InventoryType;
 import rip.snicon.compass.instances.MysteryInstanceType;
+import rip.snicon.compass.inventory.MysteryInventoryType;
+import rip.snicon.compass.inventory.item.MysteryItemType;
 import rip.snicon.compass.npc.MysteryHologram;
 import rip.snicon.compass.npc.MysteryNPC;
 import rip.snicon.compass.player.MysteryPlayer;
@@ -76,7 +79,7 @@ public class BlockHuntNPC extends MysteryNPC {
 
     @Override
     public void onInteract(MysteryPlayer player) {
-        System.out.println("OldUpdateNPC interacted with " + player.getUsername() + ".");
+        player.openInventory(MysteryInventoryType.BUNDLE_CONTAINER.getInventory(player).toMinestomInventory(player, InventoryType.CHEST_5_ROW, MysteryItemType.BACKGROUND_ITEM.getItem(player)));
     }
 }
 

@@ -1,6 +1,7 @@
 package rip.snicon.compass.inventory.item.items.containers.minigame;
 
 import net.minestom.server.item.Material;
+import rip.snicon.compass.ServerRegistry;
 import rip.snicon.compass.inventory.item.MysteryItem;
 import rip.snicon.compass.inventory.item.MysteryItemOrigin;
 import rip.snicon.compass.player.MysteryPlayer;
@@ -26,7 +27,7 @@ public class BlockhuntItem extends MysteryItem {
 
     @Override
     public void onUse(MysteryPlayer player) {
-        // Logic for when the player uses this item.
+        ServerRegistry.connectPlayerToBestServer(player, "minigame");
     }
 
     @Override

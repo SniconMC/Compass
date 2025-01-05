@@ -35,6 +35,7 @@ public class MysteryPlayer extends Player {
     private final MysteryRegionHandler regionHandler;
     private final MysteryStatisticHandler statisticHandler;
     private final MysteryCosmeticHandler cosmeticHandler;
+    private final MysteryBundleHandler bundleHandler;
 
     public MysteryPlayer(@NotNull UUID uuid, @NotNull String username, @NotNull PlayerConnection playerConnection) {
         super(uuid, username, playerConnection);
@@ -46,7 +47,7 @@ public class MysteryPlayer extends Player {
         this.regionHandler = new MysteryRegionHandler(uuid);
         this.statisticHandler = new MysteryStatisticHandler(uuid);
         this.cosmeticHandler = new MysteryCosmeticHandler(uuid);
-
+        this.bundleHandler = new MysteryBundleHandler(uuid);
 
     }
 
@@ -80,6 +81,10 @@ public class MysteryPlayer extends Player {
 
     public MysteryCosmeticHandler getCosmeticHandler() {
         return cosmeticHandler;
+    }
+
+    public MysteryBundleHandler getBundleHandler(){
+        return bundleHandler;
     }
 
     public String getProfessionDisplay() {

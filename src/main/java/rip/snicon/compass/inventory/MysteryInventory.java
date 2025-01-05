@@ -80,6 +80,12 @@ public abstract class MysteryInventory {
     public Inventory toMinestomInventory(MysteryPlayer player, InventoryType type, MysteryItem fill) {
         Inventory inventory = new Inventory(type, TextUtils.convertStringToComponent(title));
 
+        // Fill remaining slots with the MysteryItem
+        for (int i = 0; i < inventory.getSize(); i++) {
+            inventory.setItemStack(i, fill.createItemStack());
+        }
+
+
         // Populate static items
         for (Map.Entry<Integer, MysteryItemType> entry : staticItems.entrySet()) {
             int slot = entry.getKey();
@@ -99,13 +105,6 @@ public abstract class MysteryInventory {
             }
         }
 
-        // Fill remaining slots with the MysteryItem
-        for (int i = 0; i < inventory.getSize(); i++) {
-            inventory.getItemStack(i);
-            if (inventory.getItemStack(i).isAir()) {
-                inventory.setItemStack(i, fill.createItemStack());
-            }
-        }
 
         return inventory;
     }
