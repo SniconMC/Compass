@@ -22,6 +22,8 @@ public class Main {
     public static final Logger logger = LoggerFactory.getLogger(Main.class);
     private static String serverName; // Store the server's name
     private static String proxyAddress; // Proxy address
+    private static String proxyPort; // Proxy address
+
 
     public static void main(String[] args) {
 
@@ -112,7 +114,7 @@ public class Main {
 
                     if (proxyInfo != null && !proxyInfo.isEmpty()) {
                         proxyAddress = proxyInfo.get("address");
-                        String proxyPort = proxyInfo.get("port");
+                        proxyPort = proxyInfo.get("port");
 
                         if (serverIp != null && serverPort != null) {
                             String fullProxyAddress = serverIp + ":" + serverPort;
@@ -150,5 +152,12 @@ public class Main {
 
     public static String getProxyAddress() {
         return proxyAddress;
+    }
+
+    public static String getProxyPort() {
+        return proxyPort;
+    }
+    public static int getProxyPortInt() {
+        return Integer.parseInt(proxyPort);
     }
 }

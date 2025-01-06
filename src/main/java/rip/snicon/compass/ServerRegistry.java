@@ -7,8 +7,10 @@ import io.grpc.ManagedChannelBuilder;
 import build.buf.gen.minekube.gate.v1.*;
 import net.minestom.server.entity.Player;
 import net.minestom.server.network.packet.server.common.TransferPacket;
+import rip.snicon.compass.database.redisdb.RedisCacheManager;
 
 import java.util.List;
+import java.util.Map;
 
 public class ServerRegistry {
 
@@ -114,6 +116,40 @@ public class ServerRegistry {
             System.out.println("Player " + playerName + " disconnected: " + reason);
         } catch (Exception e) {
             System.err.println("Failed to disconnect player: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Helper method to connect a player to a proxy using a label.
+     *
+     * @param player       The player to connect.
+     * @param serverLabel  The label of the proxy to connect to.
+     */
+    public static void connectPlayerToProxyWithLabel(Player player, String serverLabel) {
+        String proxyKey = "proxy:" + serverLabel;
+
+        Map<String, String> proxyInfo = RedisCacheManager.fetchMap(proxyKey);
+
+        if (proxyInfo != null && !proxyInfo.isEmpty()) {
+            String proxyAddress = proxyInfo.get("address");
+            String proxyPortStr = proxyInfo.get("port");
+
+            if (proxyAddress == null || proxyPortStr == null) {
+                player.sendMessage("<red>Invalid proxy configuration for label: " + serverLabel + "</red>");
+                System.out.println("Proxy configuration is missing address or port for label: " + serverLabel);
+                return;
+            }
+
+            try {
+                int proxyPort = Integer.parseInt(proxyPortStr);
+                connectPlayerToProxy(player, proxyAddress, proxyPort);
+            } catch (NumberFormatException e) {
+                player.sendMessage("<red>Invalid port configuration for label: " + serverLabel + "</red>");
+                System.err.println("Invalid port for proxy with label " + serverLabel + ": " + proxyPortStr);
+            }
+        } else {
+            player.sendMessage("<gray>No proxy available for label: " + serverLabel + "</gray>");
+            System.out.println("No proxy found for label: " + serverLabel);
         }
     }
 

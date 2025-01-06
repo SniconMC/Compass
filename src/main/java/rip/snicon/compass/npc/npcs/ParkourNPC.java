@@ -1,11 +1,13 @@
 package rip.snicon.compass.npc.npcs;
 
+import io.grpc.Server;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.EntityType;
 import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.entity.metadata.PlayerMeta;
 import rip.snicon.compass.Main;
 import rip.snicon.compass.ServerRegistry;
+import rip.snicon.compass.database.redisdb.RedisCacheManager;
 import rip.snicon.compass.instances.MysteryInstanceType;
 import rip.snicon.compass.npc.MysteryHologram;
 import rip.snicon.compass.npc.MysteryNPC;
@@ -13,6 +15,7 @@ import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.utils.TextUtils;
 
 import java.util.List;
+import java.util.Map;
 
 public class ParkourNPC extends MysteryNPC {
 
@@ -76,9 +79,6 @@ public class ParkourNPC extends MysteryNPC {
 
     @Override
     public void onInteract(MysteryPlayer player) {
-        // Custom action: Execute the function from JSON's "data"
-        System.out.println("Executing function: " + player.getUsername());
-        // Add actual function call if needed
-        ServerRegistry.sendRemoveJoinablePluginMessage(player, Main.getServerName());
+        ServerRegistry.connectPlayerToProxyWithLabel(player, "minigame");
     }
 }
