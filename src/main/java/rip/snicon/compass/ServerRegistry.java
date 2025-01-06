@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ServerRegistry {
 
-    private static final String GATE_HOST = Main.getProxyAddress().split(":")[0];
+    private static final String GATE_HOST = Main.getProxyAddress();
     private static final int GATE_PORT = 8080;
 
     private static final ManagedChannel channel = ManagedChannelBuilder

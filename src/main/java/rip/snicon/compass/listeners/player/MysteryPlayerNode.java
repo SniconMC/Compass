@@ -56,7 +56,6 @@ public class MysteryPlayerNode {
     private void handlePlayerMoveEvent() {
         this.mysteryPlayerNode.addListener(PlayerMoveEvent.class, event -> {
             if (event.getPlayer() instanceof MysteryPlayer player) {
-                player.getRegionHandler().updateRegion();
 
             }
         });

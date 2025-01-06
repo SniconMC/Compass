@@ -48,7 +48,7 @@ public class Main {
 
         // Set player provider
         MinecraftServer.getConnectionManager().setPlayerProvider(MysteryPlayer::new);
-
+        MinecraftServer.setCompressionThreshold(0);
         // Set global listeners
         new Global();
 
@@ -114,8 +114,8 @@ public class Main {
                         proxyAddress = proxyInfo.get("address");
                         String proxyPort = proxyInfo.get("port");
 
-                        if (proxyAddress != null && proxyPort != null) {
-                            String fullProxyAddress = proxyAddress + ":" + proxyPort;
+                        if (serverIp != null && serverPort != null) {
+                            String fullProxyAddress = serverIp + ":" + serverPort;
                             ServerRegistry.registerServer(serverName, fullProxyAddress);
                             logger.info("Registered server '{}' to proxy '{}:{}'", serverName, proxyAddress, proxyPort);
                             cancel(); // Stop the task after successful registration
