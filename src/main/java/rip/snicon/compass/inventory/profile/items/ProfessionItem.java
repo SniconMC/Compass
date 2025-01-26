@@ -1,15 +1,16 @@
-package rip.snicon.compass.inventory.item.items.containers.profile;
+package rip.snicon.compass.inventory.profile.items;
 
 import net.minestom.server.entity.Player;
-import net.minestom.server.inventory.InventoryType;
 import net.minestom.server.item.Material;
-import org.w3c.dom.Text;
-import rip.snicon.compass.inventory.TemplateItem;
+import nub.wi1helm.template.TemplateInventory;
+import nub.wi1helm.template.TemplateInventoryEvent;
+import nub.wi1helm.template.TemplateItem;
+import nub.wi1helm.template.items.BackgroundItem;
+import rip.snicon.compass.inventory.profession.ProfessionContainer;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.player.profession.PlayerProfession;
 import rip.snicon.compass.utils.TextUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProfessionItem extends TemplateItem {
@@ -66,12 +67,16 @@ public class ProfessionItem extends TemplateItem {
     }
 
     @Override
-    public void onUse(Player player) {
-
+    public void onUse(TemplateInventoryEvent event) {
+        TemplateInventory inventory = new ProfessionContainer();
+        inventory.fillInventory(new BackgroundItem());
+        event.getPlayer().openInventory(inventory.constructInventory(event.getPlayer()));
     }
 
     @Override
-    public void onDrop(Player player) {
+    public void onDrop(TemplateInventoryEvent event) {
 
     }
+
+
 }

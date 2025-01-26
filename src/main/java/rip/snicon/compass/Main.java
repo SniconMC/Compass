@@ -1,14 +1,15 @@
 package rip.snicon.compass;
 
 import net.minestom.server.MinecraftServer;
+import net.minestom.server.event.player.PlayerCommandEvent;
 import net.minestom.server.extras.MojangAuth;
 import net.minestom.server.extras.velocity.VelocityProxy;
+import nub.wi1helm.template.TemplateHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rip.snicon.compass.chat.ChatFormatter;
 import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
 import rip.snicon.compass.database.redisdb.RedisCacheManager;
-import rip.snicon.compass.inventory.TemplateHandler;
 import rip.snicon.compass.listeners.Global;
 import rip.snicon.compass.npc.MysteryNPC;
 import rip.snicon.compass.player.MysteryPlayer;

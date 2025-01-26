@@ -6,19 +6,18 @@ import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.entity.ai.EntityAIGroupBuilder;
 import net.minestom.server.entity.metadata.PlayerMeta;
 import rip.snicon.compass.instances.MysteryInstanceType;
+import rip.snicon.compass.inventory.debug.DebugContainer;
 import rip.snicon.compass.npc.MysteryHologram;
 import rip.snicon.compass.npc.MysteryNPC;
 import rip.snicon.compass.npc.goals.LookAtPlayerGoal;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.utils.TextUtils;
 
-import java.util.List;
-
 // Example NPC Class
-public class ExampleJohnson extends MysteryNPC {
+public class DebugJohnson extends MysteryNPC {
 
-    public ExampleJohnson() {
-        super(EntityType.PLAYER, 1, 32, new Pos(44,9,26.8,0,0));
+    public DebugJohnson() {
+        super(EntityType.PLAYER, 1, 32, new Pos(26.5,9,20.5,0,0));
     }
 
 
@@ -41,7 +40,6 @@ public class ExampleJohnson extends MysteryNPC {
             meta.setLeftLegEnabled(true);
             meta.setRightLegEnabled(true);
             meta.setHatEnabled(true);
-            meta.setPose(Pose.SITTING);
         });
 
     }
@@ -50,7 +48,7 @@ public class ExampleJohnson extends MysteryNPC {
     public void onSpawnHologram(MysteryHologram hologram, MysteryPlayer player) {
         switch (hologram.getRow()) {
             case 0:
-                hologram.setText(TextUtils.convertStringToComponent("<green>Example Johnson</green>"));
+                hologram.setText(TextUtils.convertStringToComponent("<gold>Debug Johnson</gold>"));
         }
     }
 
@@ -64,7 +62,7 @@ public class ExampleJohnson extends MysteryNPC {
         ;
         setInstance(MysteryInstanceType.HUB.getInstance(), getDefaultPos());
 
-        setPlayerSkin(new PlayerSkin("ewogICJ0aW1lc3RhbXAiIDogMTYxNjU0Mjk5MTMyNCwKICAicHJvZmlsZUlkIiA6ICIwNWQ0NTNiZWE0N2Y0MThiOWI2ZDUzODg0MWQxMDY2MCIsCiAgInByb2ZpbGVOYW1lIiA6ICJFY2hvcnJhIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2EzYjg5NTY2MmI1OWE0ODliY2ZkYWU0NTIxNDJkMWM5MWVjYjExNmYxYTQ4ZjA0NDJlYTQwZDdiMjg4OGYzOGEiCiAgICB9CiAgfQp9", "TNSXq/sjg65pAfdQ1kPcVuM38OeVudt/63nTRcoCrutPDIg3mhcFJDJ4G9xzYv7u4pqjRzMoDPgVufXdGQMa2S+i9GsyzaybA0YsNiZMfm4LKpbtpDv/224pefK+5adOLM8JGL0z92dLgAdEZ7ybWF7GdEoG126tqRRIYBpO1mHggY+xeK/CPJ3O/eDHGV0k5loxLlO5qL12c2q4Rdz0nZuzXGLzAZERKLcajrq5fkuZOILW9kr2FtbhuczOEP0T9pdRRb255WFKU0LSG+RDG6j7AuKr7hQMIFZ0/3X94f6ymY7nwOnKJxSGFPyZ7F5+yXE6NJaswRlvIIvgQpYT7kp6/YnRdYp5rFh2RyczAbKKFFQf8vWAT16drqf7pE+zyPdxkPkO381Q7PtVzG+dcg5/MqD3+YQhYwUk14e7C/ZZ12Rc0Pb3HINbEKDsspIPSot+uAbeQEiemBADi8HvPUuBIxHq2LkasPu9NDtKhTqy+sE2RNelWIBXxZCJEU0jJRLMJSEQOFRnr4ZOWq2soAcJehbfHimXTckbS48s4oWEB+kpGVYrfNS0muYUPzOi8VOyuEteARI1HYqJhqaqw/tTm34uEm1BX070/s3DmmOd8L1JXmEjQvW8vMbwNF76LQ73bv4lANYGNU1bRyAznXtimk43Lbw2vF1Vrd/hq8w="));
+        setPlayerSkin(new PlayerSkin("ewogICJ0aW1lc3RhbXAiIDogMTczNzE0NDA0NjQ2NCwKICAicHJvZmlsZUlkIiA6ICIwMzBlMDA1OWQwY2M0YTZhODY3N2RkZWU3MjEzMjg1MyIsCiAgInByb2ZpbGVOYW1lIiA6ICJTbXVnRm9vZGllIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzk5NGNmMDZiNTE4MmZhNTdlNDE2ZDFmZTIyOWY5MTE5YjI5N2Y5MDA4OGJhNDVlYzk0NWIzZmI4NWFkOWYzM2QiCiAgICB9CiAgfQp9", "mMjcrgCypBmaaAkix9vuAZcgKq7EU+eUaAlPxsSklu/vStL+D+ek1cEcJ4vbu/zaVxTEXPHAikBS5eyb+f3CHrvu2uCwyRh097IAzBjVMPSBAhEuijVzicL+rQK9SXU9kAPCuEzNZSEg8i73xXgzzQQMkw+/bGzoQXaO4yVWMStV7qTxCSTPv6WE0ob2rwy1EKsoJl1fUe/FME9Lijqyegotn89hHaZLn9diR5yzfdjo/fyLO0ipLLAYNIHx7cvCXN6cI87GQ1h/d9lhh586YJoW2fgididPoIbispioY+p6QzvgxnIqPKyIEcy5IbdcheRSCsFsTlAmtCcp4XBKxFbFhbBATP2BPk1tGPEWycYfmO9yc0qtArKDJWrq9SjRUhbIwI4/EC2Lza+QdDckxvV/dbiyF/7heXKwA2VmYMn4XgfCvgR4HtoQSZGXbby/I1LGQl9HYdtiY1uZZzmFu/v56RVknAIkjMc0x8zxIGAdQGL+hKwItsGGlw7qVoAP5Ky5jrjrU8/JrvLRvVdRPQN5H7YrZm8C2m2WKi2W6hxoYhzZuxyZGKVPoC69k4MK1WMzD5Y8RxRrgeCpUVPVeIwHQ3pD3+/d1TiJud64noLYbGgiH9Fnq9p5hMpFfMLFYay97kZlK5cLRSWe3X6iHsqQu8dwWZo8mZkMrNHhRMQ="));
 
     }
 
@@ -75,6 +73,6 @@ public class ExampleJohnson extends MysteryNPC {
 
     @Override
     public void onInteract(MysteryPlayer player) {
-        System.out.println("ExampleJohnson interacted with " + player.getUsername() + ".");
+        player.openInventory(new DebugContainer().constructInventory(player));
     }
 }

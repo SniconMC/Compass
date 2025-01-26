@@ -1,12 +1,13 @@
-package rip.snicon.compass.inventory.inventories;
+package rip.snicon.compass.inventory.profession;
 
 import net.minestom.server.entity.Player;
 import net.minestom.server.inventory.InventoryType;
 import net.minestom.server.item.Material;
-import rip.snicon.compass.inventory.TemplateInventory;
-import rip.snicon.compass.inventory.TemplateItem;
-import rip.snicon.compass.inventory.item.items.containers.CloseButton;
-import rip.snicon.compass.inventory.item.items.containers.profile.ProfessionItem;
+import nub.wi1helm.template.TemplateInventory;
+import nub.wi1helm.template.TemplateInventoryEvent;
+import nub.wi1helm.template.TemplateItem;
+import nub.wi1helm.template.items.CloseButton;
+import rip.snicon.compass.inventory.profile.items.ProfessionItem;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.player.profession.PlayerProfession;
 import rip.snicon.compass.player.settings.PlayerSetting;
@@ -130,12 +131,12 @@ public class ProfessionContainer extends TemplateInventory {
             }
 
             @Override
-            public void onUse(Player player) {
-                player.sendMessage("You selected: " + professionName);
+            public void onUse(TemplateInventoryEvent event) {
+                event.getPlayer().sendMessage("You selected: " + professionName);
             }
 
             @Override
-            public void onDrop(Player player) {
+            public void onDrop(TemplateInventoryEvent player) {
 
             }
         };

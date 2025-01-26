@@ -81,7 +81,7 @@ public class MysteryChunk {
         // Display particles along the edges
 
         // Bottom rectangle (y = min)
-        for (double x = min.x(); x <= max.x(); x += 0.5) {
+        for (double x = min.x(); x <= max.x(); x += 1) {
             // Front edge (min.z())
             player.sendPacket(new ParticlePacket(
                     Particle.CRIT, true, x, yMin, min.z(), 0f, 0f, 0f, 0.05f, 1

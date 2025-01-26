@@ -1,10 +1,10 @@
-package rip.snicon.compass.inventory.inventories;
+package rip.snicon.compass.inventory.settings;
 
 import net.minestom.server.entity.Player;
 import net.minestom.server.inventory.InventoryType;
-import rip.snicon.compass.inventory.TemplateInventory;
-import rip.snicon.compass.inventory.item.items.containers.settings.ShowDecimalItem;
-import rip.snicon.compass.inventory.item.items.containers.settings.ShowIconItem;
+import nub.wi1helm.template.TemplateInventory;
+import rip.snicon.compass.inventory.settings.items.ShowDecimalItem;
+import rip.snicon.compass.inventory.settings.items.ShowIconItem;
 import rip.snicon.compass.utils.TextUtils;
 
 public class SettingsContainer extends TemplateInventory {

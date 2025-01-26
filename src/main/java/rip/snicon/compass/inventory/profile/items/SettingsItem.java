@@ -1,9 +1,13 @@
-package rip.snicon.compass.inventory.item.items.containers.profile;
+package rip.snicon.compass.inventory.profile.items;
 
 import net.minestom.server.entity.Player;
 import net.minestom.server.item.Material;
-import rip.snicon.compass.inventory.TemplateItem;
 
+import nub.wi1helm.template.TemplateInventory;
+import nub.wi1helm.template.TemplateInventoryEvent;
+import nub.wi1helm.template.TemplateItem;
+import nub.wi1helm.template.items.BackgroundItem;
+import rip.snicon.compass.inventory.settings.SettingsContainer;
 import rip.snicon.compass.utils.TextUtils;
 
 import java.util.List;
@@ -31,12 +35,17 @@ public class SettingsItem extends TemplateItem {
     }
 
     @Override
-    public void onUse(Player player) {
+    public void onUse(TemplateInventoryEvent event) {
+        TemplateInventory inventory = new SettingsContainer();
+        inventory.fillInventory(new BackgroundItem());
+        event.getPlayer().openInventory(inventory.constructInventory(event.getPlayer()));
 
     }
 
     @Override
-    public void onDrop(Player player) {
+    public void onDrop(TemplateInventoryEvent event) {
 
     }
+
+
 }

@@ -1,11 +1,10 @@
-package rip.snicon.compass.inventory.inventories;
+package rip.snicon.compass.inventory.profile;
 
 import net.minestom.server.entity.Player;
 import net.minestom.server.inventory.InventoryType;
-import rip.snicon.compass.inventory.TemplateInventory;
-import rip.snicon.compass.inventory.item.items.containers.CloseButton;
-import rip.snicon.compass.inventory.item.items.containers.profile.*;
-import rip.snicon.compass.player.MysteryPlayer;
+import nub.wi1helm.template.TemplateInventory;
+import nub.wi1helm.template.items.CloseButton;
+import rip.snicon.compass.inventory.profile.items.*;
 import rip.snicon.compass.utils.TextUtils;
 
 public class ProfileContainer extends TemplateInventory {

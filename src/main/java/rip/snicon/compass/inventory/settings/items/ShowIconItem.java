@@ -1,8 +1,9 @@
-package rip.snicon.compass.inventory.item.items.containers.settings;
+package rip.snicon.compass.inventory.settings.items;
 
 import net.minestom.server.entity.Player;
 import net.minestom.server.item.Material;
-import rip.snicon.compass.inventory.TemplateItem;
+import nub.wi1helm.template.TemplateInventoryEvent;
+import nub.wi1helm.template.TemplateItem;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.player.settings.PlayerSetting;
 import rip.snicon.compass.utils.TextUtils;
@@ -50,18 +51,18 @@ public class ShowIconItem extends TemplateItem {
     }
 
     @Override
-    public void onUse(Player player) {
-        final MysteryPlayer p = (MysteryPlayer) player;
-        p.getSettingsHandler().updateSetting(PlayerSetting.SHOW_ICON, !p.getSettingsHandler().getSetting(PlayerSetting.SHOW_ICON));
+    public void onUse(TemplateInventoryEvent event) {
+        final MysteryPlayer player = (MysteryPlayer) event.getPlayer();
+        player.getSettingsHandler().updateSetting(PlayerSetting.SHOW_ICON, !player.getSettingsHandler().getSetting(PlayerSetting.SHOW_ICON));
         personalize(player);
         if (getHostInventory() != null) {
             this.getHostInventory().setItemStack(getHostSlot(), constructItemStack(player));
-            p.updateDisplayName();
+            player.updateDisplayName();
         }
     }
 
     @Override
-    public void onDrop(Player player) {
+    public void onDrop(TemplateInventoryEvent event) {
 
     }
 }

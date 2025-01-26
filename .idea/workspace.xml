@@ -4,7 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="" />
+    <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/cosmetics/CosmeticsShop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/cosmetics/Perks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/debug/DebugContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/profile/ProfileCosmetics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/profile/cosmetics/ProfilePerks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/npcs/CosmeticDealerNPC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/npcs/DebugJohnson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/cosmetics/BaseCosmetic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/cosmetics/PlayerHelmet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/cosmetics/PlayerPerk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/regions/MysteryChunk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/regions/MysteryChunk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/TemplateHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/TemplateInventory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/TemplateItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/inventories/BundleViewerContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/bundels/BundleViewerContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/inventories/DefaultInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/inventories/DefaultInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/inventories/ProfessionContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/profession/ProfessionContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/inventories/ProfileContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/profile/ProfileContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/inventories/SettingsContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/settings/SettingsContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/BackgroundItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/CloseButton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/profile/AchievementItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/profile/items/AchievementItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/profile/CosmeticsItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/profile/items/CosmeticsItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/profile/GuidesPhoneItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/profile/items/GuidesPhoneItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/profile/ProfessionItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/profile/items/ProfessionItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/profile/SettingsItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/profile/items/SettingsItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/profile/StatisticsItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/profile/items/StatisticsItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/settings/ShowDecimalItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/settings/items/ShowDecimalItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/item/items/containers/settings/ShowIconItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/settings/items/ShowIconItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/player/MysteryPlayerNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/player/MysteryPlayerNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/MysteryNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/MysteryNPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/MysteryNPCType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/MysteryNPCType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/goals/LookAtPlayerGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/goals/LookAtPlayerGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/npcs/BlockHuntNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/npcs/BlockHuntNPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/npcs/ExampleJohnson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/npcs/ExampleJohnson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/npcs/GuideNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/npcs/GuideNPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/MysteryPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/MysteryPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/handler/MysteryCosmeticHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/handler/MysteryCosmeticHandler.java" afterDir="false" />
+    </list>
     <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +119,7 @@
     "Kotlin script (Beta).build.gradle.kts.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "extract.method.default.visibility": "public",
@@ -115,12 +158,15 @@
       <recent name="rip.snicon.compass.player" />
       <recent name="rip.snicon.compass.sidebar" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="rip.snicon.compass.player.cosmetics" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="rip.snicon.compass.inventory.cosmetics" />
+      <recent name="rip.snicon.compass.npc.npcs" />
       <recent name="rip.snicon.compass" />
       <recent name="rip.snicon.compass.utils" />
       <recent name="rip.snicon.compass.player.handler" />
-      <recent name="rip.snicon.compass.npc.npcs" />
-      <recent name="rip.snicon.compass.inventory.item.items.containers.minigame" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Run Compass">

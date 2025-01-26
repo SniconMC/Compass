@@ -3,6 +3,7 @@ package rip.snicon.compass.npc.goals;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Entity;
 import net.minestom.server.entity.EntityCreature;
+import net.minestom.server.entity.EntityType;
 import net.minestom.server.entity.Player;
 import net.minestom.server.entity.ai.GoalSelector;
 import rip.snicon.compass.Main;
@@ -32,17 +33,29 @@ public final class LookAtPlayerGoal extends GoalSelector {
 
     @Override
     public void tick(long time) {
-        target = findTarget(); // Update target dynamically
-        if (target == null || entityCreature.getDistanceSquared(target) > range * range ||
+        target = findTarget(); // Dynamically update the target
+
+        // Check if the target is invalid or out of range
+        if (target == null ||
+                entityCreature.getDistanceSquared(target) > range * range ||
                 entityCreature.getInstance() != target.getInstance()) {
-            resetHeadRotation();
+            resetHeadRotation(); // Reset the rotation if no valid target
             target = null;
             return;
         }
 
+        // Calculate the target's head position
         Pos targetHeadPosition = target.getPosition().add(0, target.getEyeHeight(), 0);
+
+        // Adjust for the sitting pose
+        if (entityCreature.getPose() == Entity.Pose.SITTING) {
+            targetHeadPosition = targetHeadPosition.add(0, EntityType.ARMOR_STAND.registry().eyeHeight(), 0);
+        }
+
+        // Make the entity look at the adjusted position
         entityCreature.lookAt(targetHeadPosition);
     }
+
 
 
     @Override

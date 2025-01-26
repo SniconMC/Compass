@@ -10,6 +10,7 @@ import net.minestom.server.network.packet.server.play.PlayerInfoUpdatePacket;
 import net.minestom.server.network.player.PlayerConnection;
 import org.jetbrains.annotations.NotNull;
 import rip.snicon.compass.other.LevelUp;
+import rip.snicon.compass.player.cosmetics.PlayerPerk;
 import rip.snicon.compass.player.handler.*;
 import rip.snicon.compass.player.settings.PlayerSetting;
 import rip.snicon.compass.utils.FireworkUtility;
@@ -43,7 +44,6 @@ public class MysteryPlayer extends Player {
         this.statisticHandler = new MysteryStatisticHandler(uuid);
         this.cosmeticHandler = new MysteryCosmeticHandler(uuid);
         this.bundleHandler = new MysteryBundleHandler(uuid);
-
     }
 
     public static MysteryPlayer getPlayer(UUID uuid) {

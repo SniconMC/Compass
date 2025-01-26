@@ -1,15 +1,16 @@
-package rip.snicon.compass.inventory.item.items.containers.profile;
+package rip.snicon.compass.inventory.profile.items;
 
 import net.kyori.adventure.text.format.TextColor;
-import net.kyori.adventure.util.RGBLike;
 import net.minestom.server.color.Color;
 import net.minestom.server.entity.Player;
 import net.minestom.server.item.Material;
 import net.minestom.server.item.component.DyedItemColor;
-import rip.snicon.compass.inventory.TemplateItem;
+import nub.wi1helm.template.TemplateInventory;
+import nub.wi1helm.template.TemplateInventoryEvent;
+import nub.wi1helm.template.TemplateItem;
+import rip.snicon.compass.inventory.profile.ProfileCosmetics;
 import rip.snicon.compass.utils.TextUtils;
 
-import java.awt.*;
 import java.util.List;
 import java.util.Objects;
 
@@ -40,12 +41,14 @@ public class CosmeticsItem extends TemplateItem {
     }
 
     @Override
-    public void onUse(Player player) {
-        // Logic for when the player uses this item.
+    public void onUse(TemplateInventoryEvent event) {
+        event.getPlayer().openInventory(new ProfileCosmetics().constructInventory(event.getPlayer()));
     }
 
     @Override
-    public void onDrop(Player player) {
-        // Logic for when the player drops this item.
+    public void onDrop(TemplateInventoryEvent event) {
+
     }
+
+
 }

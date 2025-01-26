@@ -1,13 +1,12 @@
-package rip.snicon.compass.inventory.inventories;
+package rip.snicon.compass.inventory.bundels;
 
 import net.minestom.server.entity.Player;
 import net.minestom.server.inventory.InventoryType;
 import net.minestom.server.item.Material;
-import net.minestom.server.item.component.CustomData;
-import net.minestom.server.tag.Tag;
-import rip.snicon.compass.inventory.TemplateInventory;
-import rip.snicon.compass.inventory.TemplateItem;
-import rip.snicon.compass.inventory.item.items.containers.CloseButton;
+import nub.wi1helm.template.TemplateInventory;
+import nub.wi1helm.template.TemplateInventoryEvent;
+import nub.wi1helm.template.TemplateItem;
+import nub.wi1helm.template.items.CloseButton;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.player.bundle.MysteryBundle;
 import rip.snicon.compass.player.handler.MysteryBundleHandler;
@@ -55,14 +54,16 @@ public class BundleViewerContainer extends TemplateInventory {
                     }
 
                     @Override
-                    public void onUse(Player player) {
+                    public void onUse(TemplateInventoryEvent event) {
 
                     }
 
                     @Override
-                    public void onDrop(Player player) {
+                    public void onDrop(TemplateInventoryEvent event) {
 
                     }
+
+
                 });
             }
         }
@@ -111,12 +112,12 @@ public class BundleViewerContainer extends TemplateInventory {
             }
 
             @Override
-            public void onUse(Player player) {
-                player.sendMessage("Viewing details for bundle: " + bundle.getName());
+            public void onUse(TemplateInventoryEvent event) {
+                event.getPlayer().sendMessage("Viewing details for bundle: " + bundle.getName());
             }
 
             @Override
-            public void onDrop(Player player) {
+            public void onDrop(TemplateInventoryEvent event) {
 
             }
         };

@@ -3,9 +3,12 @@ package rip.snicon.compass.inventory.inventories;
 import net.minestom.server.entity.Player;
 import net.minestom.server.inventory.InventoryType;
 import net.minestom.server.item.Material;
-import rip.snicon.compass.inventory.TemplateInventory;
-import rip.snicon.compass.inventory.TemplateItem;
-import rip.snicon.compass.inventory.item.items.containers.BackgroundItem;
+import nub.wi1helm.template.TemplateInventory;
+import nub.wi1helm.template.TemplateInventoryEvent;
+import nub.wi1helm.template.TemplateItem;
+import nub.wi1helm.template.items.BackgroundItem;
+import rip.snicon.compass.inventory.profession.ProfessionContainer;
+import rip.snicon.compass.inventory.profile.ProfileContainer;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.utils.TextUtils;
 
@@ -34,15 +37,18 @@ public class DefaultInventory extends TemplateInventory {
             }
 
             @Override
-            public void onUse(Player player) {
-                MysteryPlayer mysteryPlayer = (MysteryPlayer) player;
-
+            public void onUse(TemplateInventoryEvent event) {
+                TemplateInventory inventory = new ProfessionContainer();
+                inventory.fillInventory(new BackgroundItem());
+                event.getPlayer().openInventory(inventory.constructInventory(event.getPlayer()));
             }
 
             @Override
-            public void onDrop(Player player) {
-                // Optional: Add logic for dropping this item
+            public void onDrop(TemplateInventoryEvent event) {
+
             }
+
+
         });
 
         setItem(4, new TemplateItem(Material.COMPASS) {
@@ -59,14 +65,16 @@ public class DefaultInventory extends TemplateInventory {
             }
 
             @Override
-            public void onUse(Player player) {
-                MysteryPlayer mysteryPlayer = (MysteryPlayer) player;
+            public void onUse(TemplateInventoryEvent event) {
+
             }
 
             @Override
-            public void onDrop(Player player) {
-                // Optional: Add logic for dropping this item
+            public void onDrop(TemplateInventoryEvent event) {
+
             }
+
+
         });
 
         setItem(5, new TemplateItem(Material.PLAYER_HEAD) {
@@ -83,15 +91,15 @@ public class DefaultInventory extends TemplateInventory {
             }
 
             @Override
-            public void onUse(Player player) {
-                MysteryPlayer mysteryPlayer = (MysteryPlayer) player;
+            public void onUse(TemplateInventoryEvent event) {
+                MysteryPlayer player = (MysteryPlayer) event.getPlayer();
                 TemplateInventory inventory = new ProfileContainer();
                 inventory.fillInventory(new BackgroundItem());
-                mysteryPlayer.openInventory(inventory.constructInventory(player));
+                player.openInventory(inventory.constructInventory(player));
             }
 
             @Override
-            public void onDrop(Player player) {}
+            public void onDrop(TemplateInventoryEvent event) {}
         });
 
         setItem(8, new TemplateItem(Material.NETHER_STAR) {
@@ -111,12 +119,16 @@ public class DefaultInventory extends TemplateInventory {
             }
 
             @Override
-            public void onUse(Player player) {
-                System.out.println("Opening Universe Selector GUI...");
+            public void onUse(TemplateInventoryEvent event) {
+
             }
 
             @Override
-            public void onDrop(Player player) {}
+            public void onDrop(TemplateInventoryEvent event) {
+
+            }
+
+
         });
     }
 

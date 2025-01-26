@@ -3,16 +3,15 @@ package rip.snicon.compass.npc;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.*;
+import net.minestom.server.entity.metadata.other.ArmorStandMeta;
 import net.minestom.server.event.GlobalEventHandler;
 import net.minestom.server.event.entity.EntityAttackEvent;
 import net.minestom.server.event.player.PlayerEntityInteractEvent;
 import net.minestom.server.event.player.PlayerMoveEvent;
 import net.minestom.server.event.player.PlayerSpawnEvent;
-import net.minestom.server.network.packet.server.play.DestroyEntitiesPacket;
-import net.minestom.server.network.packet.server.play.PlayerInfoRemovePacket;
-import net.minestom.server.network.packet.server.play.PlayerInfoUpdatePacket;
-import net.minestom.server.network.packet.server.play.TeamsPacket;
+import net.minestom.server.network.packet.server.play.*;
 import net.minestom.server.scoreboard.Team;
+import rip.snicon.compass.instances.MysteryInstanceType;
 import rip.snicon.compass.player.MysteryPlayer;
 
 import java.util.ArrayList;
@@ -161,6 +160,28 @@ public abstract class MysteryNPC extends EntityCreature {
 
     // Packet Handling
     public void spawnNPCForPlayer(Player player) {
+        Entity mount = null;
+
+        // Check if the NPC should be sitting
+        if (getPose() == Pose.SITTING) {
+            // Create a mount entity (e.g., a CHICKEN or ARMOR_STAND)
+            mount = new Entity(EntityType.ARMOR_STAND);
+            mount.editEntityMeta(ArmorStandMeta.class, meta -> {
+                meta.setSmall(true);
+                meta.setInvisible(true);
+                meta.setHasNoGravity(true);
+            });
+            mount.setInstance(MysteryInstanceType.HUB.getInstance(), getDefaultPos().add(0,-0.5,0));
+
+            player.sendPacket(new DestroyEntitiesPacket(mount.getEntityId())); // Remove previous instance if any
+            mount.addPassenger(this);
+            player.sendPacket(mount.getEntityType().registry().spawnType().getSpawnPacket(mount));
+
+            // Spawn the mount for the player
+            mount.updateNewViewer(player);
+        }
+
+        // Regular NPC spawning logic
         if (getEntityType() == EntityType.PLAYER) {
             List<PlayerInfoUpdatePacket.Property> properties = (playerSkin != null)
                     ? List.of(new PlayerInfoUpdatePacket.Property("textures", playerSkin.textures(), playerSkin.signature()))
@@ -170,11 +191,18 @@ public abstract class MysteryNPC extends EntityCreature {
                     this.getUuid(), npcIdentifier, properties, false, 0, GameMode.SURVIVAL, null, null
             );
 
-            player.sendPacket(new PlayerInfoRemovePacket(this.getUuid()));
+            player.sendPacket(new PlayerInfoRemovePacket(this.getUuid())); // Ensure no duplicates
             player.sendPacket(new PlayerInfoUpdatePacket(PlayerInfoUpdatePacket.Action.ADD_PLAYER, entry));
         }
+
         super.updateNewViewer(player);
+
+        // Send mount packet if the NPC is sitting
+        if (mount != null) {
+            mount.updateNewViewer(player);
+        }
     }
+
 
     public void despawnNPCForPlayer(Player player) {
         if (getEntityType() == EntityType.PLAYER) {

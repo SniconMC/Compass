@@ -13,6 +13,8 @@ import rip.snicon.compass.npc.goals.LookAtPlayerGoal;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.player.bundle.MysteryBundle;
 import rip.snicon.compass.player.bundle.MysteryBundleTypes;
+import rip.snicon.compass.player.cosmetics.PlayerHelmet;
+import rip.snicon.compass.player.cosmetics.PlayerPerk;
 import rip.snicon.compass.utils.TextUtils;
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -85,13 +87,14 @@ public class GuideNPC extends MysteryNPC {
 
     @Override
     public void onInteract(MysteryPlayer player) {
-        player.sendMessage("I gave you 1 random bundle.");
 
-        // Get a random bundle type
-        int randomIndex = ThreadLocalRandom.current().nextInt(MysteryBundleTypes.values().length);
-        MysteryBundleTypes randomBundleType = MysteryBundleTypes.values()[randomIndex];
-
-        player.getBundleHandler().addBundle(randomBundleType);
+        if (player.getCosmeticHandler().isEnabled(PlayerHelmet.IRON_HELMET)) {
+            player.sendMessage("Disabled");
+            player.getCosmeticHandler().disableCosmetic(PlayerHelmet.IRON_HELMET);
+        } else {
+            player.sendMessage("Enabeld");
+            player.getCosmeticHandler().enableCosmetic(PlayerHelmet.IRON_HELMET);
+        }
     }
 
 }
