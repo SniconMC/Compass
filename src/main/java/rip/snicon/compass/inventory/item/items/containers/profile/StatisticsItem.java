@@ -1,16 +1,24 @@
 package rip.snicon.compass.inventory.item.items.containers.profile;
 
+import net.minestom.server.entity.Player;
 import net.minestom.server.item.Material;
-import rip.snicon.compass.inventory.item.MysteryItem;
-import rip.snicon.compass.inventory.item.MysteryItemOrigin;
+import rip.snicon.compass.inventory.TemplateItem;
 import rip.snicon.compass.player.MysteryPlayer;
+import rip.snicon.compass.utils.TextUtils;
 
 import java.util.List;
 
-public class StatisticsItem extends MysteryItem {
+public class StatisticsItem extends TemplateItem {
 
     public StatisticsItem() {
-        super(Material.PLAYER_HEAD, "» <gold>Statistics</gold> «", List.of(
+        super(Material.PLAYER_HEAD);
+
+    }
+
+    @Override
+    protected void initialize() {
+        setName(TextUtils.convertStringToComponent("» <gold>Statistics</gold> «"));
+        setLore(TextUtils.convertStringToComponent(List.of(
                 "View all your network-wide",
                 "statistics in one place!",
                 "",
@@ -18,26 +26,21 @@ public class StatisticsItem extends MysteryItem {
                 "<gray>Emeralds:</gray> <green>$(player_emeralds)",
                 "",
                 "<gray>» <aqua>Click to open</aqua> «</gray>"
-        ), 1, MysteryItemOrigin.CONTAINER);
-
-        setShowTooltip(true);
-        setDyeColor("");
-        setGlint(false);
+        )));
     }
 
     @Override
-    public void populateForPlayer(MysteryPlayer player) {
-        // Add any dynamic player-specific properties here.
-    }
-
-    @Override
-    public void onUse(MysteryPlayer player) {
-        // Logic for when the player uses this item.
+    protected void personalize(Player player) {
 
     }
 
     @Override
-    public void onDrop(MysteryPlayer player) {
+    public void onUse(Player player) {
+
+    }
+
+    @Override
+    public void onDrop(Player player) {
 
     }
 }

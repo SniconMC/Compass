@@ -1,37 +1,32 @@
 package rip.snicon.compass.inventory.inventories;
 
-import net.minestom.server.item.Material;
-import rip.snicon.compass.inventory.MysteryInventory;
-import rip.snicon.compass.inventory.item.MysteryItem;
-import rip.snicon.compass.inventory.item.MysteryItemOrigin;
-import rip.snicon.compass.inventory.item.MysteryItemType;
+import net.minestom.server.entity.Player;
+import net.minestom.server.inventory.InventoryType;
+import rip.snicon.compass.inventory.TemplateInventory;
+import rip.snicon.compass.inventory.item.items.containers.CloseButton;
+import rip.snicon.compass.inventory.item.items.containers.profile.*;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.utils.TextUtils;
 
-import java.util.List;
-
-public class ProfileContainer extends MysteryInventory {
+public class ProfileContainer extends TemplateInventory {
 
     public ProfileContainer() {
-        super("Your Profile");
+        super(TextUtils.convertStringToComponent("Your Profile"), InventoryType.CHEST_5_ROW);
     }
 
     @Override
     protected void initialize() {
         // Add static items to the inventory
-        setItem(11, MysteryItemType.ACHIEVEMENT_ITEM);
-        setItem(13, MysteryItemType.STATISTICS_ITEM);
-        setItem(15, MysteryItemType.COSMETICS_ITEM);
-        setItem(22, MysteryItemType.SETTINGS_ITEM);
-        setItem(40, MysteryItemType.CLOSE_ITEM);
-        setItem(20, MysteryItemType.GUIDES_PHONE_ITEM);
+        setItem(11, new AchievementItem());
+        setItem(13, new StatisticsItem());
+        setItem(15, new CosmeticsItem());
+        setItem(22, new SettingsItem());
+        setItem(40, new CloseButton());
+        setItem(20, new GuidesPhoneItem());
     }
 
-
-
     @Override
-    protected void populate(MysteryPlayer player) {
-        // Dynamic population logic if needed
-        setItem(24, MysteryItemType.PROFESSION_ITEM.getItem(player));
+    protected void personalize(Player player) {
+        setItem(24, new ProfessionItem());
     }
 }

@@ -1,27 +1,28 @@
 package rip.snicon.compass.inventory.inventories;
 
-import rip.snicon.compass.inventory.MysteryInventory;
-import rip.snicon.compass.inventory.item.MysteryItemType;
-import rip.snicon.compass.player.MysteryPlayer;
+import net.minestom.server.entity.Player;
+import net.minestom.server.inventory.InventoryType;
+import rip.snicon.compass.inventory.TemplateInventory;
+import rip.snicon.compass.inventory.item.items.containers.settings.ShowDecimalItem;
+import rip.snicon.compass.inventory.item.items.containers.settings.ShowIconItem;
+import rip.snicon.compass.utils.TextUtils;
 
-public class SettingsContainer extends MysteryInventory {
+public class SettingsContainer extends TemplateInventory {
 
     public SettingsContainer() {
-        super("Settings");
+        super(TextUtils.convertStringToComponent("Settings"), InventoryType.CHEST_5_ROW);
     }
 
     @Override
     protected void initialize() {
         // Add static items to the inventory
-        setItem(11, MysteryItemType.SHOWICON_ITEM);
-        setItem(13, MysteryItemType.SHOWDECIMAL_ITEM);
+        setItem(11, new ShowDecimalItem());
+        setItem(13, new ShowIconItem());
 
     }
 
-
-
     @Override
-    protected void populate(MysteryPlayer player) {
+    protected void personalize(Player player) {
 
     }
 }

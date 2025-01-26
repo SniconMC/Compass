@@ -5,13 +5,10 @@ import net.kyori.adventure.text.format.TextColor;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.entity.GameMode;
 import net.minestom.server.entity.Player;
-import net.minestom.server.inventory.Inventory;
 import net.minestom.server.item.component.FireworkExplosion;
 import net.minestom.server.network.packet.server.play.PlayerInfoUpdatePacket;
 import net.minestom.server.network.player.PlayerConnection;
 import org.jetbrains.annotations.NotNull;
-import rip.snicon.compass.Main;
-import rip.snicon.compass.inventory.item.MysteryItemType;
 import rip.snicon.compass.other.LevelUp;
 import rip.snicon.compass.player.handler.*;
 import rip.snicon.compass.player.settings.PlayerSetting;
@@ -30,7 +27,6 @@ public class MysteryPlayer extends Player {
 
 
     private final MysteryDataHandler dataHandler;
-    private final MysteryInventoryHandler inventoryHandler;
     private final MysterySettingsHandler settingsHandler;
     private final MysteryRegionHandler regionHandler;
     private final MysteryStatisticHandler statisticHandler;
@@ -42,7 +38,6 @@ public class MysteryPlayer extends Player {
 
         playerCache.put(uuid, this);
         this.dataHandler = new MysteryDataHandler(uuid);
-        this.inventoryHandler = new MysteryInventoryHandler(uuid);
         this.settingsHandler = new MysterySettingsHandler(uuid);
         this.regionHandler = new MysteryRegionHandler(uuid);
         this.statisticHandler = new MysteryStatisticHandler(uuid);
@@ -61,10 +56,6 @@ public class MysteryPlayer extends Player {
 
     public MysteryDataHandler getDataHandler() {
         return dataHandler;
-    }
-
-    public MysteryInventoryHandler getInventoryHandler() {
-        return inventoryHandler;
     }
 
     public MysterySettingsHandler getSettingsHandler() {
@@ -156,18 +147,6 @@ public class MysteryPlayer extends Player {
 
     public void updateRegion() {
         regionHandler.updateRegion();
-    }
-
-    public void unloadPlayerInventory() {
-        inventoryHandler.saveInventory(this.getInventory());
-    }
-
-    public void loadPlayerInventory() {
-        inventoryHandler.loadInventory(this.getInventory());
-    }
-
-    public void addItem(MysteryItemType item) {
-        inventoryHandler.addItem(this.getInventory(), item);
     }
 
     public void onLevelUp() {

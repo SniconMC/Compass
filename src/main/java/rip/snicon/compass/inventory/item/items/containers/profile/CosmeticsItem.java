@@ -1,17 +1,28 @@
 package rip.snicon.compass.inventory.item.items.containers.profile;
 
-
+import net.kyori.adventure.text.format.TextColor;
+import net.kyori.adventure.util.RGBLike;
+import net.minestom.server.color.Color;
+import net.minestom.server.entity.Player;
 import net.minestom.server.item.Material;
-import rip.snicon.compass.inventory.item.MysteryItem;
-import rip.snicon.compass.inventory.item.MysteryItemOrigin;
-import rip.snicon.compass.player.MysteryPlayer;
+import net.minestom.server.item.component.DyedItemColor;
+import rip.snicon.compass.inventory.TemplateItem;
+import rip.snicon.compass.utils.TextUtils;
 
+import java.awt.*;
 import java.util.List;
+import java.util.Objects;
 
-public class CosmeticsItem extends MysteryItem {
+public class CosmeticsItem extends TemplateItem {
 
     public CosmeticsItem() {
-        super(Material.LEATHER_CHESTPLATE, "» <gold>Cosmetics</gold> «", List.of(
+        super(Material.LEATHER_CHESTPLATE);
+    }
+
+    @Override
+    protected void initialize() {
+        setName(TextUtils.convertStringToComponent("» <gold>Cosmetics</gold> «"));
+        setLore(TextUtils.convertStringToComponent(List.of(
                 "Choose between custom outfits,",
                 "items, particles, music, and more!",
                 "",
@@ -19,25 +30,22 @@ public class CosmeticsItem extends MysteryItem {
                 "<gray>Dolor:</gray> <green>Sit</green>",
                 "",
                 "<gray>» <aqua>Click to open</aqua> «</gray>"
-        ), 1, MysteryItemOrigin.CONTAINER);
-
-        setShowTooltip(true);
-        setDyeColor("#0077c3");
-        setGlint(false);
+        )));
+        setDyeColor(DyedItemColor.LEATHER.withColor(Color.fromRGBLike(Objects.requireNonNull(TextColor.fromHexString("#0077c3")))));
     }
 
     @Override
-    public void populateForPlayer(MysteryPlayer player) {
-        // Add any dynamic player-specific properties here.
+    protected void personalize(Player player) {
+        // Add any dynamic player-specific properties here if needed.
     }
 
     @Override
-    public void onUse(MysteryPlayer player) {
+    public void onUse(Player player) {
         // Logic for when the player uses this item.
     }
 
     @Override
-    public void onDrop(MysteryPlayer player) {
-
+    public void onDrop(Player player) {
+        // Logic for when the player drops this item.
     }
 }

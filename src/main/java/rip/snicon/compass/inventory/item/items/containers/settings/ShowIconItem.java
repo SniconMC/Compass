@@ -1,21 +1,28 @@
 package rip.snicon.compass.inventory.item.items.containers.settings;
 
+import net.minestom.server.entity.Player;
 import net.minestom.server.item.Material;
-import rip.snicon.compass.inventory.item.MysteryItem;
-import rip.snicon.compass.inventory.item.MysteryItemOrigin;
+import rip.snicon.compass.inventory.TemplateItem;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.player.settings.PlayerSetting;
+import rip.snicon.compass.utils.TextUtils;
 
 import java.util.List;
 
-public class ShowIconItem extends MysteryItem {
+public class ShowIconItem extends TemplateItem {
     public ShowIconItem() {
-        super(Material.OAK_SIGN, "Show Profession Icon", List.of(), 1, MysteryItemOrigin.CONTAINER);
+        super(Material.OAK_SIGN);
     }
 
     @Override
-    public void populateForPlayer(MysteryPlayer player) {
-        boolean showIcon = player.getSettingsHandler().getSetting(PlayerSetting.SHOW_ICON);
+    protected void initialize() {
+        setName(TextUtils.convertStringToComponent("Show Profession Icon"));
+    }
+
+    @Override
+    protected void personalize(Player player) {
+        final MysteryPlayer p = (MysteryPlayer) player;
+        boolean showIcon = p.getSettingsHandler().getSetting(PlayerSetting.SHOW_ICON);
         String desc = PlayerSetting.SHOW_ICON.getDescription();
 
         if (showIcon) {
@@ -34,26 +41,27 @@ public class ShowIconItem extends MysteryItem {
                 ? "<gray>Click to switch to text display</gray>"
                 : "<gray>Click to switch to icon display</gray>";
 
-        this.setLore(List.of(
+        this.setLore(TextUtils.convertStringToComponent(List.of(
                 desc,
                 "",
                 status,
                 toggleHint
-        ));
+        )));
     }
 
     @Override
-    public void onUse(MysteryPlayer player) {
-        player.getSettingsHandler().updateSetting(PlayerSetting.SHOW_ICON, !player.getSettingsHandler().getSetting(PlayerSetting.SHOW_ICON));
-        populateForPlayer(player);
+    public void onUse(Player player) {
+        final MysteryPlayer p = (MysteryPlayer) player;
+        p.getSettingsHandler().updateSetting(PlayerSetting.SHOW_ICON, !p.getSettingsHandler().getSetting(PlayerSetting.SHOW_ICON));
+        personalize(player);
         if (getHostInventory() != null) {
-            this.getHostInventory().setItemStack(getHostSlot(), createItemStack());
-            player.updateDisplayName();
+            this.getHostInventory().setItemStack(getHostSlot(), constructItemStack(player));
+            p.updateDisplayName();
         }
-
     }
+
     @Override
-    public void onDrop(MysteryPlayer player) {
+    public void onDrop(Player player) {
 
     }
 }

@@ -3,17 +3,16 @@ package rip.snicon.compass.inventory.item.items.containers;
 import net.minestom.server.entity.Player;
 import net.minestom.server.item.Material;
 import rip.snicon.compass.inventory.TemplateItem;
-import rip.snicon.compass.player.MysteryPlayer;
+import rip.snicon.compass.utils.TextUtils;
 
-import java.util.List;
+public class CloseButton extends TemplateItem {
 
-public class BackgroundItem extends TemplateItem {
+    public CloseButton() {
+        super(Material.BARRIER);
 
-    public BackgroundItem() {
-        super(Material.GRAY_STAINED_GLASS_PANE);
-
-        hideTooltip();
+        setName(TextUtils.convertStringToComponent("<gray>» <red>Close</red> «</gray>"));
     }
+
 
     @Override
     protected void initialize() {
@@ -27,7 +26,7 @@ public class BackgroundItem extends TemplateItem {
 
     @Override
     public void onUse(Player player) {
-
+        player.closeInventory();
     }
 
     @Override

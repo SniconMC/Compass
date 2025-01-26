@@ -1,13 +1,14 @@
 package rip.snicon.compass;
 
 import net.minestom.server.MinecraftServer;
+import net.minestom.server.extras.MojangAuth;
 import net.minestom.server.extras.velocity.VelocityProxy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import redis.clients.jedis.Jedis;
 import rip.snicon.compass.chat.ChatFormatter;
 import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
 import rip.snicon.compass.database.redisdb.RedisCacheManager;
+import rip.snicon.compass.inventory.TemplateHandler;
 import rip.snicon.compass.listeners.Global;
 import rip.snicon.compass.npc.MysteryNPC;
 import rip.snicon.compass.player.MysteryPlayer;
@@ -17,13 +18,13 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+
 public class Main {
 
     public static final Logger logger = LoggerFactory.getLogger(Main.class);
     private static String serverName; // Store the server's name
     private static String proxyAddress; // Proxy address
     private static String proxyPort; // Proxy address
-
 
     public static void main(String[] args) {
 
@@ -39,6 +40,7 @@ public class Main {
         String velocitySecret = System.getenv().getOrDefault("VELOCITY_SECRET", "balle123");
         String mongoUri = System.getenv().getOrDefault("MONGO_URI", "mongodb://localhost:27017");
         String mongoDbName = System.getenv().getOrDefault("MONGO_DB_NAME", "minestom");
+        boolean proxyMode = false;
 
         // Setup databases
         setupDatabases(mongoUri, mongoDbName, redisAddress, redisPassword);
@@ -47,10 +49,11 @@ public class Main {
         MysterySidebar.create();
         MysteryNPC.create();
         ChatFormatter.setup();
-
+        TemplateHandler.initialize();
         // Set player provider
         MinecraftServer.getConnectionManager().setPlayerProvider(MysteryPlayer::new);
         MinecraftServer.setCompressionThreshold(0);
+
         // Set global listeners
         new Global();
 
@@ -62,17 +65,24 @@ public class Main {
             System.exit(1);
         }
 
-        // Start checking for matching proxy
-        startProxyCheckTask(serverLabel, serverIp, serverPort);
+        if (proxyMode) {
+            // Start checking for matching proxy
+            startProxyCheckTask(serverLabel, serverIp, serverPort);
+
+            // Enable Velocity proxy integration
+            VelocityProxy.enable(velocitySecret);
+        } else {
+            logger.info("Running in standalone mode. Proxy integration is disabled.");
+            MojangAuth.init();
+        }
 
         // Start the server
-        VelocityProxy.enable(velocitySecret);
         minecraftServer.start(serverIp, Integer.parseInt(serverPort));
         Main.logger.info("Server '{}' running on {}:{}", serverName, serverIp, serverPort);
 
         // Add shutdown hook for cleanup
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            if (proxyAddress != null) {
+            if (proxyMode && proxyAddress != null) {
                 ServerRegistry.unregisterServer(serverName);
             }
             RedisCacheManager.shutdown();
@@ -132,7 +142,6 @@ public class Main {
         }, 0, 10000); // Run every 10 seconds
     }
 
-
     private static String generateServerName(String label) {
         try {
             // Combine label with cropped UUID
@@ -157,6 +166,7 @@ public class Main {
     public static String getProxyPort() {
         return proxyPort;
     }
+
     public static int getProxyPortInt() {
         return Integer.parseInt(proxyPort);
     }

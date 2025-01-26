@@ -1,21 +1,28 @@
 package rip.snicon.compass.inventory.item.items.containers.settings;
 
+import net.minestom.server.entity.Player;
 import net.minestom.server.item.Material;
-import rip.snicon.compass.inventory.item.MysteryItem;
-import rip.snicon.compass.inventory.item.MysteryItemOrigin;
+import rip.snicon.compass.inventory.TemplateItem;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.player.settings.PlayerSetting;
+import rip.snicon.compass.utils.TextUtils;
 
 import java.util.List;
 
-public class ShowDecimalItem extends MysteryItem {
+public class ShowDecimalItem extends TemplateItem {
     public ShowDecimalItem() {
-        super(Material.GOLD_NUGGET, "Display Format Toggle", List.of(), 1, MysteryItemOrigin.CONTAINER);
+        super(Material.GOLD_NUGGET);
     }
 
     @Override
-    public void populateForPlayer(MysteryPlayer player) {
-        boolean value = player.getSettingsHandler().getSetting(PlayerSetting.DECIMAL_NUMBERS);
+    protected void initialize() {
+        setName(TextUtils.convertStringToComponent("Display Format Toggle"));
+    }
+
+    @Override
+    protected void personalize(Player player) {
+        final MysteryPlayer p = (MysteryPlayer) player;
+        boolean value = p.getSettingsHandler().getSetting(PlayerSetting.DECIMAL_NUMBERS);
         String desc = PlayerSetting.SHOW_ICON.getDescription();
 
         if (value) {
@@ -34,25 +41,26 @@ public class ShowDecimalItem extends MysteryItem {
                 ? "<gray>Click to switch to procent display</gray>"
                 : "<gray>Click to switch to decimal display</gray>";
 
-        this.setLore(List.of(
+        this.setLore(TextUtils.convertStringToComponent(List.of(
                 desc,
                 "",
                 status,
                 toggleHint
-        ));
+        )));
     }
 
     @Override
-    public void onUse(MysteryPlayer player) {
-        player.getSettingsHandler().updateSetting(PlayerSetting.DECIMAL_NUMBERS, !player.getSettingsHandler().getSetting(PlayerSetting.DECIMAL_NUMBERS));
-        populateForPlayer(player);
+    public void onUse(Player player) {
+        final MysteryPlayer p = (MysteryPlayer) player;
+        p.getSettingsHandler().updateSetting(PlayerSetting.DECIMAL_NUMBERS, !p.getSettingsHandler().getSetting(PlayerSetting.DECIMAL_NUMBERS));
+        personalize(player);
         if (getHostInventory() != null) {
-            this.getHostInventory().setItemStack(getHostSlot(), createItemStack());
+            this.getHostInventory().setItemStack(getHostSlot(), constructItemStack(player));
         }
-
     }
+
     @Override
-    public void onDrop(MysteryPlayer player) {
+    public void onDrop(Player player) {
 
     }
 }

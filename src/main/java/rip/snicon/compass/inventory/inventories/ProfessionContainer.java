@@ -1,10 +1,12 @@
 package rip.snicon.compass.inventory.inventories;
 
+import net.minestom.server.entity.Player;
+import net.minestom.server.inventory.InventoryType;
 import net.minestom.server.item.Material;
-import rip.snicon.compass.inventory.MysteryInventory;
-import rip.snicon.compass.inventory.item.MysteryItem;
-import rip.snicon.compass.inventory.item.MysteryItemOrigin;
-import rip.snicon.compass.inventory.item.MysteryItemType;
+import rip.snicon.compass.inventory.TemplateInventory;
+import rip.snicon.compass.inventory.TemplateItem;
+import rip.snicon.compass.inventory.item.items.containers.CloseButton;
+import rip.snicon.compass.inventory.item.items.containers.profile.ProfessionItem;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.player.profession.PlayerProfession;
 import rip.snicon.compass.player.settings.PlayerSetting;
@@ -12,29 +14,30 @@ import rip.snicon.compass.utils.TextUtils;
 
 import java.util.List;
 
-public class ProfessionContainer extends MysteryInventory {
+public class ProfessionContainer extends TemplateInventory {
 
     public ProfessionContainer() {
-        super("Profession Levels");
+        super(TextUtils.convertStringToComponent("Profession Levels"), InventoryType.CHEST_5_ROW);
     }
 
     @Override
     protected void initialize() {
-        setItem(40, MysteryItemType.CLOSE_ITEM);
+        setItem(40, new CloseButton());
         // No static items here; items will be added dynamically in populate()
     }
 
     @Override
-    protected void populate(MysteryPlayer player) {
-        setItem(4, MysteryItemType.PROFESSION_ITEM.getItem(player));
-        double totalXp = player.getDataHandler().getProfessionXp();
+    protected void personalize(Player player) {
+        final MysteryPlayer p = (MysteryPlayer) player;
+        setItem(4, new ProfessionItem());
+        double totalXp = p.getDataHandler().getProfessionXp();
         PlayerProfession[] professions = PlayerProfession.values();
         double cumulativeXp = 0;
 
         int[] slots = getProfessionSlots(); // Slots for professions
 
         // Get the setting for decimal or percentage display
-        boolean useDecimals = player.getSettingsHandler().getSetting(PlayerSetting.DECIMAL_NUMBERS);
+        boolean useDecimals = p.getSettingsHandler().getSetting(PlayerSetting.DECIMAL_NUMBERS);
 
         for (int i = 0; i < professions.length; i++) {
             PlayerProfession profession = professions[i];
@@ -54,7 +57,6 @@ public class ProfessionContainer extends MysteryInventory {
             cumulativeXp += professionXp;
         }
     }
-
 
     private int[] getProfessionSlots() {
         // Slots for professions in Row 2 (10–17) and Row 4 (30–38)
@@ -115,26 +117,30 @@ public class ProfessionContainer extends MysteryInventory {
                 unlocked ? "<green>Unlocked</green>" : "<red>Locked</red>" // Locked/unlocked status
         );
 
-        MysteryItem professionItem = new MysteryItem(material, MysteryItemOrigin.CONTAINER) {
+        TemplateItem professionItem = new TemplateItem(material) {
 
             @Override
-            public void populateForPlayer(MysteryPlayer player) {
-                // Optional dynamic population logic
+            protected void initialize() {
+
             }
 
             @Override
-            public void onUse(MysteryPlayer player) {
+            protected void personalize(Player player) {
+
+            }
+
+            @Override
+            public void onUse(Player player) {
                 player.sendMessage("You selected: " + professionName);
             }
 
             @Override
-            public void onDrop(MysteryPlayer player) {
+            public void onDrop(Player player) {
 
             }
         };
-        professionItem.setName(name);
-        professionItem.setLore(lore);
-        professionItem.setItemIdentifier(professionName + "_ITEM");
+        professionItem.setName(TextUtils.convertStringToComponent(name));
+        professionItem.setLore(TextUtils.convertStringToComponent(lore));
         setItem(slot, professionItem);
     }
 

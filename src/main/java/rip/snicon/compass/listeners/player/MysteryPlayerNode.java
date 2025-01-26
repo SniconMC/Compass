@@ -9,6 +9,7 @@ import net.minestom.server.event.EventNode;
 import net.minestom.server.event.player.*;
 import net.minestom.server.event.trait.PlayerEvent;
 import rip.snicon.compass.instances.MysteryInstanceType;
+import rip.snicon.compass.inventory.inventories.DefaultInventory;
 import rip.snicon.compass.other.LevelUp;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.sidebar.MysterySidebar;
@@ -42,8 +43,8 @@ public class MysteryPlayerNode {
     private void handlePlayerSpawnEvent() {
         this.mysteryPlayerNode.addListener(PlayerSpawnEvent.class, event -> {
             if (event.getPlayer() instanceof MysteryPlayer player) {
-                player.loadPlayerInventory();
                 player.getRegionHandler().updateRegion();
+                new DefaultInventory().constructPlayerInventory(player);
                 TabUtils.setPlayerTab(player);
                 player.getDataHandler().checkForProfessionLevelUp();
             }
@@ -67,10 +68,8 @@ public class MysteryPlayerNode {
     private void handlePlayerDisconnectEvent() {
         this.mysteryPlayerNode.addListener(PlayerDisconnectEvent.class, event -> {
             if (event.getPlayer() instanceof MysteryPlayer player) {
-                player.unloadPlayerInventory();
                 player.getDataHandler().saveDataToDatabase();
                 player.getRegionHandler().saveRegionsToDatabase();
-                player.getInventoryHandler().saveInventoryToDatabase();
                 player.getBundleHandler().saveBundlesToDatabase();
 
                 // Clear cached sidebar and other player data
@@ -88,7 +87,6 @@ public class MysteryPlayerNode {
             if (event.getPlayer() instanceof MysteryPlayer player) {
                 player.getDataHandler().fetchDataFromDatabase();
                 player.getRegionHandler().fetchRegionsFromDatabase();
-                player.getInventoryHandler().fetchInventoryFromDatabase();
                 player.getSettingsHandler().fetchSettingsFromDatabase();
                 player.getBundleHandler().fetchBundlesFromDatabase();
                 event.setSpawningInstance(MysteryInstanceType.HUB.getInstance());

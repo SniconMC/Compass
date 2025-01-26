@@ -1,33 +1,38 @@
 package rip.snicon.compass.inventory.inventories;
 
+import net.minestom.server.entity.Player;
+import net.minestom.server.inventory.InventoryType;
 import net.minestom.server.item.Material;
-import rip.snicon.compass.inventory.MysteryInventory;
-import rip.snicon.compass.inventory.item.MysteryItem;
-import rip.snicon.compass.inventory.item.MysteryItemOrigin;
-import rip.snicon.compass.inventory.item.MysteryItemType;
+import net.minestom.server.item.component.CustomData;
+import net.minestom.server.tag.Tag;
+import rip.snicon.compass.inventory.TemplateInventory;
+import rip.snicon.compass.inventory.TemplateItem;
+import rip.snicon.compass.inventory.item.items.containers.CloseButton;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.player.bundle.MysteryBundle;
 import rip.snicon.compass.player.handler.MysteryBundleHandler;
-import rip.snicon.compass.utils.MysteryRarities;
 import rip.snicon.compass.utils.TextUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BundleViewerContainer extends MysteryInventory {
+public class BundleViewerContainer extends TemplateInventory {
 
     public BundleViewerContainer() {
-        super("Your Bundles");
+        super(TextUtils.convertStringToComponent("You'r Bundels"), InventoryType.CHEST_5_ROW);
     }
 
     @Override
     protected void initialize() {
-        setItem(40, MysteryItemType.CLOSE_ITEM); // Close button
+        setItem(40, new CloseButton()); // Close button
     }
 
     @Override
-    protected void populate(MysteryPlayer player) {
-        MysteryBundleHandler bundleHandler = player.getBundleHandler();
+    protected void personalize(Player player) {
+
+        final MysteryPlayer p = (MysteryPlayer) player;
+
+        MysteryBundleHandler bundleHandler = p.getBundleHandler();
         List<MysteryBundle> bundles = new ArrayList<>(bundleHandler.getAllBundles());
 
         int[] slots = getBundleSlots(); // Predefined slots for bundles
@@ -38,24 +43,30 @@ public class BundleViewerContainer extends MysteryInventory {
                 addBundleItem(slots[i], bundles.get(i));
             } else {
                 // Set unused slots to air
-                setItem(slots[i], new MysteryItem(Material.AIR) {
+                setItem(slots[i], new TemplateItem(Material.AIR) {
                     @Override
-                    public void populateForPlayer(MysteryPlayer player) {
+                    protected void initialize() {
 
                     }
 
                     @Override
-                    public void onUse(MysteryPlayer player) {
+                    protected void personalize(Player player) {
 
                     }
 
                     @Override
-                    public void onDrop(MysteryPlayer player) {
+                    public void onUse(Player player) {
+
+                    }
+
+                    @Override
+                    public void onDrop(Player player) {
 
                     }
                 });
             }
         }
+
     }
 
     private int[] getBundleSlots() {
@@ -88,25 +99,29 @@ public class BundleViewerContainer extends MysteryInventory {
                         TextUtils.capitalizeFirstLetter(bundle.getRarity().name()))
         );
 
-        MysteryItem bundleItem = new MysteryItem(material, MysteryItemOrigin.CONTAINER) {
+        TemplateItem bundleItem = new TemplateItem(material) {
             @Override
-            public void populateForPlayer(MysteryPlayer player) {
-                // Optional dynamic population logic
+            protected void initialize() {
+
             }
 
             @Override
-            public void onUse(MysteryPlayer player) {
+            protected void personalize(Player player) {
+
+            }
+
+            @Override
+            public void onUse(Player player) {
                 player.sendMessage("Viewing details for bundle: " + bundle.getName());
             }
 
             @Override
-            public void onDrop(MysteryPlayer player) {
-                // Prevent dropping
+            public void onDrop(Player player) {
+
             }
         };
-        bundleItem.setName(name);
-        bundleItem.setLore(lore);
-        bundleItem.setItemIdentifier(bundle.getName() + "_BUNDLE");
+        bundleItem.setName(TextUtils.convertStringToComponent(name));
+        bundleItem.setLore(TextUtils.convertStringToComponent(lore));
         setItem(slot, bundleItem);
     }
 

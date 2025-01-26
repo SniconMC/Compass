@@ -1,11 +1,10 @@
 package rip.snicon.compass.inventory.item.items.containers.profile;
 
+import net.minestom.server.entity.Player;
 import net.minestom.server.inventory.InventoryType;
 import net.minestom.server.item.Material;
-import rip.snicon.compass.inventory.MysteryInventoryType;
-import rip.snicon.compass.inventory.item.MysteryItem;
-import rip.snicon.compass.inventory.item.MysteryItemOrigin;
-import rip.snicon.compass.inventory.item.MysteryItemType;
+import org.w3c.dom.Text;
+import rip.snicon.compass.inventory.TemplateItem;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.player.profession.PlayerProfession;
 import rip.snicon.compass.utils.TextUtils;
@@ -13,19 +12,24 @@ import rip.snicon.compass.utils.TextUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProfessionItem extends MysteryItem {
+public class ProfessionItem extends TemplateItem {
 
     public ProfessionItem() {
-        super(Material.TOTEM_OF_UNDYING, "<gold>Profession</gold>", new ArrayList<>(), 1, MysteryItemOrigin.CONTAINER);
+        super(Material.TOTEM_OF_UNDYING);
 
-        setShowTooltip(true);
-        setGlint(false);
+        setName(TextUtils.convertStringToComponent("<gold>Profession</gold>"));
     }
 
     @Override
-    public void populateForPlayer(MysteryPlayer player) {
+    protected void initialize() {
+
+    }
+
+    @Override
+    protected void personalize(Player player) {
+        final MysteryPlayer p = (MysteryPlayer) player;
         // Get player's total XP
-        double totalXp = player.getDataHandler().getProfessionXp();
+        double totalXp = p.getDataHandler().getProfessionXp();
         PlayerProfession[] professions = PlayerProfession.values();
 
         // Calculate the cumulative XP required for the last profession
@@ -53,23 +57,21 @@ public class ProfessionItem extends MysteryItem {
         }
 
         // Set the lore for the item
-        setLore(List.of(
-                "<yellow>Profession: " + TextUtils.capitalizeFirstLetter(player.getDataHandler().getProfession().name()) + "</yellow>",
+        setLore(TextUtils.convertStringToComponent(List.of(
+                "<yellow>Profession: " + TextUtils.capitalizeFirstLetter(p.getDataHandler().getProfession().name()) + "</yellow>",
                 "<yellow>Profession XP: " + (int) totalXp + " / " + (int) cumulativeXp + "</yellow>",
                 "<yellow>Road to " + TextUtils.capitalizeFirstLetter(maxProfession.name()) + "</yellow>",
                 progressBar + " <yellow>" + (int) (progress * 100) + "%</yellow>"
-        ));
-    }
-
-
-
-    @Override
-    public void onUse(MysteryPlayer player) {
-        player.openInventory(MysteryInventoryType.PROFESSION_CONTAINER.getInventory(player).toMinestomInventory(player, InventoryType.CHEST_5_ROW, MysteryItemType.BACKGROUND_ITEM.getItem(player)));
+        )));
     }
 
     @Override
-    public void onDrop(MysteryPlayer player) {
+    public void onUse(Player player) {
+
+    }
+
+    @Override
+    public void onDrop(Player player) {
 
     }
 }
