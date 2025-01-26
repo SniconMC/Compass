@@ -115,7 +115,6 @@ public class MysteryRegionHandler {
                             neighbor.updateRegionText(player);
                         }
                     }
-                    currentRegion.debug(player);
                 }
                 break;
             }

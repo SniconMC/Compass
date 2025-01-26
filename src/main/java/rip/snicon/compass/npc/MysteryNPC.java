@@ -132,7 +132,7 @@ public abstract class MysteryNPC extends EntityCreature {
 
         globalEventHandler.addListener(PlayerEntityInteractEvent.class, event -> {
             MysteryPlayer player = (MysteryPlayer) event.getPlayer();
-            if (event.getTarget() == this) {
+            if (event.getTarget() == this && event.getHand() == Player.Hand.MAIN) {
                 this.onInteract(player);
             }
         });

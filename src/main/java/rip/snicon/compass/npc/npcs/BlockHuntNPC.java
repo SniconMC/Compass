@@ -7,6 +7,9 @@ import net.minestom.server.entity.PlayerSkin;
 import net.minestom.server.entity.metadata.PlayerMeta;
 import net.minestom.server.inventory.InventoryType;
 import rip.snicon.compass.instances.MysteryInstanceType;
+import rip.snicon.compass.inventory.TemplateInventory;
+import rip.snicon.compass.inventory.inventories.BundleViewerContainer;
+import rip.snicon.compass.inventory.item.items.containers.BackgroundItem;
 import rip.snicon.compass.npc.MysteryHologram;
 import rip.snicon.compass.npc.MysteryNPC;
 import rip.snicon.compass.player.MysteryPlayer;
@@ -75,6 +78,9 @@ public class BlockHuntNPC extends MysteryNPC {
 
     @Override
     public void onInteract(MysteryPlayer player) {
+        TemplateInventory inventory = new BundleViewerContainer();
+        inventory.fillInventory(new BackgroundItem());
+        player.openInventory(inventory.constructInventory(player));
     }
 }
 
