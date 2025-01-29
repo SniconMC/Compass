@@ -3,10 +3,10 @@ package rip.snicon.compass.inventory.profile.items;
 import net.minestom.server.entity.Player;
 import net.minestom.server.item.Material;
 
-import nub.wi1helm.template.TemplateInventory;
-import nub.wi1helm.template.TemplateInventoryEvent;
-import nub.wi1helm.template.TemplateItem;
-import nub.wi1helm.template.items.BackgroundItem;
+import nub.wi1helm.template.inventory.TemplateInventory;
+import nub.wi1helm.template.inventory.TemplateInventoryEvent;
+import nub.wi1helm.template.inventory.TemplateItem;
+import nub.wi1helm.template.inventory.items.BackgroundItem;
 import rip.snicon.compass.inventory.settings.SettingsContainer;
 import rip.snicon.compass.utils.TextUtils;
 

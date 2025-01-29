@@ -4,9 +4,9 @@ import net.kyori.adventure.text.Component;
 import net.minestom.server.entity.Player;
 import net.minestom.server.inventory.InventoryType;
 import net.minestom.server.item.Material;
-import nub.wi1helm.template.TemplateInventory;
-import nub.wi1helm.template.TemplateInventoryEvent;
-import nub.wi1helm.template.TemplateItem;
+import nub.wi1helm.template.inventory.TemplateInventory;
+import nub.wi1helm.template.inventory.TemplateInventoryEvent;
+import nub.wi1helm.template.inventory.TemplateItem;
 import rip.snicon.compass.utils.TextUtils;
 
 public class CosmeticsShop extends TemplateInventory {

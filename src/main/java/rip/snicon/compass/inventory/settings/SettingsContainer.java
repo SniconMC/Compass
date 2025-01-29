@@ -2,7 +2,7 @@ package rip.snicon.compass.inventory.settings;
 
 import net.minestom.server.entity.Player;
 import net.minestom.server.inventory.InventoryType;
-import nub.wi1helm.template.TemplateInventory;
+import nub.wi1helm.template.inventory.TemplateInventory;
 import rip.snicon.compass.inventory.settings.items.ShowDecimalItem;
 import rip.snicon.compass.inventory.settings.items.ShowIconItem;
 import rip.snicon.compass.utils.TextUtils;

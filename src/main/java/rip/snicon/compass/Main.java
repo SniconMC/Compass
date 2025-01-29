@@ -1,17 +1,16 @@
 package rip.snicon.compass;
 
 import net.minestom.server.MinecraftServer;
-import net.minestom.server.event.player.PlayerCommandEvent;
 import net.minestom.server.extras.MojangAuth;
 import net.minestom.server.extras.velocity.VelocityProxy;
-import nub.wi1helm.template.TemplateHandler;
+import nub.wi1helm.template.Template;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rip.snicon.compass.chat.ChatFormatter;
 import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
 import rip.snicon.compass.database.redisdb.RedisCacheManager;
 import rip.snicon.compass.listeners.Global;
-import rip.snicon.compass.npc.MysteryNPC;
+import rip.snicon.compass.npc.NPC;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.sidebar.MysterySidebar;
 
@@ -48,9 +47,9 @@ public class Main {
 
         // Initialize general-purpose features
         MysterySidebar.create();
-        MysteryNPC.create();
         ChatFormatter.setup();
-        TemplateHandler.initialize();
+        NPC.initializeAll();
+        Template.init();
         // Set player provider
         MinecraftServer.getConnectionManager().setPlayerProvider(MysteryPlayer::new);
         MinecraftServer.setCompressionThreshold(0);
