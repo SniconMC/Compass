@@ -1,4 +1,4 @@
-package rip.snicon.compass.player;
+package rip.snicon.compass.player.data;
 
 public enum PlayerRank {
     VILLAGER("gray"),

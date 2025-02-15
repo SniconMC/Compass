@@ -3,8 +3,8 @@ package rip.snicon.compass.player.handler;
 import org.bson.Document;
 import org.jetbrains.annotations.NotNull;
 import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
-import rip.snicon.compass.player.bundle.MysteryBundle;
-import rip.snicon.compass.player.bundle.MysteryBundleTypes;
+import rip.snicon.compass.player.data.bundle.MysteryBundle;
+import rip.snicon.compass.player.data.bundle.MysteryBundleTypes;
 import rip.snicon.compass.utils.MysteryRarities;
 
 import java.util.*;
@@ -42,8 +42,8 @@ public class MysteryBundleHandler {
             bundleDocuments.add(new Document("internal_name", internalName)
                     .append("display_name", mysteryBundle.getName())
                     .append("rarity", mysteryBundle.getRarity().name())
-                    .append("materials", mysteryBundle.getMaterials())
-                    .append("entities", mysteryBundle.getEntities())
+                    .append("materials", mysteryBundle.getMaterialsNames())
+                    .append("entities", mysteryBundle.getEntitiesNames())
                     .append("display_item", mysteryBundle.getDisplayItem()));
 
         }
@@ -68,7 +68,7 @@ public class MysteryBundleHandler {
                 List<String> entities = bundleDoc.getList("entities", String.class);
                 String displayItem = bundleDoc.getString("display_item");
 
-                bundles.put(internalName, new MysteryBundle(displayName, rarity, materials, entities, displayItem));
+                bundles.put(internalName, new MysteryBundle(displayName, rarity, MysteryBundle.convertBlockListToMaterials(materials), MysteryBundle.convertEntityListToEntityTypes(entities), displayItem));
 
             }
         }

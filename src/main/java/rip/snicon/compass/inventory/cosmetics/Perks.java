@@ -8,7 +8,7 @@ import nub.wi1helm.template.inventory.TemplateInventoryEvent;
 import nub.wi1helm.template.inventory.TemplateItem;
 import nub.wi1helm.template.inventory.items.BackgroundItem;
 import rip.snicon.compass.player.MysteryPlayer;
-import rip.snicon.compass.player.cosmetics.PlayerPerk;
+import rip.snicon.compass.player.data.cosmetics.PlayerPerk;
 import rip.snicon.compass.utils.TextUtils;
 
 import java.util.List;

@@ -3,12 +3,11 @@ package rip.snicon.compass.player.handler;
 import org.bson.Document;
 import org.jetbrains.annotations.NotNull;
 import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
-import rip.snicon.compass.player.cosmetics.BaseCosmetic;
-import rip.snicon.compass.player.cosmetics.PlayerHelmet;
+import rip.snicon.compass.player.data.cosmetics.BaseCosmetic;
+import rip.snicon.compass.player.data.cosmetics.PlayerHelmet;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
 
 public class MysteryCosmeticHandler {
@@ -100,7 +99,7 @@ public class MysteryCosmeticHandler {
             if ("uuid".equals(category)) continue;
 
             try {
-                Class<? extends BaseCosmetic> cosmeticClass = (Class<? extends BaseCosmetic>) Class.forName("rip.snicon.compass.player.cosmetics." + category);
+                Class<? extends BaseCosmetic> cosmeticClass = (Class<? extends BaseCosmetic>) Class.forName("rip.snicon.compass.player.data.cosmetics." + category);
                 Document categoryData = document.get(category, Document.class);
 
                 if (categoryData != null) {

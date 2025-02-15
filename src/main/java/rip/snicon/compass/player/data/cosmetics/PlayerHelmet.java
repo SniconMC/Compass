@@ -1,4 +1,4 @@
-package rip.snicon.compass.player.cosmetics;
+package rip.snicon.compass.player.data.cosmetics;
 
 import net.minestom.server.item.ItemStack;
 import net.minestom.server.item.Material;

@@ -1,4 +1,4 @@
-package rip.snicon.compass.player.settings;
+package rip.snicon.compass.player.data.settings;
 
 public enum PlayerSetting {
     SHOW_ICON( true, "Toggles between showing professions icon or its name."),

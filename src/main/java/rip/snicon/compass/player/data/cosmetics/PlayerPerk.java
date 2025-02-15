@@ -1,6 +1,4 @@
-package rip.snicon.compass.player.cosmetics;
-
-import rip.snicon.compass.player.MysteryPlayer;
+package rip.snicon.compass.player.data.cosmetics;
 
 import java.util.Collections;
 import java.util.HashSet;

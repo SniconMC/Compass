@@ -8,7 +8,7 @@ import nub.wi1helm.template.inventory.TemplateItem;
 import nub.wi1helm.template.inventory.items.BackgroundItem;
 import rip.snicon.compass.inventory.profession.ProfessionContainer;
 import rip.snicon.compass.player.MysteryPlayer;
-import rip.snicon.compass.player.profession.PlayerProfession;
+import rip.snicon.compass.player.data.profession.PlayerProfession;
 import rip.snicon.compass.utils.TextUtils;
 
 import java.util.List;

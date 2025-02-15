@@ -1,4 +1,4 @@
-package rip.snicon.compass.player.cosmetics;
+package rip.snicon.compass.player.data.cosmetics;
 
 import java.util.Set;
 import java.util.UUID;

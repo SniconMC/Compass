@@ -2,7 +2,7 @@ package rip.snicon.compass.player.handler;
 
 import org.bson.Document;
 import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
-import rip.snicon.compass.player.settings.PlayerSetting;
+import rip.snicon.compass.player.data.settings.PlayerSetting;
 
 import java.util.EnumMap;
 import java.util.Map;

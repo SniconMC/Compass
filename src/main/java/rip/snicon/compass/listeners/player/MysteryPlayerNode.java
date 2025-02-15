@@ -10,7 +10,7 @@ import net.minestom.server.sound.SoundEvent;
 import rip.snicon.compass.instances.MysteryInstanceType;
 import rip.snicon.compass.inventory.inventories.DefaultInventory;
 import rip.snicon.compass.player.MysteryPlayer;
-import rip.snicon.compass.player.cosmetics.PlayerPerk;
+import rip.snicon.compass.player.data.cosmetics.PlayerPerk;
 import rip.snicon.compass.sidebar.MysterySidebar;
 import rip.snicon.compass.utils.TabUtils;
 
@@ -115,6 +115,7 @@ public class MysteryPlayerNode {
                 player.getRegionHandler().saveRegionsToDatabase();
                 player.getBundleHandler().saveBundlesToDatabase();
                 player.getCosmeticHandler().saveCosmeticsToDatabase();
+                player.getToggleHandler().saveTogglesToDatabase();
 
                 // Clear cached sidebar and other player data
                 MysterySidebar.getSidebarCache().remove(player.getUuid());
@@ -134,6 +135,7 @@ public class MysteryPlayerNode {
                 player.getSettingsHandler().fetchSettingsFromDatabase();
                 player.getBundleHandler().fetchBundlesFromDatabase();
                 player.getCosmeticHandler().fetchCosmeticsFromDatabase();
+                player.getToggleHandler().fetchTogglesFromDatabase();
                 event.setSpawningInstance(MysteryInstanceType.HUB.getInstance());
                 event.getPlayer().setRespawnPoint(MysteryInstanceType.HUB.getInstance().getSpawnPos());
             }

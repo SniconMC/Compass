@@ -7,7 +7,8 @@ import net.minestom.server.entity.PlayerSkin;
 import nub.wi1helm.template.npc.*;
 import nub.wi1helm.template.npc.actions.MenuAction;
 import rip.snicon.compass.instances.MysteryInstanceType;
-import rip.snicon.compass.inventory.bundels.BundleViewerContainer;
+import rip.snicon.compass.inventory.blockhunt.BlockhuntMenu;
+import rip.snicon.compass.inventory.blockhunt.bundels.BundleViewerContainer;
 import rip.snicon.compass.utils.TextUtils;
 
 public class BlockHuntNPC extends TemplateNPC {
@@ -41,7 +42,7 @@ public class BlockHuntNPC extends TemplateNPC {
     @Override
     protected void personalize(Player player) {
         setActionList(new ActionList(
-                new MenuAction(0, 0, true, new BundleViewerContainer().constructInventory(player)) {
+                new MenuAction(0, 0, true, new BlockhuntMenu().constructInventory(player)) {
                     @Override
                     public AbstractAction determineNextAction(Player player, ActionList actionList) {
                         return actionList.getAction(0);

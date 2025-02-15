@@ -1,6 +1,5 @@
 package rip.snicon.compass.inventory.debug;
 
-import net.kyori.adventure.text.Component;
 import net.minestom.server.entity.Player;
 import net.minestom.server.inventory.InventoryType;
 import net.minestom.server.item.Material;
@@ -10,10 +9,9 @@ import nub.wi1helm.template.inventory.TemplateItem;
 import nub.wi1helm.template.inventory.items.BackgroundItem;
 import nub.wi1helm.template.inventory.items.CloseButton;
 import rip.snicon.compass.player.MysteryPlayer;
-import rip.snicon.compass.player.bundle.MysteryBundleTypes;
+import rip.snicon.compass.player.data.bundle.MysteryBundleTypes;
 import rip.snicon.compass.utils.TextUtils;
 
-import java.lang.reflect.Field;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 

@@ -17,9 +17,10 @@ import rip.snicon.compass.utils.TextUtils;
 import java.util.*;
 
 public enum MysteryRegion {
-    SPAWN("<white>Spawn</white>", List.of(new MysteryChunk(new Pos(16, 100,10), new Pos(70, -20,70) ), new MysteryChunk(new Pos(16, 100,45), new Pos(-14, -20,-15) ), new MysteryChunk(new Pos(6, 100,-15), new Pos(-14, -20,-30) )), 0.5, 1),
+    SPAWN("<white>Spawn</white>", List.of(new MysteryChunk(new Pos(16, 100,10), new Pos(70, -20,70) ), new MysteryChunk(new Pos(16, 100,52), new Pos(-14, -20,-15) ), new MysteryChunk(new Pos(6, 100,-15), new Pos(-14, -20,-30) ), new MysteryChunk(new Pos(1, -20, 52), new Pos(16, 100, 700))), 0.5, 1),
     TOWN("<yellow>Town</yellow>", List.of(new MysteryChunk(new Pos(16, 100,10), new Pos(74, -20,-57)), new MysteryChunk(new Pos(16, 100,-15), new Pos(6, -20,-53) )),0.5, 1),
-    PARKOUR_CENTER("<aqua>Parkour Center</aqua>", List.of(new MysteryChunk(new Pos(70, 60,10), new Pos(160, -20,58) )), 0.5, 1);
+    PARKOUR_CENTER("<aqua>Parkour Center</aqua>", List.of(new MysteryChunk(new Pos(70, 60,10), new Pos(160, -20,58) )), 0.5, 1),
+    BLOCKHUNT_MANSION("<red>Blockhunt Masion</red>", List.of(new MysteryChunk(new Pos(1, -20, 52), new Pos(-25, 100, 132)), new MysteryChunk(new Pos(1, -20, 70), new Pos(50, 100, 92))), 0.5, 1);
     private final String displayName;
     private final List<MysteryChunk> chunks;
     private final double emeralds;
@@ -155,6 +156,6 @@ public enum MysteryRegion {
 
     public void debug(MysteryPlayer player) {
         // Debug the current region's chunks
-        chunks.forEach(chunk -> chunk.displayToPlayer(player));
+        chunks.forEach(chunk -> chunk.displayToPlayer(player, Particle.CRIT));
     }
 }

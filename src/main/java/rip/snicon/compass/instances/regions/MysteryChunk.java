@@ -71,7 +71,7 @@ public class MysteryChunk {
     }
 
 
-    public void displayToPlayer(MysteryPlayer player) {
+    public void displayToPlayer(MysteryPlayer player, Particle particle) {
         // Calculate the lengths of each side
         double xLength = max.x() - min.x();
         double zLength = max.z() - min.z();
@@ -81,24 +81,24 @@ public class MysteryChunk {
         // Display particles along the edges
 
         // Bottom rectangle (y = min)
-        for (double x = min.x(); x <= max.x(); x += 1) {
+        for (double x = min.x(); x <= max.x(); x += 5) {
             // Front edge (min.z())
             player.sendPacket(new ParticlePacket(
-                    Particle.CRIT, true, x, yMin, min.z(), 0f, 0f, 0f, 0.05f, 1
+                    particle, true, x, yMin, min.z(), 0f, 0f, 0f, 0.05f, 1
             ));
             // Back edge (max.z())
             player.sendPacket(new ParticlePacket(
-                    Particle.CRIT, true, x, yMin, max.z(), 0f, 0f, 0f, 0.05f, 1
+                    particle, true, x, yMin, max.z(), 0f, 0f, 0f, 0.05f, 1
             ));
         }
         for (double z = min.z(); z <= max.z(); z += 0.5) {
             // Left edge (min.x())
             player.sendPacket(new ParticlePacket(
-                    Particle.CRIT, true, min.x(), yMin, z, 0f, 0f, 0f, 0.05f, 1
+                    particle, true, min.x(), yMin, z, 0f, 0f, 0f, 0.05f, 1
             ));
             // Right edge (max.x())
             player.sendPacket(new ParticlePacket(
-                    Particle.CRIT, true, max.x(), yMin, z, 0f, 0f, 0f, 0.05f, 1
+                    particle, true, max.x(), yMin, z, 0f, 0f, 0f, 0.05f, 1
             ));
         }
 
@@ -106,21 +106,21 @@ public class MysteryChunk {
         for (double x = min.x(); x <= max.x(); x += 0.5) {
             // Front edge (min.z())
             player.sendPacket(new ParticlePacket(
-                    Particle.CRIT, true, x, yMax, min.z(), 0f, 0f, 0f, 0.05f, 1
+                    particle, true, x, yMax, min.z(), 0f, 0f, 0f, 0.05f, 1
             ));
             // Back edge (max.z())
             player.sendPacket(new ParticlePacket(
-                    Particle.CRIT, true, x, yMax, max.z(), 0f, 0f, 0f, 0.05f, 1
+                    particle, true, x, yMax, max.z(), 0f, 0f, 0f, 0.05f, 1
             ));
         }
         for (double z = min.z(); z <= max.z(); z += 0.5) {
             // Left edge (min.x())
             player.sendPacket(new ParticlePacket(
-                    Particle.CRIT, true, min.x(), yMax, z, 0f, 0f, 0f, 0.05f, 1
+                    particle, true, min.x(), yMax, z, 0f, 0f, 0f, 0.05f, 1
             ));
             // Right edge (max.x())
             player.sendPacket(new ParticlePacket(
-                    Particle.CRIT, true, max.x(), yMax, z, 0f, 0f, 0f, 0.05f, 1
+                    particle, true, max.x(), yMax, z, 0f, 0f, 0f, 0.05f, 1
             ));
         }
 
@@ -128,16 +128,16 @@ public class MysteryChunk {
         for (double y = yMin; y <= yMax; y += 0.5) {
             // Four corners
             player.sendPacket(new ParticlePacket(
-                    Particle.CRIT, true, min.x(), y, min.z(), 0f, 0f, 0f, 0.05f, 1
+                    particle, true, min.x(), y, min.z(), 0f, 0f, 0f, 0.05f, 1
             ));
             player.sendPacket(new ParticlePacket(
-                    Particle.CRIT, true, min.x(), y, max.z(), 0f, 0f, 0f, 0.05f, 1
+                    particle, true, min.x(), y, max.z(), 0f, 0f, 0f, 0.05f, 1
             ));
             player.sendPacket(new ParticlePacket(
-                    Particle.CRIT, true, max.x(), y, min.z(), 0f, 0f, 0f, 0.05f, 1
+                    particle, true, max.x(), y, min.z(), 0f, 0f, 0f, 0.05f, 1
             ));
             player.sendPacket(new ParticlePacket(
-                    Particle.CRIT, true, max.x(), y, max.z(), 0f, 0f, 0f, 0.05f, 1
+                    particle, true, max.x(), y, max.z(), 0f, 0f, 0f, 0.05f, 1
             ));
         }
     }

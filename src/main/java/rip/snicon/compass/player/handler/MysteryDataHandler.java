@@ -1,22 +1,14 @@
 package rip.snicon.compass.player.handler;
 
-import net.kyori.adventure.text.format.TextColor;
-import net.minestom.server.item.component.FireworkExplosion;
 import org.bson.Document;
 import org.jetbrains.annotations.NotNull;
 import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
 import rip.snicon.compass.player.MysteryPlayer;
-import rip.snicon.compass.player.PlayerRank;
-import rip.snicon.compass.player.profession.PlayerProfession;
-import rip.snicon.compass.utils.ColorUtils;
-import rip.snicon.compass.utils.FireworkUtility;
-import rip.snicon.compass.utils.TabUtils;
+import rip.snicon.compass.player.data.PlayerRank;
+import rip.snicon.compass.player.data.profession.PlayerProfession;
 import rip.snicon.compass.utils.TextUtils;
 
-import java.util.List;
 import java.util.UUID;
-
-import static net.minestom.server.command.builder.arguments.ArgumentType.Color;
 
 public class MysteryDataHandler {
 

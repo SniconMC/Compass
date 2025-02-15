@@ -8,7 +8,7 @@ import nub.wi1helm.template.npc.*;
 import nub.wi1helm.template.npc.goals.LookAtPlayerGoal;
 import rip.snicon.compass.instances.MysteryInstanceType;
 import rip.snicon.compass.player.MysteryPlayer;
-import rip.snicon.compass.player.cosmetics.PlayerHelmet;
+import rip.snicon.compass.player.data.cosmetics.PlayerHelmet;
 import rip.snicon.compass.utils.TextUtils;
 
 public class GuideNPC extends TemplateNPC {

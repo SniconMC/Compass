@@ -23,8 +23,8 @@ dependencies {
     implementation("net.kyori:adventure-text-minimessage:4.17.0") // MiniMessage
     implementation("net.kyori:adventure-text-serializer-gson:4.17.0")
     // Use the locally published Template library
-    //implementation("nub.wi1helm.template:Template:0.2.4.2")
-    implementation("com.github.wi1helm:Template:v0.2.5")
+    implementation("nub.wi1helm.template:Template:0.2.4.2")
+    //implementation("com.github.wi1helm:Template:v0.2.5")
 
     // Logging
     implementation("org.slf4j:slf4j-api:2.0.15")

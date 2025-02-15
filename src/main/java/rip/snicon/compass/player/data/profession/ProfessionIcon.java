@@ -1,4 +1,4 @@
-package rip.snicon.compass.player.profession;
+package rip.snicon.compass.player.data.profession;
 
 public enum ProfessionIcon {
 
