@@ -2,10 +2,9 @@ package rip.snicon.compass.player.data.bundle;
 
 import net.minestom.server.entity.EntityType;
 import net.minestom.server.item.Material;
-import rip.snicon.compass.utils.MysteryRarities;
+import rip.snicon.compass.player.data.MysteryRarities;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public enum MysteryBundleTypes {
 
@@ -50,6 +49,20 @@ public enum MysteryBundleTypes {
             Material.BEACON, // Display item
             List.of(Material.BEACON, Material.COMMAND_BLOCK),
             List.of(EntityType.VILLAGER, EntityType.WITHER, EntityType.ENDER_DRAGON)
+    ),
+    FISH_BUNDLE(
+            "Fish Bundle",
+            MysteryRarities.COMMON,
+            Material.TROPICAL_FISH, // Display item
+            List.of(Material.WATER_BUCKET, Material.KELP),
+            List.of(EntityType.TROPICAL_FISH, EntityType.TURTLE, EntityType.DOLPHIN)
+    ),
+    SIXTEN_BUNDLE(
+            "Sixten Bundle",
+            MysteryRarities.RARE,
+            Material.DAMAGED_ANVIL, // Display item
+            List.of(Material.CACTUS, Material.COBBLESTONE),
+            List.of(EntityType.MINECART)
     );
 
     private final String displayName;

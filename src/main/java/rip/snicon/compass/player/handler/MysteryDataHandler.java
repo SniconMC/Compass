@@ -67,6 +67,8 @@ public class MysteryDataHandler {
         if (sendMessage) {
             sendPlayerMessage(String.format("Your rank has been updated to %s.", rank.name()));
         }
+        MysteryPlayer.getPlayer(uuid).updateDisplayName();
+
         saveDataToDatabase();
     }
 

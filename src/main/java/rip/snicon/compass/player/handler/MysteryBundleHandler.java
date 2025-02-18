@@ -3,9 +3,9 @@ package rip.snicon.compass.player.handler;
 import org.bson.Document;
 import org.jetbrains.annotations.NotNull;
 import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
+import rip.snicon.compass.player.data.MysteryRarities;
 import rip.snicon.compass.player.data.bundle.MysteryBundle;
 import rip.snicon.compass.player.data.bundle.MysteryBundleTypes;
-import rip.snicon.compass.utils.MysteryRarities;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -17,10 +17,14 @@ public class MysteryBundleHandler {
 
     public MysteryBundleHandler(@NotNull UUID uuid) {
         this.uuid = uuid;
+        initializeBundles();
+    }
 
-        // Ensure Starter Bundle is always present
-        MysteryBundle starterBundle = MysteryBundle.createBundleFromType(MysteryBundleTypes.STARTER_BUNDLE);
-        bundles.put(MysteryBundleTypes.STARTER_BUNDLE.name(), starterBundle);
+    private void initializeBundles() {
+        for (MysteryBundleTypes bundleType : MysteryBundleTypes.values()) {
+            boolean isInfinite = bundleType == MysteryBundleTypes.STARTER_BUNDLE;
+            bundles.put(bundleType.name(), MysteryBundle.createBundleFromType(bundleType, 0, isInfinite));
+        }
     }
 
     public void fetchBundlesFromDatabase() {
@@ -44,8 +48,9 @@ public class MysteryBundleHandler {
                     .append("rarity", mysteryBundle.getRarity().name())
                     .append("materials", mysteryBundle.getMaterialsNames())
                     .append("entities", mysteryBundle.getEntitiesNames())
-                    .append("display_item", mysteryBundle.getDisplayItem()));
-
+                    .append("display_item", mysteryBundle.getDisplayItem())
+                    .append("amount", mysteryBundle.getAmount())
+                    .append("is_infinite", mysteryBundle.isInfinite()));
         }
 
         Document data = new Document("uuid", uuid.toString())
@@ -67,21 +72,42 @@ public class MysteryBundleHandler {
                 List<String> materials = bundleDoc.getList("materials", String.class);
                 List<String> entities = bundleDoc.getList("entities", String.class);
                 String displayItem = bundleDoc.getString("display_item");
+                int amount = bundleDoc.getInteger("amount", 0);
+                boolean isInfinite = bundleDoc.getBoolean("is_infinite", false);
 
-                bundles.put(internalName, new MysteryBundle(displayName, rarity, MysteryBundle.convertBlockListToMaterials(materials), MysteryBundle.convertEntityListToEntityTypes(entities), displayItem));
-
+                bundles.put(internalName, new MysteryBundle(displayName, rarity,
+                        MysteryBundle.convertBlockListToMaterials(materials),
+                        MysteryBundle.convertEntityListToEntityTypes(entities),
+                        displayItem, amount, isInfinite));
             }
         }
     }
 
-    public void addBundle(@NotNull MysteryBundleTypes mysteryBundleType) {
-        bundles.put(mysteryBundleType.name(), MysteryBundle.createBundleFromType(mysteryBundleType)); // Use the display name as key if needed
+    public void addBundle(@NotNull MysteryBundleTypes mysteryBundleType, int amount, boolean isInfinite) {
+        bundles.put(mysteryBundleType.name(), MysteryBundle.createBundleFromType(mysteryBundleType, amount, isInfinite));
         saveBundlesToDatabase();
     }
 
     public void removeBundle(@NotNull String bundleName) {
         bundles.remove(bundleName);
         saveBundlesToDatabase();
+    }
+
+    public boolean useBundle(@NotNull String bundleName) {
+        MysteryBundle bundle = bundles.get(bundleName);
+        if (bundle != null) {
+            saveBundlesToDatabase();
+            return true;
+        }
+        return false;
+    }
+
+    public void addBundleAmount(@NotNull String bundleName, int amount) {
+        MysteryBundle bundle = bundles.get(bundleName);
+        if (bundle != null) {
+            bundle.addAmount(amount);
+            saveBundlesToDatabase();
+        }
     }
 
     public MysteryBundle getBundle(@NotNull String bundleName) {

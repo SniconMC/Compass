@@ -3,7 +3,7 @@ package rip.snicon.compass.instances;
 import net.minestom.server.instance.anvil.AnvilLoader;
 
 public enum MysteryInstanceType {
-    HUB(new MysteryInstance(new AnvilLoader("resources/worlds/mystery_hub_v3")));
+    HUB(new MysteryInstance(new AnvilLoader("resources/worlds/mystery_hub_v4")));
 
     private final MysteryInstance instance;
 

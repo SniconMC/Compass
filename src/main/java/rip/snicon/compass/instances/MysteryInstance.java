@@ -29,7 +29,7 @@ public class MysteryInstance extends InstanceContainer {
     private static final double VOID_LIMIT_HEIGHT = -64;
     private static final Weather DEFAULT_WEATHER = Weather.CLEAR;
     private static final long TIME = 1000;
-    private static final GameMode DEFAULT_GAMEMODE = GameMode.CREATIVE;
+    private static final GameMode DEFAULT_GAMEMODE = GameMode.SURVIVAL;
     private static final boolean DO_DAYLIGHT_CYCLE = false;
 
     public MysteryInstance(@NotNull AnvilLoader loader) {

@@ -109,7 +109,7 @@ public class DebugContainer extends TemplateInventory {
                 int randomIndex = ThreadLocalRandom.current().nextInt(MysteryBundleTypes.values().length);
                 MysteryBundleTypes randomBundleType = MysteryBundleTypes.values()[randomIndex];
 
-                player.getBundleHandler().addBundle(randomBundleType);
+                player.getBundleHandler().addBundle(randomBundleType, 1,false);
                 player.sendMessage("I gave you 1 random bundle. bundle was " + randomBundleType.getDisplayName());
             }
 

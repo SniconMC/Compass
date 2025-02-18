@@ -9,7 +9,10 @@ public enum NPC {
     COSMETICDEALER_NPC(new CosmeticDealerNPC()),
     PARKOUR_NPC(new ParkourNPC()),
     BLOCKHUNT_NPC(new BlockHuntNPC()),
-    MINESTOM_NPC(new MinestomNPC());
+    MINESTOM_NPC(new MinestomNPC()),
+    BUNDLE_PROFESSOR_NPC(new BundleProfessor()),
+    FISH_MERCHANT_NPC(new FishMerchant()),
+    PAY_TO_WIN_SHOP(new BankerJohnson());
 
     private final TemplateNPC npc;
 

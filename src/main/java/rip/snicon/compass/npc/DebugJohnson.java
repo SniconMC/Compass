@@ -17,11 +17,11 @@ public class DebugJohnson extends TemplateNPC {
         super(EntityType.PLAYER);
 
         // Set Spawn Position
-        setSpawnPosition(new Pos(26.5, 9.0, 20.5, 0.0f, 0.0f));
+        setSpawnPosition(new Pos(33.2, 8.5, 25.0, 90.0f, 0.0f));
 
         // Set Skin Layers
         setSkinLayer(SkinLayer.NO_CAPE);
-
+        setSpawnStrategy(SpawnStrategy.SITTING);
         // Set Skin
         setSkin(new PlayerSkin(
                 "ewogICJ0aW1lc3RhbXAiIDogMTczNzE0NDA0NjQ2NCwKICAicHJvZmlsZUlkIiA6ICIwMzBlMDA1OWQwY2M0YTZhODY3N2RkZWU3MjEzMjg1MyIsCiAgInByb2ZpbGVOYW1lIiA6ICJTbXVnRm9vZGllIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzk5NGNmMDZiNTE4MmZhNTdlNDE2ZDFmZTIyOWY5MTE5YjI5N2Y5MDA4OGJhNDVlYzk0NWIzZmI4NWFkOWYzM2QiCiAgICB9CiAgfQp9",

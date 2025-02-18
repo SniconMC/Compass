@@ -28,6 +28,7 @@ public class TextUtils {
                 .collect(Collectors.toList());
     }
 
+
     public static String capitalizeFirstLetter(String input) {
         if (input == null || input.isEmpty()) {
             return input; // Return as is for null or empty strings
