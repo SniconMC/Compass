@@ -13,6 +13,8 @@ import rip.snicon.compass.listeners.Global;
 import rip.snicon.compass.npc.NPC;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.sidebar.MysterySidebar;
+import rip.snicon.compass.utils.blockhandlers.SignHandler;
+import rip.snicon.compass.utils.blockhandlers.SkullHandler;
 
 import java.util.Map;
 import java.util.Timer;
@@ -50,6 +52,11 @@ public class Main {
         ChatFormatter.setup();
         NPC.initializeAll();
         Template.init();
+
+
+        MinecraftServer.getBlockManager().registerHandler(SkullHandler.KEY, SkullHandler::new);
+        MinecraftServer.getBlockManager().registerHandler(SignHandler.KEY, SignHandler::new);
+
         // Set player provider
         MinecraftServer.getConnectionManager().setPlayerProvider(MysteryPlayer::new);
         MinecraftServer.setCompressionThreshold(0);

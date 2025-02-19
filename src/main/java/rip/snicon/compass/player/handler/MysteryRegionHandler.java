@@ -104,7 +104,7 @@ public class MysteryRegionHandler {
                         );
                         player.sendMessage(TextUtils.convertStringToComponent(message));
                     } else {
-                        player.sendMessage(TextUtils.convertStringToComponent("You entered: " + newRegion.getDisplayName()));
+                        player.sendActionBar(TextUtils.convertStringToComponent(newRegion.getDisplayName()));
                     }
 
                     saveRegionsToDatabase(); // Save the updated regions to the database
@@ -176,6 +176,7 @@ public class MysteryRegionHandler {
      * @return the current region
      */
     public MysteryRegion getCurrentRegion() {
+        if (currentRegion == null) return MysteryRegion.SPAWN;
         return currentRegion;
     }
 

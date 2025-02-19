@@ -12,7 +12,7 @@ public enum NPC {
     MINESTOM_NPC(new MinestomNPC()),
     BUNDLE_PROFESSOR_NPC(new BundleProfessor()),
     FISH_MERCHANT_NPC(new FishMerchant()),
-    PAY_TO_WIN_SHOP(new BankerJohnson());
+    STORE_NPC(new StoreNPC());
 
     private final TemplateNPC npc;
 

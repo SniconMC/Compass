@@ -5,50 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/level.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/level.dat_old" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.-1.-1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.-1.-2.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.-1.0.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.-1.1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.-2.-1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.-2.-2.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.-2.0.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.-2.1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.0.-1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.0.-2.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.0.0.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.0.1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.1.-1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.1.-2.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.1.0.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.1.1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.2.-1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.2.-2.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.2.0.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v4/region/r.2.1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/content/ContentInit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/fisherman/FishMerchantInventory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/store/BuyRanksMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/store/StoreMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/BankerJohnson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/BundleProfessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/FishMerchant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/content/bundlebot/BundleBot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/blockhandlers/SignHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/blockhandlers/SkullHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/MysteryInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/MysteryInstance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/MysteryInstanceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/MysteryInstanceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/blockhunt/bundels/BundleViewerContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/blockhunt/bundels/BundleViewerContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/debug/DebugContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/debug/DebugContainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/DebugJohnson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/DebugJohnson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/MinestomNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/MinestomNPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/regions/MysteryRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/regions/MysteryRegion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/BankerJohnson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/StoreNPC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/NPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/NPC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/data/MysteryToggles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/data/MysteryToggles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/data/bundle/MysteryBundle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/data/bundle/MysteryBundle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/data/bundle/MysteryBundleTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/data/bundle/MysteryBundleTypes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/handler/MysteryBundleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/handler/MysteryBundleHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/handler/MysteryDataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/handler/MysteryDataHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/MysteryRarities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/data/MysteryRarities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/TextUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/TextUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/handler/MysteryRegionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/handler/MysteryRegionHandler.java" afterDir="false" />
     </list>
     <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="" />
     <option name="SHOW_DIALOG" value="false" />
