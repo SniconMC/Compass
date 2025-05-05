@@ -42,7 +42,7 @@ public class Main {
         String velocitySecret = System.getenv().getOrDefault("VELOCITY_SECRET", "balle123");
         String mongoUri = System.getenv().getOrDefault("MONGO_URI", "mongodb://localhost:27017");
         String mongoDbName = System.getenv().getOrDefault("MONGO_DB_NAME", "minestom");
-        boolean proxyMode = false;
+        boolean proxyMode = true;
 
         // Setup databases
         setupDatabases(mongoUri, mongoDbName, redisAddress, redisPassword);
