@@ -5,7 +5,7 @@ FROM openjdk:21-jdk-slim
 WORKDIR /app
 
 # Copy the server JAR into the container
-COPY ./docker/Compass-0.1.jar /app/server.jar
+COPY ./docker/Compass-0.1.2.jar /app/server.jar
 
 # Copy the resources folder into the container (relative to the root directory)
 COPY ./resources /app/resources

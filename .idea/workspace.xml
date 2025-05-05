@@ -5,42 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0fce7a3-077c-4367-8c81-267978b239a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/level.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/level.dat_old" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.-1.-1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.-1.-2.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.-1.0.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.-1.1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.-2.-1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.-2.-2.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.-2.0.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.-2.1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.0.-1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.0.-2.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.0.0.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.0.1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.1.-1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.1.-2.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.1.0.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.1.1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.2.-1.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.2.-2.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.2.0.mca" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/worlds/mystery_hub_v5/region/r.2.1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/chat/ChatFormatter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/chat/ChatFormatter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/MysteryInstanceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/MysteryInstanceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/regions/MysteryChunk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/regions/MysteryChunk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/regions/MysteryRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/instances/regions/MysteryRegion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/inventories/DefaultInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/inventory/inventories/DefaultInventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/player/MysteryPlayerNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/listeners/player/MysteryPlayerNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/CosmeticDealerNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/npc/CosmeticDealerNPC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/other/LevelUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/other/LevelUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/MysteryPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/MysteryPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/data/cosmetics/PlayerHelmet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/data/cosmetics/PlayerHelmet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/handler/MysteryRegionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/player/handler/MysteryRegionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/FireworkUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/rip/snicon/compass/utils/FireworkUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/Dockerfile" afterDir="false" />
     </list>
     <list id="ced5d69c-4294-49fa-a5bf-73c849839e6c" name="Changes by wilhe" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +132,7 @@
       <recent name="rip.snicon.compass.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Run Compass">
+  <component name="RunManager" selected="Gradle.Compass [build]">
     <configuration name="QuickStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-23" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
