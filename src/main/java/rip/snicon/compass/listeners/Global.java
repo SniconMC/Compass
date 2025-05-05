@@ -2,6 +2,7 @@ package rip.snicon.compass.listeners;
 
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.event.GlobalEventHandler;
+import rip.snicon.compass.listeners.instance.MysteryInstanceNode;
 import rip.snicon.compass.listeners.player.MysteryPlayerNode;
 
 public class Global {
@@ -10,6 +11,9 @@ public class Global {
 
 
     public Global() {
+
+        PluginMessages proxyHandler = new PluginMessages(GNode);
         MysteryPlayerNode playerNode = new MysteryPlayerNode(GNode);
+        MysteryInstanceNode instanceNode = new MysteryInstanceNode(GNode);
     }
 }

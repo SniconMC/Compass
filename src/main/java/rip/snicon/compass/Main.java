@@ -42,7 +42,11 @@ public class Main {
         String velocitySecret = System.getenv().getOrDefault("VELOCITY_SECRET", "balle123");
         String mongoUri = System.getenv().getOrDefault("MONGO_URI", "mongodb://localhost:27017");
         String mongoDbName = System.getenv().getOrDefault("MONGO_DB_NAME", "minestom");
+
+        // Proxy Mode Means server needs a proxy to join
         boolean proxyMode = true;
+        // Local Mode means it will look for a local proxy not though redis.
+        boolean localMode = false;
 
         // Setup databases
         setupDatabases(mongoUri, mongoDbName, redisAddress, redisPassword);
@@ -73,11 +77,20 @@ public class Main {
         }
 
         if (proxyMode) {
-            // Start checking for matching proxy
-            startProxyCheckTask(serverLabel, serverIp, serverPort);
+            if (!localMode) {
+                // Start checking for matching proxy
+                startProxyCheckTask(serverLabel, serverIp, serverPort);
 
+
+            } else {
+                proxyAddress = "0.0.0.0";
+                proxyPort = "25565";
+                String fullServerAddress = serverIp + ":" + serverPort;
+                ServerRegistry.registerServer(serverName, fullServerAddress);
+            }
             // Enable Velocity proxy integration
             VelocityProxy.enable(velocitySecret);
+
         } else {
             logger.info("Running in standalone mode. Proxy integration is disabled.");
             MojangAuth.init();
@@ -134,8 +147,8 @@ public class Main {
                         proxyPort = proxyInfo.get("port");
 
                         if (serverIp != null && serverPort != null) {
-                            String fullProxyAddress = serverIp + ":" + serverPort;
-                            ServerRegistry.registerServer(serverName, fullProxyAddress);
+                            String fullServerAddress = serverIp + ":" + serverPort;
+                            ServerRegistry.registerServer(serverName, fullServerAddress);
                             logger.info("Registered server '{}' to proxy '{}:{}'", serverName, proxyAddress, proxyPort);
                             cancel(); // Stop the task after successful registration
                         }

@@ -10,6 +10,7 @@ import nub.wi1helm.template.inventory.TemplateItem;
 import nub.wi1helm.template.inventory.items.BackgroundItem;
 import rip.snicon.compass.inventory.profession.ProfessionContainer;
 import rip.snicon.compass.inventory.profile.ProfileContainer;
+import rip.snicon.compass.inventory.selector.HubSelector;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.utils.TextUtils;
 
@@ -121,7 +122,7 @@ public class DefaultInventory extends TemplateInventory {
 
             @Override
             public void onUse(TemplateInventoryEvent event) {
-
+                HubSelector.requestServerInfo(event.getPlayer());
             }
 
             @Override

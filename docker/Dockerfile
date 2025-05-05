@@ -1,10 +1,10 @@
 # Use a minimal base image with Java
-FROM openjdk:21-jdk-slim
+FROM openjdk:23-jdk-slim
 
 # Set the working directory
 WORKDIR /app
 
-# Copy the server JAR into the container
+# Copy the server JAR into the containe3
 COPY ./docker/Compass-0.1.2.jar /app/server.jar
 
 # Copy the resources folder into the container (relative to the root directory)
