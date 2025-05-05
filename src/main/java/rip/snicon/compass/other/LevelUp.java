@@ -180,7 +180,6 @@ public class LevelUp {
                     // Create and send the particle packet
                     ParticlePacket packet = new ParticlePacket(
                             Particle.END_ROD, // Particle type
-                            true,          // Long distance
                             (float) x,
                             (float) y,
                             (float) z,

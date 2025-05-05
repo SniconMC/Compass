@@ -3,7 +3,6 @@ package rip.snicon.compass.instances.regions;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.network.packet.server.play.ParticlePacket;
 import net.minestom.server.particle.Particle;
-import rip.snicon.compass.Main;
 import rip.snicon.compass.player.MysteryPlayer;
 
 import java.util.List;
@@ -83,22 +82,20 @@ public class MysteryChunk {
         // Bottom rectangle (y = min)
         for (double x = min.x(); x <= max.x(); x += 5) {
             // Front edge (min.z())
-            player.sendPacket(new ParticlePacket(
-                    particle, true, x, yMin, min.z(), 0f, 0f, 0f, 0.05f, 1
-            ));
+            player.sendPacket(new ParticlePacket(particle, x, yMin, max.z(), 0f, 0f, 0f, 0.05f, 1));
             // Back edge (max.z())
             player.sendPacket(new ParticlePacket(
-                    particle, true, x, yMin, max.z(), 0f, 0f, 0f, 0.05f, 1
+                    particle, x, yMin, max.z(), 0f, 0f, 0f, 0.05f, 1
             ));
         }
         for (double z = min.z(); z <= max.z(); z += 0.5) {
             // Left edge (min.x())
             player.sendPacket(new ParticlePacket(
-                    particle, true, min.x(), yMin, z, 0f, 0f, 0f, 0.05f, 1
+                    particle, min.x(), yMin, z, 0f, 0f, 0f, 0.05f, 1
             ));
             // Right edge (max.x())
             player.sendPacket(new ParticlePacket(
-                    particle, true, max.x(), yMin, z, 0f, 0f, 0f, 0.05f, 1
+                    particle, max.x(), yMin, z, 0f, 0f, 0f, 0.05f, 1
             ));
         }
 
@@ -106,21 +103,21 @@ public class MysteryChunk {
         for (double x = min.x(); x <= max.x(); x += 0.5) {
             // Front edge (min.z())
             player.sendPacket(new ParticlePacket(
-                    particle, true, x, yMax, min.z(), 0f, 0f, 0f, 0.05f, 1
+                    particle, x, yMax, min.z(), 0f, 0f, 0f, 0.05f, 1
             ));
             // Back edge (max.z())
             player.sendPacket(new ParticlePacket(
-                    particle, true, x, yMax, max.z(), 0f, 0f, 0f, 0.05f, 1
+                    particle, x, yMax, max.z(), 0f, 0f, 0f, 0.05f, 1
             ));
         }
         for (double z = min.z(); z <= max.z(); z += 0.5) {
             // Left edge (min.x())
             player.sendPacket(new ParticlePacket(
-                    particle, true, min.x(), yMax, z, 0f, 0f, 0f, 0.05f, 1
+                    particle, min.x(), yMax, z, 0f, 0f, 0f, 0.05f, 1
             ));
             // Right edge (max.x())
             player.sendPacket(new ParticlePacket(
-                    particle, true, max.x(), yMax, z, 0f, 0f, 0f, 0.05f, 1
+                    particle, max.x(), yMax, z, 0f, 0f, 0f, 0.05f, 1
             ));
         }
 
@@ -128,16 +125,16 @@ public class MysteryChunk {
         for (double y = yMin; y <= yMax; y += 0.5) {
             // Four corners
             player.sendPacket(new ParticlePacket(
-                    particle, true, min.x(), y, min.z(), 0f, 0f, 0f, 0.05f, 1
+                    particle, min.x(), y, min.z(), 0f, 0f, 0f, 0.05f, 1
             ));
             player.sendPacket(new ParticlePacket(
-                    particle, true, min.x(), y, max.z(), 0f, 0f, 0f, 0.05f, 1
+                    particle, min.x(), y, max.z(), 0f, 0f, 0f, 0.05f, 1
             ));
             player.sendPacket(new ParticlePacket(
-                    particle, true, max.x(), y, min.z(), 0f, 0f, 0f, 0.05f, 1
+                    particle, max.x(), y, min.z(), 0f, 0f, 0f, 0.05f, 1
             ));
             player.sendPacket(new ParticlePacket(
-                    particle, true, max.x(), y, max.z(), 0f, 0f, 0f, 0.05f, 1
+                    particle, max.x(), y, max.z(), 0f, 0f, 0f, 0.05f, 1
             ));
         }
     }

@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
     // Core dependencies
-    implementation("net.minestom:minestom-snapshots:65f75bb059") // Minestom
+    implementation("net.minestom:minestom-snapshots:1_21_4-6490538291")
     implementation("net.kyori:adventure-text-minimessage:4.17.0") // MiniMessage
     implementation("net.kyori:adventure-text-serializer-gson:4.17.0")
     // Use the locally published Template library

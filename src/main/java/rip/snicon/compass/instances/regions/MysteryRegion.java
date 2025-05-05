@@ -17,8 +17,9 @@ import rip.snicon.compass.utils.TextUtils;
 import java.util.*;
 
 public enum MysteryRegion {
-    SPAWN("<white>Spawn</white>", List.of(new MysteryChunk(new Pos(16, 100,10), new Pos(70, -20,70) ), new MysteryChunk(new Pos(16, 100,52), new Pos(-14, -20,-15) ), new MysteryChunk(new Pos(6, 100,-15), new Pos(-14, -20,-30) ), new MysteryChunk(new Pos(1, -20, 52), new Pos(16, 100, 70))), 0.5, 1),
+    SPAWN("<white>Spawn</white>", List.of(new MysteryChunk(new Pos(16, 100,10), new Pos(70, -20,70) ), new MysteryChunk(new Pos(16, 100,52), new Pos(-14, -20,-15) ), new MysteryChunk(new Pos(6, 100,-15), new Pos(-14, -20,-30) ), new MysteryChunk(new Pos(1, -20, 52), new Pos(16, 100, 70)),new MysteryChunk(new Pos(-24,-20,-15),new Pos(-14,100,37))), 0.5, 1),
     TOWN("<yellow>Town</yellow>", List.of(new MysteryChunk(new Pos(16, 100,10), new Pos(74, -20,-57)), new MysteryChunk(new Pos(16, 100,-15), new Pos(6, -20,-53) )),0.5, 1),
+    LAKE("<aqua>Lake</aqua>", List.of(new MysteryChunk(new Pos(6,-20,-30), new Pos(-46,100,-65)), new MysteryChunk(new Pos(-14,-20,-30), new Pos(-24,100,-15)), new MysteryChunk(new Pos(16,-20,-53), new Pos(6,100,-65)), new MysteryChunk(new Pos(-24,-20,-30), new Pos(-35,100,-21))), 0, 1),
     PARKOUR_CENTER("<aqua>Parkour Center</aqua>", List.of(new MysteryChunk(new Pos(70, 60,10), new Pos(160, -20,58) )), 0.5, 1),
     BLOCKHUNT_MANSION("<red>Blockhunt Masion</red>", List.of(new MysteryChunk(new Pos(1, -20, 52), new Pos(-25, 100, 132)), new MysteryChunk(new Pos(1, -20, 70), new Pos(50, 100, 92)),new MysteryChunk(new Pos(12, -20, 92), new Pos(1, 100, 142)),new MysteryChunk(new Pos(37, -20, 115), new Pos(12, 100, 142)),new MysteryChunk(new Pos(37, -20, 115), new Pos(34, 100, 92))), 0.5, 1),
     BUNDLE_BOT("<white>Bundle Bot</white>", List.of(new MysteryChunk(new Pos(12, -20, 92), new Pos(34, 100, 115))), 0.5, 1);
@@ -139,7 +140,7 @@ public enum MysteryRegion {
     }
 
     private void teleportRegionText(MysteryPlayer player, Entity text, Pos newPosition) {
-        player.sendPacket(new EntityTeleportPacket(text.getEntityId(), newPosition.add(0,3,0), false));
+        player.sendPacket(new EntityTeleportPacket(text.getEntityId(), newPosition.add(0,3,0), text.getPosition(), 0, false));
     }
 
     private void removeRegionText(MysteryPlayer player, String regionName) {

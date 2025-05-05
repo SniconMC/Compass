@@ -7,6 +7,7 @@ import net.minestom.server.entity.GameMode;
 import net.minestom.server.entity.Player;
 import net.minestom.server.item.component.FireworkExplosion;
 import net.minestom.server.network.packet.server.play.PlayerInfoUpdatePacket;
+import net.minestom.server.network.player.GameProfile;
 import net.minestom.server.network.player.PlayerConnection;
 import org.jetbrains.annotations.NotNull;
 import rip.snicon.compass.other.LevelUp;
@@ -34,17 +35,17 @@ public class MysteryPlayer extends Player {
     private final MysteryBundleHandler bundleHandler;
     private final MysteryToggleHandler toggleHandler;
 
-    public MysteryPlayer(@NotNull UUID uuid, @NotNull String username, @NotNull PlayerConnection playerConnection) {
-        super(uuid, username, playerConnection);
+    public MysteryPlayer(@NotNull PlayerConnection playerConnection, @NotNull GameProfile gameProfile) {
+        super(playerConnection, gameProfile);
 
-        playerCache.put(uuid, this);
-        this.dataHandler = new MysteryDataHandler(uuid);
-        this.settingsHandler = new MysterySettingsHandler(uuid);
-        this.regionHandler = new MysteryRegionHandler(uuid);
-        this.statisticHandler = new MysteryStatisticHandler(uuid);
-        this.cosmeticHandler = new MysteryCosmeticHandler(uuid);
-        this.bundleHandler = new MysteryBundleHandler(uuid);
-        this.toggleHandler = new MysteryToggleHandler(uuid);
+        playerCache.put(gameProfile.uuid(), this);
+        this.dataHandler = new MysteryDataHandler(gameProfile.uuid());
+        this.settingsHandler = new MysterySettingsHandler(gameProfile.uuid());
+        this.regionHandler = new MysteryRegionHandler(gameProfile.uuid());
+        this.statisticHandler = new MysteryStatisticHandler(gameProfile.uuid());
+        this.cosmeticHandler = new MysteryCosmeticHandler(gameProfile.uuid());
+        this.bundleHandler = new MysteryBundleHandler(gameProfile.uuid());
+        this.toggleHandler = new MysteryToggleHandler(gameProfile.uuid());
     }
 
     public static MysteryPlayer getPlayer(UUID uuid) {
@@ -135,7 +136,8 @@ public class MysteryPlayer extends Player {
                         0, // Ping
                         GameMode.SURVIVAL,
                         TextUtils.convertStringToComponent(formattedDisplayName),
-                        null
+                        null,
+                        0
                 );
 
                 // Create the packet to update the display name

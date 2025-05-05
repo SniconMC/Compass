@@ -11,8 +11,7 @@ import net.minestom.server.item.ItemStack;
 import net.minestom.server.item.Material;
 import net.minestom.server.item.component.FireworkExplosion;
 import net.minestom.server.item.component.FireworkList;
-import net.minestom.server.network.packet.server.play.EffectPacket;
-import org.w3c.dom.css.RGBColor;
+
 import rip.snicon.compass.player.MysteryPlayer;
 
 import java.util.List;

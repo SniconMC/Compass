@@ -17,7 +17,7 @@ public class CosmeticDealerNPC extends TemplateNPC {
         super(EntityType.PLAYER);
 
         // Set Spawn Position
-        setSpawnPosition(new Pos(29.5, 10.0, 0.5, 0.0f, 0.0f));
+        setSpawnPosition(new Pos(29.5, 10.0, 1.5, 0.0f, 0.0f));
 
         // Set Skin Layers
         setSkinLayer(SkinLayer.NO_CAPE);

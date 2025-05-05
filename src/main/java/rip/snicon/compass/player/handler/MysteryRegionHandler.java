@@ -87,6 +87,8 @@ public class MysteryRegionHandler {
             return; // Player not online
         }
 
+        //currentRegion.debug(player);
+
         Pos position = player.getPosition();
 
         for (MysteryRegion newRegion : MysteryRegion.values()) {

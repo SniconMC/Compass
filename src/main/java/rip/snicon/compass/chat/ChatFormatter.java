@@ -15,7 +15,7 @@ public class ChatFormatter {
             if (event.getPlayer() instanceof MysteryPlayer sender) {
                 // Fetch player details
 
-                String message = event.getMessage();
+                String message = event.getRawMessage();
 
                 // Convert to component and broadcast
                 event.setCancelled(true);

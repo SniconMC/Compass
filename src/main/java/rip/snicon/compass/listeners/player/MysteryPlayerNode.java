@@ -1,6 +1,7 @@
 package rip.snicon.compass.listeners.player;
 
 import net.kyori.adventure.sound.Sound;
+import net.minestom.server.coordinate.BlockVec;
 import net.minestom.server.event.Event;
 import net.minestom.server.event.EventFilter;
 import net.minestom.server.event.EventNode;
@@ -58,6 +59,7 @@ public class MysteryPlayerNode {
         this.mysteryPlayerNode.addListener(PlayerMoveEvent.class, event -> {
             if (event.getPlayer() instanceof MysteryPlayer player) {
                 player.getRegionHandler().updateRegion();
+
                 // Allow flying if the player has FLY or JUMPBOOST enabled
                 if (player.isOnGround() && !player.isAllowFlying()) {
                     if (player.getCosmeticHandler().isEnabled(PlayerPerk.FLY) || player.getCosmeticHandler().isEnabled(PlayerPerk.JUMPBOOST)) {

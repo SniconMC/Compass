@@ -1,5 +1,6 @@
 package rip.snicon.compass.player.data.cosmetics;
 
+import net.minestom.server.entity.EquipmentSlot;
 import net.minestom.server.item.ItemStack;
 import net.minestom.server.item.Material;
 import rip.snicon.compass.player.MysteryPlayer;
@@ -10,16 +11,18 @@ import java.util.Set;
 import java.util.UUID;
 
 public enum PlayerHelmet implements BaseCosmetic {
-    DIAMOND_HELMET("diamond_helmet", ItemStack.of(Material.DIAMOND_HELMET)),
-    IRON_HELMET("iron_helmet", ItemStack.of(Material.IRON_HELMET));
+    DIAMOND_HELMET("diamond_helmet", ItemStack.of(Material.DIAMOND_HELMET), EquipmentSlot.HELMET),
+    IRON_HELMET("iron_helmet", ItemStack.of(Material.IRON_HELMET), EquipmentSlot.HELMET);
 
     private final String name;
     private final ItemStack itemStack; // Helmet item representation
+    private final EquipmentSlot equipmentSlot;
     private final Set<Object> conflicts = new HashSet<>();
 
-    PlayerHelmet(String name, ItemStack itemStack) {
+    PlayerHelmet(String name, ItemStack itemStack, EquipmentSlot equipmentSlot) {
         this.name = name;
         this.itemStack = itemStack;
+        this.equipmentSlot = equipmentSlot;
     }
 
     static {
@@ -47,7 +50,7 @@ public enum PlayerHelmet implements BaseCosmetic {
     public void onEnable(UUID uuid) {
         MysteryPlayer player = MysteryPlayer.getPlayer(uuid);
         if (player != null) {
-            player.getInventory().setHelmet(itemStack); // Apply the helmet to the player's inventory
+            player.getInventory().setEquipment(equipmentSlot, (byte) 0, itemStack); // Apply the helmet to the player's inventory
         } else {
             throw new IllegalStateException("Player not found for UUID: " + uuid);
         }
@@ -57,7 +60,7 @@ public enum PlayerHelmet implements BaseCosmetic {
     public void onDisable(UUID uuid) {
         MysteryPlayer player = MysteryPlayer.getPlayer(uuid);
         if (player != null) {
-            player.getInventory().setHelmet(ItemStack.AIR); // Remove the helmet from the player's inventory
+            player.getInventory().setEquipment(equipmentSlot, (byte) 0, ItemStack.AIR); // Remove the helmet from the player's inventory
         } else {
             throw new IllegalStateException("Player not found for UUID: " + uuid);
         }
