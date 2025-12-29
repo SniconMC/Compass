@@ -122,7 +122,7 @@ public class DefaultInventory extends TemplateInventory {
 
             @Override
             public void onUse(TemplateInventoryEvent event) {
-                HubSelector.requestServerInfo(event.getPlayer());
+                HubSelector.openSelector(event.getPlayer());
             }
 
             @Override

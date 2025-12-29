@@ -1,7 +1,7 @@
 package rip.snicon.compass.player.handler;
 
+import nub.wi1helm.smoxy.mongodb.MongoDatabaseManager;
 import org.bson.Document;
-import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
 import rip.snicon.compass.player.data.settings.PlayerSetting;
 
 import java.util.EnumMap;
@@ -22,7 +22,7 @@ public class MysterySettingsHandler {
      * Fetches settings from the database.
      */
     public void fetchSettingsFromDatabase() {
-        MongoDatabaseManager.fetch("settings", "uuid", uuid.toString()).thenAccept(document -> {
+        MongoDatabaseManager.loadDocumentAsync("settings", uuid.toString()).thenAccept(document -> {
             if (document != null) {
                 loadSettingsData(document);
             } else {
@@ -40,7 +40,7 @@ public class MysterySettingsHandler {
         // Add each setting to the document
         settings.forEach((key, value) -> settingsDocument.append(key.name(), value));
 
-        MongoDatabaseManager.save("settings", "uuid", settingsDocument).exceptionally(throwable -> {
+        MongoDatabaseManager.saveDocumentAsync("settings", "uuid", settingsDocument).exceptionally(throwable -> {
             System.err.println("Failed to save settings: " + throwable.getMessage());
             return null;
         });

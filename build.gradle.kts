@@ -19,11 +19,12 @@ repositories {
 
 dependencies {
     // Core dependencies
-    implementation("net.minestom:minestom-snapshots:1_21_4-6490538291")
+    implementation("net.minestom:minestom:2025.08.12-1.21.8")
     implementation("net.kyori:adventure-text-minimessage:4.17.0") // MiniMessage
     implementation("net.kyori:adventure-text-serializer-gson:4.17.0")
     // Use the locally published Template library
     implementation("nub.wi1helm.template:Template:0.2.4.2")
+    implementation("nub.wi1helm.smoxy:SMoxy:0.0.1")
     //implementation("com.github.wi1helm:Template:v0.2.5")
 
     // Logging

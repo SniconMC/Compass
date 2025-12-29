@@ -54,7 +54,6 @@ public class ShowDecimalItem extends TemplateItem {
     public void onUse(TemplateInventoryEvent event) {
         final MysteryPlayer player = (MysteryPlayer) event.getPlayer();
         player.getSettingsHandler().updateSetting(PlayerSetting.DECIMAL_NUMBERS, !player.getSettingsHandler().getSetting(PlayerSetting.DECIMAL_NUMBERS));
-        personalize(player);
         if (getHostInventory() != null) {
             this.getHostInventory().setItemStack(getHostSlot(), constructItemStack(player));
         }

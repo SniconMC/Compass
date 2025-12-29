@@ -6,8 +6,6 @@ import rip.snicon.compass.player.MysteryPlayer;
 
 public class TabUtils {
 
-
-
     public static void setPlayerTab(MysteryPlayer player) {
         MinecraftServer.getSchedulerManager().scheduleNextTick(() -> {
             // Set tab header and footer for the new player

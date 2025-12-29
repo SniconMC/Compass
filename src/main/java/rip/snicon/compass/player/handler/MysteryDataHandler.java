@@ -1,8 +1,8 @@
 package rip.snicon.compass.player.handler;
 
+import nub.wi1helm.smoxy.mongodb.MongoDatabaseManager;
 import org.bson.Document;
 import org.jetbrains.annotations.NotNull;
-import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.player.data.PlayerRank;
 import rip.snicon.compass.player.data.profession.PlayerProfession;
@@ -24,7 +24,7 @@ public class MysteryDataHandler {
     }
 
     public void fetchDataFromDatabase() {
-        MongoDatabaseManager.fetch("players", "uuid", uuid.toString()).thenAccept(document -> {
+        MongoDatabaseManager.loadDocumentAsync("players", uuid.toString()).thenAccept(document -> {
             if (document != null) {
                 loadPlayerData(document);
             } else {
@@ -42,7 +42,7 @@ public class MysteryDataHandler {
                 .append("profession_xp", professionXp)
                 .append("achievement_points", achievementPoints);
 
-        MongoDatabaseManager.save("players", "uuid", data).exceptionally(throwable -> {
+        MongoDatabaseManager.saveDocumentAsync("players", "uuid", data).exceptionally(throwable -> {
             System.err.println("Failed to save player data: " + throwable.getMessage());
             return null;
         });

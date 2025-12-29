@@ -6,6 +6,7 @@ import net.kyori.adventure.text.format.TextColor;
 import net.minestom.server.entity.EntityType;
 import net.minestom.server.item.Material;
 import net.minestom.server.registry.StaticProtocolObject;
+import org.intellij.lang.annotations.Subst;
 import org.jetbrains.annotations.NotNull;
 import rip.snicon.compass.Main;
 import rip.snicon.compass.player.data.MysteryRarities;
@@ -66,6 +67,7 @@ public class MysteryBundle {
                 .collect(Collectors.toList());
     }
 
+    @Subst("")
     public String getDisplayItem() {
         return displayItem;
     }
@@ -107,7 +109,7 @@ public class MysteryBundle {
         entityTypes.forEach(entityType -> {
             Main.logger.debug(entityType.toString());
             String spawnEggId = entityType.toString() + "_spawn_egg";
-            Material material = Material.fromNamespaceId(spawnEggId);
+            Material material = Material.fromKey(spawnEggId);
             Main.logger.debug(spawnEggId);
             m.add(material);
         });
@@ -119,14 +121,14 @@ public class MysteryBundle {
 
     public static List<Material> convertBlockListToMaterials(List<String> blockNames) {
         return blockNames.stream()
-                .map(Material::fromNamespaceId)
+                .map(Material::fromKey)
                 .filter(material -> material != null && material.isBlock()) // Ensure it's a block
                 .collect(Collectors.toList());
     }
 
     public static List<EntityType> convertEntityListToEntityTypes(List<String> entities) {
         return entities.stream()
-                .map(EntityType::fromNamespaceId)
+                .map(EntityType::fromKey)
                 .filter(Objects::nonNull) // Ensure it's a block
                 .collect(Collectors.toList());
     }

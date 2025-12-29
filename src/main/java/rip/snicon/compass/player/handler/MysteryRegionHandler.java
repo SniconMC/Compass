@@ -2,9 +2,9 @@ package rip.snicon.compass.player.handler;
 
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
+import nub.wi1helm.smoxy.mongodb.MongoDatabaseManager;
 import org.bson.Document;
 import org.jetbrains.annotations.NotNull;
-import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
 import rip.snicon.compass.instances.regions.MysteryRegion;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.utils.TextUtils;
@@ -29,7 +29,7 @@ public class MysteryRegionHandler {
      * Fetches region data from the database.
      */
     public void fetchRegionsFromDatabase() {
-        MongoDatabaseManager.fetch("regions", "uuid", uuid.toString()).thenAccept(document -> {
+        MongoDatabaseManager.loadDocumentAsync("regions", uuid.toString()).thenAccept(document -> {
             if (document != null) {
                 loadRegionData(document);
             } else {
@@ -53,7 +53,7 @@ public class MysteryRegionHandler {
         List<String> discovered = discoveredRegions.stream().map(Enum::name).toList();
         regionDocument.append("discoveredRegions", discovered);
 
-        MongoDatabaseManager.save("regions", "uuid", regionDocument).exceptionally(throwable -> {
+        MongoDatabaseManager.saveDocumentAsync("regions", "uuid", regionDocument).exceptionally(throwable -> {
             System.err.println("Failed to save region data: " + throwable.getMessage());
             return null;
         });

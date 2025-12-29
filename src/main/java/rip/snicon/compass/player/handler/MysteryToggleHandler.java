@@ -1,8 +1,8 @@
 package rip.snicon.compass.player.handler;
 
+import nub.wi1helm.smoxy.mongodb.MongoDatabaseManager;
 import org.bson.Document;
 import org.jetbrains.annotations.NotNull;
-import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
 import rip.snicon.compass.player.data.MysteryToggles;
 
 import java.util.*;
@@ -17,7 +17,7 @@ public class MysteryToggleHandler {
     }
 
     public void fetchTogglesFromDatabase() {
-        MongoDatabaseManager.fetch("toggles", "uuid", uuid.toString()).thenAccept(document -> {
+        MongoDatabaseManager.loadDocumentAsync("toggles", uuid.toString()).thenAccept(document -> {
             if (document != null) {
                 loadToggles(document);
             } else {
@@ -30,7 +30,7 @@ public class MysteryToggleHandler {
         Document data = new Document("uuid", uuid.toString())
                 .append("toggles", toggles.stream().map(Enum::name).toList());
 
-        MongoDatabaseManager.save("toggles", "uuid", data).exceptionally(throwable -> {
+        MongoDatabaseManager.saveDocumentAsync("toggles", "uuid", data).exceptionally(throwable -> {
             System.err.println("Failed to save toggles: " + throwable.getMessage());
             return null;
         });

@@ -1,5 +1,6 @@
 package rip.snicon.compass.inventory.blockhunt.bundels;
 
+import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
 import net.minestom.server.entity.Player;
 import net.minestom.server.inventory.InventoryType;
@@ -64,7 +65,7 @@ public class BundleViewerContainer extends TemplateInventory {
                                 // 3. rarities: efter vår önskade prioritet
                                 .thenComparing(b -> RARITY_PRIORITY.get(b.getRarity()))
                 )
-                .collect(Collectors.toList());
+                .toList();
 
 
 
@@ -103,7 +104,7 @@ public class BundleViewerContainer extends TemplateInventory {
     }
 
     private void addBundleItem(int slot, MysteryBundle bundle, Player player) {
-        TemplateItem bundleItem = new TemplateItem(Material.fromNamespaceId(bundle.getDisplayItem())) {
+        TemplateItem bundleItem = new TemplateItem(Material.fromKey(bundle.getDisplayItem())) {
             @Override
             protected void initialize() {}
 

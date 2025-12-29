@@ -54,7 +54,6 @@ public class ShowIconItem extends TemplateItem {
     public void onUse(TemplateInventoryEvent event) {
         final MysteryPlayer player = (MysteryPlayer) event.getPlayer();
         player.getSettingsHandler().updateSetting(PlayerSetting.SHOW_ICON, !player.getSettingsHandler().getSetting(PlayerSetting.SHOW_ICON));
-        personalize(player);
         if (getHostInventory() != null) {
             this.getHostInventory().setItemStack(getHostSlot(), constructItemStack(player));
             player.updateDisplayName();

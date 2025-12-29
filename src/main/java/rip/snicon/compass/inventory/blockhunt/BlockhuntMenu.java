@@ -58,7 +58,7 @@ public class BlockhuntMenu extends TemplateInventory {
             @Override
             protected void personalize(Player player) {
                 MysteryPlayer p = (MysteryPlayer) player;
-                boolean bool = p.getToggleHandler().hasToggle(MysteryToggles.TAVEL_TO_BUNDLE_BOT);
+                boolean bool = p.getToggleHandler().hasToggle(MysteryToggles.TRAVEL_TO_BUNDLE_BOT);
 
                 if (!bool) {
                     setName(TextUtils.convertStringToComponent("<red>Travel To Bundle Bot</red>"));
@@ -72,7 +72,7 @@ public class BlockhuntMenu extends TemplateInventory {
             @Override
             public void onUse(TemplateInventoryEvent templateInventoryEvent) {
                 MysteryPlayer player = (MysteryPlayer) templateInventoryEvent.getPlayer();
-                boolean bool = player.getToggleHandler().hasToggle(MysteryToggles.TAVEL_TO_BUNDLE_BOT);
+                boolean bool = player.getToggleHandler().hasToggle(MysteryToggles.TRAVEL_TO_BUNDLE_BOT);
 
                 if (bool) {
                     player.teleport(new Pos(9.5,6,102.5,-90,0));

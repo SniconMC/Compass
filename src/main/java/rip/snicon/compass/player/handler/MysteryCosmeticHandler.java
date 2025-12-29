@@ -1,8 +1,8 @@
 package rip.snicon.compass.player.handler;
 
+import nub.wi1helm.smoxy.mongodb.MongoDatabaseManager;
 import org.bson.Document;
 import org.jetbrains.annotations.NotNull;
-import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
 import rip.snicon.compass.player.data.cosmetics.BaseCosmetic;
 import rip.snicon.compass.player.data.cosmetics.PlayerHelmet;
 
@@ -78,14 +78,14 @@ public class MysteryCosmeticHandler {
             categoryData.append(entry.getKey().getName(), entry.getValue());
         }
 
-        MongoDatabaseManager.save("cosmetics", "uuid", data).exceptionally(throwable -> {
+        MongoDatabaseManager.saveDocumentAsync("cosmetics", "uuid", data).exceptionally(throwable -> {
             System.err.println("Failed to save cosmetics: " + throwable.getMessage());
             return null;
         });
     }
 
     public void fetchCosmeticsFromDatabase() {
-        MongoDatabaseManager.fetch("cosmetics", "uuid", uuid.toString()).thenAccept(document -> {
+        MongoDatabaseManager.loadDocumentAsync("cosmetics", uuid.toString()).thenAccept(document -> {
             if (document != null) {
                 loadCosmetics(document);
             }

@@ -10,6 +10,7 @@ import net.minestom.server.event.trait.PlayerEvent;
 import net.minestom.server.sound.SoundEvent;
 import rip.snicon.compass.instances.MysteryInstanceType;
 import rip.snicon.compass.inventory.inventories.DefaultInventory;
+import rip.snicon.compass.npc.NPC;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.player.data.cosmetics.PlayerPerk;
 import rip.snicon.compass.sidebar.MysterySidebar;
@@ -46,8 +47,11 @@ public class MysteryPlayerNode {
                 player.getRegionHandler().updateRegion();
                 new DefaultInventory().constructPlayerInventory(player);
                 TabUtils.setPlayerTab(player);
+
                 player.getDataHandler().checkForProfessionLevelUp();
                 player.getCosmeticHandler().applyEnabledCosmetics();
+
+                NPC.spawnNPCs(player);
             }
         });
     }

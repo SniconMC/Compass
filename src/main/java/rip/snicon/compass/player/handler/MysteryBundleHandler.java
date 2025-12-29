@@ -1,8 +1,8 @@
 package rip.snicon.compass.player.handler;
 
+import nub.wi1helm.smoxy.mongodb.MongoDatabaseManager;
 import org.bson.Document;
 import org.jetbrains.annotations.NotNull;
-import rip.snicon.compass.database.mongodb.MongoDatabaseManager;
 import rip.snicon.compass.player.data.MysteryRarities;
 import rip.snicon.compass.player.data.bundle.MysteryBundle;
 import rip.snicon.compass.player.data.bundle.MysteryBundleTypes;
@@ -28,7 +28,7 @@ public class MysteryBundleHandler {
     }
 
     public void fetchBundlesFromDatabase() {
-        MongoDatabaseManager.fetch("bundles", "uuid", uuid.toString()).thenAccept(document -> {
+        MongoDatabaseManager.loadDocumentAsync("bundles", uuid.toString()).thenAccept(document -> {
             if (document != null) {
                 loadBundles(document);
             } else {
@@ -56,7 +56,7 @@ public class MysteryBundleHandler {
         Document data = new Document("uuid", uuid.toString())
                 .append("bundles", bundleDocuments);
 
-        MongoDatabaseManager.save("bundles", "uuid", data).exceptionally(throwable -> {
+        MongoDatabaseManager.saveDocumentAsync("bundles", "uuid", data).exceptionally(throwable -> {
             System.err.println("Failed to save bundles: " + throwable.getMessage());
             return null;
         });
@@ -102,8 +102,8 @@ public class MysteryBundleHandler {
         return false;
     }
 
-    public void addBundleAmount(@NotNull String bundleName, int amount) {
-        MysteryBundle bundle = bundles.get(bundleName);
+    public void addBundleAmount(@NotNull MysteryBundleTypes bundleName, int amount) {
+        MysteryBundle bundle = bundles.get(bundleName.name());
         if (bundle != null) {
             bundle.addAmount(amount);
             saveBundlesToDatabase();
@@ -118,7 +118,7 @@ public class MysteryBundleHandler {
         return bundles.values();
     }
 
-    public boolean hasBundle(@NotNull String bundleName) {
-        return bundles.containsKey(bundleName);
+    public boolean hasBundle(@NotNull MysteryBundleTypes bundleName) {
+        return bundles.containsKey(bundleName.name());
     }
 }

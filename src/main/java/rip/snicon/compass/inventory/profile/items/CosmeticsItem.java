@@ -2,9 +2,9 @@ package rip.snicon.compass.inventory.profile.items;
 
 import net.kyori.adventure.text.format.TextColor;
 import net.minestom.server.color.Color;
+import net.minestom.server.color.DyeColor;
 import net.minestom.server.entity.Player;
 import net.minestom.server.item.Material;
-import net.minestom.server.item.component.DyedItemColor;
 import nub.wi1helm.template.inventory.TemplateInventory;
 import nub.wi1helm.template.inventory.TemplateInventoryEvent;
 import nub.wi1helm.template.inventory.TemplateItem;
@@ -32,7 +32,7 @@ public class CosmeticsItem extends TemplateItem {
                 "",
                 "<gray>» <aqua>Click to open</aqua> «</gray>"
         )));
-        setDyeColor(DyedItemColor.LEATHER.withColor(Color.fromRGBLike(Objects.requireNonNull(TextColor.fromHexString("#0077c3")))));
+        setDyeColor(DyeColor.CYAN);
     }
 
     @Override

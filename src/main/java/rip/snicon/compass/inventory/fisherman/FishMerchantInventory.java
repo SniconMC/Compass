@@ -68,7 +68,7 @@ public class FishMerchantInventory extends TemplateInventory {
                 if (emeralds >= cost) {
                     player.sendMessage(TextUtils.convertStringToComponent("You bought an <color:" + bundle.getRarity().getColor() + ">" + bundle.getName() + "</color:" + bundle.getRarity().getColor() + "> for <green>" + cost + "</green> emeralds!"));
                     player.getDataHandler().updateEmeralds(-cost,false);
-                    player.getBundleHandler().addBundleAmount(MysteryBundleTypes.FISH_BUNDLE.name(),1);
+                    player.getBundleHandler().addBundleAmount(MysteryBundleTypes.FISH_BUNDLE,1);
                 } else {
                     player.sendMessage(TextUtils.convertStringToComponent("<red>Fucking poor</red>"));
                 }

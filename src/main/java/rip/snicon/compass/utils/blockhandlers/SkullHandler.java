@@ -1,8 +1,8 @@
 package rip.snicon.compass.utils.blockhandlers;
 
+import net.kyori.adventure.key.Key;
 import net.minestom.server.instance.block.BlockHandler;
 import net.minestom.server.tag.Tag;
-import net.minestom.server.utils.NamespaceID;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
@@ -10,12 +10,7 @@ import java.util.Collections;
 
 public class SkullHandler implements BlockHandler {
 
-    public static final NamespaceID KEY = NamespaceID.from("minecraft:skull");
-
-    @Override
-    public @NotNull NamespaceID getNamespaceId() {
-        return NamespaceID.from(KEY);
-    }
+    public static final Key KEY = Key.key("minecraft:skull");
 
     @Override
     public @NotNull Collection<Tag<?>> getBlockEntityTags() {
@@ -23,5 +18,10 @@ public class SkullHandler implements BlockHandler {
         Tag<?> profileTag = Tag.NBT("profile");
 
         return Collections.singletonList(profileTag);
+    }
+
+    @Override
+    public Key getKey() {
+        return KEY;
     }
 }

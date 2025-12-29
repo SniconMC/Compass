@@ -3,11 +3,14 @@ package rip.snicon.compass.inventory.debug;
 import net.minestom.server.entity.Player;
 import net.minestom.server.inventory.InventoryType;
 import net.minestom.server.item.Material;
+import nub.wi1helm.smoxy.SMoxy;
+import nub.wi1helm.smoxy.SMoxyService;
 import nub.wi1helm.template.inventory.TemplateInventory;
 import nub.wi1helm.template.inventory.TemplateInventoryEvent;
 import nub.wi1helm.template.inventory.TemplateItem;
 import nub.wi1helm.template.inventory.items.BackgroundItem;
 import nub.wi1helm.template.inventory.items.CloseButton;
+import rip.snicon.compass.Main;
 import rip.snicon.compass.player.MysteryPlayer;
 import rip.snicon.compass.player.data.bundle.MysteryBundleTypes;
 import rip.snicon.compass.utils.TextUtils;
@@ -32,7 +35,7 @@ public class DebugContainer extends TemplateInventory {
 
 
 
-        setItem(11, new TemplateItem(Material.EMERALD) {
+        setItem(10, new TemplateItem(Material.EMERALD) {
             @Override
             protected void initialize() {
                 setName(TextUtils.convertStringToComponent("<green>Give 100 Emeralds</green>"));
@@ -62,7 +65,7 @@ public class DebugContainer extends TemplateInventory {
             }
         });
 
-        setItem(13, new TemplateItem(Material.GOLD_INGOT) {
+        setItem(12, new TemplateItem(Material.GOLD_INGOT) {
             @Override
             protected void initialize() {
                 setName(TextUtils.convertStringToComponent("<green>Give 100 Profession Xp</green>"));
@@ -92,7 +95,7 @@ public class DebugContainer extends TemplateInventory {
             }
         });
 
-        setItem(15, new TemplateItem(Material.GRASS_BLOCK) {
+        setItem(14, new TemplateItem(Material.GRASS_BLOCK) {
             @Override
             protected void initialize() {
                 setName(TextUtils.convertStringToComponent("<green>Give Random Bundle</green>"));
@@ -109,8 +112,58 @@ public class DebugContainer extends TemplateInventory {
                 int randomIndex = ThreadLocalRandom.current().nextInt(MysteryBundleTypes.values().length);
                 MysteryBundleTypes randomBundleType = MysteryBundleTypes.values()[randomIndex];
 
-                player.getBundleHandler().addBundle(randomBundleType, 1,false);
-                player.sendMessage("I gave you 1 random bundle. bundle was " + randomBundleType.getDisplayName());
+                if (player.getBundleHandler().hasBundle(randomBundleType)) {
+                    player.getBundleHandler().addBundleAmount(randomBundleType,1);
+                } else {
+                    player.getBundleHandler().addBundle(randomBundleType, 1,true);
+                }
+
+                player.sendMessage(TextUtils.convertStringToComponent("<green>You got a " + randomBundleType.getDisplayName() + "</green>"));
+            }
+
+            @Override
+            public void onDrop(TemplateInventoryEvent event) {
+
+            }
+        });
+
+        setItem(16, new TemplateItem(Material.TNT_MINECART) {
+            @Override
+            protected void initialize() {
+
+            }
+
+            @Override
+            protected void personalize(Player player) {
+
+                if (Main.joinable) {
+                    setName(TextUtils.convertStringToComponent("<red>Disable Server Join</red>"));
+                    setMaterial(Material.TNT_MINECART);
+                } else {
+                    setName(TextUtils.convertStringToComponent("<green>Enable Server Join</green>"));
+                    setMaterial(Material.FURNACE_MINECART);
+                }
+            }
+
+            @Override
+            public void onUse(TemplateInventoryEvent event) {
+                final MysteryPlayer player = (MysteryPlayer) event.getPlayer();
+
+                if (Main.joinable) {
+                    SMoxyService.sendRemoveJoinablePluginMessage(player, SMoxy.serverName);
+                    Main.joinable = false;
+
+                } else {
+
+                    SMoxyService.sendAddJoinablePluginMessage(player,SMoxy.serverName);
+                    Main.joinable = true;
+
+                }
+
+                if (getHostInventory() != null) {
+                    this.getHostInventory().setItemStack(getHostSlot(), constructItemStack(player));
+                }
+
             }
 
             @Override
